@@ -4,23 +4,14 @@
   <meta charset="UTF-8" />
   <title>Minimal Espresso · Enlaces</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #0f1012;
-      --card: #181a1f;
-      --accent: #f5c46b;
-      --accent-soft: rgba(245, 196, 107, 0.12);
-      --text: #f5f5f5;
-      --muted: #a9abb3;
-      --border: #2a2d35;
-    }
 
+  <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+        "Helvetica Neue", Arial, sans-serif;
     }
 
     body {
@@ -28,261 +19,293 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at top, #23252c 0, #0b0c0f 45%, #050609 100%);
-      color: var(--text);
-      padding: 24px;
+      background: #050608;
+      color: #f5f5f5;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Fondo con la foto borrosa */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("background.jpg") center center / cover no-repeat;
+      filter: blur(4px);
+      transform: scale(1.03);
+      z-index: -2;
+    }
+
+    /* Capa oscura encima para que el texto se lea bien */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(
+          circle at top,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.9)
+        );
+      z-index: -1;
     }
 
     .card {
-      width: 100%;
-      max-width: 420px;
-      background: linear-gradient(145deg, #1b1d23 0%, #12141a 60%, #18191f 100%);
-      border-radius: 24px;
-      padding: 24px 22px 20px;
-      border: 1px solid var(--border);
-      box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.8),
-        0 0 0 1px rgba(255, 255, 255, 0.02);
+      width: 92%;
+      max-width: 520px;
+      background: rgba(9, 9, 12, 0.92);
+      border-radius: 30px;
+      padding: 28px 26px 22px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
     }
 
-    .logo-circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #f0e2cf 30%, #c09b64 70%, #4b3420 100%);
+    /* Logo nuevo arriba */
+    .logo-wrapper {
       display: flex;
-      align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
-      border: 2px solid rgba(0, 0, 0, 0.7);
-      box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
+      margin-bottom: 12px;
     }
 
-    .logo-circle span {
-      font-size: 26px;
-      font-weight: 700;
-      color: #1a110a;
+    .logo-wrapper img {
+      max-width: 260px;
+      width: 70%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.55));
     }
 
-    .title {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+    .title-block h1 {
+      font-size: 1.6rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      text-align: center;
     }
 
-    .subtitle {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 18px;
+    .title-block p {
+      font-size: 0.93rem;
+      line-height: 1.5;
+      color: #dcdcdc;
+      text-align: center;
     }
 
-    .chip-row {
+    .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 18px;
+      margin: 16px 0 18px;
+      justify-content: center;
     }
 
-    .chip {
-      font-size: 11px;
-      padding: 4px 10px;
+    .tag-pill {
+      font-size: 0.8rem;
+      padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(245, 196, 107, 0.35);
-      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
-      color: var(--accent);
+      background: rgba(255, 193, 7, 0.1);
+      color: #ffd666;
+      border: 1px solid rgba(255, 214, 102, 0.4);
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    .chip-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
+    .tag-pill span.icon {
+      font-size: 0.95rem;
     }
 
-    .section-label {
-      font-size: 11px;
-      text-transform: uppercase;
+    .section-title {
+      font-size: 0.78rem;
       letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 6px;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 10px;
     }
 
-    .btn-col {
+    .links {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
-    a.button {
+    .link-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 11px 14px;
+      padding: 12px 14px;
       border-radius: 999px;
-      font-size: 14px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      color: #e5e7eb;
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(10, 11, 15, 0.86);
-      color: var(--text);
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        border-color 0.12s ease, background 0.12s ease;
+      transition: transform 0.1s ease, box-shadow 0.1s ease,
+        background 0.15s ease, border 0.15s ease;
     }
 
-    a.button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
-      border-color: rgba(245, 196, 107, 0.6);
-      background: radial-gradient(circle at top, rgba(245, 196, 107, 0.14), rgba(6, 7, 10, 0.96));
-    }
-
-    .btn-main {
-      background: linear-gradient(135deg, #f7c46b, #f08a3d);
-      color: #191108;
-      border-color: rgba(0, 0, 0, 0.7);
-      font-weight: 600;
-    }
-
-    .btn-main:hover {
-      border-color: rgba(0, 0, 0, 0.9);
-      box-shadow:
-        0 14px 30px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.12);
-    }
-
-    .btn-left {
+    .link-item-left {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
+      overflow: hidden;
     }
 
-    .btn-title {
-      font-weight: 500;
+    .link-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
     }
 
-    .btn-caption {
-      font-size: 11px;
-      color: var(--muted);
+    .link-text-main {
+      font-size: 0.92rem;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
-    .btn-main .btn-caption {
-      color: rgba(37, 25, 10, 0.85);
-      font-weight: 500;
+    .link-text-sub {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      white-space: nowrap;
     }
 
-    .pill-icon {
-      font-size: 16px;
+    .link-texts {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow: hidden;
     }
 
-    .chevron {
-      font-size: 14px;
-      opacity: 0.8;
+    .link-arrow {
+      font-size: 1.1rem;
+      color: #9ca3af;
+      margin-left: 6px;
     }
 
-    .footer {
+    .link-item:hover {
+      transform: translateY(-1px);
+      background: rgba(24, 35, 58, 0.98);
+      border-color: rgba(248, 250, 252, 0.5);
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.6);
+    }
+
+    footer {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: var(--muted);
+      font-size: 0.75rem;
+      color: #9ca3af;
+      border-top: 1px dashed rgba(75, 85, 99, 0.7);
       padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
-    .footer span strong {
-      color: var(--accent);
-      font-weight: 600;
+    footer span.highlight {
+      color: #fbbf24;
     }
 
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #27c07d;
-      box-shadow: 0 0 0 4px rgba(39, 192, 125, 0.18);
-      margin-right: 6px;
-    }
-
-    @media (max-width: 420px) {
+    @media (max-width: 480px) {
       .card {
-        padding: 20px 18px 17px;
-        border-radius: 20px;
+        padding: 22px 18px 18px;
+        border-radius: 24px;
+      }
+
+      .title-block h1 {
+        font-size: 1.35rem;
+      }
+
+      .title-block p {
+        font-size: 0.88rem;
+      }
+
+      .link-item {
+        padding: 11px 12px;
+      }
+
+      .link-text-main {
+        font-size: 0.9rem;
+      }
+
+      .logo-wrapper img {
+        width: 80%;
       }
     }
   </style>
 </head>
 <body>
   <main class="card">
-    <div class="logo-circle">
-      <span>M</span>
+    <!-- LOGO MINIMAL ESPRESSO -->
+    <div class="logo-wrapper">
+      <img src="logo-minimal.png" alt="Minimal Espresso logo" />
     </div>
-    <h1 class="title">Minimal Espresso</h1>
-    <p class="subtitle">
-      Café de especialidad preparado al momento. Pide por WhatsApp y recoge o recibe tu bebida.
-    </p>
 
-    <div class="chip-row">
-      <div class="chip">
-        <span class="chip-dot"></span>
+    <section class="title-block">
+      <h1>MINIMAL ESPRESSO</h1>
+      <p>
+        Café de especialidad preparado al momento. Pide por WhatsApp y recoge o
+        recibe tu bebida.
+      </p>
+    </section>
+
+    <section class="tags">
+      <div class="tag-pill">
+        <span class="icon">📍</span>
         <span>Mexicali, B.C.</span>
       </div>
-      <div class="chip">
-        <span>☕ Coffee shop · Takeaway</span>
+      <div class="tag-pill">
+        <span class="icon">☕</span>
+        <span>Coffee shop · Takeaway</span>
       </div>
-    </div>
+    </section>
 
-    <p class="section-label">Accesos rápidos</p>
-
-    <div class="btn-col">
-      <!-- Botón 1: Pedir por WhatsApp -->
-      <a class="button btn-main" href="https://wa.me/5216861440664" target="_blank" rel="noopener noreferrer">
-        <div class="btn-left">
-          <span class="pill-icon">💬</span>
-          <div>
-            <div class="btn-title">Pedir por WhatsApp</div>
-            <div class="btn-caption">Envía tu pedido directo al chat</div>
+    <section>
+      <div class="section-title">Accesos rápidos</div>
+      <div class="links">
+        <!-- WhatsApp -->
+        <a class="link-item" href="https://wa.me/5216861440664" target="_blank" rel="noopener noreferrer">
+          <div class="link-item-left">
+            <div class="link-icon">💬</div>
+            <div class="link-texts">
+              <span class="link-text-main">Pedir por WhatsApp</span>
+              <span class="link-text-sub">Envía tu pedido directo al chat</span>
+            </div>
           </div>
-        </div>
-        <span class="chevron">›</span>
-      </a>
+          <div class="link-arrow">›</div>
+        </a>
 
-      <!-- Botón 2: Ver menú en Instagram -->
-      <a class="button" href="https://www.instagram.com/minimalespresso" target="_blank" rel="noopener noreferrer">
-        <div class="btn-left">
-          <span class="pill-icon">📋</span>
-          <div>
-            <div class="btn-title">Ver menú en Instagram</div>
-            <div class="btn-caption">@minimalespresso · historias destacadas</div>
+        <!-- Menú Instagram -->
+        <a class="link-item" href="https://www.instagram.com/p/DRQox6QmCnH/" target="_blank" rel="noopener noreferrer">
+          <div class="link-item-left">
+            <div class="link-icon">📋</div>
+            <div class="link-texts">
+              <span class="link-text-main">Ver menú en Instagram</span>
+              <span class="link-text-sub">@minimalespresso · historias destacadas</span>
+            </div>
           </div>
-        </div>
-        <span class="chevron">›</span>
-      </a>
+          <div class="link-arrow">›</div>
+        </a>
 
-      <!-- Botón 3: Perfil de Instagram -->
-      <a class="button" href="https://www.instagram.com/minimalespresso" target="_blank" rel="noopener noreferrer">
-        <div class="btn-left">
-          <span class="pill-icon">📷</span>
-          <div>
-            <div class="btn-title">Instagram @minimalespresso</div>
-            <div class="btn-caption">Fotos, novedades y promos</div>
+        <!-- Perfil Instagram -->
+        <a class="link-item" href="https://www.instagram.com/minimalespresso" target="_blank" rel="noopener noreferrer">
+          <div class="link-item-left">
+            <div class="link-icon">📸</div>
+            <div class="link-texts">
+              <span class="link-text-main">Instagram @minimalespresso</span>
+              <span class="link-text-sub">Fotos, novedades y promos</span>
+            </div>
           </div>
-        </div>
-        <span class="chevron">›</span>
-      </a>
-    </div>
+          <div class="link-arrow">›</div>
+        </a>
+      </div>
+    </section>
 
-    <div class="footer">
-      <span><span class="status-dot"></span> <strong>Hoy</strong> atendiendo por WhatsApp</span>
+    <footer>
+      <span><span class="highlight">Hoy</span> atendiendo por WhatsApp</span>
       <span>Minimal Espresso · 2025</span>
-    </div>
+    </footer>
   </main>
 </body>
 </html>
