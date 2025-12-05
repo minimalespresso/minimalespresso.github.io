@@ -21,54 +21,57 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding-top: 20px;  /* SUBE TODO */
+      padding-top: 10px; /* 🔥 SUBE TODO */
     }
 
     .overlay {
       position: fixed;
       inset: 0;
       background: radial-gradient(circle at center,
-        rgba(0, 0, 0, 0.35),
-        rgba(0, 0, 0, 0.65));
+        rgba(0, 0, 0, 0.30),
+        rgba(0, 0, 0, 0.55));
       z-index: -1;
     }
 
     .content {
       width: 100%;
       max-width: 460px;
-      padding: 10px;   /* MÁS COMPACTO */
+      padding: 10px;             /* 🔥 MÁS COMPACTO */
       display: flex;
       flex-direction: column;
-      gap: 22px;        /* MENOS ESPACIADO GENERAL */
+      gap: 22px;                 /* 🔥 REDUCIDO */
+      margin-top: 0px;
     }
 
     .logo-wrapper {
       text-align: center;
-      margin-bottom: 0;
-      margin-top: 10px; /* SUBE EL LOGO */
+      margin-bottom: -10px;      /* 🔥 SUBE LOGO + DESCRIPCIÓN */
+      margin-top: -10px;
     }
 
     .logo {
-      width: 240px; /* LOGO MÁS GRANDE */
+      width: 240px;              /* 🔥 MÁS PREMIUM */
       height: auto;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
-      margin-bottom: 14px; /* MENOS SEPARACIÓN CON DESCRIPCIÓN */
+      margin-bottom: 18px;       /* 🔥 MENOS ESPACIO */
+      margin-top: 0;
     }
 
     .description {
       font-size: 1rem;
-      line-height: 1.4;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+      line-height: 1.5;
+      color: #f4f4f4;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
       max-width: 380px;
       margin: 0 auto;
-      margin-bottom: 6px; /* MÁS CERCA */
+      margin-bottom: 10px;       /* 🔥 ACERCAR A LOS BOTONES */
     }
 
     .links {
       display: flex;
       flex-direction: column;
-      gap: 12px;  /* MENOS ESPACIO ENTRE BOTONES */
-      margin-top: -4px;
+      gap: 10px;                 /* 🔥 MÁS COMPACTO */
+      margin-top: -10px;
     }
 
     .link-card {
@@ -86,7 +89,7 @@
     }
 
     .link-card:hover {
-      background: rgba(0, 0, 0, 0.72);
+      background: rgba(0, 0, 0, 0.7);
       transform: scale(1.01);
     }
 
@@ -97,10 +100,10 @@
     }
 
     .link-icon-img {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .link-title {
@@ -117,7 +120,7 @@
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-top: -4px; /* MÁS CERCA DEL ÚLTIMO BOTÓN */
+      margin-top: 0px; /* 🔥 MÁS PEGADO A LOS BOTONES */
     }
 
     .tag-pill {
@@ -133,7 +136,7 @@
     }
 
     .footer {
-      margin-top: 0; /* NO MOVER FOOTER */
+      margin-top: 4px;
       display: flex;
       justify-content: space-between;
       font-size: 0.72rem;
@@ -171,10 +174,10 @@
           <img src="icon-whatsapp.png" class="link-icon-img">
           <div>
             <div class="link-title">Pedir por WhatsApp</div>
-            <div class="link-subtitle">Envía tu pedido directo al chat</div>
+            <div class="link-subtitle">Envia tu pedido directo al chat</div>
           </div>
         </div>
-        <span class="link-arrow">›</span>
+        <span>›</span>
       </a>
 
       <!-- Menú -->
@@ -186,7 +189,7 @@
             <div class="link-subtitle">@minimalespresso · historias destacadas</div>
           </div>
         </div>
-        <span class="link-arrow">›</span>
+        <span>›</span>
       </a>
 
       <!-- Instagram -->
@@ -198,7 +201,7 @@
             <div class="link-subtitle">Fotos, novedades y promos</div>
           </div>
         </div>
-        <span class="link-arrow">›</span>
+        <span>›</span>
       </a>
 
     </section>
