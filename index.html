@@ -2,307 +2,292 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Minimal Espresso · Enlaces</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Helvetica Neue", Arial, sans-serif;
     }
 
     body {
       min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Helvetica Neue", Arial, sans-serif;
+      color: #ffffff;
+      background: url("background.jpg") center center / cover no-repeat fixed;
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: #050608;
-      color: #f5f5f5;
-      position: relative;
-      overflow-x: hidden;
+      align-items: center;
     }
 
-    /* Fondo con la foto borrosa */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("background.jpg") center center / cover no-repeat;
-      filter: blur(4px);
-      transform: scale(1.03);
-      z-index: -2;
-    }
-
-    /* Capa oscura encima para que el texto se lea bien */
-    body::after {
-      content: "";
+    /* Capa ligera para que se lea mejor el texto pero sin panel negro */
+    .overlay {
       position: fixed;
       inset: 0;
       background: radial-gradient(
-          circle at top,
-          rgba(0, 0, 0, 0.4),
-          rgba(0, 0, 0, 0.9)
-        );
+        circle at center,
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.75)
+      );
       z-index: -1;
     }
 
-    .card {
-      width: 92%;
-      max-width: 520px;
-      background: rgba(9, 9, 12, 0.92);
-      border-radius: 30px;
-      padding: 28px 26px 22px;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(20px);
+    .content {
+      width: 100%;
+      max-width: 460px;
+      padding: 32px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
-    /* Logo nuevo arriba */
     .logo-wrapper {
       display: flex;
-      justify-content: center;
-      margin-bottom: 12px;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
     }
 
-    .logo-wrapper img {
-      max-width: 260px;
-      width: 70%;
+    .logo {
+      width: 190px;
+      max-width: 70%;
       height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.55));
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
     }
 
-    .title-block h1 {
-      font-size: 1.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+    .description {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      max-width: 380px;
       text-align: center;
-    }
-
-    .title-block p {
-      font-size: 0.93rem;
-      line-height: 1.5;
-      color: #dcdcdc;
-      text-align: center;
+      color: #f4f4f4;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+      margin: 0 auto;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 16px 0 18px;
       justify-content: center;
+      gap: 8px;
+      margin-top: 4px;
     }
 
     .tag-pill {
-      font-size: 0.8rem;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(255, 193, 7, 0.1);
-      color: #ffd666;
-      border: 1px solid rgba(255, 214, 102, 0.4);
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
     }
 
     .tag-pill span.icon {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .section-title {
       font-size: 0.78rem;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #9ca3af;
-      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 6px;
     }
 
     .links {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 16px;
     }
 
-    .link-item {
+    .link-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 14px;
+      gap: 10px;
+      padding: 12px 16px;
       border-radius: 999px;
-      background: rgba(17, 24, 39, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      color: #e5e7eb;
       text-decoration: none;
-      transition: transform 0.1s ease, box-shadow 0.1s ease,
-        background 0.15s ease, border 0.15s ease;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.55); /* tarjetas flotando, sin panel grande */
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease, border-color 0.12s ease;
     }
 
-    .link-item-left {
+    .link-main {
       display: flex;
       align-items: center;
       gap: 10px;
-      overflow: hidden;
+      font-size: 0.9rem;
     }
 
     .link-icon {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 999px;
-      background: #111827;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.95rem;
     }
 
-    .link-text-main {
-      font-size: 0.92rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .link-text-sub {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      white-space: nowrap;
-    }
-
-    .link-texts {
+    .link-text {
       display: flex;
       flex-direction: column;
       gap: 2px;
-      overflow: hidden;
+    }
+
+    .link-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .link-subtitle {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.74);
     }
 
     .link-arrow {
       font-size: 1.1rem;
-      color: #9ca3af;
-      margin-left: 6px;
+      opacity: 0.8;
     }
 
-    .link-item:hover {
+    .link-card:hover {
       transform: translateY(-1px);
-      background: rgba(24, 35, 58, 0.98);
-      border-color: rgba(248, 250, 252, 0.5);
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.6);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
-    footer {
+    .footer {
+      margin-top: 4px;
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
-      color: #9ca3af;
-      border-top: 1px dashed rgba(75, 85, 99, 0.7);
-      padding-top: 10px;
-      margin-top: 4px;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.68);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
     }
 
-    footer span.highlight {
-      color: #fbbf24;
+    .footer span.highlight {
+      color: #ffd664;
+      font-weight: 500;
     }
 
     @media (max-width: 480px) {
-      .card {
-        padding: 22px 18px 18px;
-        border-radius: 24px;
+      .content {
+        padding: 24px 16px 20px;
       }
 
-      .title-block h1 {
-        font-size: 1.35rem;
+      .logo {
+        width: 170px;
       }
 
-      .title-block p {
-        font-size: 0.88rem;
-      }
-
-      .link-item {
-        padding: 11px 12px;
-      }
-
-      .link-text-main {
-        font-size: 0.9rem;
-      }
-
-      .logo-wrapper img {
-        width: 80%;
+      .link-card {
+        padding: 11px 14px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <!-- LOGO MINIMAL ESPRESSO -->
-    <div class="logo-wrapper">
-      <img src="logo-minimal.png" alt="Minimal Espresso logo" />
-    </div>
+  <div class="overlay"></div>
 
-    <section class="title-block">
-      <h1>MINIMAL ESPRESSO</h1>
-      <p>
+  <main class="content">
+    <section class="logo-wrapper">
+      <!-- SOLO LOGO, SIN TEXTO DEBAJO -->
+      <img src="logo-minimal.png" alt="Minimal Espresso" class="logo" />
+
+      <!-- DESCRIPCIÓN DIRECTAMENTE BAJO EL LOGO -->
+      <p class="description">
         Café de especialidad preparado al momento. Pide por WhatsApp y recoge o
         recibe tu bebida.
       </p>
-    </section>
 
-    <section class="tags">
-      <div class="tag-pill">
-        <span class="icon">📍</span>
-        <span>Mexicali, B.C.</span>
-      </div>
-      <div class="tag-pill">
-        <span class="icon">☕</span>
-        <span>Coffee shop · Takeaway</span>
+      <div class="tags">
+        <div class="tag-pill">
+          <span class="icon">📍</span>
+          <span>Mexicali, B.C.</span>
+        </div>
+        <div class="tag-pill">
+          <span class="icon">☕️</span>
+          <span>Coffee shop · Takeaway</span>
+        </div>
       </div>
     </section>
 
     <section>
-      <div class="section-title">Accesos rápidos</div>
+      <h2 class="section-title">Accesos rápidos</h2>
+
       <div class="links">
-        <!-- WhatsApp -->
-        <a class="link-item" href="https://wa.me/5216861440664" target="_blank" rel="noopener noreferrer">
-          <div class="link-item-left">
+        <!-- Pedir por WhatsApp -->
+        <a
+          class="link-card"
+          href="https://wa.me/5216861440664"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-main">
             <div class="link-icon">💬</div>
-            <div class="link-texts">
-              <span class="link-text-main">Pedir por WhatsApp</span>
-              <span class="link-text-sub">Envía tu pedido directo al chat</span>
+            <div class="link-text">
+              <span class="link-title">Pedir por WhatsApp</span>
+              <span class="link-subtitle">
+                Envía tu pedido directo al chat
+              </span>
             </div>
           </div>
-          <div class="link-arrow">›</div>
+          <span class="link-arrow">›</span>
         </a>
 
-        <!-- Menú Instagram -->
-        <a class="link-item" href="https://www.instagram.com/p/DRQox6QmCnH/" target="_blank" rel="noopener noreferrer">
-          <div class="link-item-left">
+        <!-- Ver menú en Instagram -->
+        <a
+          class="link-card"
+          href="https://www.instagram.com/stories/highlights/1234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-main">
             <div class="link-icon">📋</div>
-            <div class="link-texts">
-              <span class="link-text-main">Ver menú en Instagram</span>
-              <span class="link-text-sub">@minimalespresso · historias destacadas</span>
+            <div class="link-text">
+              <span class="link-title">Ver menú en Instagram</span>
+              <span class="link-subtitle">
+                @minimalespresso · historias destacadas
+              </span>
             </div>
           </div>
-          <div class="link-arrow">›</div>
+          <span class="link-arrow">›</span>
         </a>
 
-        <!-- Perfil Instagram -->
-        <a class="link-item" href="https://www.instagram.com/minimalespresso" target="_blank" rel="noopener noreferrer">
-          <div class="link-item-left">
+        <!-- Perfil de Instagram -->
+        <a
+          class="link-card"
+          href="https://www.instagram.com/minimalespresso"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-main">
             <div class="link-icon">📸</div>
-            <div class="link-texts">
-              <span class="link-text-main">Instagram @minimalespresso</span>
-              <span class="link-text-sub">Fotos, novedades y promos</span>
+            <div class="link-text">
+              <span class="link-title">Instagram @minimalespresso</span>
+              <span class="link-subtitle">
+                Fotos, novedades y promos
+              </span>
             </div>
           </div>
-          <div class="link-arrow">›</div>
+          <span class="link-arrow">›</span>
         </a>
       </div>
     </section>
 
-    <footer>
+    <footer class="footer">
       <span><span class="highlight">Hoy</span> atendiendo por WhatsApp</span>
       <span>Minimal Espresso · 2025</span>
     </footer>
