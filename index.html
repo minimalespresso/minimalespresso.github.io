@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minimal Espresso · Enlaces</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f1012;
+      --card: #181a1f;
+      --accent: #f5c46b;
+      --accent-soft: rgba(245, 196, 107, 0.12);
+      --text: #f5f5f5;
+      --muted: #a9abb3;
+      --border: #2a2d35;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #23252c 0, #0b0c0f 45%, #050609 100%);
+      color: var(--text);
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: linear-gradient(145deg, #1b1d23 0%, #12141a 60%, #18191f 100%);
+      border-radius: 24px;
+      padding: 24px 22px 20px;
+      border: 1px solid var(--border);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .logo-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #f0e2cf 30%, #c09b64 70%, #4b3420 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .logo-circle span {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a110a;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 196, 107, 0.35);
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .btn-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    a.button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(10, 11, 15, 0.86);
+      color: var(--text);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        border-color 0.12s ease, background 0.12s ease;
+    }
+
+    a.button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+      border-color: rgba(245, 196, 107, 0.6);
+      background: radial-gradient(circle at top, rgba(245, 196, 107, 0.14), rgba(6, 7, 10, 0.96));
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #f7c46b, #f08a3d);
+      color: #191108;
+      border-color: rgba(0, 0, 0, 0.7);
+      font-weight: 600;
+    }
+
+    .btn-main:hover {
+      border-color: rgba(0, 0, 0, 0.9);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-left {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .btn-title {
+      font-weight: 500;
+    }
+
+    .btn-caption {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .btn-main .btn-caption {
+      color: rgba(37, 25, 10, 0.85);
+      font-weight: 500;
+    }
+
+    .pill-icon {
+      font-size: 16px;
+    }
+
+    .chevron {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 6px;
+    }
+
+    .footer span strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #27c07d;
+      box-shadow: 0 0 0 4px rgba(39, 192, 125, 0.18);
+      margin-right: 6px;
+    }
+
+    @media (max-width: 420px) {
+      .card {
+        padding: 20px 18px 17px;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo-circle">
+      <span>M</span>
+    </div>
+    <h1 class="title">Minimal Espresso</h1>
+    <p class="subtitle">
+      Café de especialidad preparado al momento. Pide por WhatsApp y recoge o recibe tu bebida.
+    </p>
+
+    <div class="chip-row">
+      <div class="chip">
+        <span class="chip-dot"></span>
+        <span>Mexicali, B.C.</span>
+      </div>
+      <div class="chip">
+        <span>☕ Coffee shop · Takeaway</span>
+      </div>
+    </div>
+
+    <p class="section-label">Accesos rápidos</p>
+
+    <div class="btn-col">
+      <!-- Botón 1: Pedir por WhatsApp -->
+      <a class="button btn-main" href="https://wa.me/5216861440664" target="_blank" rel="noopener noreferrer">
+        <div class="btn-left">
+          <span class="pill-icon">💬</span>
+          <div>
+            <div class="btn-title">Pedir por WhatsApp</div>
+            <div class="btn-caption">Envía tu pedido directo al chat</div>
+          </div>
+        </div>
+        <span class="chevron">›</span>
+      </a>
+
+      <!-- Botón 2: Ver menú en Instagram -->
+      <a class="button" href="https://www.instagram.com/minimalespresso" target="_blank" rel="noopener noreferrer">
+        <div class="btn-left">
+          <span class="pill-icon">📋</span>
+          <div>
+            <div class="btn-title">Ver menú en Instagram</div>
+            <div class="btn-caption">@minimalespresso · historias destacadas</div>
+          </div>
+        </div>
+        <span class="chevron">›</span>
+      </a>
+
+      <!-- Botón 3: Perfil de Instagram -->
+      <a class="button" href="https://www.instagram.com/minimalespresso" target="_blank" rel="noopener noreferrer">
+        <div class="btn-left">
+          <span class="pill-icon">📷</span>
+          <div>
+            <div class="btn-title">Instagram @minimalespresso</div>
+            <div class="btn-caption">Fotos, novedades y promos</div>
+          </div>
+        </div>
+        <span class="chevron">›</span>
+      </a>
+    </div>
+
+    <div class="footer">
+      <span><span class="status-dot"></span> <strong>Hoy</strong> atendiendo por WhatsApp</span>
+      <span>Minimal Espresso · 2025</span>
+    </div>
+  </main>
+</body>
+</html>
