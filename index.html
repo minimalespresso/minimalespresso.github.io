@@ -18,65 +18,77 @@
         "Helvetica Neue", Arial, sans-serif;
       color: #ffffff;
       background: url("background.jpg") center center / cover no-repeat fixed;
+      
+      /* SUBIR TODO EL CONTENIDO */
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding-top: 60px;
+      padding-top: 20px; /* << reducido antes era 60px */
     }
 
     .overlay {
       position: fixed;
       inset: 0;
       background: radial-gradient(circle at center,
-        rgba(0, 0, 0, 0.35),
-        rgba(0, 0, 0, 0.65));
+        rgba(0, 0, 0, 0.30),
+        rgba(0, 0, 0, 0.55));
       z-index: -1;
     }
 
     .content {
       width: 100%;
       max-width: 460px;
-      padding: 20px;
+
+      /* MENOS ESPACIADO GENERAL */
+      padding: 10px 20px 20px;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 22px; /* antes 32 */
     }
 
+    /* LOGO */
     .logo-wrapper {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
+      margin-top: 0px;
     }
 
     .logo {
-      width: 230px;
+      width: 240px; /* más grande */
       height: auto;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
-      margin-bottom: 26px;
+
+      /* SUBIMOS MÁS EL LOGO */
+      margin-bottom: 12px; /* antes 26 */
+      margin-top: 10px;
     }
 
     .description {
       font-size: 1rem;
-      line-height: 1.6;
+      line-height: 1.45; /* mas compacto */
       color: #f4f4f4;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
       max-width: 380px;
       margin: 0 auto;
     }
 
+    /* LINKS */
     .links {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+
+      gap: 12px; /* más compacto */
+      margin-top: 5px;
     }
 
     .link-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 18px;
+      padding: 13px 18px;
       border-radius: 999px;
       background: rgba(0, 0, 0, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255,255,255,0.12);
       backdrop-filter: blur(10px);
       text-decoration: none;
       color: white;
@@ -84,7 +96,7 @@
     }
 
     .link-card:hover {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0,0,0,0.7);
       transform: scale(1.01);
     }
 
@@ -95,8 +107,8 @@
     }
 
     .link-icon-img {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 8px;
       object-fit: contain;
     }
@@ -111,11 +123,12 @@
       opacity: 0.85;
     }
 
+    /* TAGS FINAL */
     .tag-footer {
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-top: -10px;
+      margin-top: 6px; /* subido */
     }
 
     .tag-pill {
@@ -130,8 +143,9 @@
       backdrop-filter: blur(8px);
     }
 
+    /* FOOTER */
     .footer {
-      margin-top: -4px;
+      margin-top: 0px;
       display: flex;
       justify-content: space-between;
       font-size: 0.72rem;
@@ -152,11 +166,13 @@
 
   <main class="content">
 
-    <!-- LOGO -->
+    <!-- LOGO Y DESCRIPCIÓN -->
     <div class="logo-wrapper">
       <img src="logo-minimal.png" class="logo">
+
       <p class="description">
-        Café de especialidad preparado al momento. Pide por WhatsApp y recoge o recibe tu bebida.
+        Café de especialidad preparado al momento.  
+        Pide por WhatsApp y recoge o recibe tu bebida.
       </p>
     </div>
 
@@ -169,7 +185,7 @@
           <img src="icon-whatsapp.png" class="link-icon-img">
           <div>
             <div class="link-title">Pedir por WhatsApp</div>
-            <div class="link-subtitle">Envia tu pedido directo al chat</div>
+            <div class="link-subtitle">Envía tu pedido directo al chat</div>
           </div>
         </div>
         <span class="link-arrow">›</span>
@@ -201,7 +217,7 @@
 
     </section>
 
-    <!-- TAGS ABAJO -->
+    <!-- TAGS FINAL -->
     <div class="tag-footer">
       <div class="tag-pill">📍 Mexicali, B.C.</div>
       <div class="tag-pill">☕ Coffee shop · Takeaway</div>
@@ -214,5 +230,6 @@
     </footer>
 
   </main>
+
 </body>
 </html>
