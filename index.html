@@ -18,77 +18,67 @@
         "Helvetica Neue", Arial, sans-serif;
       color: #ffffff;
       background: url("background.jpg") center center / cover no-repeat fixed;
-      
-      /* SUBIR TODO EL CONTENIDO */
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding-top: 20px; /* << reducido antes era 60px */
+      padding-top: 20px;  /* SUBE TODO */
     }
 
     .overlay {
       position: fixed;
       inset: 0;
       background: radial-gradient(circle at center,
-        rgba(0, 0, 0, 0.30),
-        rgba(0, 0, 0, 0.55));
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.65));
       z-index: -1;
     }
 
     .content {
       width: 100%;
       max-width: 460px;
-
-      /* MENOS ESPACIADO GENERAL */
-      padding: 10px 20px 20px;
+      padding: 10px;   /* MÁS COMPACTO */
       display: flex;
       flex-direction: column;
-      gap: 22px; /* antes 32 */
+      gap: 22px;        /* MENOS ESPACIADO GENERAL */
     }
 
-    /* LOGO */
     .logo-wrapper {
       text-align: center;
-      margin-bottom: 0px;
-      margin-top: 0px;
+      margin-bottom: 0;
+      margin-top: 10px; /* SUBE EL LOGO */
     }
 
     .logo {
-      width: 240px; /* más grande */
+      width: 240px; /* LOGO MÁS GRANDE */
       height: auto;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
-
-      /* SUBIMOS MÁS EL LOGO */
-      margin-bottom: 12px; /* antes 26 */
-      margin-top: 10px;
+      margin-bottom: 14px; /* MENOS SEPARACIÓN CON DESCRIPCIÓN */
     }
 
     .description {
       font-size: 1rem;
-      line-height: 1.45; /* mas compacto */
-      color: #f4f4f4;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      line-height: 1.4;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.8);
       max-width: 380px;
       margin: 0 auto;
+      margin-bottom: 6px; /* MÁS CERCA */
     }
 
-    /* LINKS */
     .links {
       display: flex;
       flex-direction: column;
-
-      gap: 12px; /* más compacto */
-      margin-top: 5px;
+      gap: 12px;  /* MENOS ESPACIO ENTRE BOTONES */
+      margin-top: -4px;
     }
 
     .link-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 13px 18px;
+      padding: 14px 18px;
       border-radius: 999px;
       background: rgba(0, 0, 0, 0.55);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(10px);
       text-decoration: none;
       color: white;
@@ -96,7 +86,7 @@
     }
 
     .link-card:hover {
-      background: rgba(0,0,0,0.7);
+      background: rgba(0, 0, 0, 0.72);
       transform: scale(1.01);
     }
 
@@ -110,7 +100,7 @@
       width: 36px;
       height: 36px;
       border-radius: 8px;
-      object-fit: contain;
+      object-fit: cover;
     }
 
     .link-title {
@@ -123,12 +113,11 @@
       opacity: 0.85;
     }
 
-    /* TAGS FINAL */
     .tag-footer {
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-top: 6px; /* subido */
+      margin-top: -4px; /* MÁS CERCA DEL ÚLTIMO BOTÓN */
     }
 
     .tag-pill {
@@ -143,9 +132,8 @@
       backdrop-filter: blur(8px);
     }
 
-    /* FOOTER */
     .footer {
-      margin-top: 0px;
+      margin-top: 0; /* NO MOVER FOOTER */
       display: flex;
       justify-content: space-between;
       font-size: 0.72rem;
@@ -166,13 +154,11 @@
 
   <main class="content">
 
-    <!-- LOGO Y DESCRIPCIÓN -->
+    <!-- LOGO -->
     <div class="logo-wrapper">
       <img src="logo-minimal.png" class="logo">
-
       <p class="description">
-        Café de especialidad preparado al momento.  
-        Pide por WhatsApp y recoge o recibe tu bebida.
+        Café de especialidad preparado al momento. Pide por WhatsApp y recoge o recibe tu bebida.
       </p>
     </div>
 
@@ -217,7 +203,7 @@
 
     </section>
 
-    <!-- TAGS FINAL -->
+    <!-- TAGS ABAJO -->
     <div class="tag-footer">
       <div class="tag-pill">📍 Mexicali, B.C.</div>
       <div class="tag-pill">☕ Coffee shop · Takeaway</div>
@@ -230,6 +216,5 @@
     </footer>
 
   </main>
-
 </body>
 </html>
