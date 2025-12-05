@@ -21,25 +21,25 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding-top: 20px; /* LOGO MÁS ARRIBA */
+      padding-top: 40px; /* sube todo */
     }
 
     .overlay {
       position: fixed;
       inset: 0;
       background: radial-gradient(circle at center,
-        rgba(0, 0, 0, 0.35),
-        rgba(0, 0, 0, 0.65));
+        rgba(0, 0, 0, 0.30),
+        rgba(0, 0, 0, 0.60));
       z-index: -1;
     }
 
     .content {
       width: 100%;
       max-width: 460px;
-      padding: 10px 20px 20px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 28px;
     }
 
     .logo-wrapper {
@@ -51,23 +51,24 @@
       width: 230px;
       height: auto;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
+      margin-bottom: 18px;
     }
 
-    /* DESCRIPCIÓN MÁS CERCA DEL LOGO */
     .description {
       font-size: 1rem;
       line-height: 1.6;
       color: #f4f4f4;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
       max-width: 380px;
-      margin: 12px auto 0;
+      margin: 0 auto;
+      margin-bottom: 10px; /* acerca más al resto */
     }
 
     .links {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-top: 10px;
+      gap: 12px;
+      margin-top: -4px; /* sube botones */
     }
 
     .link-card {
@@ -112,11 +113,12 @@
       opacity: 0.85;
     }
 
+    /* TAGS INFERIORES */
     .tag-footer {
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-top: 8px;
+      margin-top: -4px;
     }
 
     .tag-pill {
@@ -131,8 +133,16 @@
       backdrop-filter: blur(8px);
     }
 
+    .tag-icon {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      opacity: 0.9;
+    }
+
+    /* FOOTER */
     .footer {
-      margin-top: 4px;
+      margin-top: -6px;
       display: flex;
       justify-content: space-between;
       font-size: 0.72rem;
@@ -156,19 +166,19 @@
     <!-- LOGO -->
     <div class="logo-wrapper">
       <img src="logo-minimal.png" class="logo">
-
       <p class="description">
-        Café de especialidad preparado al momento. Pide por WhatsApp y recoge o recibe tu bebida.
+        Café de especialidad preparado al momento.  
+        Pide por WhatsApp y recoge o recibe tu bebida.
       </p>
     </div>
 
-    <!-- BOTONES -->
+    <!-- LINKS -->
     <section class="links">
 
       <!-- WhatsApp -->
       <a class="link-card" href="https://wa.me/5216861440664" target="_blank">
         <div class="link-main">
-          <img src="icon-whatsapp-photo.png" class="link-icon-img">
+          <img src="icon-whatsapp.png" class="link-icon-img">
           <div>
             <div class="link-title">Pedir por WhatsApp</div>
             <div class="link-subtitle">Envia tu pedido directo al chat</div>
@@ -178,7 +188,7 @@
       </a>
 
       <!-- Menú -->
-      <a class="link-card" href="https://www.instagram.com/minimalespresso" target="_blank">
+      <a class="link-card" href="https://www.instagram.com/stories/highlights/1234567890" target="_blank">
         <div class="link-main">
           <img src="icon-menu-photo.png" class="link-icon-img">
           <div>
@@ -192,7 +202,7 @@
       <!-- Instagram -->
       <a class="link-card" href="https://www.instagram.com/minimalespresso" target="_blank">
         <div class="link-main">
-          <img src="icon-instagram-photo.png" class="link-icon-img">
+          <img src="icon-instagram.png" class="link-icon-img">
           <div>
             <div class="link-title">Instagram @minimalespresso</div>
             <div class="link-subtitle">Fotos, novedades y promos</div>
@@ -203,10 +213,16 @@
 
     </section>
 
-    <!-- TAGS -->
+    <!-- NUEVO TAG ABAJO -->
     <div class="tag-footer">
-      <div class="tag-pill">📍 Mexicali, B.C.</div>
-      <div class="tag-pill">☕ Coffee shop · Takeaway</div>
+      <div class="tag-pill">
+        <img src="icon-marker.png" class="tag-icon">
+        Cobertura de servicio
+      </div>
+
+      <div class="tag-pill">
+        ☕ Coffee shop · Takeaway
+      </div>
     </div>
 
     <!-- FOOTER -->
@@ -216,6 +232,5 @@
     </footer>
 
   </main>
-
 </body>
 </html>
