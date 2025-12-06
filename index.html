@@ -39,7 +39,6 @@
     }
 
     .logo-wrapper { text-align: center; }
-
     .logo {
       width: 230px;
       height: auto;
@@ -54,6 +53,7 @@
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
       max-width: 380px;
       margin: 0 auto 10px;
+      text-align: center;
     }
 
     .links {
@@ -79,18 +79,8 @@
 
     .link-card:hover { background: rgba(0, 0, 0, 0.7); transform: scale(1.01); }
 
-    .link-main {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .link-icon-img {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      object-fit: contain;
-    }
+    .link-main { display: flex; align-items: center; gap: 12px; }
+    .link-icon-img { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; }
 
     .link-title { font-size: 0.95rem; font-weight: 600; }
     .link-subtitle { font-size: 0.78rem; opacity: 0.85; }
@@ -112,14 +102,10 @@
       border-radius: 999px;
       font-size: 0.78rem;
       backdrop-filter: blur(8px);
+      cursor: pointer;
     }
 
-    .tag-icon {
-      width: 16px;
-      height: 16px;
-      object-fit: contain;
-      opacity: 0.9;
-    }
+    .tag-icon { width: 16px; height: 16px; object-fit: contain; opacity: 0.9; }
 
     .footer {
       margin-top: 32px;
@@ -130,9 +116,52 @@
       text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
 
-    .highlight-yellow {
-      color: #ffd664;
+    .highlight-yellow { color: #ffd664; font-weight: 600; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .modal {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      padding: 22px 26px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+
+    .modal h2 {
+      font-size: 1.1rem;
+      margin-bottom: 14px;
       font-weight: 600;
+    }
+
+    .modal p {
+      line-height: 1.55;
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .close-btn {
+      margin-top: 14px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.85rem;
     }
   </style>
 
@@ -156,7 +185,6 @@
     <!-- LINKS -->
     <section class="links">
 
-      <!-- WhatsApp -->
       <a class="link-card" href="https://wa.me/5216861440664" target="_blank">
         <div class="link-main">
           <img src="icon-whatsapp-photo.png" class="link-icon-img">
@@ -165,10 +193,9 @@
             <div class="link-subtitle">Envíanos tu pedido directo al chat</div>
           </div>
         </div>
-        <span class="link-arrow">›</span>
+        <span>›</span>
       </a>
 
-      <!-- Menú -->
       <a class="link-card" href="Menu.png" target="_blank">
         <div class="link-main">
           <img src="icon-menu.png" class="link-icon-img">
@@ -177,33 +204,31 @@
             <div class="link-subtitle">Consulta nuestros precios y bebidas</div>
           </div>
         </div>
-        <span class="link-arrow">›</span>
+        <span>›</span>
       </a>
 
-      <!-- Instagram -->
       <a class="link-card" href="https://www.instagram.com/minimalespresso" target="_blank">
         <div class="link-main">
           <img src="icon-instagram.png" class="link-icon-img">
           <div>
             <div class="link-title">Instagram @minimalespresso</div>
-            <div class="link-subtitle">Síguenos para novedades y promociones</div>
+            <div class="link-subtitle">Síguenos para novedades y promos</div>
           </div>
         </div>
-        <span class="link-arrow">›</span>
+        <span>›</span>
       </a>
 
     </section>
 
-    <!-- TAGS INFERIORES -->
+    <!-- TAGS -->
     <div class="tag-footer">
 
-      <!-- ✔ Cambiado: ahora abre Google Maps -->
-      <a class="tag-pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank" style="text-decoration:none; color:white;">
+      <a class="tag-pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
         <img src="icon-marker.png" class="tag-icon">
         Cobertura de Servicio
       </a>
 
-      <div class="tag-pill">
+      <div class="tag-pill" id="openModal">
         <img src="icon-hours.png" class="tag-icon">
         Horarios
       </div>
@@ -216,5 +241,31 @@
     </footer>
 
   </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h2>Horarios de atención</h2>
+
+      <p>
+        Monday — 6–10 AM / 5–10 PM<br>
+        Tuesday — 6–10 AM / 5–10 PM<br>
+        Wednesday — 6–10 AM / 5–10 PM<br>
+        Thursday — 6–10 AM / 5–10 PM<br>
+        Friday — 6–10 AM / 5–10 PM<br>
+        Saturday — 7–10 AM / 5–10 PM<br>
+        Sunday — 7 AM–12 PM
+      </p>
+
+      <div class="close-btn" id="closeModal">Cerrar ✕</div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    document.getElementById("openModal").onclick = () => modal.style.display = "flex";
+    document.getElementById("closeModal").onclick = () => modal.style.display = "none";
+  </script>
+
 </body>
 </html>
