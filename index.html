@@ -39,6 +39,7 @@
     }
 
     .logo-wrapper { text-align: center; }
+
     .logo {
       width: 230px;
       height: auto;
@@ -77,10 +78,23 @@
       transition: background 0.15s, transform 0.15s;
     }
 
-    .link-card:hover { background: rgba(0, 0, 0, 0.7); transform: scale(1.01); }
+    .link-card:hover {
+      background: rgba(0, 0, 0, 0.7);
+      transform: scale(1.01);
+    }
 
-    .link-main { display: flex; align-items: center; gap: 12px; }
-    .link-icon-img { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; }
+    .link-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .link-icon-img {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
 
     .link-title { font-size: 0.95rem; font-weight: 600; }
     .link-subtitle { font-size: 0.78rem; opacity: 0.85; }
@@ -103,9 +117,16 @@
       font-size: 0.78rem;
       backdrop-filter: blur(8px);
       cursor: pointer;
+      text-decoration: none;   /* <- quita subrayado */
+      color: #ffffff;          /* <- mantiene texto blanco */
     }
 
-    .tag-icon { width: 16px; height: 16px; object-fit: contain; opacity: 0.9; }
+    .tag-icon {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      opacity: 0.9;
+    }
 
     .footer {
       margin-top: 32px;
@@ -116,7 +137,10 @@
       text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
 
-    .highlight-yellow { color: #ffd664; font-weight: 600; }
+    .highlight-yellow {
+      color: #ffd664;
+      font-weight: 600;
+    }
 
     /* MODAL */
     .modal-overlay {
@@ -248,13 +272,13 @@
       <h2>Horarios de atención</h2>
 
       <p>
-        Monday — 6–10 AM / 5–10 PM<br>
-        Tuesday — 6–10 AM / 5–10 PM<br>
-        Wednesday — 6–10 AM / 5–10 PM<br>
-        Thursday — 6–10 AM / 5–10 PM<br>
-        Friday — 6–10 AM / 5–10 PM<br>
-        Saturday — 7–10 AM / 5–10 PM<br>
-        Sunday — 7 AM–12 PM
+        Lunes — 6–10 AM / 5–10 PM<br>
+        Martes — 6–10 AM / 5–10 PM<br>
+        Miercoles — 6–10 AM / 5–10 PM<br>
+        Jueves — 6–10 AM / 5–10 PM<br>
+        Viernes — 6–10 AM / 5–10 PM<br>
+        Sábado — 7–10 AM / 5–10 PM<br>
+        Domingo — 7 AM–12 PM
       </p>
 
       <div class="close-btn" id="closeModal">Cerrar ✕</div>
