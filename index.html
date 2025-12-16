@@ -205,6 +205,28 @@
       cursor: pointer;
       font-size: 0.85rem;
     }
+
+    /* 🔥 NUEVO: ICONO DE UBER MÁS GRANDE */
+    .uber-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: -6px;
+      justify-content: center;
+      opacity: 0.95;
+    }
+
+    .uber-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .uber-text {
+      font-size: 0.82rem;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
   </style>
 
 </head>
@@ -227,96 +249,4 @@
     <!-- LINKS -->
     <section class="links">
 
-      <a class="link-card" href="https://wa.me/5216861440664" target="_blank">
-        <div class="link-main">
-          <img src="icon-whatsapp-photo.png" class="link-icon-img">
-          <div>
-            <div class="link-title">Pedir por WhatsApp</div>
-            <div class="link-subtitle">Envíanos tu pedido directo al chat</div>
-          </div>
-        </div>
-        <span>›</span>
-      </a>
-
-      <a class="link-card" href="Menu.png" target="_blank">
-        <div class="link-main">
-          <img src="icon-menu.png" class="link-icon-img">
-          <div>
-            <div class="link-title">Ver Menú</div>
-            <div class="link-subtitle">Consulta nuestros precios y bebidas</div>
-          </div>
-        </div>
-        <span>›</span>
-      </a>
-
-      <a class="link-card" href="https://www.instagram.com/minimalespresso" target="_blank">
-        <div class="link-main">
-          <img src="icon-instagram.png" class="link-icon-img">
-          <div>
-            <div class="link-title">Instagram @minimalespresso</div>
-            <div class="link-subtitle">Síguenos para novedades y promos</div>
-          </div>
-        </div>
-        <span>›</span>
-      </a>
-
-    </section>
-
-    <!-- TAGS -->
-    <div class="tag-footer">
-
-      <a class="tag-pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
-        <img src="icon-marker.png" class="tag-icon">
-        Cobertura de Servicio
-      </a>
-
-      <div class="tag-pill" id="openModal">
-        <img src="icon-hours.png" class="tag-icon">
-        Horarios
-      </div>
-
-    </div>
-
-    <!-- NUEVO UBER EATS AQUI -->
-    <div class="tag-footer" style="margin-top: -8px;">
-      <a class="tag-pill" href="https://www.ubereats.com/" target="_blank">
-        <img src="uber.png" class="tag-icon">
-        También encuéntranos en Uber Eats
-      </a>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
-      <span>Minimal Espresso · 2025</span>
-    </footer>
-
-  </main>
-
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modal">
-    <div class="modal">
-      <h2>Horarios de Atención</h2>
-
-      <p>
-        Lunes — 6–10 AM / 5–10 PM<br>
-        Martes — 6–10 AM / 5–10 PM<br>
-        Miercoles — 6–10 AM / 5–10 PM<br>
-        Jueves — 6–10 AM / 5–10 PM<br>
-        Viernes — 6–10 AM / 5–10 PM<br>
-        Sábado — 7–10 AM / 5–10 PM<br>
-        Domingo — 7 AM–12 PM
-      </p>
-
-      <div class="close-btn" id="closeModal">Cerrar</div>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById("modal");
-    document.getElementById("openModal").onclick = () => modal.style.display = "flex";
-    document.getElementById("closeModal").onclick = () => modal.style.display = "none";
-  </script>
-
-</body>
-</html>
+      <a class="link-card" href="https://wa.me/521
