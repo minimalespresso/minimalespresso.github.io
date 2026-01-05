@@ -155,56 +155,182 @@
       color: #ffd664;
       font-weight: 600;
     }
+
+    /* DELIVERY BLOCK */
+    .delivery-block {
+      text-align: center;
+      margin-top: -6px;
+    }
+
+    .delivery-text {
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+
+    .delivery-icons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .delivery-icons img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .modal {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      padding: 22px 26px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+
+    .modal h2 {
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .modal p {
+      line-height: 1.55;
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .close-btn {
+      margin-top: 14px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 
 <body>
-<div class="overlay"></div>
+  <div class="overlay"></div>
 
-<main class="content">
+  <main class="content">
 
-  <!-- LOGO -->
-  <div class="logo-wrapper">
-    <img src="logo-minimal-new.png" class="logo">
-    <p class="description">
-      <b><i>"Identidad para quienes aman el café"</i></b><br><br>
-      Contamos con servicio a domicilio en área del Campestre, consulta nuestra cobertura
-    </p>
-  </div>
-
-  <!-- LINKS -->
-  <section class="links">
-    <!-- (sin cambios) -->
-  </section>
-
-  <!-- TAGS -->
-  <div class="tag-footer">
-    <!-- (sin cambios) -->
-  </div>
-
-  <!-- 🔴 SECCIÓN MODIFICADA: UBER + DIDI -->
-  <div style="text-align:center; margin-top:-6px;">
-    <div style="font-size:0.85rem; margin-bottom:14px;">
-      También encuéntranos en
+    <div class="logo-wrapper">
+      <img src="logo-minimal-new.png" class="logo">
+      <p class="description">
+        <b><i>"Identidad para quienes aman el café"</i></b><br><br>
+        Contamos con servicio a domicilio en área del Campestre, consulta nuestra cobertura
+      </p>
     </div>
 
-    <div style="display:flex; justify-content:center; gap:28px;">
-      <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
-        <img src="uber.png" style="width:64px; height:64px; object-fit:contain;">
+    <section class="links">
+      <a class="link-card" href="https://wa.me/5216861440664" target="_blank">
+        <div class="link-main">
+          <img src="icon-whatsapp-photo.png" class="link-icon-img">
+          <div>
+            <div class="link-title">Pedir por WhatsApp</div>
+            <div class="link-subtitle">Envíanos tu pedido directo al chat</div>
+          </div>
+        </div>
+        <span>›</span>
       </a>
 
-      <a href="https://www.didi-food.com/" target="_blank">
-        <img src="didi.png" style="width:64px; height:64px; object-fit:contain;">
+      <a class="link-card" href="Menu.png" target="_blank">
+        <div class="link-main">
+          <img src="icon-menu.png" class="link-icon-img">
+          <div>
+            <div class="link-title">Ver Menú</div>
+            <div class="link-subtitle">Consulta nuestros precios y bebidas</div>
+          </div>
+        </div>
+        <span>›</span>
       </a>
+
+      <a class="link-card" href="https://www.instagram.com/minimalespresso" target="_blank">
+        <div class="link-main">
+          <img src="icon-instagram.png" class="link-icon-img">
+          <div>
+            <div class="link-title">Instagram @minimalespresso</div>
+            <div class="link-subtitle">Síguenos para novedades y promos</div>
+          </div>
+        </div>
+        <span>›</span>
+      </a>
+    </section>
+
+    <div class="tag-footer">
+      <a class="tag-pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
+        <img src="icon-marker.png" class="tag-icon">
+        Cobertura de Servicio
+      </a>
+
+      <div class="tag-pill" id="openModal">
+        <img src="icon-hours.png" class="tag-icon">
+        Horarios
+      </div>
+    </div>
+
+    <!-- DELIVERY -->
+    <div class="delivery-block">
+      <div class="delivery-text">
+        También encuéntranos en Uber Eats y DiDi Food
+      </div>
+
+      <div class="delivery-icons">
+        <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
+          <img src="uber.png" alt="Uber Eats">
+        </a>
+        <a href="https://www.didi-food.com/" target="_blank">
+          <img src="didi.png" alt="DiDi Food">
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
+      <span>Minimal Espresso · 2025</span>
+    </footer>
+
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h2>Horarios de Atención</h2>
+      <p>
+        Lunes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Martes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Miércoles — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Jueves — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Viernes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Sábado — 7:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Domingo — 6:00 AM – 1:00 PM
+      </p>
+      <div class="close-btn" id="closeModal">Cerrar</div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
-    <span>Minimal Espresso · 2025</span>
-  </footer>
-
-</main>
+  <script>
+    const modal = document.getElementById("modal");
+    document.getElementById("openModal").onclick = () => modal.style.display = "flex";
+    document.getElementById("closeModal").onclick = () => modal.style.display = "none";
+  </script>
 </body>
 </html>
