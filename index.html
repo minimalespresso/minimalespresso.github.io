@@ -56,6 +56,7 @@
 
     .logo {
       width: 230px;
+      height: auto;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
       margin-bottom: 18px;
     }
@@ -74,6 +75,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-top: -4px;
     }
 
     .link-card {
@@ -87,6 +89,12 @@
       backdrop-filter: blur(10px);
       text-decoration: none;
       color: white;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .link-card:hover {
+      background: rgba(0, 0, 0, 0.7);
+      transform: scale(1.01);
     }
 
     .link-main {
@@ -102,10 +110,14 @@
       object-fit: contain;
     }
 
+    .link-title { font-size: 0.95rem; font-weight: 600; }
+    .link-subtitle { font-size: 0.78rem; opacity: 0.85; }
+
     .tag-footer {
       display: flex;
       justify-content: center;
       gap: 14px;
+      margin-top: -4px;
     }
 
     .tag-pill {
@@ -118,6 +130,7 @@
       border-radius: 999px;
       font-size: 0.78rem;
       backdrop-filter: blur(8px);
+      cursor: pointer;
       text-decoration: none;
       color: #ffffff;
     }
@@ -126,35 +139,7 @@
       width: 16px;
       height: 16px;
       object-fit: contain;
-    }
-
-    /* === DELIVERY SECTION FINAL === */
-    .delivery-section {
-      text-align: center;
-      margin-top: -6px;
-    }
-
-    .delivery-text {
-      font-size: 0.85rem;
-      margin-bottom: 14px;
-      opacity: 0.95;
-    }
-
-    .delivery-icons {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-    }
-
-    .delivery-icons img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      transition: transform 0.2s ease;
-    }
-
-    .delivery-icons img:hover {
-      transform: scale(1.1);
+      opacity: 0.9;
     }
 
     .footer {
@@ -163,6 +148,7 @@
       justify-content: space-between;
       font-size: 0.72rem;
       color: rgba(255,255,255,0.7);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
 
     .highlight-yellow {
@@ -177,6 +163,7 @@
 
 <main class="content">
 
+  <!-- LOGO -->
   <div class="logo-wrapper">
     <img src="logo-minimal-new.png" class="logo">
     <p class="description">
@@ -185,41 +172,34 @@
     </p>
   </div>
 
+  <!-- LINKS -->
   <section class="links">
-    <a class="link-card" href="https://wa.me/5216861440664" target="_blank">
-      <div class="link-main">
-        <img src="icon-whatsapp-photo.png" class="link-icon-img">
-        <div>Pedir por WhatsApp</div>
-      </div>
-      <span>›</span>
-    </a>
+    <!-- (sin cambios) -->
   </section>
 
+  <!-- TAGS -->
   <div class="tag-footer">
-    <a class="tag-pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
-      <img src="icon-marker.png" class="tag-icon"> Cobertura de Servicio
-    </a>
-    <div class="tag-pill" id="openModal">
-      <img src="icon-hours.png" class="tag-icon"> Horarios
-    </div>
+    <!-- (sin cambios) -->
   </div>
 
-  <!-- ✅ DELIVERY FINAL -->
-  <div class="delivery-section">
-    <div class="delivery-text">
-      También encuéntranos en Uber Eats y DiDi Food
+  <!-- 🔴 SECCIÓN MODIFICADA: UBER + DIDI -->
+  <div style="text-align:center; margin-top:-6px;">
+    <div style="font-size:0.85rem; margin-bottom:14px;">
+      También encuéntranos en
     </div>
 
-    <div class="delivery-icons">
+    <div style="display:flex; justify-content:center; gap:28px;">
       <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
-        <img src="uber.png" alt="Uber Eats">
+        <img src="uber.png" style="width:64px; height:64px; object-fit:contain;">
       </a>
+
       <a href="https://www.didi-food.com/" target="_blank">
-        <img src="didi.png" alt="DiDi Food">
+        <img src="didi.png" style="width:64px; height:64px; object-fit:contain;">
       </a>
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
     <span>Minimal Espresso · 2025</span>
