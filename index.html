@@ -4,24 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Minimal Espresso</title>
-
   <meta name="google-site-verification" content="cOCz7X7cvTb-8y4zMdn-HZxN0WnzYs1QiWRPdnlB2eA" />
-
   <meta property="og:title" content="Minimal Espresso">
   <meta property="og:description" content="Identidad para quienes aman el café">
   <meta property="og:image" content="https://minimalespresso.com/preview.jpg">
   <meta property="og:url" content="https://minimalespresso.com">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
   <link rel="shortcut icon" href="/favicon.ico">
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       min-height: 100vh;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
@@ -33,7 +28,6 @@
       align-items: flex-start;
       padding-top: 40px;
     }
-
     .overlay {
       position: fixed;
       inset: 0;
@@ -42,7 +36,6 @@
         rgba(0, 0, 0, 0.60));
       z-index: -1;
     }
-
     .content {
       width: 100%;
       max-width: 460px;
@@ -51,16 +44,13 @@
       flex-direction: column;
       gap: 28px;
     }
-
     .logo-wrapper { text-align: center; }
-
     .logo {
       width: 230px;
       height: auto;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
       margin-bottom: 18px;
     }
-
     .description {
       font-size: 1rem;
       line-height: 1.55;
@@ -70,14 +60,12 @@
       margin: 0 auto 10px;
       text-align: center;
     }
-
     .links {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-top: -4px;
     }
-
     .link-card {
       display: flex;
       justify-content: space-between;
@@ -91,35 +79,29 @@
       color: white;
       transition: background 0.15s, transform 0.15s;
     }
-
     .link-card:hover {
       background: rgba(0, 0, 0, 0.7);
       transform: scale(1.01);
     }
-
     .link-main {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .link-icon-img {
       width: 34px;
       height: 34px;
       border-radius: 8px;
       object-fit: contain;
     }
-
     .link-title { font-size: 0.95rem; font-weight: 600; }
     .link-subtitle { font-size: 0.78rem; opacity: 0.85; }
-
     .tag-footer {
       display: flex;
       justify-content: center;
       gap: 14px;
       margin-top: -4px;
     }
-
     .tag-pill {
       display: flex;
       align-items: center;
@@ -134,14 +116,12 @@
       text-decoration: none;
       color: #ffffff;
     }
-
     .tag-icon {
       width: 16px;
       height: 16px;
       object-fit: contain;
       opacity: 0.9;
     }
-
     .footer {
       margin-top: 32px;
       display: flex;
@@ -150,37 +130,31 @@
       color: rgba(255,255,255,0.7);
       text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
-
     .highlight-yellow {
       color: #ffd664;
       font-weight: 600;
     }
-
     /* DELIVERY BLOCK */
     .delivery-block {
       text-align: center;
       margin-top: 4px;
     }
-
     .delivery-text {
       font-size: 0.9rem;
       margin-bottom: 22px; /* MÁS SEPARACIÓN */
       color: white;
       text-shadow: 0 2px 4px rgba(0,0,0,0.7);
     }
-
     .delivery-icons {
       display: flex;
       justify-content: center;
       gap: 34px; /* MÁS GAP ENTRE ICONOS */
     }
-
     .delivery-icons img {
       width: 64px;
       height: 64px;
       object-fit: contain;
     }
-
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -191,7 +165,6 @@
       align-items: center;
       z-index: 20;
     }
-
     .modal {
       background: rgba(0,0,0,0.55);
       border: 1px solid rgba(255,255,255,0.15);
@@ -203,19 +176,16 @@
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
-
     .modal h2 {
       font-size: 1.1rem;
       margin-bottom: 14px;
       font-weight: 600;
     }
-
     .modal p {
       line-height: 1.55;
       font-size: 0.92rem;
       margin-bottom: 16px;
     }
-
     .close-btn {
       margin-top: 14px;
       background: rgba(255,255,255,0.15);
@@ -227,12 +197,9 @@
     }
   </style>
 </head>
-
 <body>
   <div class="overlay"></div>
-
   <main class="content">
-
     <div class="logo-wrapper">
       <img src="logo-minimal-new.png" class="logo">
       <p class="description">
@@ -240,7 +207,6 @@
         Contamos con servicio a domicilio en área del Campestre, consulta nuestra cobertura
       </p>
     </div>
-
     <section class="links">
       <a class="link-card" href="https://wa.me/5216861440664" target="_blank">
         <div class="link-main">
@@ -252,7 +218,6 @@
         </div>
         <span>›</span>
       </a>
-
       <a class="link-card" href="Menu.png" target="_blank">
         <div class="link-main">
           <img src="icon-menu.png" class="link-icon-img">
@@ -263,7 +228,6 @@
         </div>
         <span>›</span>
       </a>
-
       <a class="link-card" href="https://www.instagram.com/minimalespresso" target="_blank">
         <div class="link-main">
           <img src="icon-instagram.png" class="link-icon-img">
@@ -275,25 +239,21 @@
         <span>›</span>
       </a>
     </section>
-
     <div class="tag-footer">
       <a class="tag-pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
         <img src="icon-marker.png" class="tag-icon">
         Cobertura de Servicio
       </a>
-
       <div class="tag-pill" id="openModal">
         <img src="icon-hours.png" class="tag-icon">
         Horarios
       </div>
     </div>
-
     <!-- DELIVERY -->
     <div class="delivery-block">
       <div class="delivery-text">
-        También encuéntranos en Uber Eats y DiDi Food
+        También encuéntranos en Uber Eats, DiDi Food y Rappi
       </div>
-
       <div class="delivery-icons">
         <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
           <img src="uber.png" alt="Uber Eats">
@@ -301,16 +261,16 @@
         <a href="https://www.didi-food.com/" target="_blank">
           <img src="didi.png" alt="DiDi Food">
         </a>
+        <a href="https://rappi.onelink.me/y6GB/icnmplu3" target="_blank">
+          <img src="rappi.png" alt="Rappi">
+        </a>
       </div>
     </div>
-
     <footer class="footer">
       <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
       <span>Minimal Espresso · 2025</span>
     </footer>
-
   </main>
-
   <div class="modal-overlay" id="modal">
     <div class="modal">
       <h2>Horarios de Atención</h2>
@@ -326,7 +286,6 @@
       <div class="close-btn" id="closeModal">Cerrar</div>
     </div>
   </div>
-
   <script>
     const modal = document.getElementById("modal");
     document.getElementById("openModal").onclick = () => modal.style.display = "flex";
