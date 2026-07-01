@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Minimal Espresso</title>
+
   <meta name="google-site-verification" content="cOCz7X7cvTb-8y4zMdn-HZxN0WnzYs1QiWRPdnlB2eA" />
   <meta property="og:title" content="Minimal Espresso">
   <meta property="og:description" content="Identidad para quienes aman el café">
@@ -11,235 +13,477 @@
   <meta property="og:url" content="https://minimalespresso.com">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
   <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Helvetica Neue", Arial, sans-serif;
-      color: #ffffff;
-      background: url("background.jpg") center center / cover no-repeat fixed;
+      font-family: "League Spartan", system-ui, sans-serif;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(5,5,5,.94) 0%, rgba(10,10,10,.80) 45%, rgba(10,10,10,.30) 100%),
+        url("background.jpg") center center / cover no-repeat fixed;
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 42px 58px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .nav {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding-top: 40px;
-    }
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at center,
-        rgba(0, 0, 0, 0.30),
-        rgba(0, 0, 0, 0.60));
-      z-index: -1;
-    }
-    .content {
-      width: 100%;
-      max-width: 460px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-    .logo-wrapper { text-align: center; }
-    .logo {
-      width: 230px;
-      height: auto;
-      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
-      margin-bottom: 18px;
-    }
-    .description {
-      font-size: 1rem;
-      line-height: 1.55;
-      color: #f4f4f4;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
-      max-width: 380px;
-      margin: 0 auto 10px;
-      text-align: center;
-    }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: -4px;
-    }
-    .link-card {
-      display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      padding: 14px 18px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
+      gap: 24px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .brand {
+      letter-spacing: .45em;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #fff;
       text-decoration: none;
-      color: white;
-      transition: background 0.15s, transform 0.15s;
+      font-size: .78rem;
+      letter-spacing: .22em;
+      opacity: .78;
+      transition: .2s ease;
     }
-    .link-card:hover {
-      background: rgba(0, 0, 0, 0.7);
-      transform: scale(1.01);
-    }
-    .link-main {
-      display: flex;
+
+    .nav-links a:hover { opacity: 1; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(420px, 46%) 1fr;
       align-items: center;
-      gap: 12px;
+      gap: 48px;
+      padding: 60px 0 40px;
     }
-    .link-icon-img {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      object-fit: contain;
+
+    .hero-left {
+      max-width: 620px;
+      position: relative;
+      z-index: 4;
     }
-    .link-title { font-size: 0.95rem; font-weight: 600; }
-    .link-subtitle { font-size: 0.78rem; opacity: 0.85; }
-    .tag-footer {
+
+    .logo {
+      width: 96px;
+      margin-bottom: 34px;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.65));
+    }
+
+    .hero-title {
+      font-size: clamp(4.5rem, 8vw, 8.6rem);
+      line-height: .86;
+      letter-spacing: -.055em;
+      font-weight: 800;
+      margin-bottom: 32px;
+    }
+
+    .quote {
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,.92);
+    }
+
+    .description {
+      max-width: 440px;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,.76);
+      margin-bottom: 38px;
+    }
+
+    .actions {
       display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      gap: 14px;
-      margin-top: -4px;
-    }
-    .tag-pill {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      background: rgba(0,0,0,0.45);
-      border: 1px solid rgba(255,255,255,0.15);
+      min-height: 54px;
+      padding: 0 30px;
       border-radius: 999px;
-      font-size: 0.78rem;
-      backdrop-filter: blur(8px);
-      cursor: pointer;
       text-decoration: none;
-      color: #ffffff;
+      font-size: .82rem;
+      letter-spacing: .22em;
+      font-weight: 800;
+      transition: .2s ease;
     }
-    .tag-icon {
+
+    .btn-primary {
+      background: #fff;
+      color: #050505;
+    }
+
+    .btn-secondary {
+      color: #fff;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(14px);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .quick-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.13);
+      backdrop-filter: blur(12px);
+      font-size: .82rem;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .pill:hover { background: rgba(255,255,255,.14); }
+
+    .pill img {
       width: 16px;
       height: 16px;
       object-fit: contain;
-      opacity: 0.9;
+      opacity: .88;
     }
-    .footer {
-      margin-top: 32px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.7);
-      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+
+    .hero-right {
+      min-height: 560px;
+      position: relative;
     }
-    .highlight-yellow {
-      color: #ffd664;
-      font-weight: 600;
+
+    .ambient-card {
+      position: absolute;
+      right: 0;
+      width: 330px;
+      padding: 28px;
+      border-radius: 30px;
+      background: rgba(0,0,0,.34);
+      border: 1px solid rgba(255,255,255,.11);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 24px 70px rgba(0,0,0,.38);
     }
-    /* DELIVERY BLOCK */
-    .delivery-block {
-      text-align: center;
-      margin-top: 4px;
+
+    .card-top { top: 42px; }
+    .card-bottom { bottom: 48px; right: 54px; }
+
+    .label {
+      display: block;
+      margin-bottom: 14px;
+      color: #d3b184;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .34em;
     }
-    .delivery-text {
-      font-size: 0.9rem;
-      margin-bottom: 22px; /* MÁS SEPARACIÓN */
-      color: white;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+
+    .ambient-card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 14px;
     }
+
+    .ambient-card p {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,.76);
+    }
+
     .delivery-icons {
       display: flex;
-      justify-content: center;
-      gap: 34px; /* MÁS GAP ENTRE ICONOS */
+      gap: 18px;
+      margin-top: 20px;
     }
+
     .delivery-icons img {
-      width: 64px;
-      height: 64px;
+      width: 54px;
+      height: 54px;
       object-fit: contain;
+      transition: .2s ease;
+    }
+
+    .delivery-icons img:hover { transform: translateY(-3px); }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.58);
+      position: relative;
+      z-index: 4;
+    }
+
+    .highlight-yellow {
+      color: #ffd664;
+      font-weight: 700;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      backdrop-filter: blur(7px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      padding: 22px;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 390px;
+      padding: 26px 28px;
+      border-radius: 22px;
+      text-align: center;
+      background: rgba(0,0,0,.62);
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.75);
+    }
+
+    .modal h2 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .modal p {
+      line-height: 1.65;
+      font-size: .94rem;
+      color: rgba(255,255,255,.82);
+    }
+
+    .close-btn {
+      display: inline-flex;
+      margin-top: 18px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      cursor: pointer;
+      font-size: .85rem;
+    }
+
+    @media (max-width: 980px) {
+      body {
+        background:
+          linear-gradient(180deg, rgba(5,5,5,.96) 0%, rgba(10,10,10,.72) 55%, rgba(10,10,10,.35) 100%),
+          url("background.jpg") center center / cover no-repeat fixed;
+      }
+
+      .page {
+        padding: 30px 22px;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .brand {
+        font-size: .72rem;
+        letter-spacing: .32em;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .nav-links a {
+        font-size: .68rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 56px 0 34px;
+      }
+
+      .logo {
+        width: 82px;
+      }
+
+      .hero-title {
+        font-size: clamp(4.1rem, 18vw, 5.4rem);
+      }
+
+      .hero-right {
+        min-height: 360px;
+      }
+
+      .ambient-card {
+        width: min(290px, 90vw);
+      }
+
+      .card-top {
+        top: 0;
+        right: 0;
+      }
+
+      .card-bottom {
+        bottom: 0;
+        right: auto;
+        left: 0;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="overlay"></div>
-  <main class="content">
-    <div class="logo-wrapper">
-      <img src="logo-minimal-new.png" class="logo">
-      <p class="description">
-        <b><i>"Identidad para quienes aman el café"</i></b><br><br>
-        Contamos con servicio a domicilio en área del Campestre, consulta nuestra cobertura
-      </p>
-    </div>
+  <main class="page">
 
-    <section class="links">
-      <a class="link-card" href="https://wa.me/5216861440664" target="_blank">
-        <div class="link-main">
-          <img src="icon-whatsapp-photo.png" class="link-icon-img">
-          <div>
-            <div class="link-title">Pedir por WhatsApp</div>
-            <div class="link-subtitle">Envíanos tu pedido directo al chat</div>
+    <nav class="nav">
+      <div class="brand">MINIMAL ESPRESSO</div>
+
+      <div class="nav-links">
+        <a href="Menu.png" target="_blank">MENÚ</a>
+        <a href="https://www.instagram.com/minimalespresso" target="_blank">INSTAGRAM</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+
+      <div class="hero-left">
+        <img src="logo-minimal-new.png" class="logo" alt="Minimal Espresso">
+
+        <h1 class="hero-title">
+          MINIMAL<br>ESPRESSO
+        </h1>
+
+        <div class="quote">“Identidad para quienes aman el café”</div>
+
+        <p class="description">
+          Café para llevar y servicio a domicilio en área del Campestre.
+          Consulta nuestra cobertura y haz tu pedido directo por WhatsApp.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wa.me/5216861440664" target="_blank">PEDIR AHORA</a>
+          <a class="btn btn-secondary" href="Menu.png" target="_blank">VER MENÚ</a>
+        </div>
+
+        <div class="quick-links">
+          <a class="pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
+            <img src="icon-marker.png" alt="">
+            Cobertura
+          </a>
+
+          <div class="pill" id="openModal">
+            <img src="icon-hours.png" alt="">
+            Horarios
+          </div>
+
+          <a class="pill" href="https://www.instagram.com/minimalespresso" target="_blank">
+            <img src="icon-instagram.png" alt="">
+            Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="ambient-card card-top">
+          <span class="label">SIGNATURE</span>
+          <h3>Café hecho al momento</h3>
+          <p>
+            Bebidas preparadas con intención, balance y una estética minimalista.
+          </p>
+        </div>
+
+        <div class="ambient-card card-bottom">
+          <span class="label">DELIVERY</span>
+          <h3>También en plataformas</h3>
+          <p>Encuéntranos en Uber Eats, DiDi Food y Rappi.</p>
+
+          <div class="delivery-icons">
+            <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
+              <img src="uber.png" alt="Uber Eats">
+            </a>
+
+            <a href="https://www.didi-food.com/" target="_blank">
+              <img src="didi.png" alt="DiDi Food">
+            </a>
+
+            <a href="https://rappi.onelink.me/y6GB/icnmplu3" target="_blank">
+              <img src="rappi.png" alt="Rappi">
+            </a>
           </div>
         </div>
-        <span>›</span>
-      </a>
+      </div>
 
-      <a class="link-card" href="Menu.png" target="_blank">
-        <div class="link-main">
-          <img src="icon-menu.png" class="link-icon-img">
-          <div>
-            <div class="link-title">Ver Menú</div>
-            <div class="link-subtitle">Consulta nuestros precios y bebidas</div>
-          </div>
-        </div>
-        <span>›</span>
-      </a>
-
-      <a class="link-card" href="https://www.instagram.com/minimalespresso" target="_blank">
-        <div class="link-main">
-          <img src="icon-instagram.png" class="link-icon-img">
-          <div>
-            <div class="link-title">Instagram @minimalespresso</div>
-            <div class="link-subtitle">Síguenos para novedades y promos</div>
-          </div>
-        </div>
-        <span>›</span>
-      </a>
     </section>
-
-    <div class="tag-footer">
-      <a class="tag-pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
-        <img src="icon-marker.png" class="tag-icon">
-        Cobertura de Servicio
-      </a>
-
-      <a class="tag-pill" href="Horarios.png" target="_blank">
-        <img src="icon-hours.png" class="tag-icon">
-        Horarios
-      </a>
-    </div>
-
-    <!-- DELIVERY -->
-    <div class="delivery-block">
-      <div class="delivery-text">
-        También encuéntranos en Uber Eats, DiDi Food y Rappi
-      </div>
-
-      <div class="delivery-icons">
-        <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
-          <img src="uber.png" alt="Uber Eats">
-        </a>
-
-        <a href="https://www.didi-food.com/" target="_blank">
-          <img src="didi.png" alt="DiDi Food">
-        </a>
-
-        <a href="https://rappi.onelink.me/y6GB/icnmplu3" target="_blank">
-          <img src="rappi.png" alt="Rappi">
-        </a>
-      </div>
-    </div>
 
     <footer class="footer">
       <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
       <span>Minimal Espresso · 2025</span>
     </footer>
+
   </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h2>Horarios de Atención</h2>
+      <p>
+        Lunes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Martes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Miércoles — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Jueves — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Viernes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Sábado — 7:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
+        Domingo — 6:00 AM – 1:00 PM
+      </p>
+      <div class="close-btn" id="closeModal">Cerrar</div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const openModal = document.getElementById("openModal");
+    const closeModal = document.getElementById("closeModal");
+
+    openModal.onclick = () => modal.style.display = "flex";
+    closeModal.onclick = () => modal.style.display = "none";
+
+    modal.onclick = (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    };
+  </script>
 </body>
 </html>
