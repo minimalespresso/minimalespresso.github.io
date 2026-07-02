@@ -638,16 +638,159 @@
   gap: 8px;
 }
 
+/* MOBILE FIX FINAL */
+
+.site-header {
+  padding: 18px 22px 16px;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.logo-main {
+  width: 118px;
+  flex-shrink: 0;
+}
+
+.nav {
+  margin-top: 14px;
+  gap: 12px 18px;
+  max-width: 230px;
+  justify-content: flex-end;
+  line-height: 1.4;
+}
+
+.nav a,
+.nav-item {
+  font-size: .60rem;
+  letter-spacing: .16em;
+}
+
+.hero-section {
+  align-items: flex-start;
+  min-height: 100svh;
+  padding-top: 170px;
+}
+
+.hero-copy {
+  width: min(92vw, 430px);
+  padding-top: 0;
+}
+
+.eyebrow {
+  font-size: .68rem;
+  letter-spacing: .34em;
+  margin-bottom: 18px;
+}
+
+.quote {
+  font-size: clamp(2.25rem, 11vw, 3.3rem);
+  line-height: 1;
+  margin-bottom: 34px;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.btn {
+  min-height: 54px;
+  padding: 0 34px;
+}
+
+.coverage-card {
+  width: 100%;
+  margin: 0 auto 95px;
+  padding: 24px 24px;
+  grid-template-columns: 38px 1fr;
+  gap: 16px;
+  text-align: left;
+}
+
+.coverage-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.coverage-card a {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 8px;
+}
+
+.scroll-indicator {
+  bottom: 28px;
+}
+
+.summer-section {
+  min-height: 100svh;
+  padding: 0 18px 58px;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,.76) 0%,
+      rgba(5,5,5,.28) 24%,
+      rgba(5,5,5,.08) 50%,
+      rgba(5,5,5,.18) 100%
+    ),
+    url("Verano.png") center center / cover no-repeat;
+}
+
+.summer-content {
+  bottom: 76px;
+  width: 90%;
+}
+
+.summer-caption {
+  font-size: clamp(2.3rem, 13vw, 3.5rem);
+  line-height: .92;
+}
+
 .delivery-section {
-  padding: 90px 22px;
+  min-height: auto;
+  padding: 0;
+  background: url("Verano.png") center center / cover no-repeat;
 }
 
 .delivery-grid {
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+  width: 100%;
 }
 
 .platform-card {
-  min-height: 320px;
+  min-height: 72svh;
+  padding: 95px 32px 44px;
+  border-right: 0;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.34);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.platform-card h3 {
+  font-size: clamp(2.7rem, 13vw, 4rem);
+}
+
+.platform-card p {
+  max-width: 310px;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.platform-card img {
+  width: 96px;
+  height: 96px;
+}
+
+.platform-arrow {
+  margin-top: 20px;
+}
+
+.footer {
+  padding: 80px 24px 36px;
 }
 
 }
