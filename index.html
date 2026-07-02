@@ -331,73 +331,77 @@
       line-height: .95;
     }
         .delivery-section {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 28px;
-      background:
-        radial-gradient(circle at center, rgba(211,177,132,.12), rgba(0,0,0,0) 46%),
-        #050505;
-    }
+  min-height: 100vh;
+  padding: 120px 38px;
+  background:
+    radial-gradient(circle at center, rgba(211,177,132,.10), rgba(0,0,0,0) 48%),
+    #050505;
+  display: flex;
+  align-items: center;
+}
 
-    .delivery-card {
-      width: min(620px, 92vw);
-      text-align: center;
-      padding: 38px 34px;
-      border-radius: 34px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 24px 70px rgba(0,0,0,.38);
-    }
+.delivery-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
 
-    .label {
-      display: block;
-      margin-bottom: 14px;
-      color: #d3b184;
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .34em;
-    }
+.platform-card {
+  min-height: 64vh;
+  padding: 38px 32px;
+  border-radius: 36px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0,0,0,.38);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: white;
+  transition: .25s ease;
+}
 
-    .delivery-card h3 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      margin-bottom: 16px;
-    }
+.platform-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,.09);
+}
 
-    .delivery-card p {
-      font-family: "DM Sans", sans-serif;
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: rgba(255,255,255,.74);
-    }
+.platform-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
 
-    .delivery-icons {
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      margin-top: 26px;
-    }
+.platform-card span {
+  color: #d3b184;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .34em;
+}
 
-    .delivery-icons img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      transition: .2s ease;
-    }
+.platform-card h3 {
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: .95;
+  margin-top: 18px;
+}
 
-    .delivery-icons img:hover { transform: translateY(-3px); }
+.platform-card p {
+  margin-top: 18px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: rgba(255,255,255,.74);
+}
 
-    .footer {
-      background: #050505;
-      padding: 0 38px 30px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      font-size: .78rem;
-      color: rgba(255,255,255,.58);
-    }
+.platform-arrow {
+  font-size: .9rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  opacity: .75;
+}
 
     .highlight-yellow {
       color: #ffd664;
@@ -527,10 +531,24 @@
       }
 
       .footer {
-        padding: 0 22px 28px;
-        flex-direction: column;
-        gap: 8px;
-      }
+  padding: 0 22px 28px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.delivery-section {
+  padding: 90px 22px;
+}
+
+.delivery-grid {
+  grid-template-columns: 1fr;
+}
+
+.platform-card {
+  min-height: 320px;
+}
+
+}
     }
   </style>
 </head>
@@ -593,24 +611,46 @@
     </section>
 
     <section class="delivery-section">
-      <div class="delivery-card">
-        <span class="label">DELIVERY</span>
-        <h3>También en plataformas</h3>
-        <p>Encuéntranos en Uber Eats, DiDi Food y Rappi.</p>
+  <div class="delivery-grid">
 
-        <div class="delivery-icons">
-          <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
-            <img src="uber.png" alt="Uber Eats">
-          </a>
-          <a href="https://www.didi-food.com/" target="_blank">
-            <img src="didi.png" alt="DiDi Food">
-          </a>
-          <a href="https://rappi.onelink.me/y6GB/icnmplu3" target="_blank">
-            <img src="rappi.png" alt="Rappi">
-          </a>
-        </div>
+    <a class="platform-card" href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
+      <div>
+        <span>DELIVERY</span>
+        <h3>Uber Eats</h3>
+        <p>Ordena tus bebidas favoritas directo desde Uber Eats.</p>
       </div>
-    </section>
+
+      <img src="uber.png" alt="Uber Eats">
+
+      <div class="platform-arrow">ABRIR →</div>
+    </a>
+
+    <a class="platform-card" href="https://www.didi-food.com/" target="_blank">
+      <div>
+        <span>DELIVERY</span>
+        <h3>DiDi Food</h3>
+        <p>También disponibles para entrega a domicilio en DiDi Food.</p>
+      </div>
+
+      <img src="didi.png" alt="DiDi Food">
+
+      <div class="platform-arrow">ABRIR →</div>
+    </a>
+
+    <a class="platform-card" href="https://rappi.onelink.me/y6GB/icnmplu3" target="_blank">
+      <div>
+        <span>DELIVERY</span>
+        <h3>Rappi</h3>
+        <p>Encuéntranos en Rappi y pide desde tu ubicación.</p>
+      </div>
+
+      <img src="rappi.png" alt="Rappi">
+
+      <div class="platform-arrow">ABRIR →</div>
+    </a>
+
+  </div>
+</section>
 
     <footer class="footer">
       <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
