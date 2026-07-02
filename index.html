@@ -493,6 +493,81 @@
       font-size: .85rem;
     }
 
+    .footer{
+    background:#050505;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:80px 70px 30px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:70px;
+    flex-wrap:wrap;
+}
+
+.footer-logo{
+    width:120px;
+    margin-bottom:18px;
+}
+
+.footer-text{
+    font-family:"DM Sans",sans-serif;
+    color:rgba(255,255,255,.65);
+    line-height:1.7;
+}
+
+.footer-column{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-column h4{
+    margin-bottom:8px;
+    letter-spacing:.20em;
+    font-size:.75rem;
+}
+
+.footer-column a{
+    color:rgba(255,255,255,.65);
+    text-decoration:none;
+    font-family:"DM Sans",sans-serif;
+    transition:.2s;
+}
+
+.footer-column a:hover{
+    color:white;
+}
+
+.social-icons{
+    display:flex;
+    gap:18px;
+}
+
+.social-icons img{
+    width:28px;
+    height:28px;
+    opacity:.75;
+    transition:.25s;
+}
+
+.social-icons img:hover{
+    opacity:1;
+    transform:translateY(-2px);
+}
+
+.footer-bottom{
+    margin-top:60px;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    color:rgba(255,255,255,.45);
+    font-family:"DM Sans",sans-serif;
+    font-size:.82rem;
+}
+
     @media (max-width: 900px) {
       .site-header {
         height: auto;
@@ -666,9 +741,67 @@
 </section>
 
     <footer class="footer">
-      <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
-      <span>Minimal Espresso · 2025</span>
-    </footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <img src="logo-minimal-new.png" class="footer-logo">
+
+            <p class="footer-text">
+                Exclusivamente Pickup & Delivery.<br>
+                Mexicali, Baja California.
+            </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+            <h4>Contacto</h4>
+
+            <a href="https://wa.me/5216861440664" target="_blank">
+                WhatsApp
+            </a>
+
+            <a href="mailto:minimalespressomxli@gmail.com">
+                minimalespressomxli@gmail.com
+            </a>
+
+            <a href="https://minimalespresso.com">
+                minimalespresso.com
+            </a>
+
+        </div>
+
+        <div class="footer-social">
+
+            <h4>Síguenos</h4>
+
+            <div class="social-icons">
+
+                <a href="https://facebook.com" target="_blank">
+                    <img src="facebook.png">
+                </a>
+
+                <a href="https://instagram.com/minimalespresso" target="_blank">
+                    <img src="instagram.png">
+                </a>
+
+                <a href="https://wa.me/5216861440664" target="_blank">
+                    <img src="whatsapp.png">
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Minimal Espresso. Todos los derechos reservados.
+    </div>
+
+</footer>
 
   </main>
 
