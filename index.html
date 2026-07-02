@@ -90,24 +90,30 @@
       overflow: hidden;
     }
 
-    .hero-section::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 620px;
-  background: linear-gradient(
-    180deg,
-    rgba(5,5,5,0) 0%,
-    rgba(5,5,5,.08) 15%,
-    rgba(5,5,5,.22) 30%,
-    rgba(5,5,5,.46) 46%,
-    rgba(5,5,5,.72) 62%,
-    rgba(5,5,5,.90) 82%,
-    #050505 100%
-  );
-  z-index: 2;
+    .hero-section::after{
+    content:"";
+    position:absolute;
+    inset:auto 0 0 0;
+
+    height:900px;
+
+    background:linear-gradient(
+        to bottom,
+
+        rgba(5,5,5,0) 0%,
+        rgba(5,5,5,.02) 10%,
+        rgba(5,5,5,.05) 20%,
+        rgba(5,5,5,.10) 30%,
+        rgba(5,5,5,.18) 40%,
+        rgba(5,5,5,.30) 50%,
+        rgba(5,5,5,.45) 60%,
+        rgba(5,5,5,.62) 70%,
+        rgba(5,5,5,.82) 82%,
+        rgba(5,5,5,.94) 92%,
+        #050505 100%
+    );
+
+    z-index:2;
 }
 
     .hero-copy {
@@ -286,20 +292,24 @@
     }
 
     .summer-section {
-  min-height: 100vh;
+  min-height: 115vh;
   position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 0 34px 90px;
+  padding: 180px 34px 90px;
+  margin-top: -220px;
   overflow: hidden;
   background:
     linear-gradient(
-      180deg,
-      #050505 0%,
-      rgba(5,5,5,.10) 12%,
-      rgba(0,0,0,.08) 24%,
-      rgba(0,0,0,.18) 100%
+      to bottom,
+      rgba(5,5,5,1) 0%,
+      rgba(5,5,5,.96) 12%,
+      rgba(5,5,5,.82) 24%,
+      rgba(5,5,5,.58) 38%,
+      rgba(5,5,5,.34) 52%,
+      rgba(5,5,5,.16) 68%,
+      rgba(5,5,5,.06) 100%
     ),
     url("Verano.png") center center / cover no-repeat fixed;
 }
@@ -512,11 +522,20 @@
       }
 
       .summer-section {
-        background:
-          linear-gradient(180deg, #050505 0%, rgba(0,0,0,.12) 22%, rgba(0,0,0,.48) 100%),
-          url("Verano.png") center center / cover no-repeat;
-        padding: 0 18px 60px;
-      }
+  min-height: 110vh;
+  margin-top: -140px;
+  padding: 140px 18px 60px;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,1) 0%,
+      rgba(5,5,5,.88) 24%,
+      rgba(5,5,5,.48) 48%,
+      rgba(5,5,5,.18) 72%,
+      rgba(5,5,5,.08) 100%
+    ),
+    url("Verano.png") center center / cover no-repeat;
+}
 
       .coverage-card {
         grid-template-columns: auto 1fr;
