@@ -332,45 +332,42 @@
     }
         .delivery-section {
   min-height: 100vh;
-  padding: 120px 38px;
-  background:
-    radial-gradient(circle at center, rgba(211,177,132,.10), rgba(0,0,0,0) 48%),
-    #050505;
-  display: flex;
-  align-items: center;
+  background: #050505;
+  padding: 0;
 }
 
 .delivery-grid {
   width: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 0;
 }
 
 .platform-card {
-  min-height: 64vh;
-  padding: 38px 32px;
-  border-radius: 36px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 24px 70px rgba(0,0,0,.38);
+  min-height: 100vh;
+  padding: 130px 42px 54px;
+  border-right: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.055);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-decoration: none;
   color: white;
-  transition: .25s ease;
+  transition: .28s ease;
+}
+
+.platform-card:last-child {
+  border-right: 0;
 }
 
 .platform-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255,255,255,.09);
+  background: rgba(255,255,255,.10);
 }
 
 .platform-card img {
-  width: 90px;
-  height: 90px;
+  width: 115px;
+  height: 115px;
   object-fit: contain;
 }
 
@@ -382,18 +379,18 @@
 }
 
 .platform-card h3 {
-  font-size: clamp(2rem, 3vw, 3.2rem);
-  line-height: .95;
-  margin-top: 18px;
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  line-height: .9;
+  margin-top: 22px;
 }
 
 .platform-card p {
-  margin-top: 18px;
+  margin-top: 22px;
   font-family: "DM Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.55;
-  color: rgba(255,255,255,.74);
+  color: rgba(255,255,255,.72);
 }
 
 .platform-arrow {
@@ -549,7 +546,7 @@
 }
 
 }
-    }
+  
   </style>
 </head>
 
