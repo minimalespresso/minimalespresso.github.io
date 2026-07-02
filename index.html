@@ -26,39 +26,45 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
       font-family: "League Spartan", system-ui, sans-serif;
       color: #fff;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.70) 38%, rgba(0,0,0,.28) 100%),
-        url("background.jpg") center center / cover no-repeat fixed;
+      background: #050505;
       overflow-x: hidden;
     }
 
-    .page {
-      min-height: 100vh;
-      position: relative;
-      padding: 22px 38px 28px;
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 92px;
+      z-index: 50;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0 42px;
+      background: linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,0));
+      pointer-events: none;
     }
 
     .logo-main {
-      position: absolute;
-      top: 0px;
-      left: 15px;
       width: 150px;
       max-width: 42vw;
       filter: drop-shadow(0 12px 28px rgba(0,0,0,.75));
-      z-index: 5;
+      pointer-events: auto;
     }
 
     .nav {
-      position: absolute;
-      top: 38px;
-      right: 42px;
+      margin-top: 38px;
       display: flex;
       gap: 32px;
-      z-index: 6;
+      pointer-events: auto;
     }
 
     .nav a,
@@ -79,15 +85,35 @@
       opacity: 1;
     }
 
+    .hero-section {
+      min-height: 100vh;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.70) 38%, rgba(0,0,0,.28) 100%),
+        url("background.jpg") center center / cover no-repeat fixed;
+      overflow: hidden;
+    }
+
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 220px;
+      background: linear-gradient(180deg, rgba(5,5,5,0), #050505 92%);
+      pointer-events: none;
+      z-index: 3;
+    }
+
     .hero-copy {
-  position: absolute;
-  left: 32px;
-  top: 210px;
-  bottom: auto;
-  width: 430px;
-  max-width: calc(100vw - 80px);
-  z-index: 5;
-}
+      position: absolute;
+      left: 32px;
+      top: 210px;
+      width: 430px;
+      max-width: calc(100vw - 80px);
+      z-index: 5;
+    }
 
     .eyebrow {
       display: block;
@@ -139,13 +165,6 @@
     .btn-primary {
       background: #fff;
       color: #050505;
-    }
-
-    .btn-secondary {
-      color: #fff;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(14px);
     }
 
     .quick-links {
@@ -235,11 +254,75 @@
 
     .delivery-icons img:hover { transform: translateY(-3px); }
 
-    .footer {
+    .scroll-indicator {
       position: absolute;
-      left: 38px;
-      right: 38px;
-      bottom: 28px;
+      left: 32px;
+      bottom: 36px;
+      z-index: 6;
+      color: rgba(255,255,255,.58);
+      font-size: .75rem;
+      letter-spacing: .22em;
+      text-decoration: none;
+      animation: floatDown 1.8s ease-in-out infinite;
+    }
+
+    @keyframes floatDown {
+      0%, 100% { transform: translateY(0); opacity: .55; }
+      50% { transform: translateY(8px); opacity: 1; }
+    }
+
+    .summer-section {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 130px 34px 90px;
+      background:
+        radial-gradient(circle at center, rgba(211,177,132,.13), rgba(0,0,0,0) 48%),
+        linear-gradient(180deg, #050505 0%, #080706 45%, #050505 100%);
+      overflow: hidden;
+    }
+
+    .summer-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("background.jpg") center center / cover no-repeat fixed;
+      opacity: .13;
+      filter: blur(8px);
+      transform: scale(1.06);
+    }
+
+    .summer-wrap {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, 94vw);
+      text-align: center;
+    }
+
+    .summer-label {
+      display: block;
+      margin-bottom: 24px;
+      color: #d3b184;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .34em;
+    }
+
+    .summer-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 30px;
+      box-shadow: 0 34px 110px rgba(0,0,0,.66);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .footer {
+      position: relative;
+      background: #050505;
+      padding: 0 38px 28px;
       display: flex;
       justify-content: space-between;
       gap: 20px;
@@ -253,7 +336,7 @@
       font-weight: 700;
     }
 
-    .modal-overlay {
+        .modal-overlay {
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,.68);
@@ -261,7 +344,7 @@
       display: none;
       justify-content: center;
       align-items: center;
-      z-index: 20;
+      z-index: 100;
       padding: 22px;
     }
 
@@ -341,47 +424,47 @@
     }
 
     @media (max-width: 900px) {
-      body {
+      .site-header {
+        position: fixed;
+        height: auto;
+        padding: 12px 20px 18px;
+        align-items: flex-start;
+        background: linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,0));
+      }
+
+      .logo-main {
+        width: 120px;
+        max-width: 34vw;
+      }
+
+      .nav {
+        margin-top: 16px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px 16px;
+        max-width: 68vw;
+      }
+
+      .nav a,
+      .nav-item {
+        font-size: .62rem;
+        letter-spacing: .15em;
+      }
+
+      .hero-section {
+        min-height: 100vh;
         background:
           linear-gradient(180deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.76) 48%, rgba(0,0,0,.42) 100%),
           url("background.jpg") center center / cover no-repeat fixed;
       }
 
-      .page {
-        min-height: auto;
-        padding: 24px 22px 28px;
-      }
-
-      .logo-main {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 270px;
-        max-width: 82vw;
-        margin-bottom: 34px;
-      }
-
-      .nav {
-        position: relative;
-        top: auto;
-        right: auto;
-        flex-wrap: wrap;
-        gap: 14px 18px;
-        margin-top: 20px;
-      }
-
-      .nav a,
-      .nav-item {
-        font-size: .66rem;
-        letter-spacing: .18em;
-      }
-
       .hero-copy {
         position: relative;
         left: auto;
-        bottom: auto;
+        top: auto;
         width: 100%;
-        margin-top: 80px;
+        max-width: none;
+        padding: 190px 22px 120px;
       }
 
       .quote {
@@ -390,27 +473,37 @@
 
       .card {
         position: relative;
-        width: 100%;
+        width: calc(100% - 44px);
         right: auto;
         top: auto;
         bottom: auto;
-        margin-top: 22px;
+        margin: 22px auto 0;
       }
 
       .card-signature {
-        margin-top: 44px;
+        margin-top: -90px;
       }
 
       .card-delivery {
         margin-top: 18px;
+        margin-bottom: 80px;
+      }
+
+      .scroll-indicator {
+        left: 22px;
+        bottom: 24px;
+      }
+
+      .summer-section {
+        padding: 110px 18px 70px;
+      }
+
+      .summer-image {
+        border-radius: 20px;
       }
 
       .footer {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        margin-top: 34px;
+        padding: 0 22px 28px;
         flex-direction: column;
         gap: 8px;
       }
@@ -419,8 +512,8 @@
 </head>
 
 <body>
-  <main class="page">
 
+  <header class="site-header">
     <img src="logo-minimal-new.png" class="logo-main" alt="Minimal Espresso">
 
     <nav class="nav">
@@ -430,56 +523,71 @@
       <div class="nav-item" id="openHoursImageModal">HORARIOS</div>
       <div class="nav-item" id="openEventsModal">BARRA PARA EVENTOS</div>
     </nav>
+  </header>
 
-    <section class="hero-copy">
-      <span class="eyebrow">COFFEE BAR · MEXICALI</span>
+  <main>
 
-      <div class="quote">“Identidad para quienes aman el café”</div>
+    <section class="hero-section" id="inicio">
 
-      <p class="description">
-        Café para llevar y servicio a domicilio en área del Campestre.
-        Consulta nuestra cobertura y haz tu pedido directo por WhatsApp.
-      </p>
+      <section class="hero-copy">
+        <span class="eyebrow">COFFEE BAR · MEXICALI</span>
 
-      <div class="actions">
-  <a class="btn btn-primary" href="https://wa.me/5216861440664" target="_blank">PEDIR AHORA</a>
-</div>
+        <div class="quote">“Identidad para quienes aman el café”</div>
 
-      <div class="quick-links">
-  <a class="pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
-    <img src="icon-marker.png" alt="">
-    Cobertura
-  </a>
-</div>
+        <p class="description">
+          Café para llevar y servicio a domicilio en área del Campestre.
+          Consulta nuestra cobertura y haz tu pedido directo por WhatsApp.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wa.me/5216861440664" target="_blank">PEDIR AHORA</a>
+        </div>
+
+        <div class="quick-links">
+          <a class="pill" href="https://www.google.com/maps/d/u/1/edit?mid=1Te5vE0EgxVANexCKnHAxTzhMUbs8ga8&usp=sharing" target="_blank">
+            <img src="icon-marker.png" alt="">
+            Cobertura
+          </a>
+        </div>
+      </section>
+
+      <section class="card card-signature">
+        <span class="label">SIGNATURE</span>
+        <h3>Café hecho al momento</h3>
+        <p>Bebidas preparadas con intención, balance y una estética minimalista.</p>
+      </section>
+
+      <section class="card card-delivery">
+        <span class="label">DELIVERY</span>
+        <h3>También en plataformas</h3>
+        <p>Encuéntranos en Uber Eats, DiDi Food y Rappi.</p>
+
+        <div class="delivery-icons">
+          <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
+            <img src="uber.png" alt="Uber Eats">
+          </a>
+
+          <a href="https://www.didi-food.com/" target="_blank">
+            <img src="didi.png" alt="DiDi Food">
+          </a>
+
+          <a href="https://rappi.onelink.me/y6GB/icnmplu3" target="_blank">
+            <img src="rappi.png" alt="Rappi">
+          </a>
+        </div>
+      </section>
+
+      <a href="#verano" class="scroll-indicator">SCROLL ↓</a>
     </section>
 
-    <section class="card card-signature">
-      <span class="label">SIGNATURE</span>
-      <h3>Café hecho al momento</h3>
-      <p>Bebidas preparadas con intención, balance y una estética minimalista.</p>
-    </section>
-
-    <section class="card card-delivery">
-      <span class="label">DELIVERY</span>
-      <h3>También en plataformas</h3>
-      <p>Encuéntranos en Uber Eats, DiDi Food y Rappi.</p>
-
-      <div class="delivery-icons">
-        <a href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source" target="_blank">
-          <img src="uber.png" alt="Uber Eats">
-        </a>
-
-        <a href="https://www.didi-food.com/" target="_blank">
-          <img src="didi.png" alt="DiDi Food">
-        </a>
-
-        <a href="https://rappi.onelink.me/y6GB/icnmplu3" target="_blank">
-          <img src="rappi.png" alt="Rappi">
-        </a>
+    <section class="summer-section" id="verano">
+      <div class="summer-wrap">
+        <span class="summer-label">ESPECIALES DE VERANO</span>
+        <img src="Verano.png" class="summer-image" alt="Especiales de verano Minimal Espresso">
       </div>
     </section>
 
-    <footer class="footer">
+        <footer class="footer">
       <span><span class="highlight-yellow">Mexicali</span> B.C. México</span>
       <span>Minimal Espresso · 2025</span>
     </footer>
@@ -508,9 +616,7 @@
   <div class="modal-overlay" id="hoursImageModal">
     <div class="modal modal-wide">
       <h2>Horarios</h2>
-
       <img src="Horarios.png" class="modal-image" alt="Horarios Minimal Espresso">
-
       <div class="close-btn" id="closeHoursImageModal">Cerrar</div>
     </div>
   </div>
@@ -518,28 +624,8 @@
   <div class="modal-overlay" id="eventsModal">
     <div class="modal">
       <h2>Barra para Eventos</h2>
-
-      <p class="events-soon">
-        Próximamente...
-      </p>
-
+      <p class="events-soon">Próximamente...</p>
       <div class="close-btn" id="closeEventsModal">Cerrar</div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal">
-    <div class="modal">
-      <h2>Horarios de Atención</h2>
-      <p>
-        Lunes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
-        Martes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
-        Miércoles — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
-        Jueves — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
-        Viernes — 6:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
-        Sábado — 7:00 AM – 1:30 PM / 5:00 PM – 10:00 PM<br>
-        Domingo — 6:00 AM – 1:00 PM
-      </p>
-      <div class="close-btn" id="closeModal">Cerrar</div>
     </div>
   </div>
 
@@ -559,10 +645,10 @@
       };
     }
 
-    setupModal("openModal", "modal", "closeModal");
     setupModal("openLocationModal", "locationModal", "closeLocationModal");
     setupModal("openHoursImageModal", "hoursImageModal", "closeHoursImageModal");
     setupModal("openEventsModal", "eventsModal", "closeEventsModal");
   </script>
+
 </body>
 </html>
