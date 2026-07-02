@@ -91,15 +91,24 @@
     }
 
     .hero-section::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 240px;
-      background: linear-gradient(180deg, rgba(5,5,5,0), #050505 95%);
-      z-index: 1;
-    }
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 620px;
+  background: linear-gradient(
+    180deg,
+    rgba(5,5,5,0) 0%,
+    rgba(5,5,5,.08) 15%,
+    rgba(5,5,5,.22) 30%,
+    rgba(5,5,5,.46) 46%,
+    rgba(5,5,5,.72) 62%,
+    rgba(5,5,5,.90) 82%,
+    #050505 100%
+  );
+  z-index: 2;
+}
 
     .hero-copy {
       position: relative;
@@ -167,36 +176,47 @@
     }
 
     .coverage-card {
-      width: min(420px, 92vw);
-      margin: 0 auto;
-      padding: 16px 18px;
-      border-radius: 24px;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 14px;
-      background: rgba(0,0,0,.32);
-      border: 1px solid rgba(255,255,255,.13);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 18px 50px rgba(0,0,0,.28);
-    }
+  width: min(470px, 92vw);
+  margin: 0 auto;
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: 46px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  border-radius: 30px;
+  background: rgba(8,8,8,.26);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(24px);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.30),
+    inset 0 1px rgba(255,255,255,.06);
+  transition: .35s;
+}
+
+.coverage-card:hover {
+  transform: translateY(-3px);
+  background: rgba(10,10,10,.34);
+}
 
     .coverage-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.12);
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     .coverage-icon img {
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-    }
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  opacity: .95;
+  transition: .35s;
+}
 
+.coverage-card:hover .coverage-icon img {
+  transform: translateY(-3px) scale(1.05);
+}
+
+    
     .coverage-text {
       text-align: left;
     }
@@ -252,17 +272,23 @@
     }
 
     .summer-section {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 0 34px 80px;
-      background:
-        linear-gradient(180deg, #050505 0%, rgba(0,0,0,.18) 24%, rgba(0,0,0,.38) 100%),
-        url("Verano.png") center center / cover no-repeat fixed;
-      overflow: hidden;
-    }
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 34px 90px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      #050505 0%,
+      rgba(5,5,5,.10) 12%,
+      rgba(0,0,0,.08) 24%,
+      rgba(0,0,0,.18) 100%
+    ),
+    url("Verano.png") center center / cover no-repeat fixed;
+}
 
     .summer-content {
       position: relative;
