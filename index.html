@@ -304,32 +304,23 @@
     url("Verano.png") center center / cover no-repeat fixed;
 }
 
-    .summer-content {
-      position: relative;
-      z-index: 3;
-      width: min(780px, 90vw);
-      text-align: center;
-      padding: 26px 28px;
-      border-radius: 30px;
-      background: rgba(0,0,0,.28);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 24px 70px rgba(0,0,0,.38);
-    }
+    .summer-content{
+    position:absolute;
+    left:50%;
+    bottom:70px;
+    transform:translateX(-50%);
+    z-index:3;
+    text-align:center;
+}
 
-    .summer-content span {
-      display: block;
-      margin-bottom: 12px;
-      color: #d3b184;
-      font-size: .76rem;
-      font-weight: 800;
-      letter-spacing: .34em;
-    }
-
-    .summer-content h2 {
-      font-size: clamp(2rem, 5vw, 4.2rem);
-      line-height: .95;
-    }
+.summer-caption{
+    font-family:"DM Sans",sans-serif;
+    font-size:1.15rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    color:rgba(255,255,255,.92);
+    text-shadow:0 8px 30px rgba(0,0,0,.55);
+}
         .delivery-section {
   min-height: 100vh;
   background: #050505;
@@ -602,9 +593,8 @@
 
     <section class="summer-section" id="verano">
       <div class="summer-content">
-        <span>ESPECIALES DE VERANO</span>
-        <h2>Temporada disponible</h2>
-      </div>
+    <p class="summer-caption">Disponible ahora</p>
+</div>
     </section>
 
     <section class="delivery-section">
