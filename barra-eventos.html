@@ -728,22 +728,6 @@
     /* TABLET */
 
     @media (max-width: 980px) {
-      .site-header {
-        padding: 14px 24px 20px;
-      }
-
-      .logo-main {
-        width: 130px;
-      }
-
-      .nav {
-        gap: 16px 21px;
-      }
-
-      .nav a {
-        font-size: 0.66rem;
-        letter-spacing: 0.16em;
-      }
 
       .story-section {
         padding-left: 5vw;
@@ -760,185 +744,185 @@
       }
     }
 
-    /* MÓVIL */
+    /* MÓVIL: MISMO HEADER QUE INDEX */
 
-    .site-header {
-  height: auto;
-  padding: 18px 22px 16px;
-  align-items: flex-start;
-  gap: 14px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, .72),
-    rgba(0, 0, 0, 0)
-  );
+@media (max-width: 900px) {
+  .site-header {
+    height: auto;
+    padding: 18px 22px 16px;
+    align-items: flex-start;
+    gap: 14px;
+
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, .72),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .logo-main {
+    width: 118px;
+    flex-shrink: 0;
+    margin-top: -8px;
+  }
+
+  .nav {
+    margin-top: 14px;
+    gap: 12px 18px;
+    max-width: 230px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    line-height: 1.4;
+  }
+
+  .nav a,
+  .nav-item {
+    font-size: .60rem;
+    letter-spacing: .16em;
+  }
+
+  .story-section,
+  .story-section.align-right {
+    min-height: 100svh;
+    padding: 135px 18px 65px;
+    align-items: flex-end;
+    justify-content: center;
+    background-attachment: scroll;
+  }
+
+  .story-section::before,
+  .story-section.align-right::before,
+  .story-section.centered::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.24) 0%,
+        rgba(0, 0, 0, 0.08) 32%,
+        rgba(0, 0, 0, 0.78) 74%,
+        rgba(0, 0, 0, 0.94) 100%
+      );
+  }
+
+  .story-card {
+    width: 100%;
+    padding: 29px 25px;
+    border-radius: 27px;
+
+    background: rgba(8, 8, 8, 0.39);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+
+  .story-card h1 {
+    font-size: clamp(3.1rem, 15vw, 4.35rem);
+  }
+
+  .story-card h2 {
+    font-size: clamp(2.75rem, 13vw, 4rem);
+  }
+
+  .story-card p {
+    margin-top: 21px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .story-eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.30em;
+    margin-bottom: 15px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    min-height: 55px;
+    padding: 0 22px;
+    font-size: 0.74rem;
+  }
+
+  .feature-list {
+    gap: 12px;
+  }
+
+  .feature-list li {
+    font-size: 0.92rem;
+  }
+
+  .occasion-list {
+    gap: 8px;
+  }
+
+  .occasion-list span {
+    padding: 9px 13px;
+    font-size: 0.77rem;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .pricing-section {
+    padding: 92px 18px;
+  }
+
+  .pricing-heading {
+    margin-bottom: 44px;
+  }
+
+  .pricing-heading h2 {
+    font-size: clamp(3.2rem, 15vw, 4.7rem);
+  }
+
+  .pricing-heading p {
+    font-size: 0.95rem;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-card {
+    padding: 30px 25px;
+    border-radius: 27px;
+  }
+
+  .price-card-description {
+    min-height: auto;
+  }
+
+  .included-panel {
+    padding: 30px 25px;
+    border-radius: 27px;
+  }
+
+  .included-panel .feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-note {
+    padding: 22px;
+  }
+
+  .booking-panel {
+    margin-top: 55px;
+    padding: 48px 24px;
+    border-radius: 30px;
+  }
+
+  .booking-panel h3 {
+    font-size: clamp(3rem, 14vw, 4.4rem);
+  }
+
+  .footer {
+    padding: 80px 24px 36px;
+  }
 }
-
-.logo-main {
-  width: 118px;
-  flex-shrink: 0;
-  margin-top: -8px;
-}
-
-.nav {
-  margin-top: 14px;
-  gap: 12px 18px;
-  max-width: 230px;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  line-height: 1.4;
-}
-
-.nav a,
-.nav-item {
-  font-size: .60rem;
-  letter-spacing: .16em;
-}
-
-      .story-section,
-      .story-section.align-right {
-        min-height: 100svh;
-        padding: 135px 18px 65px;
-
-        align-items: flex-end;
-        justify-content: center;
-
-        background-attachment: scroll;
-      }
-
-      .story-section::before,
-      .story-section.align-right::before,
-      .story-section.centered::before {
-        background:
-          linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.24) 0%,
-            rgba(0, 0, 0, 0.08) 32%,
-            rgba(0, 0, 0, 0.78) 74%,
-            rgba(0, 0, 0, 0.94) 100%
-          );
-      }
-
-      .story-card {
-        width: 100%;
-        padding: 29px 25px;
-        border-radius: 27px;
-
-        background: rgba(8, 8, 8, 0.39);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-      }
-
-      .story-card h1 {
-        font-size: clamp(3.1rem, 15vw, 4.35rem);
-      }
-
-      .story-card h2 {
-        font-size: clamp(2.75rem, 13vw, 4rem);
-      }
-
-      .story-card p {
-        margin-top: 21px;
-        font-size: 0.95rem;
-        line-height: 1.65;
-      }
-
-      .story-eyebrow {
-        font-size: 0.66rem;
-        letter-spacing: 0.30em;
-        margin-bottom: 15px;
-      }
-
-      .hero-actions {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .primary-button,
-      .secondary-button {
-        width: 100%;
-        min-height: 55px;
-        padding: 0 22px;
-        font-size: 0.74rem;
-      }
-
-      .feature-list {
-        gap: 12px;
-      }
-
-      .feature-list li {
-        font-size: 0.92rem;
-      }
-
-      .occasion-list {
-        gap: 8px;
-      }
-
-      .occasion-list span {
-        padding: 9px 13px;
-        font-size: 0.77rem;
-      }
-
-      .scroll-indicator {
-        display: none;
-      }
-
-      .pricing-section {
-        padding: 92px 18px;
-      }
-
-      .pricing-heading {
-        margin-bottom: 44px;
-      }
-
-      .pricing-heading h2 {
-        font-size: clamp(3.2rem, 15vw, 4.7rem);
-      }
-
-      .pricing-heading p {
-        font-size: 0.95rem;
-      }
-
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .price-card {
-        padding: 30px 25px;
-        border-radius: 27px;
-      }
-
-      .price-card-description {
-        min-height: auto;
-      }
-
-      .included-panel {
-        padding: 30px 25px;
-        border-radius: 27px;
-      }
-
-      .included-panel .feature-list {
-        grid-template-columns: 1fr;
-      }
-
-      .menu-note {
-        padding: 22px;
-      }
-
-      .booking-panel {
-        margin-top: 55px;
-        padding: 48px 24px;
-        border-radius: 30px;
-      }
-
-      .booking-panel h3 {
-        font-size: clamp(3rem, 14vw, 4.4rem);
-      }
-
-      .footer {
-        padding: 80px 24px 36px;
-      }
-    }
 
     @media (prefers-reduced-motion: reduce) {
       html {
@@ -1350,13 +1334,15 @@
     </div>
   </div>
 </div>
+  
+/* MODALES */
 
-
-  .modal-overlay {
+.modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, .68);
   backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   display: none;
   justify-content: center;
   align-items: center;
@@ -1373,6 +1359,7 @@
   background: rgba(0, 0, 0, .62);
   border: 1px solid rgba(255, 255, 255, .15);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 18px 50px rgba(0, 0, 0, .75);
 }
 
@@ -1499,95 +1486,60 @@
   </footer>
 
   <script>
-    function setupModal(openId, modalId, closeId) {
-  const openBtn = document.getElementById(openId);
-  const modal = document.getElementById(modalId);
-  const closeBtn = document.getElementById(closeId);
+  function setupModal(openId, modalId, closeId) {
+    const openBtn = document.getElementById(openId);
+    const modal = document.getElementById(modalId);
+    const closeBtn = document.getElementById(closeId);
 
-  if (!openBtn || !modal || !closeBtn) return;
+    if (!openBtn || !modal || !closeBtn) return;
 
-  openBtn.onclick = () => {
-    modal.style.display = "flex";
-  };
+    openBtn.onclick = () => {
+      modal.style.display = "flex";
+    };
 
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-  };
-
-  modal.onclick = (event) => {
-    if (event.target === modal) {
+    closeBtn.onclick = () => {
       modal.style.display = "none";
+    };
+
+    modal.onclick = (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  }
+
+  setupModal(
+    "openLocationModal",
+    "locationModal",
+    "closeLocationModal"
+  );
+
+  setupModal(
+    "openHoursImageModal",
+    "hoursImageModal",
+    "closeHoursImageModal"
+  );
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.18
     }
-  };
-}
+  );
 
-setupModal(
-  "openLocationModal",
-  "locationModal",
-  "closeLocationModal"
-);
-
-setupModal(
-  "openHoursImageModal",
-  "hoursImageModal",
-  "closeHoursImageModal"
-);
-
-    menuButton.addEventListener("click", () => {
-      const menuIsOpen = mainNav.classList.toggle("open");
-
-      document.body.classList.toggle("menu-open", menuIsOpen);
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        menuIsOpen ? "true" : "false"
-      );
-
-      menuIcon.className = menuIsOpen
-        ? "fa-solid fa-xmark"
-        : "fa-solid fa-bars";
-    });
-
-    mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    document.addEventListener("click", (event) => {
-      const clickedInsideMenu = mainNav.contains(event.target);
-      const clickedMenuButton = menuButton.contains(event.target);
-
-      if (
-        mainNav.classList.contains("open") &&
-        !clickedInsideMenu &&
-        !clickedMenuButton
-      ) {
-        closeMenu();
-      }
-    });
-
-    window.addEventListener("scroll", updateHeader);
-    updateHeader();
-
-    const revealElements = document.querySelectorAll(".reveal");
-
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.18
-      }
-    );
-
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
-    });
-  </script>
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
+</script>
 
 </body>
 </html>
