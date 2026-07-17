@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Barra de Café para Eventos | Minimal Espresso</title>
+
+  <meta
+    name="description"
+    content="Barra de café para bodas, cumpleaños, eventos corporativos y celebraciones en Mexicali. Servicio profesional de Minimal Espresso."
+  >
+
+  <meta property="og:title" content="Barra de Café para Eventos | Minimal Espresso">
+  <meta property="og:description" content="Una experiencia de café preparada al momento para acompañar tus eventos.">
+  <meta property="og:image" content="https://minimalespresso.com/coffeebar08.jpeg">
+  <meta property="og:url" content="https://minimalespresso.com/barra-eventos.html">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=League+Spartan:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <style>
+    :root {
+      --black: #050505;
+      --white: #ffffff;
+      --gold: #d3b184;
+      --glass: rgba(8, 8, 8, 0.34);
+      --border: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: "League Spartan", system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+
+      min-height: 110px;
+      padding: 14px 42px 22px;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.82) 0%,
+          rgba(0, 0, 0, 0.42) 60%,
+          rgba(0, 0, 0, 0) 100%
+        );
+
+      transition:
+        background 0.3s ease,
+        backdrop-filter 0.3s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(5, 5, 5, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo-link {
+      display: inline-block;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .logo-main {
+      width: 150px;
+      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.72));
+    }
+
+    .nav {
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 22px 30px;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      opacity: 0.78;
+      white-space: nowrap;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      opacity: 1;
+    }
+
+    .nav a:hover {
+      transform: translateY(-1px);
+    }
+
+    .menu-button {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.05rem;
+    }
+
+    /* SECCIONES FOTOGRÁFICAS */
+
+    .story-section {
+      min-height: 100vh;
+      min-height: 100svh;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      padding: 145px 7vw 85px;
+
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .story-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.78) 0%,
+          rgba(0, 0, 0, 0.40) 42%,
+          rgba(0, 0, 0, 0.09) 72%,
+          rgba(0, 0, 0, 0.20) 100%
+        );
+    }
+
+    .story-section.align-right {
+      justify-content: flex-end;
+    }
+
+    .story-section.align-right::before {
+      background:
+        linear-gradient(
+          270deg,
+          rgba(0, 0, 0, 0.78) 0%,
+          rgba(0, 0, 0, 0.40) 42%,
+          rgba(0, 0, 0, 0.09) 72%,
+          rgba(0, 0, 0, 0.20) 100%
+        );
+    }
+
+    .story-section.centered {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .story-section.centered::before {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.58) 0%,
+          rgba(0, 0, 0, 0.24) 45%,
+          rgba(0, 0, 0, 0.70) 100%
+        );
+    }
+
+    .section-hero {
+      background-image: url("coffeebar08.jpeg");
+    }
+
+    .section-moment {
+      background-image: url("coffeebar18.jpeg");
+    }
+
+    .section-included {
+      background-image: url("coffeebar43.jpeg");
+    }
+
+    .section-personalized {
+      background-image: url("coffeebar44.jpeg");
+    }
+
+    .section-occasions {
+      background-image: url("coffeebar45.jpeg");
+    }
+
+    .section-closing {
+      background-image: url("coffeebar50.jpeg");
+    }
+
+    .story-card {
+      width: min(610px, 90vw);
+      padding: 42px 44px;
+
+      border: 1px solid var(--border);
+      border-radius: 34px;
+
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.36),
+        inset 0 1px rgba(255, 255, 255, 0.07);
+
+      opacity: 0;
+      transform: translateY(45px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+    }
+
+    .story-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .story-eyebrow {
+      display: block;
+      margin-bottom: 20px;
+
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+    }
+
+    .story-card h1,
+    .story-card h2 {
+      font-size: clamp(3.1rem, 6.4vw, 6.4rem);
+      line-height: 0.88;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+    }
+
+    .story-card h2 {
+      font-size: clamp(2.8rem, 5.4vw, 5.4rem);
+    }
+
+    .story-card p {
+      margin-top: 28px;
+      max-width: 540px;
+
+      font-family: "DM Sans", sans-serif;
+      font-size: 1.06rem;
+      font-weight: 500;
+      line-height: 1.75;
+
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .hero-card {
+      margin-top: 30px;
+    }
+
+    .hero-card h1 {
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      min-height: 58px;
+      padding: 0 34px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      border-radius: 999px;
+      text-decoration: none;
+
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.20em;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .primary-button {
+      background: #fff;
+      color: #050505;
+    }
+
+    .secondary-button {
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+
+    .primary-button:hover,
+    .secondary-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .secondary-button:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 28px;
+
+      display: grid;
+      gap: 15px;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 28px;
+
+      font-family: "DM Sans", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.5;
+
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .feature-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: -2px;
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    .occasion-list {
+      margin-top: 32px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .occasion-list span {
+      padding: 11px 16px;
+      border-radius: 999px;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.07);
+
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      z-index: 4;
+
+      transform: translateX(-50%);
+
+      color: rgba(255, 255, 255, 0.72);
+      text-decoration: none;
+
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+
+      animation: floatingArrow 1.8s ease-in-out infinite;
+    }
+
+    @keyframes floatingArrow {
+      0%,
+      100% {
+        transform: translate(-50%, 0);
+      }
+
+      50% {
+        transform: translate(-50%, 8px);
+      }
+    }
+
+    /* PAQUETES */
+
+    .pricing-section {
+      position: relative;
+      padding: 125px 7vw;
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(211, 177, 132, 0.12),
+          transparent 38%
+        ),
+        #050505;
+
+      overflow: hidden;
+    }
+
+    .pricing-container {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .pricing-heading {
+      max-width: 780px;
+      margin: 0 auto 65px;
+      text-align: center;
+    }
+
+    .pricing-heading span {
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+    }
+
+    .pricing-heading h2 {
+      margin-top: 18px;
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+
+    .pricing-heading p {
+      max-width: 670px;
+      margin: 25px auto 0;
+
+      font-family: "DM Sans", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.67);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .price-card {
+      padding: 42px;
+      border-radius: 32px;
+
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.075),
+          rgba(255, 255, 255, 0.025)
+        );
+
+      box-shadow: 0 30px 75px rgba(0, 0, 0, 0.25);
+    }
+
+    .price-card.featured {
+      border-color: rgba(211, 177, 132, 0.38);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(211, 177, 132, 0.14),
+          rgba(255, 255, 255, 0.03)
+        );
+    }
+
+    .price-label {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+    }
+
+    .price-card h3 {
+      margin-top: 16px;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 0.92;
+    }
+
+    .price-card-description {
+      min-height: 54px;
+      margin-top: 18px;
+
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.93rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .price-options {
+      margin-top: 34px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .price-row {
+      padding: 19px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .price-row:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .price-people {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.77);
+    }
+
+    .price-amount {
+      font-size: 1.6rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .included-panel {
+      margin-top: 28px;
+      padding: 42px;
+
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 50px;
+      align-items: start;
+
+      border-radius: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .included-panel h3 {
+      font-size: clamp(2.5rem, 4.4vw, 4.6rem);
+      line-height: 0.92;
+    }
+
+    .included-panel .feature-list {
+      margin-top: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 28px;
+    }
+
+    .menu-note {
+      margin-top: 36px;
+      padding: 27px 30px;
+
+      border-left: 3px solid var(--gold);
+      background: rgba(211, 177, 132, 0.07);
+
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .booking-panel {
+      margin-top: 80px;
+      padding: 65px 36px;
+
+      text-align: center;
+
+      border-radius: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.025)
+        );
+    }
+
+    .booking-panel h3 {
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      line-height: 0.9;
+    }
+
+    .booking-panel p {
+      max-width: 620px;
+      margin: 24px auto 34px;
+
+      font-family: "DM Sans", sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.67);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 100px 30px 45px;
+      text-align: center;
+      background: #050505;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-logo {
+      width: 130px;
+      opacity: 0.95;
+      margin: 0 auto 50px;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-info p {
+      font-family: "DM Sans", sans-serif;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.96rem;
+    }
+
+    .footer-info i {
+      width: 24px;
+      margin-right: 7px;
+    }
+
+    .footer-info a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-info a:hover {
+      color: #fff;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+      margin: 42px 0;
+    }
+
+    .social-icons a {
+      width: 56px;
+      height: 56px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      color: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      text-decoration: none;
+
+      transition:
+        color 0.28s ease,
+        background 0.28s ease,
+        transform 0.28s ease;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .social-icons i {
+      font-size: 1.35rem;
+    }
+
+    .footer-divider {
+      width: 90px;
+      height: 1px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-bottom {
+      color: rgba(255, 255, 255, 0.42);
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.82rem;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 980px) {
+      .site-header {
+        padding: 14px 24px 20px;
+      }
+
+      .logo-main {
+        width: 130px;
+      }
+
+      .nav {
+        gap: 16px 21px;
+      }
+
+      .nav a {
+        font-size: 0.66rem;
+        letter-spacing: 0.16em;
+      }
+
+      .story-section {
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+
+      .story-card {
+        width: min(570px, 86vw);
+      }
+
+      .included-panel {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+
+    /* MÓVIL */
+
+    @media (max-width: 720px) {
+      .site-header {
+        min-height: 92px;
+        padding: 10px 18px 14px;
+        align-items: flex-start;
+      }
+
+      .logo-main {
+        width: 116px;
+        margin-top: -4px;
+      }
+
+      .menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+        flex-shrink: 0;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 120;
+
+        width: min(84vw, 340px);
+        height: 100vh;
+        height: 100svh;
+
+        margin: 0;
+        padding: 115px 34px 40px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 28px;
+
+        background: rgba(5, 5, 5, 0.96);
+
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+
+        border-left: 1px solid rgba(255, 255, 255, 0.10);
+
+        transform: translateX(105%);
+        transition: transform 0.35s ease;
+      }
+
+      .nav.open {
+        transform: translateX(0);
+      }
+
+      .nav a {
+        font-size: 0.78rem;
+        letter-spacing: 0.20em;
+      }
+
+      .story-section,
+      .story-section.align-right {
+        min-height: 100svh;
+        padding: 135px 18px 65px;
+
+        align-items: flex-end;
+        justify-content: center;
+
+        background-attachment: scroll;
+      }
+
+      .story-section::before,
+      .story-section.align-right::before,
+      .story-section.centered::before {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.24) 0%,
+            rgba(0, 0, 0, 0.08) 32%,
+            rgba(0, 0, 0, 0.78) 74%,
+            rgba(0, 0, 0, 0.94) 100%
+          );
+      }
+
+      .story-card {
+        width: 100%;
+        padding: 29px 25px;
+        border-radius: 27px;
+
+        background: rgba(8, 8, 8, 0.39);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+      }
+
+      .story-card h1 {
+        font-size: clamp(3.1rem, 15vw, 4.35rem);
+      }
+
+      .story-card h2 {
+        font-size: clamp(2.75rem, 13vw, 4rem);
+      }
+
+      .story-card p {
+        margin-top: 21px;
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .story-eyebrow {
+        font-size: 0.66rem;
+        letter-spacing: 0.30em;
+        margin-bottom: 15px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .primary-button,
+      .secondary-button {
+        width: 100%;
+        min-height: 55px;
+        padding: 0 22px;
+        font-size: 0.74rem;
+      }
+
+      .feature-list {
+        gap: 12px;
+      }
+
+      .feature-list li {
+        font-size: 0.92rem;
+      }
+
+      .occasion-list {
+        gap: 8px;
+      }
+
+      .occasion-list span {
+        padding: 9px 13px;
+        font-size: 0.77rem;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+
+      .pricing-section {
+        padding: 92px 18px;
+      }
+
+      .pricing-heading {
+        margin-bottom: 44px;
+      }
+
+      .pricing-heading h2 {
+        font-size: clamp(3.2rem, 15vw, 4.7rem);
+      }
+
+      .pricing-heading p {
+        font-size: 0.95rem;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card {
+        padding: 30px 25px;
+        border-radius: 27px;
+      }
+
+      .price-card-description {
+        min-height: auto;
+      }
+
+      .included-panel {
+        padding: 30px 25px;
+        border-radius: 27px;
+      }
+
+      .included-panel .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-note {
+        padding: 22px;
+      }
+
+      .booking-panel {
+        margin-top: 55px;
+        padding: 48px 24px;
+        border-radius: 30px;
+      }
+
+      .booking-panel h3 {
+        font-size: clamp(3rem, 14vw, 4.4rem);
+      }
+
+      .footer {
+        padding: 80px 24px 36px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .story-card {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header" id="siteHeader">
+
+    <a href="index.html" class="logo-link" aria-label="Volver al inicio">
+      <img
+        src="logo-minimal-new.png"
+        class="logo-main"
+        alt="Minimal Espresso"
+      >
+    </a>
+
+    <button
+      class="menu-button"
+      id="menuButton"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html">INICIO</a>
+      <a href="Menu.png" target="_blank">MENÚ</a>
+      <a href="index.html#verano">ESPECIALES</a>
+      <a href="https://www.instagram.com/minimalespresso" target="_blank">INSTAGRAM</a>
+      <a href="index.html#ubicacion">UBICACIÓN</a>
+      <a href="index.html#horarios">HORARIOS</a>
+      <a href="barra-eventos.html" class="active">BARRA PARA EVENTOS</a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- 1. HERO -->
+
+    <section class="story-section section-hero">
+
+      <div class="story-card hero-card reveal">
+
+        <span class="story-eyebrow">
+          MINIMAL ESPRESSO · EVENTOS
+        </span>
+
+        <h1>Barra de Café para Eventos</h1>
+
+        <p>
+          Una experiencia de café preparada al momento para acompañar
+          celebraciones, reuniones y momentos especiales.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            class="primary-button"
+            href="https://wa.me/5216864310241?text=Hola%2C%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20la%20barra%20de%20caf%C3%A9%20para%20eventos."
+            target="_blank"
+          >
+            RESERVAR FECHA
+          </a>
+
+          <a class="secondary-button" href="#paquetes">
+            VER PAQUETES
+          </a>
+
+        </div>
+
+      </div>
+
+      <a class="scroll-indicator" href="#experiencia">
+        DESCUBRIR ↓
+      </a>
+
+    </section>
+
+    <!-- 2. PREPARACIÓN -->
+
+    <section
+      class="story-section section-moment align-right"
+      id="experiencia"
+    >
+
+      <div class="story-card reveal">
+
+        <span class="story-eyebrow">
+          PREPARADO AL MOMENTO
+        </span>
+
+        <h2>Cada bebida forma parte de la experiencia</h2>
+
+        <p>
+          Preparamos cada bebida durante el evento, cuidando la presentación,
+          el sabor y cada detalle del servicio para ofrecer una experiencia
+          especial a tus invitados.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- 3. TODO INCLUIDO -->
+
+    <section class="story-section section-included">
+
+      <div class="story-card reveal">
+
+        <span class="story-eyebrow">
+          SERVICIO COMPLETO
+        </span>
+
+        <h2>Nosotros nos encargamos de todo</h2>
+
+        <ul class="feature-list">
+          <li>Barista profesional</li>
+          <li>Equipo profesional</li>
+          <li>Montaje y desmontaje</li>
+          <li>Vasos, tapas y servilletas</li>
+          <li>Preparación de bebidas al momento</li>
+          <li>Menú seleccionado previamente</li>
+        </ul>
+
+      </div>
+
+    </section>
+
+    <!-- 4. PERSONALIZACIÓN -->
+
+    <section class="story-section section-personalized align-right">
+
+      <div class="story-card reveal">
+
+        <span class="story-eyebrow">
+          PERSONALIZACIÓN
+        </span>
+
+        <h2>Detalles creados para tu evento</h2>
+
+        <p>
+          Podemos incorporar etiquetas personalizadas en los vasos y colocar
+          el nombre o logotipo de tu celebración en el menú de bebidas.
+        </p>
+
+        <p>
+          Una presentación cuidada para integrar la barra de café con la
+          identidad visual de tu evento.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- 5. OCASIONES -->
+
+    <section class="story-section section-occasions">
+
+      <div class="story-card reveal">
+
+        <span class="story-eyebrow">
+          PARA CADA OCASIÓN
+        </span>
+
+        <h2>Una barra que se adapta a tu celebración</h2>
+
+        <p>
+          Diseñamos el servicio de acuerdo con el ambiente, número de invitados
+          y estilo de cada evento.
+        </p>
+
+        <div class="occasion-list">
+          <span>Bodas</span>
+          <span>Cumpleaños</span>
+          <span>Eventos corporativos</span>
+          <span>Reuniones privadas</span>
+          <span>Inauguraciones</span>
+          <span>Celebraciones especiales</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 6. CIERRE FOTOGRÁFICO -->
+
+    <section class="story-section section-closing centered">
+
+      <div class="story-card reveal">
+
+        <span class="story-eyebrow">
+          MINIMAL ESPRESSO
+        </span>
+
+        <h2>Haz del café parte de tu evento</h2>
+
+        <p>
+          Selecciona tus bebidas favoritas y permite que nosotros nos
+          encarguemos de preparar una experiencia memorable para tus invitados.
+        </p>
+
+        <div class="hero-actions" style="justify-content: center;">
+
+          <a
+            class="primary-button"
+            href="https://wa.me/5216864310241?text=Hola%2C%20me%20interesa%20cotizar%20la%20barra%20de%20caf%C3%A9%20para%20mi%20evento."
+            target="_blank"
+          >
+            SOLICITAR INFORMACIÓN
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PAQUETES -->
+
+    <section class="pricing-section" id="paquetes">
+
+      <div class="pricing-container">
+
+        <div class="pricing-heading">
+
+          <span>PAQUETES</span>
+
+          <h2>Barra de Café para Eventos</h2>
+
+          <p>
+            Nuestros paquetes incluyen el equipo, servicio y materiales
+            necesarios para instalar y operar la barra durante tu evento.
+          </p>
+
+        </div>
+
+        <div class="pricing-grid">
+
+          <!-- COFFEE BAR -->
+
+          <article class="price-card">
+
+            <span class="price-label">PAQUETE 01</span>
+
+            <h3>Coffee Bar</h3>
+
+            <p class="price-card-description">
+              Elige cinco bebidas de las secciones Café y Chai & Chocolate,
+              además de tres especiales de temporada.
+            </p>
+
+            <div class="price-options">
+
+              <div class="price-row">
+                <span class="price-people">35 personas</span>
+                <span class="price-amount">$2,800</span>
+              </div>
+
+              <div class="price-row">
+                <span class="price-people">50 personas</span>
+                <span class="price-amount">$3,750</span>
+              </div>
+
+            </div>
+
+          </article>
+
+          <!-- COFFEE BAR + MATCHA -->
+
+          <article class="price-card featured">
+
+            <span class="price-label">PAQUETE 02</span>
+
+            <h3>Coffee Bar & Matcha</h3>
+
+            <p class="price-card-description">
+              Una selección más amplia que permite integrar bebidas preparadas
+              con matcha ceremonial.
+            </p>
+
+            <div class="price-options">
+
+              <div class="price-row">
+                <span class="price-people">35 personas</span>
+                <span class="price-amount">$3,150</span>
+              </div>
+
+              <div class="price-row">
+                <span class="price-people">50 personas</span>
+                <span class="price-amount">$4,250</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+        <!-- INCLUYE -->
+
+        <div class="included-panel">
+
+          <div>
+            <span class="story-eyebrow">TODOS LOS PAQUETES</span>
+            <h3>¿Qué incluye?</h3>
+          </div>
+
+          <ul class="feature-list">
+            <li>2 horas de servicio</li>
+            <li>Barista profesional</li>
+            <li>Equipo profesional</li>
+            <li>Montaje y desmontaje</li>
+            <li>Vasos, tapas y servilletas</li>
+            <li>Preparación durante el evento</li>
+            <li>Selección previa de bebidas</li>
+            <li>Organización del área de servicio</li>
+          </ul>
+
+        </div>
+
+        <div class="menu-note">
+          Las bebidas se seleccionan previamente al evento. La disponibilidad
+          de la fecha se confirma directamente por WhatsApp. Servicios fuera de
+          la zona habitual pueden generar un costo adicional de traslado.
+        </div>
+
+        <!-- RESERVAR -->
+
+        <div class="booking-panel">
+
+          <h3>Reserva tu fecha</h3>
+
+          <p>
+            Escríbenos por WhatsApp con la fecha, ubicación y número aproximado
+            de invitados para ayudarte a elegir el paquete adecuado.
+          </p>
+
+          <a
+            class="primary-button"
+            href="https://wa.me/5216864310241?text=Hola%2C%20me%20interesa%20reservar%20la%20barra%20de%20caf%C3%A9.%20La%20fecha%20de%20mi%20evento%20es%3A%20"
+            target="_blank"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            RESERVAR POR WHATSAPP
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <a href="index.html">
+      <img
+        src="logo-minimal-new.png"
+        class="footer-logo"
+        alt="Minimal Espresso"
+      >
+    </a>
+
+    <div class="footer-info">
+
+      <p>
+        <i class="fa-solid fa-location-dot"></i>
+        Mexicali, Baja California
+      </p>
+
+      <p>
+        <i class="fa-solid fa-envelope"></i>
+
+        <a href="mailto:minimalespressomxli@gmail.com">
+          minimalespressomxli@gmail.com
+        </a>
+      </p>
+
+      <p>
+        <i class="fa-solid fa-globe"></i>
+
+        <a href="https://minimalespresso.com">
+          minimalespresso.com
+        </a>
+      </p>
+
+    </div>
+
+    <div class="social-icons">
+
+      <a
+        href="https://instagram.com/minimalespresso"
+        target="_blank"
+        aria-label="Instagram"
+      >
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a
+        href="https://www.facebook.com/share/18zBtcKrm5/?mibextid=wwXIfr"
+        target="_blank"
+        aria-label="Facebook"
+      >
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a
+        href="https://wa.me/5216864310241"
+        target="_blank"
+        aria-label="WhatsApp"
+      >
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      © 2026 Minimal Espresso · Todos los derechos reservados.
+    </div>
+
+  </footer>
+
+  <script>
+    const header = document.getElementById("siteHeader");
+    const menuButton = document.getElementById("menuButton");
+    const mainNav = document.getElementById("mainNav");
+    const menuIcon = menuButton.querySelector("i");
+
+    function updateHeader() {
+      header.classList.toggle("scrolled", window.scrollY > 30);
+    }
+
+    function closeMenu() {
+      mainNav.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuIcon.className = "fa-solid fa-bars";
+    }
+
+    menuButton.addEventListener("click", () => {
+      const menuIsOpen = mainNav.classList.toggle("open");
+
+      document.body.classList.toggle("menu-open", menuIsOpen);
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        menuIsOpen ? "true" : "false"
+      );
+
+      menuIcon.className = menuIsOpen
+        ? "fa-solid fa-xmark"
+        : "fa-solid fa-bars";
+    });
+
+    mainNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      const clickedInsideMenu = mainNav.contains(event.target);
+      const clickedMenuButton = menuButton.contains(event.target);
+
+      if (
+        mainNav.classList.contains("open") &&
+        !clickedInsideMenu &&
+        !clickedMenuButton
+      ) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("scroll", updateHeader);
+    updateHeader();
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
