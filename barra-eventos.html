@@ -198,8 +198,57 @@
   justify-content: flex-end;
 }
 
-.section-moment {
-  background-image: url("coffeebar18.jpeg");
+.section-experience {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 145px 7vw 85px;
+  background: #050505;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.section-experience::before {
+  display: none;
+}
+
+.experience-images {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  background: #050505;
+}
+
+.experience-image {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: #050505;
+}
+
+.experience-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: rgba(0, 0, 0, 0.20);
+}
+
+.section-experience .story-card {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .section-occasions {
@@ -1186,28 +1235,46 @@
 
     <!-- 2. PREPARACIÓN -->
 
-    <section
-      class="story-section section-moment align-right"
-      id="experiencia"
+<section
+  class="story-section section-experience centered"
+  id="experiencia"
+>
+
+  <div class="experience-images">
+
+    <img
+      src="coffeebar18.jpeg"
+      class="experience-image"
+      alt="Preparación de bebidas durante un evento"
     >
 
-      <div class="story-card reveal">
+    <img
+      src="coffeebar02.jpeg"
+      class="experience-image"
+      alt="Servicio de barra de café para eventos"
+    >
 
-        <span class="story-eyebrow">
-          PREPARADO AL MOMENTO
-        </span>
+  </div>
 
-        <h2>Cada bebida forma parte de la experiencia</h2>
+  <div class="experience-overlay"></div>
 
-        <p>
-          Preparamos cada bebida durante el evento, cuidando la presentación,
-          el sabor y cada detalle del servicio para ofrecer una experiencia
-          especial a tus invitados.
-        </p>
+  <div class="story-card reveal">
 
-      </div>
+    <span class="story-eyebrow">
+      PREPARADO AL MOMENTO
+    </span>
 
-    </section>
+    <h2>Cada bebida forma parte de la experiencia</h2>
+
+    <p>
+      Preparamos cada bebida durante el evento, cuidando la presentación,
+      el sabor y cada detalle del servicio para ofrecer una experiencia
+      especial a tus invitados.
+    </p>
+
+  </div>
+
+</section>
 
     <!-- 3. SERVICIO Y PERSONALIZACIÓN -->
 
