@@ -78,95 +78,53 @@
 
     /* HEADER */
 
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 95px;
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 42px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, .62),
+    rgba(0, 0, 0, 0)
+  );
+}
 
-      min-height: 110px;
-      padding: 14px 42px 22px;
+.logo-main {
+  width: 150px;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, .75));
+}
 
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 30px;
+.nav {
+  margin-top: 38px;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.82) 0%,
-          rgba(0, 0, 0, 0.42) 60%,
-          rgba(0, 0, 0, 0) 100%
-        );
+.nav a,
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .24em;
+  opacity: .78;
+  transition: .2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
 
-      transition:
-        background 0.3s ease,
-        backdrop-filter 0.3s ease;
-    }
-
-    .site-header.scrolled {
-      background: rgba(5, 5, 5, 0.82);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .logo-link {
-      display: inline-block;
-      flex-shrink: 0;
-      text-decoration: none;
-    }
-
-    .logo-main {
-      width: 150px;
-      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.72));
-    }
-
-    .nav {
-      margin-top: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px 30px;
-    }
-
-    .nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      opacity: 0.78;
-      white-space: nowrap;
-      transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .nav a:hover,
-    .nav a.active {
-      opacity: 1;
-    }
-
-    .nav a:hover {
-      transform: translateY(-1px);
-    }
-
-    .menu-button {
-      display: none;
-      width: 46px;
-      height: 46px;
-      padding: 0;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.2);
-      color: #fff;
-      cursor: pointer;
-      font-size: 1.05rem;
-    }
+.nav a:hover,
+.nav-item:hover {
+  opacity: 1;
+}
 
     /* SECCIONES FOTOGRÁFICAS */
 
@@ -804,65 +762,38 @@
 
     /* MÓVIL */
 
-    @media (max-width: 720px) {
-      .site-header {
-        min-height: 92px;
-        padding: 10px 18px 14px;
-        align-items: flex-start;
-      }
+    .site-header {
+  height: auto;
+  padding: 18px 22px 16px;
+  align-items: flex-start;
+  gap: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, .72),
+    rgba(0, 0, 0, 0)
+  );
+}
 
-      .logo-main {
-        width: 116px;
-        margin-top: -4px;
-      }
+.logo-main {
+  width: 118px;
+  flex-shrink: 0;
+  margin-top: -8px;
+}
 
-      .menu-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 8px;
-        flex-shrink: 0;
-      }
+.nav {
+  margin-top: 14px;
+  gap: 12px 18px;
+  max-width: 230px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  line-height: 1.4;
+}
 
-      .nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 120;
-
-        width: min(84vw, 340px);
-        height: 100vh;
-        height: 100svh;
-
-        margin: 0;
-        padding: 115px 34px 40px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        gap: 28px;
-
-        background: rgba(5, 5, 5, 0.96);
-
-        backdrop-filter: blur(22px);
-        -webkit-backdrop-filter: blur(22px);
-
-        border-left: 1px solid rgba(255, 255, 255, 0.10);
-
-        transform: translateX(105%);
-        transition: transform 0.35s ease;
-      }
-
-      .nav.open {
-        transform: translateX(0);
-      }
-
-      .nav a {
-        font-size: 0.78rem;
-        letter-spacing: 0.20em;
-      }
+.nav a,
+.nav-item {
+  font-size: .60rem;
+  letter-spacing: .16em;
+}
 
       .story-section,
       .story-section.align-right {
@@ -1032,36 +963,33 @@
 
 <body>
 
-  <header class="site-header" id="siteHeader">
+  <header class="site-header">
+  <img
+    src="logo-minimal-new.png"
+    class="logo-main"
+    alt="Minimal Espresso"
+  >
 
-    <a href="index.html" class="logo-link" aria-label="Volver al inicio">
-      <img
-        src="logo-minimal-new.png"
-        class="logo-main"
-        alt="Minimal Espresso"
-      >
-    </a>
-
-    <button
-      class="menu-button"
-      id="menuButton"
-      type="button"
-      aria-label="Abrir menú"
-      aria-expanded="false"
+  <nav class="nav">
+    <a href="index.html">INICIO</a>
+    <a href="Menu.png" target="_blank">MENÚ</a>
+    <a
+      href="https://www.instagram.com/minimalespresso"
+      target="_blank"
     >
-      <i class="fa-solid fa-bars"></i>
-    </button>
-
-    <nav class="nav" id="mainNav">
-      <a href="index.html">INICIO</a>
-      <a href="Menu.png" target="_blank">MENÚ</a>
-      <a href="https://www.instagram.com/minimalespresso" target="_blank">INSTAGRAM</a>
-      <a href="https://maps.app.goo.gl/65gQ7SdWRzwDjCSt9" target="_blank">UBICACIÓN</a>
-      <a href="Horarios.png" target="_blank">HORARIOS</a>
-      <a href="barra-eventos.html" class="active">BARRA PARA EVENTOS</a>
-    </nav>
-
-  </header>
+      INSTAGRAM
+    </a>
+    <div class="nav-item" id="openLocationModal">
+      UBICACIÓN
+    </div>
+    <div class="nav-item" id="openHoursImageModal">
+      HORARIOS
+    </div>
+    <a href="barra-eventos.html">
+      BARRA PARA EVENTOS
+    </a>
+  </nav>
+</header>
 
   <main>
 
@@ -1382,6 +1310,121 @@
 
   </main>
 
+
+  <div class="modal-overlay" id="locationModal">
+  <div class="modal modal-wide">
+    <h2>Ubicación</h2>
+
+    <iframe
+      class="map-frame"
+      src="https://www.google.com/maps?q=Minimal%20Espresso%20Mexicali&output=embed"
+      loading="lazy"
+    ></iframe>
+
+    <a
+      class="map-button"
+      href="https://maps.app.goo.gl/65gQ7SdWRzwDjCSt9"
+      target="_blank"
+    >
+      ABRIR GOOGLE MAPS
+    </a>
+
+    <div class="close-btn" id="closeLocationModal">
+      Cerrar
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="hoursImageModal">
+  <div class="modal modal-wide">
+    <h2>Horarios</h2>
+
+    <img
+      src="Horarios.png"
+      class="modal-image"
+      alt="Horarios Minimal Espresso"
+    >
+
+    <div class="close-btn" id="closeHoursImageModal">
+      Cerrar
+    </div>
+  </div>
+</div>
+
+
+  .modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .68);
+  backdrop-filter: blur(7px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 22px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 430px;
+  padding: 26px 28px;
+  border-radius: 22px;
+  text-align: center;
+  background: rgba(0, 0, 0, .62);
+  border: 1px solid rgba(255, 255, 255, .15);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .75);
+}
+
+.modal-wide {
+  max-width: 720px;
+}
+
+.modal h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.map-frame {
+  width: 100%;
+  height: 340px;
+  border: 0;
+  border-radius: 18px;
+  margin-top: 8px;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 18px;
+  margin-top: 8px;
+}
+
+.map-button {
+  display: inline-flex;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: #fff;
+  color: #050505;
+  text-decoration: none;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.close-btn {
+  display: inline-flex;
+  margin-top: 18px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .18);
+  cursor: pointer;
+  font-size: .85rem;
+}
+  
   <!-- FOOTER -->
 
   <footer class="footer">
@@ -1456,21 +1499,39 @@
   </footer>
 
   <script>
-    const header = document.getElementById("siteHeader");
-    const menuButton = document.getElementById("menuButton");
-    const mainNav = document.getElementById("mainNav");
-    const menuIcon = menuButton.querySelector("i");
+    function setupModal(openId, modalId, closeId) {
+  const openBtn = document.getElementById(openId);
+  const modal = document.getElementById(modalId);
+  const closeBtn = document.getElementById(closeId);
 
-    function updateHeader() {
-      header.classList.toggle("scrolled", window.scrollY > 30);
-    }
+  if (!openBtn || !modal || !closeBtn) return;
 
-    function closeMenu() {
-      mainNav.classList.remove("open");
-      document.body.classList.remove("menu-open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuIcon.className = "fa-solid fa-bars";
+  openBtn.onclick = () => {
+    modal.style.display = "flex";
+  };
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  modal.onclick = (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
     }
+  };
+}
+
+setupModal(
+  "openLocationModal",
+  "locationModal",
+  "closeLocationModal"
+);
+
+setupModal(
+  "openHoursImageModal",
+  "hoursImageModal",
+  "closeHoursImageModal"
+);
 
     menuButton.addEventListener("click", () => {
       const menuIsOpen = mainNav.classList.toggle("open");
