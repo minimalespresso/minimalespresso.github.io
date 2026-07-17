@@ -13,7 +13,7 @@
 
   <meta property="og:title" content="Barra de Café para Eventos | Minimal Espresso">
   <meta property="og:description" content="Una experiencia de café preparada al momento para acompañar tus eventos.">
-  <meta property="og:image" content="https://minimalespresso.com/coffeebar08.jpeg">
+  <meta property="og:image" content="https://minimalespresso.com/coffeebar43.jpeg">
   <meta property="og:url" content="https://minimalespresso.com/barra-eventos.html">
   <meta property="og:type" content="website">
 
@@ -194,28 +194,72 @@
     }
 
     .section-hero {
-      background-image: url("coffeebar08.jpeg");
-    }
+  background-image: url("coffeebar43.jpeg");
+}
 
-    .section-moment {
-      background-image: url("coffeebar18.jpeg");
-    }
+.section-moment {
+  background-image: url("coffeebar18.jpeg");
+}
 
-    .section-included {
-      background-image: url("coffeebar43.jpeg");
-    }
+.section-occasions {
+  background-image: url("coffeebar42.jpeg");
+}
 
-    .section-personalized {
-      background-image: url("coffeebar44.jpeg");
-    }
+/* SECCIÓN DOBLE 44 Y 45 */
 
-    .section-occasions {
-      background-image: url("coffeebar45.jpeg");
-    }
+.double-photo-section {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: #050505;
+}
 
-    .section-closing {
-      background-image: url("coffeebar50.jpeg");
-    }
+.double-photo-panel {
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 145px 5vw 85px;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.double-photo-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, .18) 0%,
+    rgba(0, 0, 0, .20) 40%,
+    rgba(0, 0, 0, .76) 100%
+  );
+}
+
+.double-photo-panel:first-child {
+  background-image: url("coffeebar44.jpeg");
+  justify-content: flex-start;
+}
+
+.double-photo-panel:last-child {
+  background-image: url("coffeebar45.jpeg");
+  justify-content: flex-end;
+}
+
+.double-photo-panel .story-card {
+  width: min(540px, 100%);
+}
 
     .story-card {
       width: min(610px, 90vw);
@@ -629,8 +673,109 @@
       color: rgba(255, 255, 255, 0.67);
     }
 
-    /* FOOTER */
 
+    /* MODALES */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 22px;
+
+  background: rgba(0, 0, 0, 0.68);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.modal {
+  width: 100%;
+  max-width: 430px;
+  padding: 26px 28px;
+
+  text-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+
+  background: rgba(0, 0, 0, 0.62);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.75);
+}
+
+.modal-wide {
+  max-width: 720px;
+}
+
+.modal h2 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.map-frame {
+  width: 100%;
+  height: 340px;
+  margin-top: 8px;
+
+  border: 0;
+  border-radius: 18px;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 75vh;
+  margin-top: 8px;
+
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.map-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 16px;
+  padding: 10px 20px;
+
+  color: #050505;
+  background: #ffffff;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 18px;
+  padding: 10px 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* FOOTER */
+    
     .footer {
       padding: 100px 30px 45px;
       text-align: center;
@@ -922,6 +1067,27 @@
   .footer {
     padding: 80px 24px 36px;
   }
+
+  .double-photo-section {
+  display: block;
+  min-height: auto;
+}
+
+.double-photo-panel {
+  min-height: 100svh;
+  padding: 135px 18px 65px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.double-photo-panel:first-child,
+.double-photo-panel:last-child {
+  justify-content: center;
+}
+
+.double-photo-panel .story-card {
+  width: 100%;
+}
 }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1043,119 +1209,88 @@
 
     </section>
 
-    <!-- 3. TODO INCLUIDO -->
+    <!-- 3. SERVICIO Y PERSONALIZACIÓN -->
 
-    <section class="story-section section-included">
+<section class="double-photo-section">
 
-      <div class="story-card reveal">
+  <div class="double-photo-panel">
 
-        <span class="story-eyebrow">
-          SERVICIO COMPLETO
-        </span>
+    <div class="story-card reveal">
 
-        <h2>Nosotros nos encargamos de todo</h2>
+      <span class="story-eyebrow">
+        SERVICIO COMPLETO
+      </span>
 
-        <ul class="feature-list">
-          <li>Barista profesional</li>
-          <li>Equipo profesional</li>
-          <li>Montaje y desmontaje</li>
-          <li>Vasos, tapas y servilletas</li>
-          <li>Preparación de bebidas al momento</li>
-          <li>Menú seleccionado previamente</li>
-        </ul>
+      <h2>Nosotros nos encargamos de todo</h2>
 
-      </div>
+      <ul class="feature-list">
+        <li>Barista profesional</li>
+        <li>Equipo profesional</li>
+        <li>Montaje y desmontaje</li>
+        <li>Vasos, tapas y servilletas</li>
+        <li>Preparación de bebidas al momento</li>
+        <li>Menú seleccionado previamente</li>
+      </ul>
 
-    </section>
+    </div>
 
-    <!-- 4. PERSONALIZACIÓN -->
+  </div>
 
-    <section class="story-section section-personalized align-right">
+  <div class="double-photo-panel">
 
-      <div class="story-card reveal">
+    <div class="story-card reveal">
 
-        <span class="story-eyebrow">
-          PERSONALIZACIÓN
-        </span>
+      <span class="story-eyebrow">
+        PERSONALIZACIÓN
+      </span>
 
-        <h2>Detalles creados para tu evento</h2>
+      <h2>Detalles creados para tu evento</h2>
 
-        <p>
-          Podemos incorporar etiquetas personalizadas en los vasos y colocar
-          el nombre o logotipo de tu celebración en el menú de bebidas.
-        </p>
+      <p>
+        Podemos incorporar etiquetas personalizadas en los vasos y colocar
+        el nombre o logotipo de tu celebración en el menú de bebidas.
+      </p>
 
-        <p>
-          Una presentación cuidada para integrar la barra de café con la
-          identidad visual de tu evento.
-        </p>
+      <p>
+        Una presentación cuidada para integrar la barra de café con la
+        identidad visual de tu evento.
+      </p>
 
-      </div>
+    </div>
 
-    </section>
+  </div>
 
-    <!-- 5. OCASIONES -->
+</section>
 
-    <section class="story-section section-occasions">
+<!-- 4. OCASIONES -->
 
-      <div class="story-card reveal">
+<section class="story-section section-occasions">
 
-        <span class="story-eyebrow">
-          PARA CADA OCASIÓN
-        </span>
+  <div class="story-card reveal">
 
-        <h2>Una barra que se adapta a tu celebración</h2>
+    <span class="story-eyebrow">
+      PARA CADA OCASIÓN
+    </span>
 
-        <p>
-          Diseñamos el servicio de acuerdo con el ambiente, número de invitados
-          y estilo de cada evento.
-        </p>
+    <h2>Una barra que se adapta a tu celebración</h2>
 
-        <div class="occasion-list">
-          <span>Bodas</span>
-          <span>Cumpleaños</span>
-          <span>Eventos corporativos</span>
-          <span>Reuniones privadas</span>
-          <span>Inauguraciones</span>
-          <span>Celebraciones especiales</span>
-        </div>
+    <p>
+      Diseñamos el servicio de acuerdo con el ambiente, número de invitados
+      y estilo de cada evento.
+    </p>
 
-      </div>
+    <div class="occasion-list">
+      <span>Bodas</span>
+      <span>Cumpleaños</span>
+      <span>Eventos corporativos</span>
+      <span>Reuniones privadas</span>
+      <span>Inauguraciones</span>
+      <span>Celebraciones especiales</span>
+    </div>
 
-    </section>
+  </div>
 
-    <!-- 6. CIERRE FOTOGRÁFICO -->
-
-    <section class="story-section section-closing centered">
-
-      <div class="story-card reveal">
-
-        <span class="story-eyebrow">
-          MINIMAL ESPRESSO
-        </span>
-
-        <h2>Haz del café parte de tu evento</h2>
-
-        <p>
-          Selecciona tus bebidas favoritas y permite que nosotros nos
-          encarguemos de preparar una experiencia memorable para tus invitados.
-        </p>
-
-        <div class="hero-actions" style="justify-content: center;">
-
-          <a
-            class="primary-button"
-            href="https://wa.me/5216864310241?text=Hola%2C%20me%20interesa%20cotizar%20la%20barra%20de%20caf%C3%A9%20para%20mi%20evento."
-            target="_blank"
-          >
-            SOLICITAR INFORMACIÓN
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
+</section>
 
     <!-- PAQUETES -->
 
@@ -1291,199 +1426,143 @@
       </div>
 
     </section>
+</main>
 
-  </main>
+<!-- MODAL DE UBICACIÓN -->
 
-
-  <div class="modal-overlay" id="locationModal">
+<div class="modal-overlay" id="locationModal">
   <div class="modal modal-wide">
+
     <h2>Ubicación</h2>
 
     <iframe
       class="map-frame"
       src="https://www.google.com/maps?q=Minimal%20Espresso%20Mexicali&output=embed"
       loading="lazy"
+      title="Ubicación de Minimal Espresso"
     ></iframe>
 
     <a
       class="map-button"
       href="https://maps.app.goo.gl/65gQ7SdWRzwDjCSt9"
       target="_blank"
+      rel="noopener noreferrer"
     >
       ABRIR GOOGLE MAPS
     </a>
 
-    <div class="close-btn" id="closeLocationModal">
+    <div
+      class="close-btn"
+      id="closeLocationModal"
+      role="button"
+      tabindex="0"
+    >
       Cerrar
     </div>
+
   </div>
 </div>
 
+<!-- MODAL DE HORARIOS -->
+
 <div class="modal-overlay" id="hoursImageModal">
   <div class="modal modal-wide">
+
     <h2>Horarios</h2>
 
     <img
       src="Horarios.png"
       class="modal-image"
-      alt="Horarios Minimal Espresso"
+      alt="Horarios de Minimal Espresso"
     >
 
-    <div class="close-btn" id="closeHoursImageModal">
+    <div
+      class="close-btn"
+      id="closeHoursImageModal"
+      role="button"
+      tabindex="0"
+    >
       Cerrar
     </div>
+
   </div>
 </div>
-  
-/* MODALES */
 
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, .68);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-  padding: 22px;
-}
+<!-- FOOTER -->
 
-.modal {
-  width: 100%;
-  max-width: 430px;
-  padding: 26px 28px;
-  border-radius: 22px;
-  text-align: center;
-  background: rgba(0, 0, 0, .62);
-  border: 1px solid rgba(255, 255, 255, .15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, .75);
-}
+<footer class="footer">
 
-.modal-wide {
-  max-width: 720px;
-}
+  <a href="index.html">
+    <img
+      src="logo-minimal-new.png"
+      class="footer-logo"
+      alt="Minimal Espresso"
+    >
+  </a>
 
-.modal h2 {
-  font-size: 1.2rem;
-  margin-bottom: 16px;
-}
+  <div class="footer-info">
 
-.map-frame {
-  width: 100%;
-  height: 340px;
-  border: 0;
-  border-radius: 18px;
-  margin-top: 8px;
-}
+    <p>
+      <i class="fa-solid fa-location-dot"></i>
+      Mexicali, Baja California
+    </p>
 
-.modal-image {
-  width: 100%;
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: 18px;
-  margin-top: 8px;
-}
+    <p>
+      <i class="fa-solid fa-envelope"></i>
 
-.map-button {
-  display: inline-flex;
-  margin-top: 16px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: #fff;
-  color: #050505;
-  text-decoration: none;
-  font-size: .8rem;
-  font-weight: 800;
-  letter-spacing: .14em;
-}
+      <a href="mailto:minimalespressomxli@gmail.com">
+        minimalespressomxli@gmail.com
+      </a>
+    </p>
 
-.close-btn {
-  display: inline-flex;
-  margin-top: 18px;
-  padding: 10px 22px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .12);
-  border: 1px solid rgba(255, 255, 255, .18);
-  cursor: pointer;
-  font-size: .85rem;
-}
-  
-  <!-- FOOTER -->
+    <p>
+      <i class="fa-solid fa-globe"></i>
 
-  <footer class="footer">
+      <a href="https://minimalespresso.com">
+        minimalespresso.com
+      </a>
+    </p>
 
-    <a href="index.html">
-      <img
-        src="logo-minimal-new.png"
-        class="footer-logo"
-        alt="Minimal Espresso"
-      >
+  </div>
+
+  <div class="social-icons">
+
+    <a
+      href="https://www.instagram.com/minimalespresso"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+    >
+      <i class="fa-brands fa-instagram"></i>
     </a>
 
-    <div class="footer-info">
+    <a
+      href="https://www.facebook.com/share/18zBtcKrm5/?mibextid=wwXIfr"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+    >
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
 
-      <p>
-        <i class="fa-solid fa-location-dot"></i>
-        Mexicali, Baja California
-      </p>
+    <a
+      href="https://wa.me/5216864310241"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-      <p>
-        <i class="fa-solid fa-envelope"></i>
+  </div>
 
-        <a href="mailto:minimalespressomxli@gmail.com">
-          minimalespressomxli@gmail.com
-        </a>
-      </p>
+  <div class="footer-divider"></div>
 
-      <p>
-        <i class="fa-solid fa-globe"></i>
+  <div class="footer-bottom">
+    © 2026 Minimal Espresso · Todos los derechos reservados.
+  </div>
 
-        <a href="https://minimalespresso.com">
-          minimalespresso.com
-        </a>
-      </p>
-
-    </div>
-
-    <div class="social-icons">
-
-      <a
-        href="https://instagram.com/minimalespresso"
-        target="_blank"
-        aria-label="Instagram"
-      >
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-
-      <a
-        href="https://www.facebook.com/share/18zBtcKrm5/?mibextid=wwXIfr"
-        target="_blank"
-        aria-label="Facebook"
-      >
-        <i class="fa-brands fa-facebook-f"></i>
-      </a>
-
-      <a
-        href="https://wa.me/5216864310241"
-        target="_blank"
-        aria-label="WhatsApp"
-      >
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-
-    </div>
-
-    <div class="footer-divider"></div>
-
-    <div class="footer-bottom">
-      © 2026 Minimal Espresso · Todos los derechos reservados.
-    </div>
-
-  </footer>
+</footer>
 
   <script>
   function setupModal(openId, modalId, closeId) {
