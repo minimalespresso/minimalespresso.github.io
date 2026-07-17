@@ -809,7 +809,7 @@
       <a href="https://www.instagram.com/minimalespresso" target="_blank">INSTAGRAM</a>
       <div class="nav-item" id="openLocationModal">UBICACIÓN</div>
       <div class="nav-item" id="openHoursImageModal">HORARIOS</div>
-      <div class="nav-item" id="openEventsModal">BARRA PARA EVENTOS</div>
+      <a href="barra-eventos.html">BARRA PARA EVENTOS</a>
     </nav>
   </header>
 
@@ -963,14 +963,6 @@
     </div>
   </div>
 
-  <div class="modal-overlay" id="eventsModal">
-    <div class="modal">
-      <h2>Barra para Eventos</h2>
-      <p class="events-soon">Próximamente...</p>
-      <div class="close-btn" id="closeEventsModal">Cerrar</div>
-    </div>
-  </div>
-
   <script>
     function setupModal(openId, modalId, closeId) {
       const openBtn = document.getElementById(openId);
@@ -989,7 +981,6 @@
 
     setupModal("openLocationModal", "locationModal", "closeLocationModal");
     setupModal("openHoursImageModal", "hoursImageModal", "closeHoursImageModal");
-    setupModal("openEventsModal", "eventsModal", "closeEventsModal");
   </script>
 
 </body>
