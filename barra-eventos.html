@@ -195,6 +195,7 @@
 
     .section-hero {
   background-image: url("coffeebar43.jpeg");
+  justify-content: flex-end;
 }
 
 .section-moment {
@@ -325,8 +326,9 @@
     }
 
     .hero-card {
-      margin-top: 30px;
-    }
+  margin-top: 30px;
+  border-radius: 0;
+}
 
     .hero-card h1 {
       max-width: 580px;
@@ -433,33 +435,45 @@
     }
 
     .scroll-indicator {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      z-index: 4;
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  z-index: 4;
 
-      transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 
-      color: rgba(255, 255, 255, 0.72);
-      text-decoration: none;
+  transform: translateX(-50%);
 
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
 
-      animation: floatingArrow 1.8s ease-in-out infinite;
-    }
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
 
-    @keyframes floatingArrow {
-      0%,
-      100% {
-        transform: translate(-50%, 0);
-      }
+  animation: floatingArrow 1.8s ease-in-out infinite;
+}
 
-      50% {
-        transform: translate(-50%, 8px);
-      }
-    }
+.scroll-indicator::after {
+  content: "";
+  width: 1px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+@keyframes floatingArrow {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
 
     /* PAQUETES */
 
