@@ -1272,8 +1272,21 @@
   }
 
   .scroll-indicator {
-    display: none;
-  }
+  display: block;
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-decoration: none;
+
+  animation: floatDown 1.8s ease-in-out infinite;
+}
 
   .pricing-section {
     padding: 92px 18px;
