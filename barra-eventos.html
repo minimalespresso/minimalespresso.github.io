@@ -249,8 +249,41 @@
   text-align: center;
 }
 
-.section-occasions {
+.personalization-section {
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+  background: #050505;
+  overflow: hidden;
+}
+
+.personalization-content {
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 145px 4vw 85px;
+  background: #050505;
+}
+
+.personalization-content .story-card {
+  width: min(560px, 100%);
+}
+
+.personalization-image {
+  min-height: 100vh;
+  min-height: 100svh;
+
   background-image: url("coffeebar42.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* SECCIÓN SERVICIO COMPLETO CON GALERÍA */
@@ -947,6 +980,26 @@
     /* MÓVIL: MISMO HEADER QUE INDEX */
 
 @media (max-width: 900px) {
+
+  .personalization-section {
+  min-height: auto;
+  display: block;
+}
+
+.personalization-content {
+  min-height: auto;
+  padding: 90px 18px;
+}
+
+.personalization-content .story-card {
+  width: 100%;
+}
+
+.personalization-image {
+  min-height: 75svh;
+  background-attachment: scroll;
+}
+  
   .site-header {
     height: auto;
     padding: 18px 22px 16px;
@@ -1339,7 +1392,43 @@
 
 </section>
 
-<!-- 4. OCASIONES -->
+    <!-- 4. PERSONALIZACIÓN -->
+
+<section class="personalization-section">
+
+  <div class="personalization-content">
+
+    <div class="story-card reveal">
+
+      <span class="story-eyebrow">
+        PERSONALIZACIÓN
+      </span>
+
+      <h2>Detalles creados para tu evento</h2>
+
+      <p>
+        Podemos incorporar etiquetas personalizadas en los vasos y colocar
+        el nombre o logotipo de tu celebración en el menú de bebidas.
+      </p>
+
+      <p>
+        Una presentación cuidada para integrar la barra de café con la
+        identidad visual de tu evento.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div
+    class="personalization-image"
+    role="img"
+    aria-label="Personalización de barra de café para eventos"
+  ></div>
+
+</section>
+
+<!-- 5. OCASIONES -->
 
 <section class="story-section section-occasions">
 
