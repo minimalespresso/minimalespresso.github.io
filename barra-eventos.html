@@ -259,23 +259,20 @@
 
   display: grid;
   grid-template-columns: 40% 60%;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 
   background: #050505;
   overflow: hidden;
 }
 
-.combined-service-content {
-  min-height: 100vh;
-  min-height: 100svh;
+.combined-text-panel {
+  min-height: 50vh;
 
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  grid-template-rows: repeat(2,1fr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  gap: 0;
-}
-
-  padding: 120px 4vw 80px;
+  padding: 65px 4vw;
 
   background:
     radial-gradient(
@@ -291,24 +288,42 @@
     );
 }
 
-.combined-service-content .story-card {
+.combined-text-panel.service-panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.combined-text-panel.personalization-panel {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.combined-text-panel .story-card {
   width: min(560px, 100%);
   padding: 34px 36px;
 }
 
-.combined-service-content .story-card h2 {
+.combined-text-panel .story-card h2 {
   font-size: clamp(2.5rem, 4vw, 4.6rem);
 }
 
-.combined-gallery {
-  min-height: 100vh;
-  min-height: 100svh;
+.combined-gallery-row {
+  min-height: 50vh;
 
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
 
   background: #050505;
+}
+
+.combined-gallery-row.top-gallery {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.combined-gallery-row.bottom-gallery {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .combined-gallery-image {
@@ -319,22 +334,6 @@
 
   object-fit: cover;
   object-position: center;
-}
-
-    .combined-service-content .story-card:first-child{
-    grid-column:1;
-    grid-row:1;
-    align-self:center;
-    justify-self:center;
-    width:min(520px,90%);
-}
-
-.combined-service-content .story-card:last-child{
-    grid-column:2;
-    grid-row:2;
-    align-self:center;
-    justify-self:center;
-    width:min(520px,90%);
 }
     .story-card {
       width: min(610px, 90vw);
@@ -980,32 +979,44 @@
   
 .combined-service-section {
   min-height: auto;
-  display: block;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.combined-service-content {
+.combined-text-panel {
   min-height: auto;
   padding: 90px 18px;
-  gap: 24px;
 }
 
-.combined-service-content .story-card {
+.combined-text-panel.service-panel {
+  order: 1;
+}
+
+.combined-gallery-row.top-gallery {
+  order: 2;
+}
+
+.combined-gallery-row.bottom-gallery {
+  order: 3;
+}
+
+.combined-text-panel.personalization-panel {
+  order: 4;
+}
+
+.combined-text-panel .story-card {
   width: 100%;
   padding: 29px 25px;
 }
 
-.combined-service-content .story-card h2 {
+.combined-text-panel .story-card h2 {
   font-size: clamp(2.75rem, 13vw, 4rem);
 }
 
-.combined-gallery{
-    min-height:100vh;
-    min-height:100svh;
-
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    grid-template-rows:repeat(2,minmax(0,1fr));
-    gap:0;
+.combined-gallery-row {
+  min-height: 0;
+  height: 62vw;
 }
 
 .combined-gallery-image {
@@ -1332,7 +1343,9 @@
 
 <section class="combined-service-section">
 
-  <div class="combined-service-content">
+  <!-- ARRIBA IZQUIERDA: SERVICIO COMPLETO -->
+
+  <div class="combined-text-panel service-panel">
 
     <div class="story-card reveal">
 
@@ -1353,6 +1366,48 @@
 
     </div>
 
+  </div>
+
+  <!-- ARRIBA DERECHA: DOS FOTOS -->
+
+  <div class="combined-gallery-row top-gallery">
+
+    <img
+      src="coffeebar44.jpeg"
+      class="combined-gallery-image"
+      alt="Servicio de barra de café en evento"
+    >
+
+    <img
+      src="coffeebar45.jpeg"
+      class="combined-gallery-image"
+      alt="Preparación de café durante un evento"
+    >
+
+  </div>
+
+  <!-- ABAJO IZQUIERDA: DOS FOTOS -->
+
+  <div class="combined-gallery-row bottom-gallery">
+
+    <img
+      src="coffeebar48.jpeg"
+      class="combined-gallery-image"
+      alt="Experiencia de barra de café"
+    >
+
+    <img
+      src="coffeebar42.jpeg"
+      class="combined-gallery-image"
+      alt="Personalización de barra de café para eventos"
+    >
+
+  </div>
+
+  <!-- ABAJO DERECHA: PERSONALIZACIÓN -->
+
+  <div class="combined-text-panel personalization-panel">
+
     <div class="story-card reveal">
 
       <span class="story-eyebrow">
@@ -1372,34 +1427,6 @@
       </p>
 
     </div>
-
-  </div>
-
-  <div class="combined-gallery">
-
-    <img
-      src="coffeebar44.jpeg"
-      class="combined-gallery-image"
-      alt="Servicio de barra de café en evento"
-    >
-
-    <img
-      src="coffeebar45.jpeg"
-      class="combined-gallery-image"
-      alt="Preparación de café durante un evento"
-    >
-
-    <img
-      src="coffeebar48.jpeg"
-      class="combined-gallery-image"
-      alt="Experiencia de barra de café"
-    >
-
-    <img
-      src="coffeebar42.jpeg"
-      class="combined-gallery-image"
-      alt="Personalización de barra de café para eventos"
-    >
 
   </div>
 
