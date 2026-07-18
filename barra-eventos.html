@@ -217,10 +217,13 @@
   );
 }
 
-.section-hero .story-card,
-.section-hero .scroll-indicator {
+.section-hero .story-card {
   position: relative;
   z-index: 3;
+}
+
+.section-hero .scroll-indicator {
+  z-index: 10;
 }
 
 .section-experience {
@@ -604,17 +607,20 @@
     }
 
     .scroll-indicator {
-  position: absolute;
-  bottom: 34px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 4;
-  color: rgba(255, 255, 255, .58);
-  font-size: .75rem;
-  letter-spacing: .24em;
-  text-decoration: none;
-  animation: floatDown 1.8s ease-in-out infinite;
-}
+      position: absolute;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-decoration: none;
+    
+      animation: floatDown 1.8s ease-in-out infinite;
+    }
 
 @keyframes floatDown {
   0%,
@@ -1273,19 +1279,8 @@
 
   .scroll-indicator {
   display: block;
-  position: absolute;
   bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 10;
-
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.24em;
-  text-decoration: none;
-
-  animation: floatDown 1.8s ease-in-out infinite;
 }
 
   .pricing-section {
