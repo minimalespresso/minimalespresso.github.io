@@ -253,7 +253,7 @@
   text-align: center;
 }
 
-.personalization-section {
+.combined-service-section {
   min-height: 100vh;
   min-height: 100svh;
 
@@ -264,15 +264,16 @@
   overflow: hidden;
 }
 
-.personalization-content {
+.combined-service-content {
   min-height: 100vh;
   min-height: 100svh;
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  gap: 28px;
 
-  padding: 145px 4vw 85px;
+  padding: 120px 4vw 80px;
 
   background:
     radial-gradient(
@@ -288,96 +289,34 @@
     );
 }
 
-.personalization-content .story-card {
+.combined-service-content .story-card {
   width: min(560px, 100%);
+  padding: 34px 36px;
 }
 
-.personalization-image {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
-
-  object-fit: cover;
-  object-position: center;
-
-  display: block;
+.combined-service-content .story-card h2 {
+  font-size: clamp(2.5rem, 4vw, 4.6rem);
 }
 
-/* SECCIÓN SERVICIO COMPLETO CON GALERÍA */
-
-.service-gallery-section {
+.combined-gallery {
   min-height: 100vh;
   min-height: 100svh;
 
   display: grid;
-  grid-template-columns: 40% 60%;
-
-  background: #050505;
-  overflow: hidden;
-}
-
-.service-content {
-  min-height: 100vh;
-  min-height: 100svh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 145px 4vw 85px;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(211, 177, 132, 0.18),
-      transparent 42%
-    ),
-    linear-gradient(
-      145deg,
-      #050505 0%,
-      #100e0c 55%,
-      #241d16 100%
-    );
-}
-
-.service-content .story-card {
-  width: min(560px, 100%);
-}
-
-.service-gallery {
-  min-height: 100vh;
-  min-height: 100svh;
-
-  display: grid;
-  grid-template-columns: 58% 42%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
 
-  gap: 0;
   background: #050505;
 }
 
-.service-gallery-image {
+.combined-gallery-image {
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
 
   object-fit: cover;
   object-position: center;
-}
-
-.service-gallery-image.main {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-
-.service-gallery-image.top {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.service-gallery-image.bottom {
-  grid-column: 2;
-  grid-row: 2;
 }
 
     .story-card {
@@ -1022,24 +961,36 @@
   margin: 45px 18px;
 }
   
-  .personalization-section {
+.combined-service-section {
   min-height: auto;
   display: block;
 }
 
-.personalization-content {
+.combined-service-content {
   min-height: auto;
   padding: 90px 18px;
-  background-position: center;
+  gap: 24px;
 }
 
-.personalization-content .story-card {
+.combined-service-content .story-card {
   width: 100%;
+  padding: 29px 25px;
 }
 
-.personalization-image {
-  min-height: 75svh;
-  background-attachment: scroll;
+.combined-service-content .story-card h2 {
+  font-size: clamp(2.75rem, 13vw, 4rem);
+}
+
+.combined-gallery {
+  min-height: auto;
+  height: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 42vw);
+}
+
+.combined-gallery-image {
+  min-width: 0;
+  min-height: 0;
 }
   
   .site-header {
@@ -1218,32 +1169,6 @@
     padding: 80px 24px 36px;
   }
 
-  .service-gallery-section {
-  min-height: auto;
-  display: block;
-}
-
-.service-content {
-  min-height: auto;
-  padding: 90px 18px;
-}
-
-.service-content .story-card {
-  width: 100%;
-}
-
-.service-gallery {
-  min-height: 75svh;
-  height: 75svh;
-
-  grid-template-columns: 58% 42%;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-}
-
-.service-gallery-image {
-  min-width: 0;
-  min-height: 0;
-}
 }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1383,11 +1308,11 @@
 
 </section>
 
-    <!-- 3. SERVICIO COMPLETO -->
+    <!-- 3. SERVICIO COMPLETO Y PERSONALIZACIÓN -->
 
-<section class="service-gallery-section">
+<section class="combined-service-section">
 
-  <div class="service-content">
+  <div class="combined-service-content">
 
     <div class="story-card reveal">
 
@@ -1407,38 +1332,6 @@
       </ul>
 
     </div>
-
-  </div>
-
-  <div class="service-gallery">
-
-    <img
-      src="coffeebar44.jpeg"
-      class="service-gallery-image main"
-      alt="Servicio de barra de café en evento"
-    >
-
-    <img
-      src="coffeebar45.jpeg"
-      class="service-gallery-image top"
-      alt="Preparación de café durante un evento"
-    >
-
-    <img
-      src="coffeebar48.jpeg"
-      class="service-gallery-image bottom"
-      alt="Experiencia de barra de café"
-    >
-
-  </div>
-
-</section>
-
-    <!-- 4. PERSONALIZACIÓN -->
-
-<section class="personalization-section">
-
-  <div class="personalization-content">
 
     <div class="story-card reveal">
 
@@ -1462,15 +1355,37 @@
 
   </div>
 
-  <img
-  src="coffeebar42.jpeg"
-  class="personalization-image"
-  alt="Personalización de barra de café para eventos"
->
+  <div class="combined-gallery">
+
+    <img
+      src="coffeebar44.jpeg"
+      class="combined-gallery-image"
+      alt="Servicio de barra de café en evento"
+    >
+
+    <img
+      src="coffeebar45.jpeg"
+      class="combined-gallery-image"
+      alt="Preparación de café durante un evento"
+    >
+
+    <img
+      src="coffeebar48.jpeg"
+      class="combined-gallery-image"
+      alt="Experiencia de barra de café"
+    >
+
+    <img
+      src="coffeebar42.jpeg"
+      class="combined-gallery-image"
+      alt="Personalización de barra de café para eventos"
+    >
+
+  </div>
 
 </section>
 
-<!-- 5. OCASIONES -->
+<!-- 4. OCASIONES -->
 
 <section class="story-section section-occasions">
 
