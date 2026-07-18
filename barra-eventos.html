@@ -322,7 +322,19 @@
   justify-content: center;
 
   padding: 145px 4vw 85px;
-  background: #050505;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(211, 177, 132, 0.18),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      #050505 0%,
+      #100e0c 55%,
+      #241d16 100%
+    );
 }
 
 .service-content .story-card {
