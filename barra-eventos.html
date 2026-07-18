@@ -129,23 +129,23 @@
     /* SECCIONES FOTOGRÁFICAS */
 
     .story-section {
-      min-height: 100vh;
-      min-height: 100svh;
-      position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
 
-      display: flex;
-      align-items: center;
+  display: flex;
+  align-items: center;
 
-      padding: 145px 7vw 85px;
+  padding: 145px 7vw 85px;
 
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
-      overflow: hidden;
-      isolation: isolate;
-    }
+  overflow: hidden;
+  isolation: isolate;
+}
 
     .story-section::before {
       content: "";
@@ -225,13 +225,13 @@
 
 .section-experience {
   position: relative;
-  min-height: 0;
+  min-height: 140vh;
 
   display: grid;
   padding: 0;
 
   background: #050505;
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
 }
 
@@ -263,23 +263,27 @@
 }
 
 .experience-images {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 0;
   grid-area: 1 / 1;
 
+  height: 100vh;
+  height: 100svh;
+
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
 
   background: #050505;
 }
 .experience-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-width: 0;
   min-height: 0;
 
-  object-fit: initial;
-  object-position: initial;
+  object-fit: cover;
+  object-position: center;
 }
 
 .experience-overlay {
@@ -299,7 +303,6 @@
 
   margin: 70px auto;
   text-align: center;
-}
 
 .combined-service-section {
   position: relative;
