@@ -198,6 +198,31 @@
   justify-content: flex-end;
 }
 
+.section-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 260px;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0) 0%,
+    rgba(5, 5, 5, 0.25) 45%,
+    rgba(5, 5, 5, 0.72) 78%,
+    rgba(5, 5, 5, 0.92) 100%
+  );
+}
+
+.section-hero .story-card,
+.section-hero .scroll-indicator {
+  position: relative;
+  z-index: 3;
+}
+
 .section-experience {
   position: relative;
   min-height: 0;
@@ -211,7 +236,30 @@
 }
 
 .section-experience::before {
-  display: none;
+  content: "";
+  display: block;
+
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 5, 5, 0.92) 0%,
+      rgba(5, 5, 5, 0.54) 9%,
+      rgba(5, 5, 5, 0.16) 22%,
+      rgba(5, 5, 5, 0) 38%
+    ),
+    linear-gradient(
+      to top,
+      rgba(5, 5, 5, 0.92) 0%,
+      rgba(5, 5, 5, 0.52) 10%,
+      rgba(5, 5, 5, 0.12) 23%,
+      rgba(5, 5, 5, 0) 38%
+    );
 }
 
 .experience-images {
@@ -243,7 +291,7 @@
 }
 .section-experience .story-card {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 
   grid-area: 1 / 1;
   align-self: center;
@@ -254,6 +302,8 @@
 }
 
 .combined-service-section {
+  position: relative;
+
   min-height: 100vh;
   min-height: 100svh;
 
@@ -263,6 +313,41 @@
 
   background: #050505;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.combined-service-section::before,
+.combined-service-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  height: 150px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.combined-service-section::before {
+  top: -1px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.92) 0%,
+    rgba(5, 5, 5, 0.48) 45%,
+    rgba(5, 5, 5, 0) 100%
+  );
+}
+
+.combined-service-section::after {
+  bottom: -1px;
+
+  background: linear-gradient(
+    to top,
+    rgba(5, 5, 5, 0.92) 0%,
+    rgba(5, 5, 5, 0.48) 45%,
+    rgba(5, 5, 5, 0) 100%
+  );
 }
 
 .combined-text-panel {
@@ -549,6 +634,37 @@
 
       overflow: hidden;
     }
+
+    .pricing-section::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+
+  height: 180px;
+  z-index: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.96) 0%,
+    rgba(5, 5, 5, 0.52) 46%,
+    rgba(5, 5, 5, 0) 100%
+  );
+}
+
+.pricing-container {
+
+  position: relative;
+
+  z-index: 1;
+
+  width: min(1180px, 100%);
+
+  margin: 0 auto;
+
+}
 
     .pricing-container {
       width: min(1180px, 100%);
