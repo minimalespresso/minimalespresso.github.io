@@ -2156,74 +2156,22 @@
 
     if (!openBtn || !modal || !closeBtn) return;
 
-    openBtn.onclick = () => {
-      modal.style.display = "flex";
-    };
-
-    closeBtn.onclick = () => {
-      modal.style.display = "none";
-    };
-
-    modal.onclick = (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-  }
-
-  setupModal(
-    "openLocationModal",
-    "locationModal",
-    "closeLocationModal"
-  );
-
-  setupModal(
-    "openHoursImageModal",
-    "hoursImageModal",
-    "closeHoursImageModal"
-  );
-
-  const revealElements = document.querySelectorAll(".reveal");
-
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.18
-    }
-  );
-
-  revealElements.forEach((element) => {
-    revealObserver.observe(element);
-  });
-<script>
-  function setupModal(openId, modalId, closeId) {
-    const openBtn = document.getElementById(openId);
-    const modal = document.getElementById(modalId);
-    const closeBtn = document.getElementById(closeId);
-
-    if (!openBtn || !modal || !closeBtn) return;
-
-    openBtn.addEventListener("click", () => {
+    function openModal() {
       modal.style.display = "flex";
       document.body.style.overflow = "hidden";
-    });
+    }
 
-    closeBtn.addEventListener("click", () => {
+    function closeModal() {
       modal.style.display = "none";
       document.body.style.overflow = "";
-    });
+    }
 
-    modal.addEventListener("click", (event) => {
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", function (event) {
       if (event.target === modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "";
+        closeModal();
       }
     });
   }
@@ -2244,8 +2192,8 @@
 
   if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
+      function (entries, observer) {
+        entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
 
           entry.target.classList.add("visible");
@@ -2257,39 +2205,49 @@
       }
     );
 
-    revealElements.forEach((element) => {
+    revealElements.forEach(function (element) {
       revealObserver.observe(element);
     });
   } else {
-    revealElements.forEach((element) => {
+    revealElements.forEach(function (element) {
       element.classList.add("visible");
     });
   }
 
   const videoModal = document.getElementById("videoModal");
-  const openVideo = document.getElementById("openVideoModal");
-  const closeVideo = document.getElementById("closeVideoModal");
+  const openVideoButton = document.getElementById("openVideoModal");
+  const closeVideoButton = document.getElementById("closeVideoModal");
   const promoVideo = document.getElementById("promoVideo");
 
   function openPromoVideo(event) {
     event.preventDefault();
 
-    if (!videoModal || !promoVideo) return;
+    if (
+      !videoModal ||
+      !openVideoButton ||
+      !closeVideoButton ||
+      !promoVideo
+    ) {
+      return;
+    }
 
     videoModal.style.display = "flex";
     document.body.style.overflow = "hidden";
 
-    requestAnimationFrame(() => {
+    requestAnimationFrame(function () {
       videoModal.classList.add("video-modal-open");
     });
 
     promoVideo.currentTime = 0;
 
-    const playAttempt = promoVideo.play();
+    const playPromise = promoVideo.play();
 
-    if (playAttempt !== undefined) {
-      playAttempt.catch(() => {
-        console.log("El navegador requiere iniciar el video manualmente.");
+    if (playPromise !== undefined) {
+      playPromise.catch(function () {
+        /*
+          Algunos navegadores bloquean la reproducción automática.
+          El usuario puede presionar Play en los controles del video.
+        */
       });
     }
   }
@@ -2301,28 +2259,35 @@
     videoModal.classList.remove("video-modal-open");
     document.body.style.overflow = "";
 
-    setTimeout(() => {
+    window.setTimeout(function () {
       videoModal.style.display = "none";
     }, 250);
   }
 
-  if (openVideo) {
-    openVideo.addEventListener("click", openPromoVideo);
-  }
+  if (
+    videoModal &&
+    openVideoButton &&
+    closeVideoButton &&
+    promoVideo
+  ) {
+    openVideoButton.addEventListener(
+      "click",
+      openPromoVideo
+    );
 
-  if (closeVideo) {
-    closeVideo.addEventListener("click", closePromoVideo);
-  }
+    closeVideoButton.addEventListener(
+      "click",
+      closePromoVideo
+    );
 
-  if (videoModal) {
-    videoModal.addEventListener("click", (event) => {
+    videoModal.addEventListener("click", function (event) {
       if (event.target === videoModal) {
         closePromoVideo();
       }
     });
   }
 
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener("keydown", function (event) {
     if (
       event.key === "Escape" &&
       videoModal &&
