@@ -1085,6 +1085,127 @@
   cursor: pointer;
   font-size: 0.85rem;
 }
+
+/* VIDEO MODAL */
+
+#videoModal {
+  z-index: 200;
+  padding: 24px;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+#videoModal.video-modal-open {
+  opacity: 1;
+}
+
+.video-modal {
+  position: relative;
+
+  width: min(1000px, 92vw);
+  max-height: 90vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: scale(0.94) translateY(12px);
+  opacity: 0;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+#videoModal.video-modal-open .video-modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.video-modal video {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 88vh;
+
+  border: 0;
+  border-radius: 24px;
+  outline: none;
+
+  background: transparent;
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.72);
+}
+
+.video-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  z-index: 5;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+
+  color: #ffffff;
+  background: rgba(20, 20, 20, 0.58);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  cursor: pointer;
+  font-size: 1.15rem;
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.video-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.07);
+}
+
+@media (max-width: 900px) {
+  #videoModal {
+    padding: 18px;
+  }
+
+  .video-modal {
+    width: 100%;
+    max-height: 88vh;
+  }
+
+  .video-modal video {
+    max-height: 84vh;
+    border-radius: 18px;
+  }
+
+  .video-close {
+    top: -14px;
+    right: -6px;
+
+    width: 44px;
+    height: 44px;
+  }
+}
     
 /* FOOTER */
     
@@ -1468,66 +1589,6 @@
   .footer {
     padding: 80px 24px 36px;
   }
-
-  /* VIDEO MODAL */
-
-.video-modal{
-    position:relative;
-
-    width:min(1100px,92vw);
-    max-height:90vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.video-modal video{
-
-    width:100%;
-    max-height:90vh;
-
-    border-radius:26px;
-
-    background:#000;
-
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.55);
-}
-
-.video-close{
-
-    position:absolute;
-
-    top:-16px;
-    right:-16px;
-
-    width:48px;
-    height:48px;
-
-    border:none;
-    border-radius:50%;
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(20px);
-
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:1.15rem;
-
-    transition:.25s;
-}
-
-.video-close:hover{
-
-    background:rgba(255,255,255,.22);
-
-    transform:scale(1.08);
-}
-
 }
 
     @media (prefers-reduced-motion: reduce) {
@@ -2000,16 +2061,14 @@
     </button>
 
     <video
-      id="promoVideo"
-      controls
-      playsinline
-      preload="metadata"
-    >
-      <source
-        src="https://pub-bc1d4db1c32a465eb284432935938776.r2.dev/barradecafe.MOV"
-        type="video/mp4"
-      >
-    </video>
+  id="promoVideo"
+  controls
+  playsinline
+  preload="metadata"
+  src="https://pub-bc1d4db1c32a465eb284432935938776.r2.dev/barradecafe.MOV"
+>
+  Tu navegador no puede reproducir este video.
+</video>
 
   </div>
 
@@ -2145,43 +2204,115 @@
   revealElements.forEach((element) => {
     revealObserver.observe(element);
   });
-</script>
+<script>
+  function setupModal(openId, modalId, closeId) {
+    const openBtn = document.getElementById(openId);
+    const modal = document.getElementById(modalId);
+    const closeBtn = document.getElementById(closeId);
 
-const videoModal = document.getElementById("videoModal");
-const openVideo = document.getElementById("openVideoModal");
-const closeVideo = document.getElementById("closeVideoModal");
-const promoVideo = document.getElementById("promoVideo");
+    if (!openBtn || !modal || !closeBtn) return;
 
-openVideo.onclick = (e) => {
+    openBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
 
-    e.preventDefault();
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+      }
+    });
+  }
+
+  setupModal(
+    "openLocationModal",
+    "locationModal",
+    "closeLocationModal"
+  );
+
+  setupModal(
+    "openHoursImageModal",
+    "hoursImageModal",
+    "closeHoursImageModal"
+  );
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.18
+    }
+  );
+
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
+
+  const videoModal = document.getElementById("videoModal");
+  const openVideo = document.getElementById("openVideoModal");
+  const closeVideo = document.getElementById("closeVideoModal");
+  const promoVideo = document.getElementById("promoVideo");
+
+  function closePromoVideo() {
+    promoVideo.pause();
+    videoModal.classList.remove("video-modal-open");
+    document.body.style.overflow = "";
+
+    setTimeout(() => {
+      videoModal.style.display = "none";
+    }, 250);
+  }
+
+  openVideo.addEventListener("click", async (event) => {
+    event.preventDefault();
 
     videoModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+
+    requestAnimationFrame(() => {
+      videoModal.classList.add("video-modal-open");
+    });
 
     promoVideo.currentTime = 0;
-    promoVideo.play();
 
-};
-
-closeVideo.onclick = () => {
-
-    promoVideo.pause();
-
-    videoModal.style.display = "none";
-
-};
-
-videoModal.onclick = (e) => {
-
-    if(e.target === videoModal){
-
-        promoVideo.pause();
-
-        videoModal.style.display = "none";
-
+    try {
+      await promoVideo.play();
+    } catch (error) {
+      console.log("El navegador requiere iniciar el video manualmente.");
     }
+  });
 
-};
+  closeVideo.addEventListener("click", closePromoVideo);
+
+  videoModal.addEventListener("click", (event) => {
+    if (event.target === videoModal) {
+      closePromoVideo();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      videoModal.style.display === "flex"
+    ) {
+      closePromoVideo();
+    }
+  });
+</script>
   
 </body>
 </html>
