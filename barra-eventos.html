@@ -524,27 +524,18 @@
   margin-right: auto;
 }
 
-  .hero-card h1 {
+.hero-card h1 {
   max-width: 700px;
-
   font-size: clamp(2.2rem, 3.8vw, 3.6rem);
-  font-weight: 800;
-  text-transform: uppercase;
-
-  letter-spacing: 0.10em;
+  font-weight: 700;
   line-height: 0.95;
-}
-
-  font-weight: 800;
-  letter-spacing: -0.055em;
-  line-height: 0.82;
-
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 
-    .hero-card h1 {
-  font-weight: 600;
-  letter-spacing: -0.025em;
+.hero-card p {
+  max-width: 540px;
 }
 
     .hero-actions {
@@ -1465,8 +1456,15 @@
   }
 
   .story-card h1 {
-    font-size: clamp(3.1rem, 15vw, 4.35rem);
-  }
+  font-size: clamp(2.7rem, 12vw, 4rem);
+}
+
+.hero-card h1 {
+  max-width: 100%;
+  font-size: clamp(2.05rem, 9.5vw, 3.15rem);
+  line-height: 0.98;
+  letter-spacing: 0.045em;
+}
 
   .story-card h2 {
     font-size: clamp(2.75rem, 13vw, 4rem);
@@ -2244,41 +2242,39 @@
 
   const revealElements = document.querySelectorAll(".reveal");
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
 
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.18
-    }
-  );
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
 
-  revealElements.forEach((element) => {
-    revealObserver.observe(element);
-  });
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  } else {
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
+    });
+  }
 
   const videoModal = document.getElementById("videoModal");
   const openVideo = document.getElementById("openVideoModal");
   const closeVideo = document.getElementById("closeVideoModal");
   const promoVideo = document.getElementById("promoVideo");
 
-  function closePromoVideo() {
-    promoVideo.pause();
-    videoModal.classList.remove("video-modal-open");
-    document.body.style.overflow = "";
-
-    setTimeout(() => {
-      videoModal.style.display = "none";
-    }, 250);
-  }
-
-  openVideo.addEventListener("click", async (event) => {
+  function openPromoVideo(event) {
     event.preventDefault();
+
+    if (!videoModal || !promoVideo) return;
 
     videoModal.style.display = "flex";
     document.body.style.overflow = "hidden";
@@ -2289,30 +2285,53 @@
 
     promoVideo.currentTime = 0;
 
-    try {
-      await promoVideo.play();
-    } catch (error) {
-      console.log("El navegador requiere iniciar el video manualmente.");
-    }
-  });
+    const playAttempt = promoVideo.play();
 
-  closeVideo.addEventListener("click", closePromoVideo);
-
-  videoModal.addEventListener("click", (event) => {
-    if (event.target === videoModal) {
-      closePromoVideo();
+    if (playAttempt !== undefined) {
+      playAttempt.catch(() => {
+        console.log("El navegador requiere iniciar el video manualmente.");
+      });
     }
-  });
+  }
+
+  function closePromoVideo() {
+    if (!videoModal || !promoVideo) return;
+
+    promoVideo.pause();
+    videoModal.classList.remove("video-modal-open");
+    document.body.style.overflow = "";
+
+    setTimeout(() => {
+      videoModal.style.display = "none";
+    }, 250);
+  }
+
+  if (openVideo) {
+    openVideo.addEventListener("click", openPromoVideo);
+  }
+
+  if (closeVideo) {
+    closeVideo.addEventListener("click", closePromoVideo);
+  }
+
+  if (videoModal) {
+    videoModal.addEventListener("click", (event) => {
+      if (event.target === videoModal) {
+        closePromoVideo();
+      }
+    });
+  }
 
   document.addEventListener("keydown", (event) => {
     if (
       event.key === "Escape" &&
+      videoModal &&
       videoModal.style.display === "flex"
     ) {
       closePromoVideo();
     }
   });
 </script>
-  
+
 </body>
 </html>
