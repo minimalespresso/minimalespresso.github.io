@@ -905,6 +905,207 @@
   .social-icons a i {
     font-size: .92rem;
   }
+
+  .compact-footer {
+  padding: 26px 24px 16px;
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.compact-footer__main {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 92px auto;
+  grid-template-rows: auto auto auto auto;
+  column-gap: 28px;
+  align-items: center;
+}
+
+/*
+  El logo ocupa específicamente la segunda fila,
+  por lo que queda alineado con el correo.
+*/
+.compact-footer__logo-link {
+  grid-column: 1;
+  grid-row: 2;
+
+  display: grid;
+  place-items: center;
+
+  text-decoration: none;
+}
+
+.compact-footer__logo {
+  display: block;
+  width: 90px;
+  height: auto;
+  margin: 0;
+}
+
+.compact-footer__details {
+  grid-column: 2;
+  grid-row: 1 / 5;
+
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  row-gap: 8px;
+  align-items: center;
+}
+
+.compact-footer__details p {
+  min-height: 22px;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: .9rem;
+  line-height: 1.25;
+
+  color: rgba(255,255,255,.65);
+}
+
+.compact-footer__details p > i {
+  width: 20px;
+  margin: 0 8px 0 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+  text-align: center;
+}
+
+.compact-footer__details a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.compact-footer__details a:hover {
+  color: #fff;
+}
+
+.compact-footer__social {
+  min-height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+}
+
+.compact-footer__social a {
+  box-sizing: border-box;
+
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.75);
+
+  text-decoration: none;
+  line-height: 1;
+
+  transition:
+    color .2s ease,
+    background .2s ease,
+    transform .2s ease;
+}
+
+.compact-footer__social a i {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 17px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.compact-footer__social a i::before {
+  display: block;
+  width: 18px;
+  height: 18px;
+
+  line-height: 18px;
+  text-align: center;
+}
+
+.compact-footer__social a:hover {
+  color: #fff;
+  background: rgba(255,255,255,.11);
+  transform: translateY(-2px);
+}
+
+.compact-footer__divider {
+  width: min(620px, 100%);
+  height: 1px;
+
+  margin: 20px auto 13px;
+
+  background: rgba(255,255,255,.08);
+}
+
+.compact-footer__bottom {
+  margin: 0;
+  text-align: center;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: .77rem;
+  line-height: 1.3;
+
+  color: rgba(255,255,255,.42);
+}
+
+@media (max-width: 560px) {
+  .compact-footer {
+    padding: 24px 18px 15px;
+  }
+
+  .compact-footer__main {
+    grid-template-columns: 72px auto;
+    column-gap: 18px;
+  }
+
+  .compact-footer__logo {
+    width: 72px;
+  }
+
+  .compact-footer__details p {
+    font-size: .79rem;
+  }
+
+  .compact-footer__details p > i {
+    width: 17px;
+    margin-right: 6px;
+  }
+
+  .compact-footer__social a {
+    width: 34px;
+    height: 34px;
+  }
+}
+  
 }
   
   </style>
@@ -1008,40 +1209,42 @@
   </div>
 </section>
 
-    <footer class="footer">
+    <footer class="compact-footer">
 
-  <div class="footer-content">
+  <div class="compact-footer__main">
 
-    <a href="index.html" class="footer-logo-link">
+    <a href="index.html" class="compact-footer__logo-link">
       <img
         src="logo-minimal-new.png"
-        class="footer-logo"
+        class="compact-footer__logo"
         alt="Minimal Espresso"
       >
     </a>
 
-    <div class="footer-info">
+    <div class="compact-footer__details">
 
-      <p>
-        <i class="fa-solid fa-location-dot"></i>
-        Mexicali, Baja California
+      <p class="compact-footer__location">
+        <i class="fa-solid fa-location-dot fa-fw"></i>
+        <span>Mexicali, Baja California</span>
       </p>
 
-      <p>
-        <i class="fa-solid fa-envelope"></i>
+      <p class="compact-footer__email">
+        <i class="fa-solid fa-envelope fa-fw"></i>
+
         <a href="mailto:minimalespressomxli@gmail.com">
           minimalespressomxli@gmail.com
         </a>
       </p>
 
-      <p>
-        <i class="fa-solid fa-globe"></i>
+      <p class="compact-footer__website">
+        <i class="fa-solid fa-globe fa-fw"></i>
+
         <a href="https://minimalespresso.com">
           minimalespresso.com
         </a>
       </p>
 
-      <div class="social-icons">
+      <div class="compact-footer__social">
 
         <a
           href="https://www.instagram.com/minimalespresso"
@@ -1076,9 +1279,9 @@
 
   </div>
 
-  <div class="footer-divider"></div>
+  <div class="compact-footer__divider"></div>
 
-  <div class="footer-bottom">
+  <div class="compact-footer__bottom">
     © 2026 Minimal Espresso · Todos los derechos reservados.
   </div>
 
