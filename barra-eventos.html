@@ -1085,7 +1085,7 @@
   cursor: pointer;
   font-size: 0.85rem;
 }
-
+    
 /* FOOTER */
     
     .footer {
@@ -1469,6 +1469,65 @@
     padding: 80px 24px 36px;
   }
 
+  /* VIDEO MODAL */
+
+.video-modal{
+    position:relative;
+
+    width:min(1100px,92vw);
+    max-height:90vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.video-modal video{
+
+    width:100%;
+    max-height:90vh;
+
+    border-radius:26px;
+
+    background:#000;
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.55);
+}
+
+.video-close{
+
+    position:absolute;
+
+    top:-16px;
+    right:-16px;
+
+    width:48px;
+    height:48px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:1.15rem;
+
+    transition:.25s;
+}
+
+.video-close:hover{
+
+    background:rgba(255,255,255,.22);
+
+    transform:scale(1.08);
+}
+
 }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1546,9 +1605,8 @@
 
           <a
   class="primary-button"
-  href="https://pub-bc1d4db1c32a465eb284432935938776.r2.dev/barradecafe.MOV"
-  target="_blank"
-  rel="noopener noreferrer"
+  href="#"
+  id="openVideoModal"
 >
   ▶ VER EL VIDEO
 </a>
@@ -1927,6 +1985,36 @@
   </div>
 </div>
 
+<!-- MODAL VIDEO -->
+
+<div class="modal-overlay" id="videoModal">
+
+  <div class="video-modal">
+
+    <button
+      class="video-close"
+      id="closeVideoModal"
+      aria-label="Cerrar"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <video
+      id="promoVideo"
+      controls
+      playsinline
+      preload="metadata"
+    >
+      <source
+        src="https://pub-bc1d4db1c32a465eb284432935938776.r2.dev/barradecafe.MOV"
+        type="video/mp4"
+      >
+    </video>
+
+  </div>
+
+</div>
+  
 <!-- FOOTER -->
 
 <footer class="footer">
@@ -2059,5 +2147,41 @@
   });
 </script>
 
+const videoModal = document.getElementById("videoModal");
+const openVideo = document.getElementById("openVideoModal");
+const closeVideo = document.getElementById("closeVideoModal");
+const promoVideo = document.getElementById("promoVideo");
+
+openVideo.onclick = (e) => {
+
+    e.preventDefault();
+
+    videoModal.style.display = "flex";
+
+    promoVideo.currentTime = 0;
+    promoVideo.play();
+
+};
+
+closeVideo.onclick = () => {
+
+    promoVideo.pause();
+
+    videoModal.style.display = "none";
+
+};
+
+videoModal.onclick = (e) => {
+
+    if(e.target === videoModal){
+
+        promoVideo.pause();
+
+        videoModal.style.display = "none";
+
+    }
+
+};
+  
 </body>
 </html>
