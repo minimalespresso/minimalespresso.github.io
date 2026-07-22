@@ -1795,12 +1795,26 @@
   </div>
 
   <div class="modal-overlay" id="hoursImageModal">
-    <div class="modal modal-wide">
-      <h2>Horarios</h2>
-      <img src="Horarios.png" class="modal-image" alt="Horarios Minimal Espresso">
-      <div class="close-btn" id="closeHoursImageModal">Cerrar</div>
-    </div>
+  <div class="modal modal-wide">
+
+    <button
+      class="modal-close-x"
+      id="closeHoursImageModal"
+      aria-label="Cerrar"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <h2>Horarios</h2>
+
+    <img
+      src="Horarios.png"
+      class="modal-image"
+      alt="Horarios Minimal Espresso"
+    >
+
   </div>
+</div>
 
   <script>
     function setupModal(openId, modalId, closeId) {
