@@ -866,6 +866,426 @@
     font-size: .72rem;
   }
 }
+
+    /* =========================
+   ESPECIALES INTERACTIVOS
+========================= */
+
+.summer-section {
+  min-height: 100vh;
+  position: relative;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,.82) 0%,
+      rgba(5,5,5,.38) 16%,
+      rgba(5,5,5,.08) 38%,
+      rgba(5,5,5,.08) 70%,
+      rgba(5,5,5,.62) 100%
+    ),
+    url("Verano.png") center center / cover no-repeat fixed;
+}
+
+.summer-hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.drink-hotspot {
+  position: absolute;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: transparent;
+  color: #fff;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  transform: translate(-50%, -50%);
+  transition: transform .25s ease;
+}
+
+.drink-hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.14);
+}
+
+.drink-hotspot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+.hotspot-dot {
+  position: relative;
+  z-index: 2;
+
+  width: 13px;
+  height: 13px;
+
+  border: 3px solid rgba(255,255,255,.96);
+  border-radius: 50%;
+
+  background: rgba(15,15,15,.82);
+
+  box-shadow:
+    0 4px 14px rgba(0,0,0,.55),
+    0 0 0 2px rgba(255,255,255,.15);
+}
+
+.hotspot-pulse {
+  position: absolute;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.08);
+
+  animation: summerHotspotPulse 2.1s ease-out infinite;
+}
+
+.drink-hotspot.is-active .hotspot-dot {
+  background: #fff;
+  border-color: #fff;
+  box-shadow:
+    0 0 0 5px rgba(255,255,255,.16),
+    0 8px 24px rgba(0,0,0,.5);
+}
+
+.drink-hotspot.is-active .hotspot-pulse {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes summerHotspotPulse {
+  0% {
+    transform: scale(.55);
+    opacity: .95;
+  }
+
+  75%,
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Posiciones sobre cada bebida */
+
+.hotspot-horchata {
+  left: 15.5%;
+  top: 58%;
+}
+
+.hotspot-berries {
+  left: 33.2%;
+  top: 58%;
+}
+
+.hotspot-moreno {
+  left: 49.5%;
+  top: 59%;
+}
+
+.hotspot-yuja {
+  left: 66.4%;
+  top: 58%;
+}
+
+.hotspot-matcha {
+  left: 84.5%;
+  top: 58%;
+}
+
+/* Instrucción inicial */
+
+.summer-intro {
+  position: absolute;
+  left: 50%;
+  bottom: 74px;
+  z-index: 3;
+
+  width: min(520px, calc(100% - 40px));
+
+  transform: translateX(-50%);
+  text-align: center;
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+.summer-intro span {
+  display: block;
+
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .32em;
+
+  color: #d3b184;
+}
+
+.summer-intro p {
+  margin-top: 9px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: rgba(255,255,255,.88);
+}
+
+.summer-intro.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+}
+
+/* Tarjeta de información */
+
+.drink-info-card {
+  position: absolute;
+  left: 50%;
+  bottom: 42px;
+  z-index: 8;
+
+  width: min(760px, calc(100% - 40px));
+  padding: 25px 26px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 26px;
+
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 26px;
+
+  background: rgba(10,10,10,.67);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.48),
+    inset 0 1px rgba(255,255,255,.08);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translate(-50%, 24px) scale(.97);
+
+  transition:
+    opacity .3s ease,
+    visibility .3s ease,
+    transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+.drink-info-card.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translate(-50%, 0) scale(1);
+}
+
+.drink-card-copy {
+  min-width: 0;
+}
+
+.drink-card-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #d3b184;
+
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .28em;
+}
+
+.drink-info-card h2 {
+  margin: 0;
+
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1;
+  font-weight: 750;
+
+  color: #fff;
+}
+
+.drink-info-card p {
+  max-width: 590px;
+  margin-top: 11px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: .93rem;
+  line-height: 1.6;
+  font-weight: 500;
+
+  color: rgba(255,255,255,.78);
+}
+
+.drink-card-button {
+  min-height: 52px;
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 999px;
+
+  background: #fff;
+  color: #080808;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+
+  transition:
+    transform .2s ease,
+    background .2s ease;
+}
+
+.drink-card-button:hover {
+  transform: translateY(-2px);
+  background: #f0f0f0;
+}
+
+.drink-card-button i {
+  font-size: 1rem;
+}
+
+.drink-card-close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.07);
+  color: #fff;
+
+  cursor: pointer;
+  opacity: .72;
+
+  transition:
+    opacity .2s ease,
+    background .2s ease;
+}
+
+.drink-card-close:hover {
+  opacity: 1;
+  background: rgba(255,255,255,.14);
+}
+
+/* Celular y tablet */
+
+@media (max-width: 900px) {
+  .summer-section {
+    min-height: 100svh;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(5,5,5,.76) 0%,
+        rgba(5,5,5,.24) 24%,
+        rgba(5,5,5,.05) 55%,
+        rgba(5,5,5,.72) 100%
+      ),
+      url("Verano.png") center center / cover no-repeat;
+  }
+
+  .drink-hotspot {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hotspot-horchata {
+    left: 12%;
+    top: 57%;
+  }
+
+  .hotspot-berries {
+    left: 31%;
+    top: 57%;
+  }
+
+  .hotspot-moreno {
+    left: 49%;
+    top: 58%;
+  }
+
+  .hotspot-yuja {
+    left: 68%;
+    top: 57%;
+  }
+
+  .hotspot-matcha {
+    left: 88%;
+    top: 57%;
+  }
+
+  .summer-intro {
+    bottom: 46px;
+  }
+
+  .drink-info-card {
+    bottom: 22px;
+
+    width: calc(100% - 28px);
+    padding: 22px 20px 18px;
+
+    grid-template-columns: 1fr;
+    gap: 17px;
+
+    border-radius: 23px;
+  }
+
+  .drink-info-card h2 {
+    padding-right: 34px;
+  }
+
+  .drink-info-card p {
+    font-size: .88rem;
+    line-height: 1.55;
+  }
+
+  .drink-card-button {
+    width: 100%;
+  }
+}
   
   </style>
 </head>
@@ -921,10 +1341,95 @@
     </section>
 
     <section class="summer-section" id="verano">
-      <div class="summer-content">
-    <p class="summer-caption">Disponible ahora</p>
-</div>
-    </section>
+
+  <div class="summer-hotspots">
+
+    <button
+      type="button"
+      class="drink-hotspot hotspot-horchata"
+      data-drink="horchata"
+      aria-label="Ver Horchata Foam Latte"
+    >
+      <span class="hotspot-pulse"></span>
+      <span class="hotspot-dot"></span>
+    </button>
+
+    <button
+      type="button"
+      class="drink-hotspot hotspot-berries"
+      data-drink="berries"
+      aria-label="Ver Berries Lemonade Refresher"
+    >
+      <span class="hotspot-pulse"></span>
+      <span class="hotspot-dot"></span>
+    </button>
+
+    <button
+      type="button"
+      class="drink-hotspot hotspot-moreno"
+      data-drink="moreno"
+      aria-label="Ver Moreno Shaken Espresso"
+    >
+      <span class="hotspot-pulse"></span>
+      <span class="hotspot-dot"></span>
+    </button>
+
+    <button
+      type="button"
+      class="drink-hotspot hotspot-yuja"
+      data-drink="yuja"
+      aria-label="Ver Korean Yuja Refresher"
+    >
+      <span class="hotspot-pulse"></span>
+      <span class="hotspot-dot"></span>
+    </button>
+
+    <button
+      type="button"
+      class="drink-hotspot hotspot-matcha"
+      data-drink="matcha"
+      aria-label="Ver Matcha Cloud Coconut"
+    >
+      <span class="hotspot-pulse"></span>
+      <span class="hotspot-dot"></span>
+    </button>
+
+  </div>
+
+  <div class="summer-intro" id="summerIntro">
+    <span>ESPECIALES DE VERANO</span>
+    <p>Selecciona una bebida para conocerla.</p>
+  </div>
+
+  <article class="drink-info-card" id="drinkInfoCard" aria-live="polite">
+    <button
+      type="button"
+      class="drink-card-close"
+      id="closeDrinkCard"
+      aria-label="Cerrar información"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="drink-card-copy">
+      <span class="drink-card-eyebrow">ESPECIAL DE VERANO</span>
+      <h2 id="drinkCardTitle"></h2>
+      <p id="drinkCardDescription"></p>
+    </div>
+
+    <a
+      class="drink-card-button"
+      id="drinkCardButton"
+      href="https://wa.me/5216864310241"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      PEDIR AHORA
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </article>
+
+</section>
 
     <section class="delivery-section">
   <div class="delivery-grid">
@@ -1104,6 +1609,96 @@
 
     setupModal("openLocationModal", "locationModal", "closeLocationModal");
     setupModal("openHoursImageModal", "hoursImageModal", "closeHoursImageModal");
+    const summerDrinks = {
+  horchata: {
+    title: "Horchata Foam Latte",
+    description:
+      "Latte frío inspirado en el sabor tradicional de la horchata. Preparado con espresso, leche y notas de canela y vainilla para una bebida cremosa, refrescante y llena de sabor.",
+    whatsapp:
+      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Horchata%20Foam%20Latte."
+  },
+
+  berries: {
+    title: "Berries Lemonade Refresher",
+    description:
+      "Refrescante combinación de limón, blackberry y frutos rojos servida sobre hielo. Una bebida vibrante y frutal que equilibra perfectamente las notas dulces y cítricas para combatir el calor.",
+    whatsapp:
+      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Berries%20Lemonade%20Refresher."
+  },
+
+  moreno: {
+    title: "Moreno Shaken Espresso",
+    description:
+      "Inspirado en el clásico Brown Sugar Shaken Espresso. Espresso recién preparado, agitado con azúcar morena, canela y hielo, combinado con leche para una bebida refrescante, cremosa y perfectamente equilibrada.",
+    whatsapp:
+      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Moreno%20Shaken%20Espresso."
+  },
+
+  yuja: {
+    title: "Korean Yuja Refresher",
+    description:
+      "Bebida refrescante inspirada en Corea, preparada con Honey Citron y decorada con naranja deshidratada. Destaca por sus notas cítricas dulces, aroma fresco y sabor ligero, perfecta para los días más cálidos.",
+    whatsapp:
+      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Korean%20Yuja%20Refresher."
+  },
+
+  matcha: {
+    title: "Matcha Cloud Coconut",
+    description:
+      "Agua de coco natural servida sobre hielo y coronada con una nube cremosa de matcha ceremonial de Japón. Refrescante, tropical y suave, con delicadas notas dulces y florales.",
+    whatsapp:
+      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Matcha%20Cloud%20Coconut."
+  }
+};
+
+const drinkHotspots = document.querySelectorAll(".drink-hotspot");
+const drinkInfoCard = document.getElementById("drinkInfoCard");
+const drinkCardTitle = document.getElementById("drinkCardTitle");
+const drinkCardDescription = document.getElementById("drinkCardDescription");
+const drinkCardButton = document.getElementById("drinkCardButton");
+const closeDrinkCard = document.getElementById("closeDrinkCard");
+const summerIntro = document.getElementById("summerIntro");
+
+function openDrinkCard(drinkId, selectedHotspot) {
+  const drink = summerDrinks[drinkId];
+
+  if (!drink) return;
+
+  drinkCardTitle.textContent = drink.title;
+  drinkCardDescription.textContent = drink.description;
+  drinkCardButton.href = drink.whatsapp;
+
+  drinkHotspots.forEach((hotspot) => {
+    hotspot.classList.remove("is-active");
+  });
+
+  selectedHotspot.classList.add("is-active");
+  drinkInfoCard.classList.add("is-visible");
+  summerIntro.classList.add("is-hidden");
+}
+
+function hideDrinkCard() {
+  drinkInfoCard.classList.remove("is-visible");
+  summerIntro.classList.remove("is-hidden");
+
+  drinkHotspots.forEach((hotspot) => {
+    hotspot.classList.remove("is-active");
+  });
+}
+
+drinkHotspots.forEach((hotspot) => {
+  hotspot.addEventListener("click", () => {
+    openDrinkCard(hotspot.dataset.drink, hotspot);
+  });
+});
+
+closeDrinkCard.addEventListener("click", hideDrinkCard);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    hideDrinkCard();
+  }
+});
   </script>
 
 </body>
