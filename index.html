@@ -1837,6 +1837,54 @@ document.addEventListener("keydown", (event) => {
     hideDrinkCard();
   }
 });
+
+    /* ===========================
+   SUMMER MOBILE PAN
+=========================== */
+
+function setupSummerPan(){
+
+    if(window.innerWidth>900) return;
+
+    const section=document.querySelector(".summer-section");
+    const image=document.querySelector(".summer-image");
+    const hotspots=document.querySelector(".summer-hotspots");
+    const overlay=document.querySelector(".summer-overlay");
+
+    if(!section||!image)return;
+
+    function update(){
+
+        const rect=section.getBoundingClientRect();
+
+        const total=section.offsetHeight-window.innerHeight;
+
+        if(total<=0)return;
+
+        let progress=-rect.top/total;
+
+        progress=Math.max(0,Math.min(1,progress));
+
+        const max=image.offsetWidth-window.innerWidth;
+
+        const x=-(max*progress);
+
+        image.style.transform=`translateX(${x}px)`;
+
+        hotspots.style.transform=`translateX(${x}px)`;
+
+        overlay.style.transform=`translateX(${x}px)`;
+
+    }
+
+    update();
+
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+
+}
+
+setupSummerPan();
   </script>
 
 </body>
