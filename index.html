@@ -871,23 +871,32 @@
    ESPECIALES INTERACTIVOS
 ========================= */
 
-.summer-section {
-  min-height: 100vh;
-  position: relative;
-  display: block;
-  padding: 0;
-  overflow: hidden;
+@media (max-width: 900px) {
+  .summer-section {
+    min-height: 135svh;
+    padding: 0;
+    background: #050505;
+    overflow: visible;
+  }
 
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(5,5,5,.82) 0%,
-      rgba(5,5,5,.38) 16%,
-      rgba(5,5,5,.08) 38%,
-      rgba(5,5,5,.08) 70%,
-      rgba(5,5,5,.62) 100%
-    ),
-    url("Verano.png") center center / cover no-repeat fixed;
+  .summer-sticky {
+    height: 100svh;
+  }
+
+  .summer-image {
+    object-position: center center;
+  }
+
+  .summer-overlay {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(5,5,5,.76) 0%,
+        rgba(5,5,5,.24) 24%,
+        rgba(5,5,5,.05) 55%,
+        rgba(5,5,5,.72) 100%
+      );
+  }
 }
 
 .summer-hotspots {
@@ -1286,6 +1295,100 @@
     width: 100%;
   }
 }
+
+    /* =========================
+   ESCENA STICKY DE VERANO
+========================= */
+
+.summer-section {
+  position: relative;
+
+  /*
+    La sección es más alta que la pantalla para que
+    exista recorrido mientras la escena permanece fija.
+  */
+  min-height: 145vh;
+
+  display: block;
+  padding: 0;
+
+  background: #050505;
+
+  /*
+    No usar overflow:hidden aquí porque puede impedir
+    que position:sticky funcione correctamente.
+  */
+  overflow: visible;
+}
+
+.summer-sticky {
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  isolation: isolate;
+  background: #050505;
+}
+
+.summer-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center center;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.summer-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,.82) 0%,
+      rgba(5,5,5,.38) 16%,
+      rgba(5,5,5,.08) 38%,
+      rgba(5,5,5,.08) 70%,
+      rgba(5,5,5,.62) 100%
+    );
+}
+
+/*
+  Los puntos ahora están posicionados dentro de la misma
+  escena que la imagen.
+*/
+
+.summer-hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+.summer-intro {
+  z-index: 5;
+}
+
+.drink-info-card {
+  z-index: 8;
+}
   
   </style>
 </head>
@@ -1342,92 +1445,106 @@
 
     <section class="summer-section" id="verano">
 
-  <div class="summer-hotspots">
+  <div class="summer-sticky">
 
-    <button
-      type="button"
-      class="drink-hotspot hotspot-horchata"
-      data-drink="horchata"
-      aria-label="Ver Horchata Foam Latte"
+    <img
+      src="Verano.png"
+      class="summer-image"
+      alt="Especiales de verano de Minimal Espresso"
     >
-      <span class="hotspot-pulse"></span>
-      <span class="hotspot-dot"></span>
-    </button>
 
-    <button
-      type="button"
-      class="drink-hotspot hotspot-berries"
-      data-drink="berries"
-      aria-label="Ver Berries Lemonade Refresher"
-    >
-      <span class="hotspot-pulse"></span>
-      <span class="hotspot-dot"></span>
-    </button>
+    <div class="summer-overlay"></div>
 
-    <button
-      type="button"
-      class="drink-hotspot hotspot-moreno"
-      data-drink="moreno"
-      aria-label="Ver Moreno Shaken Espresso"
-    >
-      <span class="hotspot-pulse"></span>
-      <span class="hotspot-dot"></span>
-    </button>
+    <div class="summer-hotspots">
 
-    <button
-      type="button"
-      class="drink-hotspot hotspot-yuja"
-      data-drink="yuja"
-      aria-label="Ver Korean Yuja Refresher"
-    >
-      <span class="hotspot-pulse"></span>
-      <span class="hotspot-dot"></span>
-    </button>
+      <button
+        type="button"
+        class="drink-hotspot hotspot-horchata"
+        data-drink="horchata"
+        aria-label="Ver Horchata Foam Latte"
+      >
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
+      </button>
 
-    <button
-      type="button"
-      class="drink-hotspot hotspot-matcha"
-      data-drink="matcha"
-      aria-label="Ver Matcha Cloud Coconut"
-    >
-      <span class="hotspot-pulse"></span>
-      <span class="hotspot-dot"></span>
-    </button>
+      <button
+        type="button"
+        class="drink-hotspot hotspot-berries"
+        data-drink="berries"
+        aria-label="Ver Berries Lemonade Refresher"
+      >
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
+      </button>
 
-  </div>
+      <button
+        type="button"
+        class="drink-hotspot hotspot-moreno"
+        data-drink="moreno"
+        aria-label="Ver Moreno Shaken Espresso"
+      >
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
+      </button>
 
-  <div class="summer-intro" id="summerIntro">
-    <span>ESPECIALES DE VERANO</span>
-    <p>Selecciona una bebida para conocerla.</p>
-  </div>
+      <button
+        type="button"
+        class="drink-hotspot hotspot-yuja"
+        data-drink="yuja"
+        aria-label="Ver Korean Yuja Refresher"
+      >
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
+      </button>
 
-  <article class="drink-info-card" id="drinkInfoCard" aria-live="polite">
-    <button
-      type="button"
-      class="drink-card-close"
-      id="closeDrinkCard"
-      aria-label="Cerrar información"
-    >
-      <i class="fa-solid fa-xmark"></i>
-    </button>
+      <button
+        type="button"
+        class="drink-hotspot hotspot-matcha"
+        data-drink="matcha"
+        aria-label="Ver Matcha Cloud Coconut"
+      >
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
+      </button>
 
-    <div class="drink-card-copy">
-      <span class="drink-card-eyebrow">ESPECIAL DE VERANO</span>
-      <h2 id="drinkCardTitle"></h2>
-      <p id="drinkCardDescription"></p>
     </div>
 
-    <a
-      class="drink-card-button"
-      id="drinkCardButton"
-      href="https://wa.me/5216864310241"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      PEDIR AHORA
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-  </article>
+    <div class="summer-intro" id="summerIntro">
+      <span>ESPECIALES DE VERANO</span>
+      <p>Selecciona una bebida para conocerla.</p>
+    </div>
+
+    <article class="drink-info-card" id="drinkInfoCard" aria-live="polite">
+
+      <button
+        type="button"
+        class="drink-card-close"
+        id="closeDrinkCard"
+        aria-label="Cerrar información"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="drink-card-copy">
+        <span class="drink-card-eyebrow">ESPECIAL DE VERANO</span>
+        <h2 id="drinkCardTitle"></h2>
+        <p id="drinkCardDescription"></p>
+      </div>
+
+      <a
+        class="drink-card-button"
+        id="drinkCardButton"
+        href="https://wa.me/5216864310241"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        PEDIR AHORA
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+    </article>
+
+  </div>
 
 </section>
 
