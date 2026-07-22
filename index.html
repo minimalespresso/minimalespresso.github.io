@@ -867,42 +867,90 @@
   }
 }
 
-    /* =========================
+/* =========================
    ESPECIALES INTERACTIVOS
 ========================= */
 
-@media (max-width: 900px) {
-  .summer-section {
-    min-height: 135svh;
-    padding: 0;
-    background: #050505;
-    overflow: visible;
-  }
+.summer-section {
+  position: relative;
+  min-height: 145vh;
 
-  .summer-sticky {
-    height: 100svh;
-  }
+  display: block;
+  padding: 0;
 
-  .summer-image {
-    object-position: center center;
-  }
+  background: #050505;
+  overflow: visible;
+}
 
-  .summer-overlay {
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(5,5,5,.76) 0%,
-        rgba(5,5,5,.24) 24%,
-        rgba(5,5,5,.05) 55%,
-        rgba(5,5,5,.72) 100%
-      );
-  }
+.summer-sticky {
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background: #050505;
+}
+
+.summer-panorama-scroll {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.summer-panorama-stage {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+.summer-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.summer-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,.82) 0%,
+      rgba(5,5,5,.38) 16%,
+      rgba(5,5,5,.08) 38%,
+      rgba(5,5,5,.08) 70%,
+      rgba(5,5,5,.62) 100%
+    );
 }
 
 .summer-hotspots {
   position: absolute;
   inset: 0;
   z-index: 4;
+
   pointer-events: none;
 }
 
@@ -974,6 +1022,7 @@
 .drink-hotspot.is-active .hotspot-dot {
   background: #fff;
   border-color: #fff;
+
   box-shadow:
     0 0 0 5px rgba(255,255,255,.16),
     0 8px 24px rgba(0,0,0,.5);
@@ -997,40 +1046,40 @@
   }
 }
 
-/* Posiciones sobre cada bebida */
+/* Posiciones de las bebidas */
 
-.hotspot-horchata{
-    left:15.5%;
-    top:56%;
+.hotspot-horchata {
+  left: 15.5%;
+  top: 56%;
 }
 
-.hotspot-berries{
-    left:33.3%;
-    top:54%;
+.hotspot-berries {
+  left: 33.3%;
+  top: 54%;
 }
 
-.hotspot-moreno{
-    left:49.5%;
-    top:61%;
+.hotspot-moreno {
+  left: 49.5%;
+  top: 61%;
 }
 
-.hotspot-yuja{
-    left:66.2%;
-    top:54%;
+.hotspot-yuja {
+  left: 66.2%;
+  top: 54%;
 }
 
-.hotspot-matcha{
-    left:84.5%;
-    top:56%;
+.hotspot-matcha {
+  left: 84.5%;
+  top: 56%;
 }
 
-/* Instrucción inicial */
+/* Instrucción */
 
 .summer-intro {
   position: absolute;
   left: 50%;
   bottom: 74px;
-  z-index: 3;
+  z-index: 5;
 
   width: min(520px, calc(100% - 40px));
 
@@ -1068,7 +1117,7 @@
   transform: translate(-50%, 12px);
 }
 
-/* Tarjeta de información */
+/* Tarjeta */
 
 .drink-info-card {
   position: absolute;
@@ -1219,30 +1268,52 @@
   background: rgba(255,255,255,.14);
 }
 
-/* Celular y tablet */
+/* Solo móvil */
 
 @media (max-width: 900px) {
 
-  .summer-image{
-    width:auto;
-    height:100%;
-
-    min-width:180vw;
-    max-width:none;
-
-    left:0;
-}
-
-.summer-hotspots{
-    width:180vw;
-}
-
-.summer-overlay{
-    width:180vw;
-}
-  
   .summer-section {
-    min-height: 100svh;
+    min-height: 135svh;
+  }
+
+  .summer-sticky {
+    height: 100svh;
+  }
+
+  .summer-panorama-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+  }
+
+  .summer-panorama-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .summer-panorama-stage {
+    width: 180vw;
+    min-width: 720px;
+    height: 100%;
+  }
+
+  .summer-image {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .summer-overlay {
+    width: 100%;
+    height: 100%;
 
     background:
       linear-gradient(
@@ -1251,39 +1322,18 @@
         rgba(5,5,5,.24) 24%,
         rgba(5,5,5,.05) 55%,
         rgba(5,5,5,.72) 100%
-      ),
-      url("Verano.png") center center / cover no-repeat;
+      );
+  }
+
+  .summer-hotspots {
+    width: 100%;
+    height: 100%;
   }
 
   .drink-hotspot {
     width: 48px;
     height: 48px;
   }
-
-  .hotspot-horchata{
-    left:15.5%;
-    top:56%;
-}
-
-.hotspot-berries{
-    left:33.3%;
-    top:54%;
-}
-
-.hotspot-moreno{
-    left:49.5%;
-    top:61%;
-}
-
-.hotspot-yuja{
-    left:66.2%;
-    top:54%;
-}
-
-.hotspot-matcha{
-    left:84.5%;
-    top:56%;
-}
 
   .summer-intro {
     bottom: 46px;
@@ -1313,102 +1363,6 @@
   .drink-card-button {
     width: 100%;
   }
-}
-
-    /* =========================
-   ESCENA STICKY DE VERANO
-========================= */
-
-.summer-section {
-  position: relative;
-
-  /*
-    La sección es más alta que la pantalla para que
-    exista recorrido mientras la escena permanece fija.
-  */
-  min-height: 145vh;
-
-  display: block;
-  padding: 0;
-
-  background: #050505;
-
-  /*
-    No usar overflow:hidden aquí porque puede impedir
-    que position:sticky funcione correctamente.
-  */
-  overflow: visible;
-}
-
-.summer-sticky {
-  position: sticky;
-  top: 0;
-
-  width: 100%;
-  height: 100vh;
-
-  overflow: hidden;
-
-  isolation: isolate;
-  background: #050505;
-}
-
-.summer-image{
-    position:absolute;
-    inset:0;
-    z-index:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-    object-position:center center;
-
-    pointer-events:none;
-    user-select:none;
-
-    transform:translateX(0);
-    transition:transform .05s linear;
-    will-change:transform;
-}
-
-.summer-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(5,5,5,.82) 0%,
-      rgba(5,5,5,.38) 16%,
-      rgba(5,5,5,.08) 38%,
-      rgba(5,5,5,.08) 70%,
-      rgba(5,5,5,.62) 100%
-    );
-}
-
-/*
-  Los puntos ahora están posicionados dentro de la misma
-  escena que la imagen.
-*/
-
-.summer-hotspots {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-
-  pointer-events: none;
-}
-
-.summer-intro {
-  z-index: 5;
-}
-
-.drink-info-card {
-  z-index: 8;
 }
   
   </style>
@@ -1468,71 +1422,77 @@
 
   <div class="summer-sticky">
 
-    <img
-      src="Verano.png"
-      class="summer-image"
-      alt="Especiales de verano de Minimal Espresso"
-    >
+    <div class="summer-panorama-scroll">
+      <div class="summer-panorama-stage">
 
-    <div class="summer-overlay"></div>
+        <img
+          src="Verano.png"
+          class="summer-image"
+          alt="Especiales de verano de Minimal Espresso"
+        >
 
-    <div class="summer-hotspots">
+        <div class="summer-overlay"></div>
 
-      <button
-        type="button"
-        class="drink-hotspot hotspot-horchata"
-        data-drink="horchata"
-        aria-label="Ver Horchata Foam Latte"
-      >
-        <span class="hotspot-pulse"></span>
-        <span class="hotspot-dot"></span>
-      </button>
+        <div class="summer-hotspots">
 
-      <button
-        type="button"
-        class="drink-hotspot hotspot-berries"
-        data-drink="berries"
-        aria-label="Ver Berries Lemonade Refresher"
-      >
-        <span class="hotspot-pulse"></span>
-        <span class="hotspot-dot"></span>
-      </button>
+          <button
+            type="button"
+            class="drink-hotspot hotspot-horchata"
+            data-drink="horchata"
+            aria-label="Ver Horchata Foam Latte"
+          >
+            <span class="hotspot-pulse"></span>
+            <span class="hotspot-dot"></span>
+          </button>
 
-      <button
-        type="button"
-        class="drink-hotspot hotspot-moreno"
-        data-drink="moreno"
-        aria-label="Ver Moreno Shaken Espresso"
-      >
-        <span class="hotspot-pulse"></span>
-        <span class="hotspot-dot"></span>
-      </button>
+          <button
+            type="button"
+            class="drink-hotspot hotspot-berries"
+            data-drink="berries"
+            aria-label="Ver Berries Lemonade Refresher"
+          >
+            <span class="hotspot-pulse"></span>
+            <span class="hotspot-dot"></span>
+          </button>
 
-      <button
-        type="button"
-        class="drink-hotspot hotspot-yuja"
-        data-drink="yuja"
-        aria-label="Ver Korean Yuja Refresher"
-      >
-        <span class="hotspot-pulse"></span>
-        <span class="hotspot-dot"></span>
-      </button>
+          <button
+            type="button"
+            class="drink-hotspot hotspot-moreno"
+            data-drink="moreno"
+            aria-label="Ver Moreno Shaken Espresso"
+          >
+            <span class="hotspot-pulse"></span>
+            <span class="hotspot-dot"></span>
+          </button>
 
-      <button
-        type="button"
-        class="drink-hotspot hotspot-matcha"
-        data-drink="matcha"
-        aria-label="Ver Matcha Cloud Coconut"
-      >
-        <span class="hotspot-pulse"></span>
-        <span class="hotspot-dot"></span>
-      </button>
+          <button
+            type="button"
+            class="drink-hotspot hotspot-yuja"
+            data-drink="yuja"
+            aria-label="Ver Korean Yuja Refresher"
+          >
+            <span class="hotspot-pulse"></span>
+            <span class="hotspot-dot"></span>
+          </button>
 
+          <button
+            type="button"
+            class="drink-hotspot hotspot-matcha"
+            data-drink="matcha"
+            aria-label="Ver Matcha Cloud Coconut"
+          >
+            <span class="hotspot-pulse"></span>
+            <span class="hotspot-dot"></span>
+          </button>
+
+        </div>
+
+      </div>
     </div>
 
     <div class="summer-intro" id="summerIntro">
       <span>ESPECIALES DE VERANO</span>
-      <p>Selecciona una bebida para conocerla.</p>
+      <p>Desliza hacia los lados y selecciona una bebida.</p>
     </div>
 
     <article class="drink-info-card" id="drinkInfoCard" aria-live="polite">
@@ -1838,53 +1798,33 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-    /* ===========================
-   SUMMER MOBILE PAN
+/* ===========================
+   SUMMER MOBILE HORIZONTAL
 =========================== */
 
-function setupSummerPan(){
+function setupSummerHorizontalScroll() {
+  const scroller = document.querySelector(".summer-panorama-scroll");
 
-    if(window.innerWidth>900) return;
+  if (!scroller) return;
 
-    const section=document.querySelector(".summer-section");
-    const image=document.querySelector(".summer-image");
-    const hotspots=document.querySelector(".summer-hotspots");
-    const overlay=document.querySelector(".summer-overlay");
-
-    if(!section||!image)return;
-
-    function update(){
-
-        const rect=section.getBoundingClientRect();
-
-        const total=section.offsetHeight-window.innerHeight;
-
-        if(total<=0)return;
-
-        let progress=-rect.top/total;
-
-        progress=Math.max(0,Math.min(1,progress));
-
-        const max=image.offsetWidth-window.innerWidth;
-
-        const x=-(max*progress);
-
-        image.style.transform=`translateX(${x}px)`;
-
-        hotspots.style.transform=`translateX(${x}px)`;
-
-        overlay.style.transform=`translateX(${x}px)`;
-
+  function positionSummerPanorama() {
+    if (window.innerWidth > 900) {
+      scroller.scrollLeft = 0;
+      return;
     }
 
-    update();
+    const maximumScroll =
+      scroller.scrollWidth - scroller.clientWidth;
 
-    window.addEventListener("scroll",update,{passive:true});
-    window.addEventListener("resize",update);
+    scroller.scrollLeft = maximumScroll / 2;
+  }
 
+  requestAnimationFrame(positionSummerPanorama);
+
+  window.addEventListener("resize", positionSummerPanorama);
 }
 
-setupSummerPan();
+setupSummerHorizontalScroll();
   </script>
 
 </body>
