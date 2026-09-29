@@ -1048,29 +1048,24 @@
 
 /* Posiciones de las bebidas */
 
-.hotspot-horchata {
-  left: 15.5%;
-  top: 56%;
+.hotspot-pumpkin{
+    left:14%;
+    top:56%;
 }
 
-.hotspot-berries {
-  left: 33.3%;
-  top: 54%;
+.hotspot-pecan{
+    left:38%;
+    top:56%;
 }
 
-.hotspot-moreno {
-  left: 49.5%;
-  top: 61%;
+.hotspot-butterbeer{
+    left:62%;
+    top:56%;
 }
 
-.hotspot-yuja {
-  left: 66.2%;
-  top: 54%;
-}
-
-.hotspot-matcha {
-  left: 84.5%;
-  top: 56%;
+.hotspot-apple{
+    left:86%;
+    top:56%;
 }
 
 /* Instrucción */
@@ -1377,26 +1372,21 @@
 
   /* Ajuste exclusivo de hotspots en móvil */
 
-.hotspot-horchata {
-  left: 8%;
+.hotspot-pumpkin{
+    left:8%;
 }
 
-.hotspot-berries {
-  left: 29%;
+.hotspot-pecan{
+    left:36%;
 }
 
-.hotspot-moreno {
-  left: 49.5%;
+.hotspot-butterbeer{
+    left:64%;
 }
 
-.hotspot-yuja {
-  left: 70%;
+.hotspot-apple{
+    left:92%;
 }
-
-.hotspot-matcha {
-  left: 92%;
-}
-
   .summer-intro {
   bottom: 46px;
   width: calc(100% - 24px);
@@ -1538,57 +1528,51 @@
 
         <div class="summer-hotspots">
 
-          <button
-            type="button"
-            class="drink-hotspot hotspot-horchata"
-            data-drink="horchata"
-            aria-label="Ver Horchata Foam Latte"
-          >
-            <span class="hotspot-pulse"></span>
-            <span class="hotspot-dot"></span>
-          </button>
+    <button
+        type="button"
+        class="drink-hotspot hotspot-pumpkin"
+        data-drink="pumpkin"
+        aria-label="Pumpkin Spice Latte">
 
-          <button
-            type="button"
-            class="drink-hotspot hotspot-berries"
-            data-drink="berries"
-            aria-label="Ver Berries Lemonade Refresher"
-          >
-            <span class="hotspot-pulse"></span>
-            <span class="hotspot-dot"></span>
-          </button>
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
 
-          <button
-            type="button"
-            class="drink-hotspot hotspot-moreno"
-            data-drink="moreno"
-            aria-label="Ver Moreno Shaken Espresso"
-          >
-            <span class="hotspot-pulse"></span>
-            <span class="hotspot-dot"></span>
-          </button>
+    </button>
 
-          <button
-            type="button"
-            class="drink-hotspot hotspot-yuja"
-            data-drink="yuja"
-            aria-label="Ver Korean Yuja Refresher"
-          >
-            <span class="hotspot-pulse"></span>
-            <span class="hotspot-dot"></span>
-          </button>
+    <button
+        type="button"
+        class="drink-hotspot hotspot-pecan"
+        data-drink="pecan"
+        aria-label="Cloud Pecan Latte">
 
-          <button
-            type="button"
-            class="drink-hotspot hotspot-matcha"
-            data-drink="matcha"
-            aria-label="Ver Matcha Cloud Coconut"
-          >
-            <span class="hotspot-pulse"></span>
-            <span class="hotspot-dot"></span>
-          </button>
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
 
-        </div>
+    </button>
+
+    <button
+        type="button"
+        class="drink-hotspot hotspot-butterbeer"
+        data-drink="butterbeer"
+        aria-label="Butterbeer Latte">
+
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
+
+    </button>
+
+    <button
+        type="button"
+        class="drink-hotspot hotspot-apple"
+        data-drink="apple"
+        aria-label="Apple Caramel Latte">
+
+        <span class="hotspot-pulse"></span>
+        <span class="hotspot-dot"></span>
+
+    </button>
+
+</div>
 
       </div>
     </div>
@@ -1835,45 +1819,39 @@
     setupModal("openLocationModal", "locationModal", "closeLocationModal");
     setupModal("openHoursImageModal", "hoursImageModal", "closeHoursImageModal");
     const summerDrinks = {
-  horchata: {
-    title: "Horchata Foam Latte",
+
+  pumpkin: {
+    title: "Pumpkin Spice Latte 16 oz",
     description:
-      "Latte frío inspirado en el sabor tradicional de la horchata. Preparado con espresso, leche y notas de canela y vainilla para una bebida cremosa, refrescante y llena de sabor.",
+      "Latte preparado con espresso, leche y nuestro Pumpkin Spice hecho en casa, con el sabor de la calabaza y una mezcla de especias cálidas que representa lo mejor del otoño. Disfrútalo frío o caliente.",
     whatsapp:
-      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Horchata%20Foam%20Latte."
+      "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Pumpkin%20Spice%20Latte."
   },
 
-  berries: {
-    title: "Berries Lemonade Refresher",
+  pecan: {
+    title: "Cloud Pecan Latte 16 oz",
     description:
-      "Refrescante combinación de limón, blackberry y frutos rojos servida sobre hielo. Una bebida vibrante y frutal que equilibra perfectamente las notas dulces y cítricas para combatir el calor.",
+      "Latte con espresso y el delicioso sabor de la nuez pecana, coronado con una suave nube de cold foam que aporta una textura cremosa y complementa sus notas dulces y tostadas. Disfrútalo frío o caliente.",
     whatsapp:
-      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Berries%20Lemonade%20Refresher."
+      "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Cloud%20Pecan%20Latte."
   },
 
-  moreno: {
-    title: "Moreno Shaken Espresso",
+  butterbeer: {
+    title: "Butterbeer Latte 16 oz",
     description:
-      "Inspirado en el clásico Brown Sugar Shaken Espresso. Espresso recién preparado, agitado con azúcar morena, canela y hielo, combinado con leche para una bebida refrescante, cremosa y perfectamente equilibrada.",
+      "Inspirado en la clásica bebida Butterbeer de nuestro mago favorito, combinamos espresso con un sabor cremoso a mantequilla y caramelo para crear un latte dulce, cremoso y perfecto para esta temporada.",
     whatsapp:
-      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Moreno%20Shaken%20Espresso."
+      "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Butterbeer%20Latte."
   },
 
-  yuja: {
-    title: "Korean Yuja Refresher",
+  apple: {
+    title: "Apple Caramel Latte 16 oz",
     description:
-      "Bebida refrescante inspirada en Corea, preparada con Honey Citron y decorada con naranja deshidratada. Destaca por sus notas cítricas dulces, aroma fresco y sabor ligero, perfecta para los días más cálidos.",
+      "Latte frío que combina espresso, manzana y caramelo con un toque de canela, creando una bebida dulce y aromática inspirada en los sabores del otoño.",
     whatsapp:
-      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Korean%20Yuja%20Refresher."
-  },
-
-  matcha: {
-    title: "Matcha Cloud Coconut",
-    description:
-      "Agua de coco natural servida sobre hielo y coronada con una nube cremosa de matcha ceremonial de Japón. Refrescante, tropical y suave, con delicadas notas dulces y florales.",
-    whatsapp:
-      "https://wa.me/5216864310241?text=Hola%2C%20quiero%20pedir%20un%20Matcha%20Cloud%20Coconut."
+      "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Apple%20Caramel%20Latte."
   }
+
 };
 
 const drinkHotspots = document.querySelectorAll(".drink-hotspot");
