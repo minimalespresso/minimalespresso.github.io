@@ -10,20 +10,14 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <title>
-    Minimal Espresso
-  </title>
-
+  <title>Minimal Espresso</title>
 
   <meta
     name="google-site-verification"
     content="cOCz7X7cvTb-8y4zMdn-HZxN0WnzYs1QiWRPdnlB2eA"
   />
 
-  <meta
-    property="og:title"
-    content="Minimal Espresso"
-  >
+  <meta property="og:title" content="Minimal Espresso">
 
   <meta
     property="og:description"
@@ -40,10 +34,7 @@
     content="https://minimalespresso.com"
   >
 
-  <meta
-    property="og:type"
-    content="website"
-  >
+  <meta property="og:type" content="website">
 
   <meta
     name="twitter:card"
@@ -250,12 +241,6 @@
     }
 
 
-
-    /* =========================
-       GRID PRINCIPAL HERO
-    ========================= */
-
-
     .hero-grid {
 
       position: absolute;
@@ -399,7 +384,7 @@
 
 
     /* =========================
-       PANEL PRINCIPAL IZQUIERDO
+       PANEL PRINCIPAL
     ========================= */
 
 
@@ -585,12 +570,6 @@
       padding: 0;
 
     }
-
-
-
-    /* =========================
-       PANELES DERECHOS
-    ========================= */
 
 
     .hero-side-card {
@@ -800,6 +779,96 @@
     }
 
 
+    .hero-mielle-logo {
+
+      position: absolute;
+
+      top: 28px;
+
+      right: 34px;
+
+      z-index: 5;
+
+      width:
+        clamp(
+          105px,
+          11vw,
+          170px
+        );
+
+      max-height: 64px;
+
+      object-fit: contain;
+
+      object-position:
+        right center;
+
+      filter:
+        drop-shadow(
+          0 5px 18px
+          rgba(0,0,0,.35)
+        );
+
+    }
+
+
+    .hero-mielle-card p {
+
+      max-width: 470px;
+
+      margin-top: 10px;
+
+    }
+
+
+    .hero-mielle-availability {
+
+      min-height: 38px;
+
+      margin-top: 15px;
+
+      padding:
+        0 17px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 999px;
+
+      background: #fff;
+
+      color: #080808;
+
+      font-size: .64rem;
+
+      font-weight: 800;
+
+      letter-spacing: .15em;
+
+      white-space: nowrap;
+
+      transition:
+        transform .22s ease,
+        background .22s ease;
+
+    }
+
+
+    .hero-mielle-card:hover
+    .hero-mielle-availability {
+
+      transform:
+        translateY(-2px);
+
+      background:
+        #eeeeee;
+
+    }
+
+
 
     /* =========================
        GOOGLE
@@ -823,6 +892,14 @@
           rgba(5,5,5,.54) 58%,
           rgba(5,5,5,.18) 100%
         );
+
+    }
+
+
+    .hero-google-card
+    .hero-tile-content {
+
+      padding-bottom: 78px;
 
     }
 
@@ -853,7 +930,7 @@
 
 
     /* =========================
-       INDICADOR TEMPORADA
+       INDICADOR OTOÑO
     ========================= */
 
 
@@ -863,9 +940,9 @@
 
       left: 50%;
 
-      bottom: 18px;
+      bottom: 17px;
 
-      z-index: 10;
+      z-index: 20;
 
       transform:
         translateX(-50%);
@@ -887,7 +964,7 @@
       gap: 7px;
 
       color:
-        rgba(255,255,255,.76);
+        rgba(255,255,255,.78);
 
       text-align: center;
 
@@ -895,7 +972,7 @@
 
       text-shadow:
         0 3px 12px
-        rgba(0,0,0,.8);
+        rgba(0,0,0,.85);
 
     }
 
@@ -906,9 +983,11 @@
 
       font-weight: 800;
 
-      letter-spacing: .22em;
+      letter-spacing: .23em;
 
-      line-height: 1.45;
+      line-height: 1.4;
+
+      white-space: nowrap;
 
     }
 
@@ -937,6 +1016,7 @@
         opacity: .48;
 
       }
+
 
       50% {
 
@@ -1553,7 +1633,7 @@
 
 
     /* =========================
-       HERO / GENERAL MOBILE
+       HERO MOBILE
     ========================= */
 
 
@@ -1610,10 +1690,6 @@
       }
 
 
-
-      /* HERO MOBILE */
-
-
       .hero-section {
 
         width: 100%;
@@ -1651,10 +1727,6 @@
           1fr;
 
         gap: 0;
-
-        margin: 0;
-
-        padding: 0;
 
       }
 
@@ -1783,6 +1855,41 @@
       }
 
 
+      .hero-mielle-logo {
+
+        top: 26px;
+
+        right: 24px;
+
+        width: 130px;
+
+        max-width: 36%;
+
+        max-height: 54px;
+
+      }
+
+
+      .hero-mielle-availability {
+
+        min-height: 40px;
+
+        padding:
+          0 16px;
+
+        font-size: .62rem;
+
+      }
+
+
+      .hero-google-card
+      .hero-tile-content {
+
+        padding-bottom: 94px;
+
+      }
+
+
       .hero-season-cue {
 
         bottom: 18px;
@@ -1792,15 +1899,19 @@
 
       .hero-season-cue span {
 
-        font-size: .56rem;
+        max-width: 320px;
 
-        letter-spacing: .16em;
+        font-size: .55rem;
+
+        letter-spacing: .15em;
+
+        white-space: normal;
 
       }
 
 
 
-      /* DELIVERY MOBILE */
+      /* DELIVERY */
 
 
       .delivery-grid {
@@ -1854,13 +1965,6 @@
         font-size: 1.12rem;
 
         line-height: 1.6;
-
-      }
-
-
-      .platform-arrow {
-
-        font-size: 1rem;
 
       }
 
@@ -2005,8 +2109,12 @@
 
       object-fit: cover;
 
+      /*
+        Más imagen de la parte inferior.
+      */
+
       object-position:
-        center center;
+        center 57%;
 
       pointer-events: none;
 
@@ -2211,6 +2319,8 @@
 
     /* =========================
        POSICIONES WEB
+       COMPENSADAS POR EL
+       REENCUADRE DE LA IMAGEN
     ========================= */
 
 
@@ -2218,7 +2328,7 @@
 
       left: 24%;
 
-      top: 56%;
+      top: 53%;
 
     }
 
@@ -2227,7 +2337,7 @@
 
       left: 39%;
 
-      top: 75%;
+      top: 72%;
 
     }
 
@@ -2236,7 +2346,7 @@
 
       left: 62%;
 
-      top: 75%;
+      top: 72%;
 
     }
 
@@ -2245,14 +2355,14 @@
 
       left: 77%;
 
-      top: 56%;
+      top: 53%;
 
     }
 
 
 
     /* =========================
-       INSTRUCCIÓN
+       INSTRUCCIÓN ESPECIALES
     ========================= */
 
 
@@ -2361,6 +2471,7 @@
 
       }
 
+
       50% {
 
         transform:
@@ -2384,6 +2495,7 @@
         opacity: .45;
 
       }
+
 
       50% {
 
@@ -2463,7 +2575,8 @@
       transition:
         opacity .3s ease,
         visibility .3s ease,
-        transform .3s cubic-bezier(.2,.8,.2,1);
+        transform .3s
+        cubic-bezier(.2,.8,.2,1);
 
     }
 
@@ -2727,7 +2840,7 @@
         object-fit: cover;
 
         object-position:
-          center center;
+          center 57%;
 
       }
 
@@ -2769,14 +2882,14 @@
 
 
 
-      /* POSICIONES MOBILE */
+      /* POSICIONES MOBILE COMPENSADAS */
 
 
       .hotspot-butterbeer {
 
         left: 12%;
 
-        top: 56%;
+        top: 53%;
 
       }
 
@@ -2785,7 +2898,7 @@
 
         left: 34%;
 
-        top: 67%;
+        top: 64%;
 
       }
 
@@ -2794,7 +2907,7 @@
 
         left: 67%;
 
-        top: 67%;
+        top: 64%;
 
       }
 
@@ -2803,10 +2916,9 @@
 
         left: 89%;
 
-        top: 56%;
+        top: 53%;
 
       }
-
 
 
       .summer-intro {
@@ -3031,7 +3143,7 @@
 
 
 
-        <!-- PRINCIPAL -->
+        <!-- MINIMAL -->
 
 
         <article
@@ -3130,12 +3242,14 @@
           >
 
 
+            <img
+              src="miellelogo.PNG"
+              class="hero-mielle-logo"
+              alt="Miellé Repostería"
+            >
+
+
             <div class="hero-tile-content">
-
-
-              <span class="hero-card-kicker">
-                EN COLABORACIÓN CON
-              </span>
 
 
               <h2>
@@ -3144,12 +3258,12 @@
 
 
               <p>
-                Repostería seleccionada para acompañar tu café.
+                Descubre nuestra selección de repostería, elaborada por Miellé.
               </p>
 
 
-              <span class="hero-card-cta">
-                CONOCER MIELLÉ →
+              <span class="hero-mielle-availability">
+                VER DISPONIBILIDAD
               </span>
 
 
@@ -3186,20 +3300,19 @@
 
                 <i class="fa-brands fa-google"></i>
 
-
-                GOOGLE
+                GOOGLE MAPS
 
 
               </span>
 
 
               <h2>
-                ¿Ya nos probaste?
+                ¿Disfrutaste nuestro café?
               </h2>
 
 
               <p>
-                Déjanos tu reseña y cuéntanos tu experiencia.
+                Déjanos una reseña en Google Maps y ayuda a más personas a conocernos.
               </p>
 
 
@@ -3214,7 +3327,6 @@
           </a>
 
 
-
         </div>
 
 
@@ -3222,7 +3334,7 @@
 
 
 
-      <!-- INDICADOR TEMPORADA -->
+      <!-- INDICADOR OTOÑO -->
 
 
       <a
@@ -3232,7 +3344,7 @@
 
 
         <span>
-          DESLIZA PARA CONOCER NUESTRAS BEBIDAS DE TEMPORADA
+          CONOCE NUESTROS ESPECIALES DE OTOÑO
         </span>
 
 
@@ -3348,7 +3460,6 @@
               </button>
 
 
-
             </div>
 
 
@@ -3369,9 +3480,7 @@
 
 
           <div class="summer-intro-desktop">
-
             Selecciona una bebida para conocerla.
-
           </div>
 
 
@@ -3396,7 +3505,7 @@
 
 
 
-        <!-- TARJETA BEBIDA -->
+        <!-- TARJETA -->
 
 
         <article
@@ -3530,7 +3639,7 @@
 
         <a
           class="platform-card"
-          href="https://www.didi-food.com/es-MX/food/store/5764610515746425589/?location_country=MX&country=MX&lang=es-MX&channel=19&pid=website_seo%3Futm_source%3Dchatgpt.com&af_adset_id=null&af_ad_id=null&af_c_id=null&af_channel=null&c=null&campaign=null&utm_medium=null&utm_source=null&utm_campaign=null&utm_term=null&source=null&campaign_id=null&ad_group_id=null&creative_id=null&target_id=null&keyword=null&matchtype=null&devicemodel=null&adposition=null&placement=null&clientType=19&is_from_marketing=1&af_web_dp=https%3A%2F%2Fpreweb.didiglobal.com%2Fmx%2Fstore&pl=eyJwb2lJZCI6IjI4ODIzMDM3NjE1NjQwMTkyNjQiLCJhZGRyZXNzQWxsRGlzcGxheSI6IjIxMzg3IE1leGljYWxpLCBCLkMuLCBNw6l4aWNvIiwiY2l0eSI6Ik1leGljYWxpIiwiY2l0eUlkIjo1MjAyMDEwMCwiY291bnRyeUNvZGUiOiJNWCIsImNvdW50cnlJZCI6NTIsImxhdCI6MzIuNTY5NjI3MjUsImxuZyI6LTExNS40Mjg1Njc5NSwiZGlzcGxheU5hbWUiOiJHcmFtYSAzNjkiLCJhZGRyZXNzIjoiMjEzODcgTWV4aWNhbGksIEIuQy4sIE3DqXhpY28iLCJhZGRyZXNzQWxsIjoiR3JhbWEgMzY5LCAyMTM4NyBNZXhpY2FsaSwgQi5DLiwgTcOpeGljbyIsImNvb3JkaW5hdGVUeXBlIjoid2dzODQiLCJwb2lTcmNUYWciOiJtYW51YWxfcmdlbyIsInNyY1RhZyI6InJldmVyc2VnZW90b3AiLCJzZWFyY2hJZCI6IjBhOGYzMTMzNmEyZmFkNDZiNTNmNjdjMjAzMjQ5MjAyIiwiZGlzcFN0ciI6IjEwbSIsInBvaVR5cGUiOiJTdHJlZXQgTmFtZSIsImNvdW50eUlkIjo1MjAyMDEwMSwiY291bnR5R3JvdXBJZCI6NTIwMjAxMDAwMDAxfQ%3D%3D"
+          href="https://www.didi-food.com/es-MX/food/store/5764610515746425589/"
           target="_blank"
         >
 
@@ -3652,7 +3761,6 @@
 
 
         <div class="compact-footer__details">
-
 
 
           <p>
@@ -3993,7 +4101,6 @@
     const summerDrinks = {
 
 
-
       pumpkin: {
 
 
@@ -4010,7 +4117,6 @@
 
 
       },
-
 
 
       pecan: {
@@ -4031,7 +4137,6 @@
       },
 
 
-
       butterbeer: {
 
 
@@ -4048,7 +4153,6 @@
 
 
       },
-
 
 
       apple: {
