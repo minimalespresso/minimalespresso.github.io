@@ -42,9 +42,15 @@
 
     body {
       min-height: 100vh;
-      font-family: "League Spartan", system-ui, sans-serif;
+
+      font-family:
+        "League Spartan",
+        system-ui,
+        sans-serif;
+
       color: #fff;
       background: #050505;
+
       overflow-x: hidden;
     }
 
@@ -55,14 +61,17 @@
 
     .site-header {
       position: fixed;
+
       top: 0;
       left: 0;
       right: 0;
 
       height: 95px;
+
       z-index: 50;
 
       display: flex;
+
       align-items: flex-start;
       justify-content: space-between;
 
@@ -88,18 +97,24 @@
 
     .nav {
       margin-top: 38px;
+
       display: flex;
+
       gap: 32px;
+
       align-items: center;
     }
 
     .nav a,
     .nav-item {
       color: #fff;
+
       text-decoration: none;
 
       font-size: .78rem;
+
       font-weight: 700;
+
       letter-spacing: .24em;
 
       opacity: .78;
@@ -107,6 +122,7 @@
       transition: .2s ease;
 
       cursor: pointer;
+
       white-space: nowrap;
     }
 
@@ -125,9 +141,10 @@
 
       padding:
         135px 24px
-        36px;
+        30px;
 
       display: flex;
+
       flex-direction: column;
 
       justify-content: center;
@@ -137,26 +154,80 @@
 
       overflow: hidden;
 
-      background:
-        radial-gradient(
-          circle at 50% 10%,
-          rgba(255,255,255,.07),
-          transparent 42%
-        ),
-        linear-gradient(
-          180deg,
-          #101010,
-          #050505
-        );
+      isolation: isolate;
+
+      background: #080808;
     }
+
+
+    /* FOTO DE FONDO */
+
+    .pastry-hero::before {
+      content: "";
+
+      position: absolute;
+
+      inset: -12px;
+
+      z-index: 0;
+
+      background-image:
+        url("miellepostres.jpg");
+
+      background-size: cover;
+
+      background-position:
+        center center;
+
+      background-repeat: no-repeat;
+
+      filter:
+        blur(5px)
+        brightness(.58);
+
+      transform:
+        scale(1.06);
+    }
+
+
+    /* OSCURECIDO / PROFUNDIDAD */
 
     .pastry-hero::after {
       content: "";
 
       position: absolute;
 
+      inset: 0;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(5,5,5,.76) 0%,
+          rgba(5,5,5,.48) 35%,
+          rgba(5,5,5,.58) 68%,
+          rgba(5,5,5,.90) 100%
+        ),
+        radial-gradient(
+          circle at 50% 38%,
+          rgba(0,0,0,.02),
+          rgba(0,0,0,.35) 76%
+        );
+    }
+
+
+    /* SEPARADOR */
+
+    .pastry-hero-separator {
+      position: absolute;
+
       left: 50%;
       bottom: 0;
+
+      z-index: 3;
 
       width:
         min(
@@ -173,13 +244,17 @@
         linear-gradient(
           90deg,
           transparent,
-          rgba(255,255,255,.14),
+          rgba(255,255,255,.18),
           transparent
         );
     }
 
+
+    /* LOGO */
+
     .mielle-main-logo {
       position: relative;
+
       z-index: 2;
 
       display: block;
@@ -192,16 +267,27 @@
         );
 
       max-width: 90%;
+
       max-height: 180px;
 
       object-fit: contain;
 
       margin:
         0 auto 20px;
+
+      filter:
+        drop-shadow(
+          0 10px 32px
+          rgba(0,0,0,.45)
+        );
     }
+
+
+    /* TÍTULO */
 
     .pastry-hero h1 {
       position: relative;
+
       z-index: 2;
 
       width:
@@ -231,14 +317,18 @@
 
       text-shadow:
         0 10px 30px
-        rgba(0,0,0,.32);
+        rgba(0,0,0,.65);
     }
+
+
+    /* INSTAGRAM */
 
     .mielle-instagram-link {
       position: relative;
+
       z-index: 2;
 
-      margin-top: 17px;
+      margin-top: 23px;
 
       display: inline-flex;
 
@@ -248,7 +338,7 @@
       gap: 8px;
 
       color:
-        rgba(255,255,255,.66);
+        rgba(255,255,255,.75);
 
       text-decoration: none;
 
@@ -257,9 +347,14 @@
         sans-serif;
 
       font-size: .70rem;
+
       font-weight: 700;
 
       letter-spacing: .11em;
+
+      text-shadow:
+        0 4px 16px
+        rgba(0,0,0,.8);
 
       transition:
         color .2s ease,
@@ -284,7 +379,7 @@
 
     .pastry-section {
       padding:
-        36px 32px
+        30px 32px
         90px;
 
       background: #050505;
@@ -326,6 +421,7 @@
       min-width: 0;
 
       display: flex;
+
       flex-direction: column;
 
       background:
@@ -402,6 +498,7 @@
 
     .pastry-placeholder {
       display: flex;
+
       flex-direction: column;
 
       align-items: center;
@@ -451,6 +548,7 @@
         27px;
 
       display: flex;
+
       flex-direction: column;
 
       align-items: flex-start;
@@ -774,6 +872,7 @@
 
     .modal h2 {
       margin-bottom: 16px;
+
       font-size: 1.2rem;
     }
 
@@ -782,6 +881,7 @@
       height: 340px;
 
       border: 0;
+
       border-radius: 18px;
     }
 
@@ -866,6 +966,7 @@
 
     .compact-footer__main {
       width: fit-content;
+
       max-width: 100%;
 
       margin: 0 auto;
@@ -1062,7 +1163,16 @@
       .pastry-hero {
         padding:
           132px 22px
-          30px;
+          27px;
+      }
+
+      .pastry-hero::before {
+        filter:
+          blur(5px)
+          brightness(.55);
+
+        background-position:
+          center center;
       }
 
       .mielle-main-logo {
@@ -1087,7 +1197,7 @@
       }
 
       .mielle-instagram-link {
-        margin-top: 15px;
+        margin-top: 21px;
 
         font-size: .66rem;
 
@@ -1096,7 +1206,7 @@
 
       .pastry-section {
         padding:
-          30px 18px
+          27px 18px
           72px;
       }
 
@@ -1256,6 +1366,11 @@
         SÍGUELOS EN INSTAGRAM
 
       </a>
+
+      <span
+        class="pastry-hero-separator"
+        aria-hidden="true"
+      ></span>
 
     </section>
 
