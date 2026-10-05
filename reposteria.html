@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Consulta la disponibilidad actual de nuestra selección de repostería elaborada por Miellé."
+    content="Descubre nuestra selección de repostería elaborada por Miellé."
   >
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -42,15 +42,9 @@
 
     body {
       min-height: 100vh;
-
-      font-family:
-        "League Spartan",
-        system-ui,
-        sans-serif;
-
+      font-family: "League Spartan", system-ui, sans-serif;
       color: #fff;
       background: #050505;
-
       overflow-x: hidden;
     }
 
@@ -61,28 +55,23 @@
 
     .site-header {
       position: fixed;
-
       top: 0;
       left: 0;
       right: 0;
 
       height: 95px;
-
       z-index: 50;
 
       display: flex;
-
       align-items: flex-start;
       justify-content: space-between;
 
-      padding:
-        0 42px;
+      padding: 0 42px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(0,0,0,.82),
-          rgba(0,0,0,.18) 65%,
+          rgba(0,0,0,.62),
           rgba(0,0,0,0)
         );
     }
@@ -101,31 +90,24 @@
       margin-top: 38px;
 
       display: flex;
-
       gap: 32px;
-
       align-items: center;
     }
 
     .nav a,
     .nav-item {
       color: #fff;
-
       text-decoration: none;
 
       font-size: .78rem;
-
       font-weight: 700;
-
       letter-spacing: .24em;
 
       opacity: .78;
 
-      transition:
-        .2s ease;
+      transition: .2s ease;
 
       cursor: pointer;
-
       white-space: nowrap;
     }
 
@@ -142,14 +124,11 @@
     .pastry-hero {
       position: relative;
 
-      min-height: 520px;
-
       padding:
-        150px 24px
-        80px;
+        135px 24px
+        36px;
 
       display: flex;
-
       flex-direction: column;
 
       justify-content: center;
@@ -162,8 +141,8 @@
       background:
         radial-gradient(
           circle at 50% 10%,
-          rgba(255,255,255,.08),
-          transparent 38%
+          rgba(255,255,255,.07),
+          transparent 42%
         ),
         linear-gradient(
           180deg,
@@ -195,151 +174,108 @@
         linear-gradient(
           90deg,
           transparent,
-          rgba(255,255,255,.16),
+          rgba(255,255,255,.14),
           transparent
         );
     }
 
     .mielle-main-logo {
       position: relative;
-
       z-index: 2;
 
       display: block;
 
       width:
         clamp(
-          290px,
-          36vw,
-          520px
+          300px,
+          34vw,
+          500px
         );
 
-      max-width: 88%;
-
-      max-height: 190px;
+      max-width: 90%;
+      max-height: 180px;
 
       object-fit: contain;
 
       margin:
-        0 auto 26px;
+        0 auto 20px;
     }
 
-    .pastry-live-label {
+    .pastry-hero h1 {
       position: relative;
-
       z-index: 2;
 
-      margin-bottom: 16px;
+      width:
+        min(
+          850px,
+          92%
+        );
+
+      margin: 0 auto;
+
+      font-size:
+        clamp(
+          1.85rem,
+          2.8vw,
+          3.15rem
+        );
+
+      line-height: 1.03;
+
+      font-weight: 750;
+
+      letter-spacing: -.018em;
+
+      text-wrap: balance;
+
+      color: #fff;
+
+      text-shadow:
+        0 10px 30px
+        rgba(0,0,0,.32);
+    }
+
+    .mielle-instagram-link {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 17px;
 
       display: inline-flex;
 
       align-items: center;
+      justify-content: center;
 
-      gap: 9px;
+      gap: 8px;
 
       color:
-        rgba(255,255,255,.70);
+        rgba(255,255,255,.66);
+
+      text-decoration: none;
 
       font-family:
         "DM Sans",
         sans-serif;
 
       font-size: .70rem;
-
       font-weight: 700;
 
-      letter-spacing: .18em;
+      letter-spacing: .11em;
+
+      transition:
+        color .2s ease,
+        transform .2s ease;
     }
 
-    .live-dot {
-      width: 8px;
-      height: 8px;
-
-      border-radius: 50%;
-
-      background: #49d36d;
-
-      box-shadow:
-        0 0 0 0
-        rgba(73,211,109,.50);
-
-      animation:
-        livePulse
-        1.8s
-        ease-out
-        infinite;
+    .mielle-instagram-link i {
+      font-size: .95rem;
     }
 
-    @keyframes livePulse {
+    .mielle-instagram-link:hover {
+      color: #fff;
 
-      0% {
-        box-shadow:
-          0 0 0 0
-          rgba(73,211,109,.50);
-      }
-
-      70% {
-        box-shadow:
-          0 0 0 9px
-          rgba(73,211,109,0);
-      }
-
-      100% {
-        box-shadow:
-          0 0 0 0
-          rgba(73,211,109,0);
-      }
-
-    }
-
-    .pastry-hero h1 {
-      position: relative;
-
-      z-index: 2;
-
-      max-width: 760px;
-
-      margin: 0 auto;
-
-      font-size:
-        clamp(
-          2.6rem,
-          5vw,
-          5.2rem
-        );
-
-      line-height: .95;
-
-      font-weight: 800;
-
-      text-wrap: balance;
-    }
-
-    .pastry-hero p {
-      position: relative;
-
-      z-index: 2;
-
-      max-width: 610px;
-
-      margin:
-        20px auto 0;
-
-      font-family:
-        "DM Sans",
-        sans-serif;
-
-      font-size:
-        clamp(
-          .92rem,
-          1.25vw,
-          1.06rem
-        );
-
-      line-height: 1.6;
-
-      color:
-        rgba(255,255,255,.65);
+      transform:
+        translateY(-2px);
     }
 
 
@@ -349,8 +285,8 @@
 
     .pastry-section {
       padding:
-        82px 32px
-        110px;
+        36px 32px
+        90px;
 
       background: #050505;
     }
@@ -363,57 +299,6 @@
         );
 
       margin: 0 auto;
-    }
-
-    .pastry-section-header {
-      margin-bottom: 34px;
-
-      display: flex;
-
-      align-items: flex-end;
-      justify-content: space-between;
-
-      gap: 30px;
-    }
-
-    .pastry-section-eyebrow {
-      display: block;
-
-      margin-bottom: 9px;
-
-      color: #d3b184;
-
-      font-size: .68rem;
-
-      font-weight: 800;
-
-      letter-spacing: .30em;
-    }
-
-    .pastry-section-header h2 {
-      font-size:
-        clamp(
-          2rem,
-          3vw,
-          3.4rem
-        );
-
-      line-height: .95;
-
-      font-weight: 800;
-    }
-
-    .last-update {
-      font-family:
-        "DM Sans",
-        sans-serif;
-
-      font-size: .78rem;
-
-      color:
-        rgba(255,255,255,.38);
-
-      white-space: nowrap;
     }
 
 
@@ -440,11 +325,9 @@
       position: relative;
 
       min-width: 0;
-
-      min-height: 480px;
+      min-height: 470px;
 
       display: flex;
-
       flex-direction: column;
 
       background:
@@ -466,12 +349,12 @@
 
     .pastry-card:hover {
       background:
-        rgba(255,255,255,.055);
+        rgba(255,255,255,.05);
     }
 
 
     /* =========================
-       PLACEHOLDER FOTO
+       FOTO / PLACEHOLDER
     ========================= */
 
     .pastry-media {
@@ -492,7 +375,7 @@
       background:
         radial-gradient(
           circle at 50% 45%,
-          rgba(255,255,255,.065),
+          rgba(255,255,255,.06),
           transparent 55%
         ),
         #0b0b0b;
@@ -507,14 +390,14 @@
       right: 0;
       bottom: 0;
 
-      height: 45%;
+      height: 42%;
 
       pointer-events: none;
 
       background:
         linear-gradient(
           to top,
-          rgba(5,5,5,.44),
+          rgba(5,5,5,.40),
           transparent
         );
     }
@@ -530,7 +413,7 @@
       gap: 12px;
 
       color:
-        rgba(255,255,255,.25);
+        rgba(255,255,255,.22);
 
       text-align: center;
     }
@@ -550,12 +433,6 @@
 
       letter-spacing: .18em;
     }
-
-
-    /* Cuando subas una foto:
-       sustituimos .pastry-placeholder
-       por una imagen con esta clase.
-    */
 
     .pastry-image {
       width: 100%;
@@ -578,10 +455,9 @@
 
       padding:
         27px 26px
-        78px;
+        76px;
 
       display: flex;
-
       flex-direction: column;
 
       justify-content: flex-start;
@@ -591,7 +467,7 @@
       margin-bottom: 10px;
 
       color:
-        rgba(255,255,255,.38);
+        rgba(255,255,255,.36);
 
       font-size: .60rem;
 
@@ -619,19 +495,14 @@
 
 
     /* =========================
-       ESTADO FLOTANTE
+       ESTADO
     ========================= */
 
     .stock-status {
       position: absolute;
 
       left: 26px;
-      bottom: 24px;
-
-      min-height: 36px;
-
-      padding:
-        0 14px;
+      bottom: 26px;
 
       display: inline-flex;
 
@@ -639,28 +510,23 @@
 
       gap: 9px;
 
-      border-radius: 999px;
-
       font-family:
         "DM Sans",
         sans-serif;
 
-      font-size: .64rem;
+      font-size: .69rem;
 
-      font-weight: 800;
+      font-weight: 600;
 
-      letter-spacing: .12em;
+      letter-spacing: .08em;
 
-      backdrop-filter:
-        blur(12px);
-
-      -webkit-backdrop-filter:
-        blur(12px);
+      color:
+        rgba(255,255,255,.72);
     }
 
     .stock-status-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
 
       flex-shrink: 0;
 
@@ -670,24 +536,13 @@
 
     /* DISPONIBLE */
 
-    .stock-status.available {
-      color: #98f0ae;
-
-      border:
-        1px solid
-        rgba(86,221,119,.35);
-
-      background:
-        rgba(20,88,38,.34);
-    }
-
     .stock-status.available
     .stock-status-dot {
       background: #53db77;
 
       box-shadow:
         0 0 0 0
-        rgba(83,219,119,.5);
+        rgba(83,219,119,.48);
 
       animation:
         availablePulse
@@ -706,7 +561,7 @@
 
       70% {
         box-shadow:
-          0 0 0 7px
+          0 0 0 8px
           rgba(83,219,119,0);
       }
 
@@ -722,14 +577,8 @@
     /* AGOTADO */
 
     .stock-status.sold-out {
-      color: #ff9898;
-
-      border:
-        1px solid
-        rgba(255,89,89,.35);
-
-      background:
-        rgba(100,22,22,.34);
+      color:
+        rgba(255,255,255,.52);
     }
 
     .stock-status.sold-out
@@ -738,11 +587,11 @@
 
       box-shadow:
         0 0 0 0
-        rgba(255,89,89,.45);
+        rgba(255,89,89,.42);
 
       animation:
         soldPulse
-        2.2s
+        2s
         ease-out
         infinite;
     }
@@ -757,7 +606,7 @@
 
       70% {
         box-shadow:
-          0 0 0 7px
+          0 0 0 8px
           rgba(255,89,89,0);
       }
 
@@ -777,7 +626,7 @@
     .order-strip {
       width:
         min(
-          1500px,
+          1420px,
           calc(100% - 64px)
         );
 
@@ -785,7 +634,7 @@
         0 auto 90px;
 
       padding:
-        40px 44px;
+        42px 46px;
 
       display: flex;
 
@@ -798,8 +647,14 @@
         1px solid
         rgba(255,255,255,.10);
 
+      border-radius: 28px;
+
       background:
         rgba(255,255,255,.035);
+
+      box-shadow:
+        0 22px 60px
+        rgba(0,0,0,.20);
     }
 
     .order-strip-copy span {
@@ -871,7 +726,7 @@
 
 
     /* =========================
-       MODALES HEADER
+       MODALES
     ========================= */
 
     .modal-overlay {
@@ -964,6 +819,7 @@
       text-decoration: none;
 
       font-size: .8rem;
+
       font-weight: 800;
 
       letter-spacing: .14em;
@@ -1017,7 +873,6 @@
 
     .compact-footer__main {
       width: fit-content;
-
       max-width: 100%;
 
       margin: 0 auto;
@@ -1182,7 +1037,7 @@
         background:
           linear-gradient(
             180deg,
-            rgba(0,0,0,.82),
+            rgba(0,0,0,.72),
             rgba(0,0,0,0)
           );
       }
@@ -1212,33 +1067,44 @@
       }
 
       .pastry-hero {
-        min-height: 500px;
-
         padding:
-          145px 22px
-          66px;
+          132px 22px
+          30px;
       }
 
       .mielle-main-logo {
         width: 330px;
 
-        max-width: 90%;
+        max-width: 92%;
 
-        margin-bottom: 22px;
+        margin-bottom: 18px;
+      }
+
+      .pastry-hero h1 {
+        width: 100%;
+
+        font-size:
+          clamp(
+            1.65rem,
+            6.8vw,
+            2.45rem
+          );
+
+        line-height: 1.04;
+      }
+
+      .mielle-instagram-link {
+        margin-top: 15px;
+
+        font-size: .66rem;
+
+        letter-spacing: .09em;
       }
 
       .pastry-section {
         padding:
-          60px 18px
+          30px 18px
           72px;
-      }
-
-      .pastry-section-header {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 12px;
       }
 
       .order-strip {
@@ -1253,6 +1119,8 @@
         align-items: flex-start;
 
         flex-direction: column;
+
+        border-radius: 24px;
       }
 
       .order-strip-button {
@@ -1372,19 +1240,23 @@
         alt="Miellé"
       >
 
-      <div class="pastry-live-label">
-        <span class="live-dot"></span>
-        DISPONIBILIDAD ACTUAL
-      </div>
-
       <h1>
-        Repostería disponible hoy
-      </h1>
-
-      <p>
         Descubre nuestra selección de repostería,
         elaborada por Miellé para acompañar tu café.
-      </p>
+      </h1>
+
+      <a
+        class="mielle-instagram-link"
+        href="https://www.instagram.com/miellemxl/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <i class="fa-brands fa-instagram"></i>
+
+        SÍGUELOS EN INSTAGRAM
+
+      </a>
 
     </section>
 
@@ -1397,34 +1269,7 @@
 
       <div class="pastry-section-inner">
 
-        <div class="pastry-section-header">
-
-          <div>
-
-            <span class="pastry-section-eyebrow">
-              SELECCIÓN DEL DÍA
-            </span>
-
-            <h2>
-              Repostería
-            </h2>
-
-          </div>
-
-          <div
-            class="last-update"
-            id="lastUpdate"
-          >
-            Disponibilidad actual
-          </div>
-
-        </div>
-
-
-        <div
-          class="pastry-grid"
-          id="pastryGrid"
-        >
+        <div class="pastry-grid">
 
 
           <!-- CROISSANT -->
@@ -1466,7 +1311,7 @@
                 <span class="stock-status-dot"></span>
 
                 <span class="status-text">
-                  DISPONIBLE
+                  Disponible
                 </span>
 
               </div>
@@ -1515,7 +1360,7 @@
                 <span class="stock-status-dot"></span>
 
                 <span class="status-text">
-                  DISPONIBLE
+                  Disponible
                 </span>
 
               </div>
@@ -1564,7 +1409,7 @@
                 <span class="stock-status-dot"></span>
 
                 <span class="status-text">
-                  DISPONIBLE
+                  Disponible
                 </span>
 
               </div>
@@ -1613,7 +1458,7 @@
                 <span class="stock-status-dot"></span>
 
                 <span class="status-text">
-                  DISPONIBLE
+                  Disponible
                 </span>
 
               </div>
@@ -1623,7 +1468,7 @@
           </article>
 
 
-          <!-- ROL CANELA -->
+          <!-- ROL DE CANELA -->
 
           <article
             class="pastry-card"
@@ -1662,7 +1507,7 @@
                 <span class="stock-status-dot"></span>
 
                 <span class="status-text">
-                  DISPONIBLE
+                  Disponible
                 </span>
 
               </div>
@@ -1711,7 +1556,7 @@
                 <span class="stock-status-dot"></span>
 
                 <span class="status-text">
-                  DISPONIBLE
+                  Disponible
                 </span>
 
               </div>
@@ -1760,7 +1605,7 @@
                 <span class="stock-status-dot"></span>
 
                 <span class="status-text">
-                  DISPONIBLE
+                  Disponible
                 </span>
 
               </div>
@@ -2065,14 +1910,12 @@
     );
 
 
-
     /* =========================
        INVENTARIO
-       Por ahora se controla aquí.
-       Más adelante lo conectamos
-       a inventario en tiempo real.
-    ========================= */
 
+       true  = Disponible
+       false = Agotado
+    ========================= */
 
     const pastryAvailability = {
 
@@ -2127,7 +1970,7 @@
             );
 
             text.textContent =
-              "DISPONIBLE";
+              "Disponible";
 
           } else {
 
@@ -2136,32 +1979,45 @@
             );
 
             text.textContent =
-              "AGOTADO";
+              "Agotado";
 
           }
 
         }
       );
 
-
-      const updateElement =
-        document.getElementById(
-          "lastUpdate"
-        );
-
-
-      if (updateElement) {
-
-        updateElement.textContent =
-          "Disponibilidad actual";
-
-      }
-
     }
 
 
     updatePastryStatuses();
 
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key !== "Escape"
+        ) return;
+
+
+        const modals =
+          document.querySelectorAll(
+            ".modal-overlay"
+          );
+
+
+        modals.forEach(
+          (modal) => {
+
+            modal.style.display =
+              "none";
+
+          }
+        );
+
+      }
+    );
 
   </script>
 
