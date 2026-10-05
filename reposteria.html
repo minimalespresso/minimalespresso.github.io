@@ -88,7 +88,6 @@
 
     .nav {
       margin-top: 38px;
-
       display: flex;
       gap: 32px;
       align-items: center;
@@ -325,7 +324,6 @@
       position: relative;
 
       min-width: 0;
-      min-height: 470px;
 
       display: flex;
       flex-direction: column;
@@ -404,7 +402,6 @@
 
     .pastry-placeholder {
       display: flex;
-
       flex-direction: column;
 
       align-items: center;
@@ -449,22 +446,20 @@
     ========================= */
 
     .pastry-card-body {
-      position: relative;
-
-      flex: 1;
-
       padding:
-        27px 26px
-        76px;
+        24px 26px
+        27px;
 
       display: flex;
       flex-direction: column;
 
-      justify-content: flex-start;
+      align-items: flex-start;
+
+      flex: 1;
     }
 
     .pastry-brand {
-      margin-bottom: 10px;
+      margin-bottom: 9px;
 
       color:
         rgba(255,255,255,.36);
@@ -477,7 +472,9 @@
     }
 
     .pastry-card h3 {
-      max-width: 280px;
+      max-width: 300px;
+
+      margin: 0;
 
       font-size:
         clamp(
@@ -486,7 +483,7 @@
           2rem
         );
 
-      line-height: .98;
+      line-height: 1;
 
       font-weight: 750;
 
@@ -499,10 +496,7 @@
     ========================= */
 
     .stock-status {
-      position: absolute;
-
-      left: 26px;
-      bottom: 26px;
+      margin-top: 17px;
 
       display: inline-flex;
 
@@ -780,7 +774,6 @@
 
     .modal h2 {
       margin-bottom: 16px;
-
       font-size: 1.2rem;
     }
 
@@ -1137,14 +1130,20 @@
           1fr;
       }
 
-      .pastry-card {
-        min-height: 440px;
+      .pastry-card-body {
+        padding:
+          23px 23px
+          25px;
       }
 
       .pastry-card h3 {
         max-width: 320px;
 
         font-size: 1.75rem;
+      }
+
+      .stock-status {
+        margin-top: 15px;
       }
 
       .compact-footer__main {
