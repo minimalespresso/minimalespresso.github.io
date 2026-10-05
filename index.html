@@ -781,32 +781,31 @@
 
     .hero-mielle-logo {
 
-      position: absolute;
-
-      top: 28px;
-
-      right: 34px;
-
-      z-index: 5;
+      display: block;
 
       width:
         clamp(
-          105px,
-          11vw,
-          170px
+          210px,
+          20vw,
+          310px
         );
 
-      max-height: 64px;
+      max-width: 64%;
+
+      max-height: 100px;
+
+      margin:
+        0 0 12px;
 
       object-fit: contain;
 
       object-position:
-        right center;
+        left center;
 
       filter:
         drop-shadow(
-          0 5px 18px
-          rgba(0,0,0,.35)
+          0 6px 22px
+          rgba(0,0,0,.38)
         );
 
     }
@@ -816,7 +815,20 @@
 
       max-width: 470px;
 
-      margin-top: 10px;
+      margin-top: 0;
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: .85rem;
+
+      line-height: 1.45;
+
+      font-weight: 500;
+
+      color:
+        rgba(255,255,255,.82);
 
     }
 
@@ -1857,15 +1869,13 @@
 
       .hero-mielle-logo {
 
-        top: 26px;
+        width: 235px;
 
-        right: 24px;
+        max-width: 70%;
 
-        width: 130px;
+        max-height: 96px;
 
-        max-width: 36%;
-
-        max-height: 54px;
+        margin-bottom: 12px;
 
       }
 
@@ -2109,10 +2119,6 @@
 
       object-fit: cover;
 
-      /*
-        Más imagen de la parte inferior.
-      */
-
       object-position:
         center 57%;
 
@@ -2319,8 +2325,6 @@
 
     /* =========================
        POSICIONES WEB
-       COMPENSADAS POR EL
-       REENCUADRE DE LA IMAGEN
     ========================= */
 
 
@@ -2882,7 +2886,7 @@
 
 
 
-      /* POSICIONES MOBILE COMPENSADAS */
+      /* POSICIONES MOBILE */
 
 
       .hotspot-butterbeer {
@@ -3157,7 +3161,7 @@
 
 
             <span class="hero-eyebrow">
-              COFFEE BAR · MEXICALI
+              TU COFFEE BAR LOCAL
             </span>
 
 
@@ -3167,7 +3171,7 @@
 
 
             <p class="hero-main-description">
-              Exclusivamente Pickup & Delivery.
+              Servicio Pickup & Delivery.
             </p>
 
 
@@ -3242,19 +3246,14 @@
           >
 
 
-            <img
-              src="miellelogo.PNG"
-              class="hero-mielle-logo"
-              alt="Miellé Repostería"
-            >
-
-
             <div class="hero-tile-content">
 
 
-              <h2>
-                Miellé Repostería
-              </h2>
+              <img
+                src="miellelogo.PNG"
+                class="hero-mielle-logo"
+                alt="Miellé"
+              >
 
 
               <p>
