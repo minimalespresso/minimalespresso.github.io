@@ -64,7 +64,6 @@
       right: 0;
 
       height: 95px;
-
       z-index: 50;
 
       display: flex;
@@ -102,13 +101,10 @@
     .nav a,
     .nav-item {
       color: #fff;
-
       text-decoration: none;
 
       font-size: .78rem;
-
       font-weight: 700;
-
       letter-spacing: .24em;
 
       opacity: .78;
@@ -116,7 +112,6 @@
       transition: .2s ease;
 
       cursor: pointer;
-
       white-space: nowrap;
     }
 
@@ -151,7 +146,6 @@
 
     .hero-grid {
       position: absolute;
-
       inset: 0;
 
       width: 100%;
@@ -204,7 +198,6 @@
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       z-index: 0;
@@ -216,7 +209,6 @@
         center center;
 
       background-size: cover;
-
       background-repeat: no-repeat;
 
       transform:
@@ -231,7 +223,6 @@
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       z-index: 1;
@@ -256,7 +247,6 @@
       height: 100%;
 
       display: flex;
-
       flex-direction: column;
 
       align-items: flex-start;
@@ -416,7 +406,6 @@
       height: 100%;
 
       display: flex;
-
       flex-direction: column;
 
       gap: 0;
@@ -798,6 +787,11 @@
     }
 
 
+    /*
+      MISMO BORDE IZQUIERDO QUE MENÚ:
+      clamp(30px, 4vw, 58px)
+    */
+
     .hero-google-card
     .hero-tile-content {
       display: grid;
@@ -810,14 +804,14 @@
 
       column-gap:
         clamp(
-          6px,
-          1vw,
-          14px
+          8px,
+          1.1vw,
+          16px
         );
 
       padding:
         clamp(10px, 1.4vh, 15px)
-        clamp(18px, 2.3vw, 34px);
+        clamp(30px, 4vw, 58px);
 
       transform: none;
     }
@@ -847,65 +841,78 @@
 
       margin-bottom:
         clamp(
-          10px,
-          1.45vh,
-          14px
+          11px,
+          1.6vh,
+          16px
         );
 
       color: #d3b184;
 
       font-size:
         clamp(
-          .58rem,
-          1.2vh,
-          .68rem
+          .64rem,
+          1.4vh,
+          .78rem
         );
 
-      line-height: 1.15;
+      line-height: 1.18;
 
       font-weight: 800;
 
-      letter-spacing: .19em;
+      letter-spacing: .17em;
 
       text-transform: uppercase;
     }
 
+
+    /*
+      YA SE ACERCA MUCHO MÁS AL
+      TAMAÑO VISUAL DEL TÍTULO MENÚ
+    */
 
     .hero-google-card h2 {
       max-width: 430px;
 
       font-size:
         clamp(
-          1.35rem,
-          2.7vh,
-          2.25rem
+          1.55rem,
+          3.05vh,
+          2.55rem
         );
 
       line-height: .97;
+
+      font-weight: 800;
     }
 
+
+    /*
+      TEXTO SECUNDARIO MÁS LEGIBLE
+    */
 
     .hero-google-card p {
       max-width: 470px;
 
       margin-top:
         clamp(
-          10px,
-          1.45vh,
-          14px
+          11px,
+          1.6vh,
+          16px
         );
 
       font-size:
         clamp(
-          .78rem,
-          1.6vh,
-          .92rem
+          .86rem,
+          1.75vh,
+          1rem
         );
 
-      line-height: 1.38;
+      line-height: 1.42;
+
+      font-weight: 500;
 
       color:
-        rgba(255,255,255,.82);
+        rgba(255,255,255,.84);
     }
 
 
@@ -913,9 +920,16 @@
     .hero-card-cta {
       margin-top:
         clamp(
-          13px,
-          1.8vh,
-          18px
+          14px,
+          2vh,
+          20px
+        );
+
+      font-size:
+        clamp(
+          .66rem,
+          1.2vh,
+          .74rem
         );
     }
 
@@ -1003,12 +1017,6 @@
       object-fit: contain;
 
       object-position: center;
-
-      /*
-        CONVIERTE EL PNG DE COLORES A BLANCO.
-        FUNCIONA MEJOR SI EL PNG TIENE
-        FONDO TRANSPARENTE.
-      */
 
       filter:
         grayscale(1)
@@ -1276,7 +1284,11 @@
       }
 
 
-      /* GOOGLE COMPACTO */
+      /*
+        GOOGLE BAJO:
+        CONSERVA MISMO BORDE IZQUIERDO
+        QUE MENÚ
+      */
 
       .hero-google-card
       .hero-tile-content {
@@ -1288,44 +1300,42 @@
 
         padding:
           6px
-          clamp(
-            16px,
-            2.2vw,
-            30px
-          );
+          clamp(30px, 4vw, 58px);
       }
 
       .hero-google-eyebrow {
-        margin-bottom: 6px;
+        margin-bottom: 7px;
 
-        font-size: .53rem;
+        font-size: .58rem;
       }
 
       .hero-google-card h2 {
         font-size:
           clamp(
-            1.18rem,
-            2.45vh,
-            1.75rem
+            1.30rem,
+            2.65vh,
+            1.95rem
           );
       }
 
       .hero-google-card p {
-        margin-top: 6px;
+        margin-top: 7px;
 
         font-size:
           clamp(
-            .69rem,
-            1.38vh,
-            .80rem
+            .75rem,
+            1.50vh,
+            .86rem
           );
 
-        line-height: 1.24;
+        line-height: 1.26;
       }
 
       .hero-google-card
       .hero-card-cta {
-        margin-top: 8px;
+        margin-top: 9px;
+
+        font-size: .63rem;
       }
 
       .hero-google-review-box {
@@ -2077,33 +2087,35 @@
       }
 
       .hero-google-eyebrow {
-        margin-bottom: 12px;
+        margin-bottom: 14px;
 
-        font-size: .64rem;
+        font-size: .70rem;
       }
 
       .hero-google-card h2 {
         font-size:
           clamp(
-            2rem,
-            9vw,
-            3rem
+            2.2rem,
+            9.5vw,
+            3.2rem
           );
       }
 
       .hero-google-card p {
         max-width: 500px;
 
-        margin-top: 14px;
+        margin-top: 16px;
 
-        font-size: .94rem;
+        font-size: 1rem;
 
-        line-height: 1.48;
+        line-height: 1.5;
       }
 
       .hero-google-card
       .hero-card-cta {
-        margin-top: 18px;
+        margin-top: 20px;
+
+        font-size: .72rem;
       }
 
       .hero-google-review-box {
