@@ -595,6 +595,25 @@
         );
     }
 
+    /*
+      CONTENIDO DEL MENÚ
+      ABAJO A LA IZQUIERDA
+    */
+
+    .hero-menu-card
+    .hero-tile-content {
+      justify-content: flex-end;
+
+      align-items: flex-start;
+
+      text-align: left;
+
+      padding:
+        clamp(12px, 2vh, 20px)
+        clamp(30px, 4vw, 58px)
+        clamp(24px, 4vh, 38px);
+    }
+
 
     /* =========================
        MIELLÉ
@@ -710,10 +729,6 @@
     .hero-mielle-availability {
       position: relative;
 
-      /*
-        ESTE ES EL AJUSTE DEL BOTÓN.
-        AUMENTA 10px SI QUIERES BAJARLO MÁS.
-      */
       top: 10px;
 
       min-height:
@@ -1004,6 +1019,21 @@
             2.8vh,
             2.1rem
           );
+      }
+
+      /* MENÚ SIGUE ABAJO EN PANTALLAS BAJAS */
+
+      .hero-menu-card
+      .hero-tile-content {
+        justify-content: flex-end;
+
+        align-items: flex-start;
+
+        text-align: left;
+
+        padding-top: 7px;
+
+        padding-bottom: 18px;
       }
 
       .hero-mielle-logo {
@@ -1675,6 +1705,23 @@
             9vw,
             3rem
           );
+      }
+
+      /*
+        MENÚ MOBILE:
+        TAMBIÉN ABAJO A LA IZQUIERDA
+      */
+
+      .hero-menu-card
+      .hero-tile-content {
+        justify-content: flex-end;
+
+        align-items: flex-start;
+
+        text-align: left;
+
+        padding:
+          28px 26px 36px;
       }
 
       .hero-mielle-card
