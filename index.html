@@ -197,13 +197,18 @@
 
       z-index: 0;
 
-      background-image: var(--tile-image);
+      background-image:
+        var(--tile-image);
 
-      background-position: center center;
+      background-position:
+        center center;
+
       background-size: cover;
+
       background-repeat: no-repeat;
 
-      transform: scale(1.01);
+      transform:
+        scale(1.01);
 
       transition:
         transform .6s cubic-bezier(.2,.8,.2,1),
@@ -238,6 +243,7 @@
       height: 100%;
 
       display: flex;
+
       flex-direction: column;
 
       align-items: flex-start;
@@ -287,8 +293,6 @@
         120px
         clamp(25px, 3.4vw, 58px)
         72px;
-
-      transform: none;
     }
 
     .hero-main-title {
@@ -328,6 +332,7 @@
         sans-serif;
 
       font-size: 1rem;
+
       line-height: 1.5;
 
       font-weight: 600;
@@ -372,8 +377,7 @@
       transform:
         translateY(-2px);
 
-      background:
-        #eeeeee;
+      background: #eeeeee;
     }
 
 
@@ -386,6 +390,11 @@
       height: 100%;
 
       display: grid;
+
+      /*
+        LAS TRES TARJETAS SON
+        EXACTAMENTE DEL MISMO TAMAÑO.
+      */
 
       grid-template-rows:
         repeat(
@@ -509,6 +518,42 @@
 
 
     /* =========================
+       MENÚ
+    ========================= */
+
+    .hero-menu-card {
+      --tile-image:
+        url("Menu.png");
+    }
+
+    .hero-menu-card::before {
+      filter:
+        blur(1.6px);
+
+      transform:
+        scale(1.035);
+    }
+
+    .hero-menu-card:hover::before {
+      filter:
+        blur(.8px);
+
+      transform:
+        scale(1.06);
+    }
+
+    .hero-menu-card::after {
+      background:
+        linear-gradient(
+          to right,
+          rgba(5,5,5,.84) 0%,
+          rgba(5,5,5,.47) 52%,
+          rgba(5,5,5,.13) 100%
+        );
+    }
+
+
+    /* =========================
        MIELLÉ
     ========================= */
 
@@ -530,17 +575,21 @@
     .hero-mielle-card
     .hero-tile-content {
       justify-content: center;
+
       align-items: center;
 
       text-align: center;
 
       padding:
-        18px
-        clamp(30px, 4vw, 58px)
-        12px;
+        16px
+        clamp(30px, 4vw, 58px);
 
-      transform:
-        translateY(8px);
+      /*
+        YA NO MOVEMOS TODO EL CONTENIDO.
+        ESTO EVITA DESACOMODAR LA TARJETA.
+      */
+
+      transform: none;
     }
 
     .hero-mielle-logo {
@@ -564,6 +613,15 @@
 
       object-position:
         center center;
+
+      /*
+        SOLO SUBIMOS EL LOGO.
+        TRANSFORM NO CAMBIA EL ESPACIO
+        QUE OCUPA EN EL LAYOUT.
+      */
+
+      transform:
+        translateY(-17px);
 
       filter:
         drop-shadow(
@@ -655,42 +713,6 @@
 
 
     /* =========================
-       MENÚ
-    ========================= */
-
-    .hero-menu-card {
-      --tile-image:
-        url("Menu.png");
-    }
-
-    .hero-menu-card::before {
-      filter:
-        blur(1.6px);
-
-      transform:
-        scale(1.035);
-    }
-
-    .hero-menu-card:hover::before {
-      filter:
-        blur(.8px);
-
-      transform:
-        scale(1.06);
-    }
-
-    .hero-menu-card::after {
-      background:
-        linear-gradient(
-          to right,
-          rgba(5,5,5,.84) 0%,
-          rgba(5,5,5,.47) 52%,
-          rgba(5,5,5,.13) 100%
-        );
-    }
-
-
-    /* =========================
        GOOGLE
     ========================= */
 
@@ -714,6 +736,7 @@
       justify-content: center;
 
       padding-top: 15px;
+
       padding-bottom: 34px;
 
       transform:
@@ -887,6 +910,7 @@
       .hero-side-card
       .hero-tile-content {
         padding-top: 9px;
+
         padding-bottom: 9px;
       }
 
@@ -901,8 +925,7 @@
 
       .hero-mielle-card
       .hero-tile-content {
-        transform:
-          translateY(5px);
+        transform: none;
       }
 
       .hero-mielle-logo {
@@ -916,6 +939,9 @@
         max-height: 160px;
 
         margin-bottom: -10px;
+
+        transform:
+          translateY(-14px);
       }
 
       .hero-mielle-copy {
@@ -1256,6 +1282,7 @@
 
     .compact-footer__main {
       width: fit-content;
+
       max-width: 100%;
 
       margin: 0 auto;
@@ -1573,8 +1600,7 @@
           18px 22px
           24px;
 
-        transform:
-          translateY(6px);
+        transform: none;
       }
 
       .hero-mielle-logo {
@@ -1586,6 +1612,9 @@
 
         margin:
           0 auto -7px;
+
+        transform:
+          translateY(-13px);
       }
 
       .hero-mielle-copy {
@@ -1655,7 +1684,8 @@
       }
 
       .delivery-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       .platform-card {
@@ -1983,6 +2013,9 @@
       backdrop-filter:
         blur(18px);
 
+      -webkit-backdrop-filter:
+        blur(18px);
+
       font-family:
         "DM Sans",
         sans-serif;
@@ -2049,6 +2082,9 @@
         rgba(10,10,10,.67);
 
       backdrop-filter:
+        blur(24px);
+
+      -webkit-backdrop-filter:
         blur(24px);
 
       opacity: 0;
@@ -2667,9 +2703,13 @@
 
           <div>
 
-            <span>DELIVERY</span>
+            <span>
+              DELIVERY
+            </span>
 
-            <h3>Uber Eats</h3>
+            <h3>
+              Uber Eats
+            </h3>
 
             <p>
               Ordena tus bebidas favoritas directo desde Uber Eats.
@@ -2677,10 +2717,12 @@
 
           </div>
 
+
           <img
             src="uber.png"
             alt="Uber Eats"
           >
+
 
           <div class="platform-arrow">
             ABRIR →
@@ -2697,9 +2739,13 @@
 
           <div>
 
-            <span>DELIVERY</span>
+            <span>
+              DELIVERY
+            </span>
 
-            <h3>DiDi Food</h3>
+            <h3>
+              DiDi Food
+            </h3>
 
             <p>
               También disponibles para entrega a domicilio en DiDi Food.
@@ -2707,10 +2753,12 @@
 
           </div>
 
+
           <img
             src="didi.png"
             alt="DiDi Food"
           >
+
 
           <div class="platform-arrow">
             ABRIR →
@@ -2727,9 +2775,13 @@
 
           <div>
 
-            <span>DELIVERY</span>
+            <span>
+              DELIVERY
+            </span>
 
-            <h3>Rappi</h3>
+            <h3>
+              Rappi
+            </h3>
 
             <p>
               Encuéntranos en Rappi y pide desde tu ubicación.
@@ -2737,10 +2789,12 @@
 
           </div>
 
+
           <img
             src="rappi.png"
             alt="Rappi"
           >
+
 
           <div class="platform-arrow">
             ABRIR →
@@ -2944,13 +2998,19 @@
 
       openBtn.onclick =
         () => {
-          modal.style.display = "flex";
+
+          modal.style.display =
+            "flex";
+
         };
 
 
       closeBtn.onclick =
         () => {
-          modal.style.display = "none";
+
+          modal.style.display =
+            "none";
+
         };
 
 
@@ -2961,7 +3021,8 @@
             event.target === modal
           ) {
 
-            modal.style.display = "none";
+            modal.style.display =
+              "none";
 
           }
 
