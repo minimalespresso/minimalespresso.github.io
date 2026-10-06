@@ -43,10 +43,18 @@
     body {
       position: relative;
       min-height: 100vh;
-      font-family: "League Spartan", system-ui, sans-serif;
+
+      font-family:
+        "League Spartan",
+        system-ui,
+        sans-serif;
+
       color: #fff;
+
       background: #090909;
+
       overflow-x: hidden;
+
       isolation: isolate;
     }
 
@@ -57,15 +65,21 @@
 
     body::before {
       content: "";
+
       position: fixed;
+
       inset: -8px;
+
       z-index: -2;
 
       background-image:
         url("miellepanaderia.jpg");
 
       background-size: cover;
-      background-position: center center;
+
+      background-position:
+        center center;
+
       background-repeat: no-repeat;
 
       filter:
@@ -79,9 +93,13 @@
 
     body::after {
       content: "";
+
       position: fixed;
+
       inset: 0;
+
       z-index: -1;
+
       pointer-events: none;
 
       background:
@@ -101,14 +119,17 @@
 
     .site-header {
       position: fixed;
+
       top: 0;
       left: 0;
       right: 0;
 
       height: 95px;
+
       z-index: 50;
 
       display: flex;
+
       align-items: flex-start;
       justify-content: space-between;
 
@@ -134,18 +155,24 @@
 
     .nav {
       margin-top: 38px;
+
       display: flex;
+
       gap: 32px;
+
       align-items: center;
     }
 
     .nav a,
     .nav-item {
       color: #fff;
+
       text-decoration: none;
 
       font-size: .78rem;
+
       font-weight: 700;
+
       letter-spacing: .24em;
 
       opacity: .78;
@@ -153,6 +180,7 @@
       transition: .2s ease;
 
       cursor: pointer;
+
       white-space: nowrap;
     }
 
@@ -174,12 +202,14 @@
         30px;
 
       display: flex;
+
       flex-direction: column;
 
       justify-content: center;
       align-items: center;
 
       text-align: center;
+
       overflow: hidden;
     }
 
@@ -187,9 +217,11 @@
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: 0;
+
       pointer-events: none;
 
       background:
@@ -232,23 +264,29 @@
     }
 
 
-    /* LOGO */
+    /* =========================
+       LOGO MIELLÉ
+
+       AQUÍ CONTROLAS EL TAMAÑO
+    ========================= */
 
     .mielle-main-logo {
       position: relative;
+
       z-index: 2;
 
       display: block;
 
       width:
         clamp(
-          340px,
-          38vw,
-          560px
+          390px,
+          44vw,
+          650px
         );
 
-      max-width: 92%;
-      max-height: 200px;
+      max-width: 95%;
+
+      max-height: 230px;
 
       object-fit: contain;
 
@@ -263,10 +301,13 @@
     }
 
 
-    /* TÍTULO */
+    /* =========================
+       TÍTULO
+    ========================= */
 
     .pastry-hero h1 {
       position: relative;
+
       z-index: 2;
 
       width:
@@ -285,7 +326,9 @@
         );
 
       line-height: 1.03;
+
       font-weight: 750;
+
       letter-spacing: -.018em;
 
       text-wrap: balance;
@@ -298,15 +341,19 @@
     }
 
 
-    /* INSTAGRAM */
+    /* =========================
+       INSTAGRAM
+    ========================= */
 
     .mielle-instagram-link {
       position: relative;
+
       z-index: 2;
 
       margin-top: 23px;
 
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
 
@@ -322,7 +369,9 @@
         sans-serif;
 
       font-size: .70rem;
+
       font-weight: 700;
+
       letter-spacing: .11em;
 
       text-shadow:
@@ -340,7 +389,9 @@
 
     .mielle-instagram-link:hover {
       color: #fff;
-      transform: translateY(-2px);
+
+      transform:
+        translateY(-2px);
     }
 
 
@@ -393,9 +444,11 @@
 
     .pastry-card {
       position: relative;
+
       min-width: 0;
 
       display: flex;
+
       flex-direction: column;
 
       background:
@@ -440,6 +493,7 @@
         4 / 3;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -472,6 +526,7 @@
 
     .pastry-placeholder {
       display: flex;
+
       flex-direction: column;
 
       align-items: center;
@@ -495,7 +550,9 @@
         sans-serif;
 
       font-size: .62rem;
+
       font-weight: 700;
+
       letter-spacing: .18em;
     }
 
@@ -519,6 +576,7 @@
         27px;
 
       display: flex;
+
       flex-direction: column;
 
       align-items: flex-start;
@@ -533,7 +591,9 @@
         rgba(255,255,255,.48);
 
       font-size: .60rem;
+
       font-weight: 800;
+
       letter-spacing: .25em;
     }
 
@@ -550,6 +610,7 @@
         );
 
       line-height: 1;
+
       font-weight: 750;
 
       text-wrap: balance;
@@ -568,6 +629,7 @@
       margin-top: 17px;
 
       display: inline-flex;
+
       align-items: center;
 
       gap: 9px;
@@ -577,7 +639,9 @@
         sans-serif;
 
       font-size: .69rem;
+
       font-weight: 600;
+
       letter-spacing: .08em;
 
       color:
@@ -731,7 +795,9 @@
       color: #d3b184;
 
       font-size: .63rem;
+
       font-weight: 800;
+
       letter-spacing: .28em;
     }
 
@@ -774,7 +840,9 @@
       text-decoration: none;
 
       font-size: .72rem;
+
       font-weight: 800;
+
       letter-spacing: .15em;
 
       transition:
@@ -820,6 +888,7 @@
       position: relative;
 
       width: 100%;
+
       max-width: 720px;
 
       padding:
@@ -845,6 +914,7 @@
 
     .modal h2 {
       margin-bottom: 16px;
+
       font-size: 1.2rem;
     }
 
@@ -853,6 +923,7 @@
       height: 340px;
 
       border: 0;
+
       border-radius: 18px;
     }
 
@@ -883,7 +954,9 @@
       text-decoration: none;
 
       font-size: .8rem;
+
       font-weight: 800;
+
       letter-spacing: .14em;
     }
 
@@ -943,6 +1016,7 @@
 
     .compact-footer__main {
       width: fit-content;
+
       max-width: 100%;
 
       margin: 0 auto;
@@ -991,6 +1065,7 @@
       margin: 0;
 
       display: flex;
+
       align-items: center;
 
       font-family:
@@ -1005,11 +1080,13 @@
 
     .compact-footer__details p > i {
       width: 20px;
+
       margin-right: 8px;
     }
 
     .compact-footer__details a {
       color: inherit;
+
       text-decoration: none;
     }
 
@@ -1114,7 +1191,8 @@
         height: auto;
 
         padding:
-          12px 20px 18px;
+          12px 20px
+          18px;
 
         background:
           linear-gradient(
@@ -1144,6 +1222,7 @@
       .nav a,
       .nav-item {
         font-size: .62rem;
+
         letter-spacing: .15em;
       }
 
@@ -1153,12 +1232,15 @@
           27px;
       }
 
+
+      /* TAMAÑO DEL LOGO EN MOBILE */
+
       .mielle-main-logo {
-        width: 370px;
+        width: 430px;
 
-        max-width: 94%;
+        max-width: 96%;
 
-        max-height: 200px;
+        max-height: 220px;
 
         margin-bottom: 18px;
       }
@@ -1180,6 +1262,7 @@
         margin-top: 21px;
 
         font-size: .66rem;
+
         letter-spacing: .09em;
       }
 
@@ -1329,7 +1412,7 @@
     <section class="pastry-hero">
 
       <img
-        src="miellelogoazulinstagram.PNG"
+        src="miellelogohighqty.PNG"
         class="mielle-main-logo"
         alt="Miellé"
       >
@@ -1381,13 +1464,8 @@
             <div class="pastry-media">
 
               <div class="pastry-placeholder">
-
                 <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
+                <span>IMAGEN PRÓXIMAMENTE</span>
               </div>
 
             </div>
@@ -1406,13 +1484,8 @@
                 class="stock-status available"
                 data-status="croissant"
               >
-
                 <span class="stock-status-dot"></span>
-
-                <span class="status-text">
-                  Disponible
-                </span>
-
+                <span class="status-text">Disponible</span>
               </div>
 
             </div>
@@ -1430,13 +1503,8 @@
             <div class="pastry-media">
 
               <div class="pastry-placeholder">
-
                 <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
+                <span>IMAGEN PRÓXIMAMENTE</span>
               </div>
 
             </div>
@@ -1455,13 +1523,8 @@
                 class="stock-status available"
                 data-status="muffin-platano"
               >
-
                 <span class="stock-status-dot"></span>
-
-                <span class="status-text">
-                  Disponible
-                </span>
-
+                <span class="status-text">Disponible</span>
               </div>
 
             </div>
@@ -1479,13 +1542,8 @@
             <div class="pastry-media">
 
               <div class="pastry-placeholder">
-
                 <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
+                <span>IMAGEN PRÓXIMAMENTE</span>
               </div>
 
             </div>
@@ -1504,13 +1562,8 @@
                 class="stock-status available"
                 data-status="muffin-chocolate"
               >
-
                 <span class="stock-status-dot"></span>
-
-                <span class="status-text">
-                  Disponible
-                </span>
-
+                <span class="status-text">Disponible</span>
               </div>
 
             </div>
@@ -1528,13 +1581,8 @@
             <div class="pastry-media">
 
               <div class="pastry-placeholder">
-
                 <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
+                <span>IMAGEN PRÓXIMAMENTE</span>
               </div>
 
             </div>
@@ -1553,13 +1601,8 @@
                 class="stock-status available"
                 data-status="cheesecake-brownie"
               >
-
                 <span class="stock-status-dot"></span>
-
-                <span class="status-text">
-                  Disponible
-                </span>
-
+                <span class="status-text">Disponible</span>
               </div>
 
             </div>
@@ -1567,7 +1610,7 @@
           </article>
 
 
-          <!-- ROL DE CANELA -->
+          <!-- ROL CANELA -->
 
           <article
             class="pastry-card"
@@ -1577,13 +1620,8 @@
             <div class="pastry-media">
 
               <div class="pastry-placeholder">
-
                 <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
+                <span>IMAGEN PRÓXIMAMENTE</span>
               </div>
 
             </div>
@@ -1602,13 +1640,8 @@
                 class="stock-status available"
                 data-status="rol-canela"
               >
-
                 <span class="stock-status-dot"></span>
-
-                <span class="status-text">
-                  Disponible
-                </span>
-
+                <span class="status-text">Disponible</span>
               </div>
 
             </div>
@@ -1626,13 +1659,8 @@
             <div class="pastry-media">
 
               <div class="pastry-placeholder">
-
                 <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
+                <span>IMAGEN PRÓXIMAMENTE</span>
               </div>
 
             </div>
@@ -1651,13 +1679,8 @@
                 class="stock-status available"
                 data-status="cheesecake-pumpkin"
               >
-
                 <span class="stock-status-dot"></span>
-
-                <span class="status-text">
-                  Disponible
-                </span>
-
+                <span class="status-text">Disponible</span>
               </div>
 
             </div>
@@ -1675,13 +1698,8 @@
             <div class="pastry-media">
 
               <div class="pastry-placeholder">
-
                 <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
+                <span>IMAGEN PRÓXIMAMENTE</span>
               </div>
 
             </div>
@@ -1700,13 +1718,8 @@
                 class="stock-status available"
                 data-status="cheesecake-frutos-rojos"
               >
-
                 <span class="stock-status-dot"></span>
-
-                <span class="status-text">
-                  Disponible
-                </span>
-
+                <span class="status-text">Disponible</span>
               </div>
 
             </div>
@@ -1938,10 +1951,6 @@
 
   <script>
 
-    /* =========================
-       MODALES
-    ========================= */
-
     function setupModal(
       openId,
       modalId,
@@ -2011,7 +2020,6 @@
 
     /* =========================
        INVENTARIO
-
        true  = Disponible
        false = Agotado
     ========================= */
@@ -2100,20 +2108,18 @@
         ) return;
 
 
-        const modals =
-          document.querySelectorAll(
+        document
+          .querySelectorAll(
             ".modal-overlay"
+          )
+          .forEach(
+            (modal) => {
+
+              modal.style.display =
+                "none";
+
+            }
           );
-
-
-        modals.forEach(
-          (modal) => {
-
-            modal.style.display =
-              "none";
-
-          }
-        );
 
       }
     );
