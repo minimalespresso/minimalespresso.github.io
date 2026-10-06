@@ -283,9 +283,14 @@
         rgba(255,255,255,.10);
     }
 
+    /*
+      SUBIMOS LIGERAMENTE LA FOTO
+      PARA MOSTRAR MÁS DEL VASO.
+    */
+
     .hero-main-card::before {
       background-position:
-        center top;
+        center -28px;
     }
 
     .hero-main-card::after {
@@ -313,10 +318,19 @@
         clamp(72px, 10vh, 92px);
     }
 
+
+    /*
+      TÍTULO UN POCO MÁS PEQUEÑO
+      PERO CONSERVANDO:
+      TU
+      COFFEE BAR
+      LOCAL
+    */
+
     .hero-main-title {
       width:
         min(
-          680px,
+          620px,
           100%
         );
 
@@ -324,12 +338,12 @@
 
       font-size:
         clamp(
-          3.2rem,
-          8.2vh,
-          6.35rem
+          2.8rem,
+          6.8vh,
+          5.35rem
         );
 
-      line-height: .84;
+      line-height: .86;
 
       font-weight: 800;
 
@@ -412,9 +426,6 @@
 
     /* =========================
        DERECHA
-
-       TRES TARJETAS EXACTAMENTE
-       DEL MISMO TAMAÑO
     ========================= */
 
     .hero-side-grid {
@@ -944,14 +955,16 @@
 
     /* =========================
        DESKTOP BAJO
-
-       TODO DEBE CABER EN EL
-       VIEWPORT SIN CORTARSE
     ========================= */
 
     @media
     (min-width: 901px)
     and (max-height: 760px) {
+
+      .hero-main-card::before {
+        background-position:
+          center -24px;
+      }
 
       .hero-main-content {
         padding:
@@ -963,9 +976,9 @@
       .hero-main-title {
         font-size:
           clamp(
-            3rem,
-            7.5vh,
-            5.3rem
+            2.7rem,
+            6.5vh,
+            4.8rem
           );
       }
 
@@ -1007,8 +1020,7 @@
             510px
           );
 
-        max-height:
-          125px;
+        max-height: 125px;
 
         margin:
           -7px auto -10px;
@@ -1579,7 +1591,7 @@
 
       .hero-main-card::before {
         background-position:
-          center top;
+          center -20px;
       }
 
       .hero-main-content {
@@ -1593,12 +1605,12 @@
       .hero-main-title {
         font-size:
           clamp(
-            3rem,
-            13vw,
-            5rem
+            2.7rem,
+            11.5vw,
+            4.4rem
           );
 
-        line-height: .85;
+        line-height: .86;
       }
 
       .hero-main-description {
@@ -1618,8 +1630,6 @@
         font-size: .70rem;
       }
 
-
-      /* MOBILE VUELVE A APILADO */
 
       .hero-side-grid {
         display: grid;
