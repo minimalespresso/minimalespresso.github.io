@@ -59,17 +59,14 @@
 
     .site-header {
       position: fixed;
-
       top: 0;
       left: 0;
       right: 0;
 
       height: 95px;
-
       z-index: 50;
 
       display: flex;
-
       align-items: flex-start;
       justify-content: space-between;
 
@@ -88,8 +85,7 @@
 
       filter:
         drop-shadow(
-          0 12px 28px
-          rgba(0,0,0,.75)
+          0 12px 28px rgba(0,0,0,.75)
         );
     }
 
@@ -97,22 +93,17 @@
       margin-top: 38px;
 
       display: flex;
-
       gap: 32px;
-
       align-items: center;
     }
 
     .nav a,
     .nav-item {
       color: #fff;
-
       text-decoration: none;
 
       font-size: .78rem;
-
       font-weight: 700;
-
       letter-spacing: .24em;
 
       opacity: .78;
@@ -120,7 +111,6 @@
       transition: .2s ease;
 
       cursor: pointer;
-
       white-space: nowrap;
     }
 
@@ -138,9 +128,7 @@
       position: relative;
 
       width: 100%;
-
       height: 100svh;
-
       min-height: 700px;
 
       padding: 0;
@@ -153,7 +141,6 @@
 
     .hero-grid {
       position: absolute;
-
       inset: 0;
 
       width: 100%;
@@ -193,7 +180,6 @@
       border-radius: 0;
 
       background: #111;
-
       color: #fff;
 
       isolation: isolate;
@@ -207,23 +193,17 @@
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       z-index: 0;
 
-      background-image:
-        var(--tile-image);
+      background-image: var(--tile-image);
 
-      background-position:
-        center center;
-
+      background-position: center center;
       background-size: cover;
-
       background-repeat: no-repeat;
 
-      transform:
-        scale(1.01);
+      transform: scale(1.01);
 
       transition:
         transform .6s cubic-bezier(.2,.8,.2,1),
@@ -234,7 +214,6 @@
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       z-index: 1;
@@ -259,7 +238,6 @@
       height: 100%;
 
       display: flex;
-
       flex-direction: column;
 
       align-items: flex-start;
@@ -281,12 +259,6 @@
         rgba(255,255,255,.10);
     }
 
-
-    /*
-      PRIORIZAMOS LA PARTE SUPERIOR
-      DE vaso.JPG.
-    */
-
     .hero-main-card::before {
       background-position:
         center top;
@@ -307,12 +279,6 @@
           rgba(5,5,5,0) 70%
         );
     }
-
-
-    /*
-      REGRESAMOS EL TEXTO
-      ABAJO A LA IZQUIERDA.
-    */
 
     .hero-main-content {
       justify-content: flex-end;
@@ -341,26 +307,27 @@
           6.35rem
         );
 
-      line-height: .90;
+      line-height: .84;
 
       font-weight: 800;
-
-      text-wrap: balance;
 
       text-shadow:
         0 16px 50px
         rgba(0,0,0,.55);
     }
 
+    .hero-main-title span {
+      display: block;
+    }
+
     .hero-main-description {
-      margin-top: 20px;
+      margin-top: 22px;
 
       font-family:
         "DM Sans",
         sans-serif;
 
       font-size: 1rem;
-
       line-height: 1.5;
 
       font-weight: 600;
@@ -485,21 +452,8 @@
       letter-spacing: .26em;
     }
 
-
-    /*
-      MISMO TAMAÑO PARA:
-      - Encuentra tu favorito.
-      - Texto principal de Miellé.
-    */
-
-    .hero-side-card h2,
-    .hero-mielle-copy {
+    .hero-side-card h2 {
       margin: 0;
-
-      font-family:
-        "League Spartan",
-        system-ui,
-        sans-serif;
 
       font-size:
         clamp(
@@ -576,17 +530,18 @@
     .hero-mielle-card
     .hero-tile-content {
       justify-content: center;
+      align-items: center;
 
-      padding-top: 9px;
-      padding-bottom: 9px;
+      text-align: center;
+
+      padding:
+        18px
+        clamp(30px, 4vw, 58px)
+        12px;
+
+      transform:
+        translateY(8px);
     }
-
-
-    /*
-      MISMO TAMAÑO DEL LOGO.
-      SOLO SE DESPLAZA UN POCO
-      HACIA LA IZQUIERDA.
-    */
 
     .hero-mielle-logo {
       display: block;
@@ -603,15 +558,12 @@
       max-height: 180px;
 
       margin:
-        -8px 0 -25px;
+        0 auto -8px;
 
       object-fit: contain;
 
       object-position:
-        left center;
-
-      transform:
-        translateX(-18px);
+        center center;
 
       filter:
         drop-shadow(
@@ -620,33 +572,51 @@
         );
     }
 
-
-    /*
-      TEXTO DEL MISMO TAMAÑO
-      QUE "ENCUENTRA TU FAVORITO"
-    */
-
     .hero-mielle-copy {
       position: relative;
 
       z-index: 3;
 
-      max-width: 600px;
+      width:
+        min(
+          520px,
+          100%
+        );
+
+      margin:
+        0 auto;
 
       color: #fff;
+
+      font-family:
+        "League Spartan",
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1.15rem,
+          1.55vw,
+          1.65rem
+        );
+
+      line-height: 1.08;
+
+      font-weight: 700;
+
+      text-align: center;
+
+      text-wrap: balance;
+
+      text-shadow:
+        0 6px 22px
+        rgba(0,0,0,.65);
     }
-
-
-    /*
-      ACERCAMOS EL BOTÓN.
-      EL BLOQUE QUEDA COMPACTO
-      Y CON ESPACIO VISUAL PAREJO.
-    */
 
     .hero-mielle-availability {
       min-height: 36px;
 
-      margin-top: 5px;
+      margin-top: 15px;
 
       padding:
         0 16px;
@@ -744,7 +714,6 @@
       justify-content: center;
 
       padding-top: 15px;
-
       padding-bottom: 34px;
 
       transform:
@@ -892,8 +861,6 @@
       }
 
       .hero-main-content {
-        justify-content: flex-end;
-
         padding:
           100px
           clamp(25px, 3.4vw, 58px)
@@ -910,7 +877,7 @@
       }
 
       .hero-main-description {
-        margin-top: 16px;
+        margin-top: 17px;
       }
 
       .hero-main-cta {
@@ -920,12 +887,10 @@
       .hero-side-card
       .hero-tile-content {
         padding-top: 9px;
-
         padding-bottom: 9px;
       }
 
-      .hero-side-card h2,
-      .hero-mielle-copy {
+      .hero-side-card h2 {
         font-size:
           clamp(
             1.45rem,
@@ -934,10 +899,10 @@
           );
       }
 
-      .hero-side-card p {
-        font-size: .75rem;
-
-        line-height: 1.27;
+      .hero-mielle-card
+      .hero-tile-content {
+        transform:
+          translateY(5px);
       }
 
       .hero-mielle-logo {
@@ -950,15 +915,20 @@
 
         max-height: 160px;
 
-        margin:
-          -12px 0 -26px;
+        margin-bottom: -10px;
+      }
 
-        transform:
-          translateX(-16px);
+      .hero-mielle-copy {
+        font-size:
+          clamp(
+            1.05rem,
+            1.4vw,
+            1.45rem
+          );
       }
 
       .hero-mielle-availability {
-        margin-top: 4px;
+        margin-top: 12px;
 
         min-height: 33px;
       }
@@ -1013,7 +983,6 @@
 
     .delivery-grid {
       width: 100%;
-
       min-height: 100vh;
 
       display: grid;
@@ -1267,18 +1236,6 @@
       cursor: pointer;
 
       font-size: 1.1rem;
-
-      transition:
-        background .2s ease,
-        transform .2s ease;
-    }
-
-    .modal-close-x:hover {
-      background:
-        rgba(255,255,255,.16);
-
-      transform:
-        scale(1.06);
     }
 
 
@@ -1299,7 +1256,6 @@
 
     .compact-footer__main {
       width: fit-content;
-
       max-width: 100%;
 
       margin: 0 auto;
@@ -1321,8 +1277,6 @@
       align-items: center;
       justify-content: center;
 
-      flex-shrink: 0;
-
       overflow: hidden;
 
       text-decoration: none;
@@ -1331,8 +1285,6 @@
     .compact-footer__logo {
       width: 90px;
       height: 90px;
-
-      display: block;
 
       object-fit: contain;
 
@@ -1344,9 +1296,6 @@
       display: flex;
 
       flex-direction: column;
-
-      align-items: flex-start;
-      justify-content: center;
 
       gap: 8px;
     }
@@ -1364,8 +1313,6 @@
 
       font-size: .88rem;
 
-      line-height: 1.3;
-
       color:
         rgba(255,255,255,.65);
     }
@@ -1374,13 +1321,6 @@
       width: 20px;
 
       margin-right: 8px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      flex-shrink: 0;
     }
 
     .compact-footer__details a {
@@ -1389,15 +1329,8 @@
       text-decoration: none;
     }
 
-    .compact-footer__details a:hover {
-      color: #fff;
-    }
-
     .compact-footer__social {
       display: flex;
-
-      align-items: center;
-      justify-content: flex-start;
 
       gap: 10px;
 
@@ -1426,21 +1359,6 @@
         rgba(255,255,255,.75);
 
       text-decoration: none;
-
-      transition:
-        color .2s ease,
-        background .2s ease,
-        transform .2s ease;
-    }
-
-    .compact-footer__social a:hover {
-      color: #fff;
-
-      background:
-        rgba(255,255,255,.11);
-
-      transform:
-        translateY(-2px);
     }
 
     .compact-footer__divider {
@@ -1541,8 +1459,6 @@
 
         height: auto;
 
-        min-height: 0;
-
         display: grid;
 
         grid-template-columns:
@@ -1572,8 +1488,6 @@
         padding:
           145px 24px
           100px;
-
-        transform: none;
       }
 
       .hero-main-title {
@@ -1586,7 +1500,7 @@
             5rem
           );
 
-        line-height: .91;
+        line-height: .85;
       }
 
       .hero-main-description {
@@ -1638,8 +1552,7 @@
           28px 26px;
       }
 
-      .hero-side-card h2,
-      .hero-mielle-copy {
+      .hero-side-card h2 {
         font-size:
           clamp(
             2rem,
@@ -1648,17 +1561,20 @@
           );
       }
 
-      .hero-side-card p {
-        font-size: .84rem;
-      }
-
       .hero-mielle-card
       .hero-tile-content {
         min-height: 42svh;
 
-        padding-top: 12px;
+        align-items: center;
 
-        padding-bottom: 20px;
+        text-align: center;
+
+        padding:
+          18px 22px
+          24px;
+
+        transform:
+          translateY(6px);
       }
 
       .hero-mielle-logo {
@@ -1669,20 +1585,28 @@
         max-height: 190px;
 
         margin:
-          -10px 0 -28px;
-
-        transform:
-          translateX(-14px);
+          0 auto -7px;
       }
 
       .hero-mielle-copy {
-        max-width: 100%;
+        width: 100%;
+
+        max-width: 430px;
+
+        font-size:
+          clamp(
+            1.3rem,
+            5.2vw,
+            1.8rem
+          );
+
+        line-height: 1.08;
       }
 
       .hero-mielle-availability {
         min-height: 40px;
 
-        margin-top: 6px;
+        margin-top: 16px;
 
         padding:
           0 16px;
@@ -1731,8 +1655,7 @@
       }
 
       .delivery-grid {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
       .platform-card {
@@ -1746,10 +1669,6 @@
         border-bottom:
           1px solid
           rgba(255,255,255,.10);
-      }
-
-      .platform-card:last-child {
-        border-bottom: 0;
       }
 
       .platform-card img {
@@ -1791,11 +1710,6 @@
         font-size: .78rem;
       }
 
-      .compact-footer__social a {
-        width: 34px;
-        height: 34px;
-      }
-
     }
 
 
@@ -1823,7 +1737,6 @@
       top: 0;
 
       width: 100%;
-
       height: 100vh;
 
       overflow: hidden;
@@ -1957,12 +1870,6 @@
 
       background:
         rgba(15,15,15,.82);
-
-      box-shadow:
-        0 4px 14px
-        rgba(0,0,0,.55),
-        0 0 0 2px
-        rgba(255,255,255,.15);
     }
 
     .hotspot-pulse {
@@ -1987,26 +1894,6 @@
         infinite;
     }
 
-    .drink-hotspot.is-active
-    .hotspot-dot {
-      background: #fff;
-
-      border-color: #fff;
-
-      box-shadow:
-        0 0 0 5px
-        rgba(255,255,255,.16),
-        0 8px 24px
-        rgba(0,0,0,.5);
-    }
-
-    .drink-hotspot.is-active
-    .hotspot-pulse {
-      animation: none;
-
-      opacity: 0;
-    }
-
     @keyframes summerHotspotPulse {
 
       0% {
@@ -2025,9 +1912,6 @@
       }
 
     }
-
-
-    /* HOTSPOTS */
 
     .hotspot-butterbeer {
       left: 24%;
@@ -2058,7 +1942,6 @@
       position: absolute;
 
       left: 50%;
-
       bottom: 74px;
 
       z-index: 5;
@@ -2100,9 +1983,6 @@
       backdrop-filter:
         blur(18px);
 
-      -webkit-backdrop-filter:
-        blur(18px);
-
       font-family:
         "DM Sans",
         sans-serif;
@@ -2113,8 +1993,6 @@
 
       color:
         rgba(255,255,255,.88);
-
-      white-space: nowrap;
     }
 
     .summer-intro-mobile {
@@ -2130,44 +2008,6 @@
         translate(-50%, 12px);
     }
 
-    @keyframes summerSwipeLeft {
-
-      0%,
-      100% {
-        transform:
-          translateX(0);
-
-        opacity: .45;
-      }
-
-      50% {
-        transform:
-          translateX(-5px);
-
-        opacity: 1;
-      }
-
-    }
-
-    @keyframes summerSwipeRight {
-
-      0%,
-      100% {
-        transform:
-          translateX(0);
-
-        opacity: .45;
-      }
-
-      50% {
-        transform:
-          translateX(5px);
-
-        opacity: 1;
-      }
-
-    }
-
 
     /* =========================
        TARJETA BEBIDA
@@ -2177,7 +2017,6 @@
       position: absolute;
 
       left: 50%;
-
       bottom: 42px;
 
       z-index: 8;
@@ -2212,9 +2051,6 @@
       backdrop-filter:
         blur(24px);
 
-      -webkit-backdrop-filter:
-        blur(24px);
-
       opacity: 0;
 
       visibility: hidden;
@@ -2228,8 +2064,7 @@
       transition:
         opacity .3s ease,
         visibility .3s ease,
-        transform .3s
-        cubic-bezier(.2,.8,.2,1);
+        transform .3s ease;
     }
 
     .drink-info-card.is-visible {
@@ -2271,8 +2106,6 @@
       line-height: 1;
 
       font-weight: 750;
-
-      color: #fff;
     }
 
     .drink-info-card p {
@@ -2287,8 +2120,6 @@
       font-size: .93rem;
 
       line-height: 1.6;
-
-      font-weight: 500;
 
       color:
         rgba(255,255,255,.78);
@@ -2314,8 +2145,6 @@
       color: #080808;
 
       text-decoration: none;
-
-      white-space: nowrap;
 
       font-size: .75rem;
 
@@ -2353,10 +2182,6 @@
     }
 
 
-    /* =========================
-       ESPECIALES MOBILE
-    ========================= */
-
     @media (max-width: 900px) {
 
       .summer-section {
@@ -2369,19 +2194,12 @@
 
       .summer-panorama-scroll {
         overflow-x: auto;
-
         overflow-y: hidden;
 
         -webkit-overflow-scrolling:
           touch;
 
         scrollbar-width: none;
-
-        overscroll-behavior-x:
-          contain;
-
-        touch-action:
-          pan-x pan-y;
       }
 
       .summer-panorama-scroll::-webkit-scrollbar {
@@ -2394,23 +2212,6 @@
         min-width: 720px;
 
         height: 100%;
-      }
-
-      .summer-image {
-        width: 100%;
-        height: 100%;
-
-        max-width: none;
-
-        object-fit: cover;
-
-        object-position:
-          center 57%;
-      }
-
-      .drink-hotspot {
-        width: 48px;
-        height: 48px;
       }
 
       .hotspot-butterbeer {
@@ -2452,8 +2253,6 @@
 
         gap: 12px;
 
-        max-width: 100%;
-
         color:
           rgba(255,255,255,.92);
       }
@@ -2464,24 +2263,6 @@
         font-weight: 800;
 
         letter-spacing: .15em;
-
-        white-space: nowrap;
-      }
-
-      .summer-intro-mobile i:first-child {
-        animation:
-          summerSwipeLeft
-          1.4s
-          ease-in-out
-          infinite;
-      }
-
-      .summer-intro-mobile i:last-child {
-        animation:
-          summerSwipeRight
-          1.4s
-          ease-in-out
-          infinite;
       }
 
       .drink-info-card {
@@ -2493,15 +2274,10 @@
         padding:
           22px 20px 18px;
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
 
         gap: 17px;
-
-        border-radius: 23px;
-      }
-
-      .drink-info-card h2 {
-        padding-right: 34px;
       }
 
       .drink-card-button {
@@ -2573,9 +2349,7 @@
   <main>
 
 
-    <!-- =========================
-         PRIMERA SECCIÓN
-    ========================= -->
+    <!-- PRIMERA SECCIÓN -->
 
     <section class="hero-section">
 
@@ -2593,7 +2367,9 @@
           >
 
             <h1 class="hero-main-title">
-              Tu Coffee Bar local
+              <span>TU</span>
+              <span>COFFEE BAR</span>
+              <span>LOCAL</span>
             </h1>
 
             <p class="hero-main-description">
@@ -2731,9 +2507,7 @@
     </section>
 
 
-    <!-- =========================
-         ESPECIALES
-    ========================= -->
+    <!-- ESPECIALES -->
 
     <section
       class="summer-section"
@@ -2767,7 +2541,6 @@
                 <span class="hotspot-dot"></span>
               </button>
 
-
               <button
                 type="button"
                 class="drink-hotspot hotspot-pecan"
@@ -2778,7 +2551,6 @@
                 <span class="hotspot-dot"></span>
               </button>
 
-
               <button
                 type="button"
                 class="drink-hotspot hotspot-pumpkin"
@@ -2788,7 +2560,6 @@
                 <span class="hotspot-pulse"></span>
                 <span class="hotspot-dot"></span>
               </button>
-
 
               <button
                 type="button"
@@ -2881,9 +2652,7 @@
     </section>
 
 
-    <!-- =========================
-         DELIVERY
-    ========================= -->
+    <!-- DELIVERY -->
 
     <section class="delivery-section">
 
@@ -2898,13 +2667,9 @@
 
           <div>
 
-            <span>
-              DELIVERY
-            </span>
+            <span>DELIVERY</span>
 
-            <h3>
-              Uber Eats
-            </h3>
+            <h3>Uber Eats</h3>
 
             <p>
               Ordena tus bebidas favoritas directo desde Uber Eats.
@@ -2932,13 +2697,9 @@
 
           <div>
 
-            <span>
-              DELIVERY
-            </span>
+            <span>DELIVERY</span>
 
-            <h3>
-              DiDi Food
-            </h3>
+            <h3>DiDi Food</h3>
 
             <p>
               También disponibles para entrega a domicilio en DiDi Food.
@@ -2966,13 +2727,9 @@
 
           <div>
 
-            <span>
-              DELIVERY
-            </span>
+            <span>DELIVERY</span>
 
-            <h3>
-              Rappi
-            </h3>
+            <h3>Rappi</h3>
 
             <p>
               Encuéntranos en Rappi y pide desde tu ubicación.
@@ -2996,9 +2753,7 @@
     </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <!-- FOOTER -->
 
     <footer class="compact-footer">
 
@@ -3021,33 +2776,24 @@
         <div class="compact-footer__details">
 
           <p>
-
             <i class="fa-solid fa-location-dot fa-fw"></i>
-
-            <span>
-              Mexicali, Baja California
-            </span>
-
+            <span>Mexicali, Baja California</span>
           </p>
 
           <p>
-
             <i class="fa-solid fa-envelope fa-fw"></i>
 
             <a href="mailto:minimalespressomxli@gmail.com">
               minimalespressomxli@gmail.com
             </a>
-
           </p>
 
           <p>
-
             <i class="fa-solid fa-globe fa-fw"></i>
 
             <a href="https://minimalespresso.com">
               minimalespresso.com
             </a>
-
           </p>
 
 
@@ -3098,9 +2844,7 @@
   </main>
 
 
-  <!-- =========================
-       UBICACIÓN
-  ========================= -->
+  <!-- UBICACIÓN -->
 
   <div
     class="modal-overlay"
@@ -3142,9 +2886,7 @@
   </div>
 
 
-  <!-- =========================
-       HORARIOS
-  ========================= -->
+  <!-- HORARIOS -->
 
   <div
     class="modal-overlay"
@@ -3185,19 +2927,13 @@
     ) {
 
       const openBtn =
-        document.getElementById(
-          openId
-        );
+        document.getElementById(openId);
 
       const modal =
-        document.getElementById(
-          modalId
-        );
+        document.getElementById(modalId);
 
       const closeBtn =
-        document.getElementById(
-          closeId
-        );
+        document.getElementById(closeId);
 
       if (
         !openBtn ||
@@ -3208,31 +2944,24 @@
 
       openBtn.onclick =
         () => {
-
-          modal.style.display =
-            "flex";
-
+          modal.style.display = "flex";
         };
 
 
       closeBtn.onclick =
         () => {
-
-          modal.style.display =
-            "none";
-
+          modal.style.display = "none";
         };
 
 
       modal.onclick =
-        (e) => {
+        (event) => {
 
           if (
-            e.target === modal
+            event.target === modal
           ) {
 
-            modal.style.display =
-              "none";
+            modal.style.display = "none";
 
           }
 
@@ -3320,36 +3049,30 @@
         ".drink-hotspot"
       );
 
-
     const drinkInfoCard =
       document.getElementById(
         "drinkInfoCard"
       );
-
 
     const drinkCardTitle =
       document.getElementById(
         "drinkCardTitle"
       );
 
-
     const drinkCardDescription =
       document.getElementById(
         "drinkCardDescription"
       );
-
 
     const drinkCardButton =
       document.getElementById(
         "drinkCardButton"
       );
 
-
     const closeDrinkCard =
       document.getElementById(
         "closeDrinkCard"
       );
-
 
     const summerIntro =
       document.getElementById(
@@ -3363,25 +3086,18 @@
     ) {
 
       const drink =
-        summerDrinks[
-          drinkId
-        ];
-
+        summerDrinks[drinkId];
 
       if (!drink) return;
-
 
       drinkCardTitle.textContent =
         drink.title;
 
-
       drinkCardDescription.textContent =
         drink.description;
 
-
       drinkCardButton.href =
         drink.whatsapp;
-
 
       drinkHotspots.forEach(
         (hotspot) => {
@@ -3393,16 +3109,13 @@
         }
       );
 
-
       selectedHotspot.classList.add(
         "is-active"
       );
 
-
       drinkInfoCard.classList.add(
         "is-visible"
       );
-
 
       summerIntro.classList.add(
         "is-hidden"
@@ -3417,11 +3130,9 @@
         "is-visible"
       );
 
-
       summerIntro.classList.remove(
         "is-hidden"
       );
-
 
       drinkHotspots.forEach(
         (hotspot) => {
@@ -3466,8 +3177,7 @@
       (event) => {
 
         if (
-          event.key ===
-          "Escape"
+          event.key === "Escape"
         ) {
 
           hideDrinkCard();
@@ -3485,19 +3195,16 @@
           ".summer-panorama-scroll"
         );
 
-
       if (!scroller) return;
 
 
       function positionSummerPanorama() {
 
         if (
-          window.innerWidth >
-          900
+          window.innerWidth > 900
         ) {
 
-          scroller.scrollLeft =
-            0;
+          scroller.scrollLeft = 0;
 
           return;
 
