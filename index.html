@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Minimal Espresso</title>
 
   <meta name="google-site-verification" content="cOCz7X7cvTb-8y4zMdn-HZxN0WnzYs1QiWRPdnlB2eA">
@@ -92,6 +93,7 @@
 
     .nav {
       margin-top: 38px;
+
       display: flex;
       gap: 32px;
       align-items: center;
@@ -100,13 +102,19 @@
     .nav a,
     .nav-item {
       color: #fff;
+
       text-decoration: none;
+
       font-size: .78rem;
       font-weight: 700;
       letter-spacing: .24em;
+
       opacity: .78;
+
       transition: .2s ease;
+
       cursor: pointer;
+
       white-space: nowrap;
     }
 
@@ -122,6 +130,7 @@
 
     .hero-section {
       position: relative;
+
       width: 100%;
 
       height: 100vh;
@@ -134,11 +143,13 @@
       margin: 0;
 
       background: #050505;
+
       overflow: hidden;
     }
 
     .hero-grid {
       position: absolute;
+
       inset: 0;
 
       width: 100%;
@@ -191,6 +202,7 @@
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: 0;
@@ -202,6 +214,7 @@
         center center;
 
       background-size: cover;
+
       background-repeat: no-repeat;
 
       transform:
@@ -216,6 +229,7 @@
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: 1;
@@ -399,6 +413,7 @@
       height: 100%;
 
       display: flex;
+
       flex-direction: column;
 
       gap: 0;
@@ -623,7 +638,8 @@
         6px
         clamp(28px, 4vw, 58px);
 
-      transform: translateY(-20px);
+      transform:
+        translateY(-20px);
     }
 
     .hero-mielle-logo {
@@ -772,83 +788,288 @@
       background:
         linear-gradient(
           to right,
-          rgba(5,5,5,.88) 0%,
-          rgba(5,5,5,.54) 58%,
-          rgba(5,5,5,.18) 100%
+          rgba(5,5,5,.91) 0%,
+          rgba(5,5,5,.67) 50%,
+          rgba(5,5,5,.28) 100%
         );
     }
 
+
+    /*
+      GOOGLE:
+      TEXTO IZQUIERDA +
+      TARJETA GOOGLE REVIEWS DERECHA
+    */
+
     .hero-google-card
     .hero-tile-content {
-      justify-content: center;
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        clamp(145px, 16vw, 210px);
+
+      align-items: center;
+
+      justify-content: initial;
+
+      column-gap:
+        clamp(
+          18px,
+          2.4vw,
+          36px
+        );
 
       padding:
-        clamp(8px, 1.25vh, 14px)
-        clamp(30px, 4vw, 58px);
+        clamp(11px, 1.6vh, 17px)
+        clamp(24px, 3.2vw, 48px);
 
       transform: none;
     }
 
-    .hero-google-card h2 {
-      font-size:
-        clamp(
-          1.40rem,
-          2.9vh,
-          2.45rem
-        );
+
+    .hero-google-copy {
+      min-width: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: flex-start;
+
+      justify-content: center;
+
+      text-align: left;
     }
 
+
+    .hero-google-eyebrow {
+      display: block;
+
+      margin-bottom:
+        clamp(
+          5px,
+          .9vh,
+          8px
+        );
+
+      color: #d3b184;
+
+      font-size:
+        clamp(
+          .56rem,
+          1.15vh,
+          .66rem
+        );
+
+      line-height: 1.15;
+
+      font-weight: 800;
+
+      letter-spacing: .19em;
+
+      text-transform: uppercase;
+    }
+
+
+    .hero-google-card h2 {
+      max-width: 430px;
+
+      font-size:
+        clamp(
+          1.35rem,
+          2.7vh,
+          2.25rem
+        );
+
+      line-height: .95;
+    }
+
+
+    /*
+      UN POQUITO MÁS GRANDE
+      QUE EL TEXTO ANTERIOR
+    */
+
     .hero-google-card p {
-      max-width: 500px;
+      max-width: 470px;
 
       margin-top:
         clamp(
-          3px,
-          .7vh,
-          6px
+          5px,
+          .9vh,
+          8px
         );
 
       font-size:
         clamp(
-          .68rem,
-          1.35vh,
-          .78rem
+          .76rem,
+          1.55vh,
+          .90rem
         );
 
-      line-height: 1.25;
+      line-height: 1.32;
+
+      color:
+        rgba(255,255,255,.82);
     }
+
 
     .hero-google-card
     .hero-card-cta {
       margin-top:
         clamp(
-          5px,
-          1vh,
-          8px
+          8px,
+          1.3vh,
+          12px
         );
     }
 
-    .hero-google-kicker i {
-      font-size: .80rem;
+
+    /* =========================
+       GOOGLE REVIEWS BOX
+    ========================= */
+
+    .hero-google-review-box {
+      width: 100%;
+
+      max-width: 210px;
+
+      justify-self: end;
+
+      padding:
+        clamp(
+          10px,
+          1.4vh,
+          14px
+        )
+        clamp(
+          12px,
+          1.4vw,
+          17px
+        );
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,.16);
+
+      border-radius:
+        clamp(
+          15px,
+          1.5vw,
+          20px
+        );
+
+      background:
+        rgba(255,255,255,.10);
+
+      backdrop-filter:
+        blur(17px);
+
+      -webkit-backdrop-filter:
+        blur(17px);
+
+      box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.08),
+        0 9px 30px
+        rgba(0,0,0,.18);
+
+      text-align: center;
     }
 
-    .hero-review-stars {
-      margin-bottom: 3px;
+
+    .hero-google-review-logo {
+      display: block;
+
+      width:
+        min(
+          155px,
+          100%
+        );
+
+      max-height:
+        clamp(
+          43px,
+          6.2vh,
+          66px
+        );
+
+      object-fit: contain;
+
+      object-position: center;
+    }
+
+
+    .hero-google-review-divider {
+      width: 100%;
+
+      height: 1px;
+
+      margin:
+        clamp(
+          8px,
+          1.15vh,
+          12px
+        )
+        0;
+
+      background:
+        rgba(255,255,255,.22);
+    }
+
+
+    .hero-google-review-question {
+      margin: 0;
+
+      font-family:
+        "League Spartan",
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          .81rem,
+          1.55vh,
+          1rem
+        );
+
+      line-height: 1.05;
+
+      font-weight: 750;
+
+      color: #fff;
+    }
+
+
+    .hero-google-review-caption {
+      margin-top: 3px;
 
       font-family:
         "DM Sans",
         sans-serif;
 
-      color: #fff;
-
       font-size:
         clamp(
-          .70rem,
-          1.4vh,
-          .78rem
+          .61rem,
+          1.15vh,
+          .72rem
         );
 
-      letter-spacing: .12em;
+      line-height: 1.25;
+
+      font-weight: 500;
+
+      color:
+        rgba(255,255,255,.74);
     }
 
 
@@ -860,6 +1081,7 @@
       position: absolute;
 
       left: 50%;
+
       bottom: 10px;
 
       z-index: 20;
@@ -997,6 +1219,7 @@
           );
       }
 
+
       .hero-menu-card
       .hero-tile-content {
         justify-content: flex-end;
@@ -1009,6 +1232,7 @@
 
         padding-bottom: 18px;
       }
+
 
       .hero-mielle-logo {
         width:
@@ -1041,33 +1265,93 @@
         top: 10px;
       }
 
+
+      /*
+        GOOGLE COMPACTO PARA
+        PANTALLAS DE POCA ALTURA
+      */
+
       .hero-google-card
       .hero-tile-content {
-        padding-top: 6px;
-        padding-bottom: 9px;
+        grid-template-columns:
+          minmax(0, 1fr)
+          145px;
+
+        gap: 15px;
+
+        padding:
+          6px
+          clamp(
+            22px,
+            3vw,
+            42px
+          );
+      }
+
+      .hero-google-eyebrow {
+        margin-bottom: 4px;
+
+        font-size: .53rem;
       }
 
       .hero-google-card h2 {
         font-size:
           clamp(
-            1.28rem,
-            2.7vh,
-            2rem
+            1.18rem,
+            2.45vh,
+            1.75rem
           );
       }
 
       .hero-google-card p {
-        font-size: .68rem;
+        margin-top: 4px;
+
+        font-size:
+          clamp(
+            .68rem,
+            1.35vh,
+            .79rem
+          );
 
         line-height: 1.2;
       }
 
-      .hero-card-kicker {
-        margin-bottom: 3px;
+      .hero-google-card
+      .hero-card-cta {
+        margin-top: 6px;
       }
 
-      .hero-review-stars {
-        margin-bottom: 2px;
+      .hero-google-review-box {
+        max-width: 145px;
+
+        padding:
+          7px 9px;
+
+        border-radius: 14px;
+      }
+
+      .hero-google-review-logo {
+        width: 110px;
+
+        max-height: 40px;
+      }
+
+      .hero-google-review-divider {
+        margin:
+          6px 0;
+      }
+
+      .hero-google-review-question {
+        font-size: .72rem;
+      }
+
+      .hero-google-review-caption {
+        font-size: .57rem;
+      }
+
+
+      .hero-card-kicker {
+        margin-bottom: 3px;
       }
 
       .hero-card-cta {
@@ -1630,6 +1914,7 @@
         font-size: .70rem;
       }
 
+
       .hero-side-grid {
         display: grid;
 
@@ -1680,6 +1965,11 @@
           );
       }
 
+
+      /* =========================
+         MENÚ MOBILE
+      ========================= */
+
       .hero-menu-card
       .hero-tile-content {
         justify-content: flex-end;
@@ -1691,6 +1981,11 @@
         padding:
           28px 26px 36px;
       }
+
+
+      /* =========================
+         MIELLÉ MOBILE
+      ========================= */
 
       .hero-mielle-card
       .hero-tile-content {
@@ -1741,11 +2036,38 @@
         top: 10px;
       }
 
+
+      /* =========================
+         GOOGLE MOBILE
+      ========================= */
+
+      .hero-google-card {
+        min-height: auto;
+      }
+
       .hero-google-card
       .hero-tile-content {
+        min-height: auto;
+
+        display: grid;
+
+        grid-template-columns:
+          1fr;
+
+        gap: 22px;
+
         padding:
-          28px 26px
-          92px;
+          38px 26px 88px;
+      }
+
+      .hero-google-copy {
+        width: 100%;
+      }
+
+      .hero-google-eyebrow {
+        margin-bottom: 8px;
+
+        font-size: .64rem;
       }
 
       .hero-google-card h2 {
@@ -1758,10 +2080,58 @@
       }
 
       .hero-google-card p {
-        font-size: .84rem;
+        max-width: 500px;
 
-        line-height: 1.4;
+        margin-top: 10px;
+
+        font-size: .90rem;
+
+        line-height: 1.45;
       }
+
+      .hero-google-card
+      .hero-card-cta {
+        margin-top: 14px;
+      }
+
+      .hero-google-review-box {
+        width: 100%;
+
+        max-width: 340px;
+
+        justify-self: center;
+
+        padding:
+          18px 20px;
+
+        border-radius: 21px;
+      }
+
+      .hero-google-review-logo {
+        width:
+          min(
+            190px,
+            75%
+          );
+
+        max-height: 80px;
+      }
+
+      .hero-google-review-divider {
+        margin:
+          14px 0;
+      }
+
+      .hero-google-review-question {
+        font-size: 1.15rem;
+      }
+
+      .hero-google-review-caption {
+        margin-top: 5px;
+
+        font-size: .80rem;
+      }
+
 
       .hero-season-cue {
         bottom: 18px;
@@ -2061,6 +2431,7 @@
       }
 
     }
+
 
     .hotspot-butterbeer {
       left: 24%;
@@ -2547,7 +2918,9 @@
   </style>
 </head>
 
+
 <body>
+
 
   <!-- HEADER -->
 
@@ -2714,28 +3087,52 @@
 
             <div class="hero-tile-content">
 
-              <div class="hero-review-stars">
-                ★★★★★
+
+              <!-- TEXTO IZQUIERDA -->
+
+              <div class="hero-google-copy">
+
+                <span class="hero-google-eyebrow">
+                  TU OPINIÓN NOS AYUDA A CRECER
+                </span>
+
+                <h2>
+                  ¿Disfrutaste nuestro café?
+                </h2>
+
+                <p>
+                  Déjanos una reseña en Google Maps y ayuda a más personas a conocernos.
+                </p>
+
+                <span class="hero-card-cta">
+                  DEJAR RESEÑA →
+                </span>
+
               </div>
 
-              <span
-                class="hero-card-kicker hero-google-kicker"
-              >
-                <i class="fa-brands fa-google"></i>
-                GOOGLE MAPS
-              </span>
 
-              <h2>
-                ¿Disfrutaste nuestro café?
-              </h2>
+              <!-- GOOGLE REVIEWS DERECHA -->
 
-              <p>
-                Déjanos una reseña en Google Maps y ayuda a más personas a conocernos.
-              </p>
+              <div class="hero-google-review-box">
 
-              <span class="hero-card-cta">
-                DEJAR RESEÑA →
-              </span>
+                <img
+                  src="googlereviews.png"
+                  class="hero-google-review-logo"
+                  alt="Google Reviews"
+                >
+
+                <div class="hero-google-review-divider"></div>
+
+                <div class="hero-google-review-question">
+                  ¿Cómo estuvo tu café?
+                </div>
+
+                <div class="hero-google-review-caption">
+                  Te leemos en Google.
+                </div>
+
+              </div>
+
 
             </div>
 
