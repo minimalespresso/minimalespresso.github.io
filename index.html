@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -130,7 +129,7 @@
 
       width: 100%;
       height: 100svh;
-      min-height: 700px;
+      min-height: 760px;
 
       padding: 0;
       margin: 0;
@@ -279,7 +278,7 @@
       padding:
         150px
         clamp(36px, 5vw, 78px)
-        70px;
+        102px;
     }
 
     .hero-main-title {
@@ -409,8 +408,9 @@
     .hero-side-card
     .hero-tile-content {
       padding:
-        30px
-        clamp(30px, 4vw, 58px);
+        24px
+        clamp(30px, 4vw, 58px)
+        34px;
     }
 
     .hero-card-kicker {
@@ -494,18 +494,18 @@
 
     .hero-menu-card::before {
       filter:
-        blur(5px);
+        blur(2px);
 
       transform:
-        scale(1.10);
+        scale(1.045);
     }
 
     .hero-menu-card:hover::before {
       filter:
-        blur(4px);
+        blur(1px);
 
       transform:
-        scale(1.14);
+        scale(1.075);
     }
 
     .hero-menu-card::after {
@@ -543,16 +543,16 @@
 
       width:
         clamp(
-          290px,
-          27vw,
-          430px
+          350px,
+          31vw,
+          500px
         );
 
-      max-width: 82%;
-      max-height: 140px;
+      max-width: 88%;
+      max-height: 165px;
 
       margin:
-        0 0 14px;
+        0 0 9px;
 
       object-fit: contain;
       object-position: left center;
@@ -565,7 +565,7 @@
     }
 
     .hero-mielle-card p {
-      max-width: 470px;
+      max-width: 520px;
 
       margin-top: 0;
 
@@ -573,13 +573,18 @@
         "DM Sans",
         sans-serif;
 
-      font-size: .85rem;
-      line-height: 1.45;
+      font-size: .95rem;
+      line-height: 1.42;
 
       font-weight: 500;
 
       color:
         rgba(255,255,255,.82);
+    }
+
+    .hero-mielle-card
+    .hero-tile-content {
+      padding-bottom: 42px;
     }
 
     .hero-mielle-availability {
@@ -641,7 +646,7 @@
 
     .hero-google-card
     .hero-tile-content {
-      padding-bottom: 78px;
+      padding-bottom: 108px;
     }
 
     .hero-google-kicker i {
@@ -1302,7 +1307,7 @@
       .hero-main-content {
         padding:
           150px 26px
-          70px;
+          96px;
       }
 
       .hero-main-title {
@@ -1355,7 +1360,8 @@
       .hero-side-card
       .hero-tile-content {
         padding:
-          34px 26px;
+          28px 26px
+          38px;
       }
 
       .hero-side-card h2 {
@@ -1371,13 +1377,22 @@
         font-size: .84rem;
       }
 
+      .hero-mielle-card p {
+        font-size: .92rem;
+      }
+
+      .hero-mielle-card
+      .hero-tile-content {
+        padding-bottom: 44px;
+      }
+
       .hero-mielle-logo {
-        width: 320px;
+        width: 390px;
 
-        max-width: 85%;
-        max-height: 125px;
+        max-width: 92%;
+        max-height: 150px;
 
-        margin-bottom: 14px;
+        margin-bottom: 9px;
       }
 
       .hero-mielle-availability {
@@ -1391,7 +1406,7 @@
 
       .hero-google-card
       .hero-tile-content {
-        padding-bottom: 94px;
+        padding-bottom: 110px;
       }
 
       .hero-season-cue {
@@ -2069,7 +2084,6 @@
         height: 48px;
       }
 
-
       .hotspot-butterbeer {
         left: 12%;
         top: 53%;
@@ -2089,7 +2103,6 @@
         left: 89%;
         top: 53%;
       }
-
 
       .summer-intro {
         bottom: 46px;
@@ -2172,6 +2185,7 @@
 
 
 <body>
+
 
   <!-- HEADER -->
 
@@ -2273,41 +2287,11 @@
         <div class="hero-side-grid">
 
 
-          <!-- MENÚ -->
-
-          <a
-            class="hero-tile hero-side-card hero-menu-card"
-            href="Menu.png"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <div class="hero-tile-content">
-
-              <span class="hero-card-kicker">
-                MENÚ
-              </span>
-
-              <h2>
-                Encuentra tu bebida favorita.
-              </h2>
-
-              <span class="hero-card-cta">
-                EXPLORA NUESTRAS OPCIONES →
-              </span>
-
-            </div>
-
-          </a>
-
-
           <!-- MIELLÉ -->
 
           <a
             class="hero-tile hero-side-card hero-mielle-card"
-            href="https://www.instagram.com/miellemxl"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="reposteria.html"
           >
 
             <div class="hero-tile-content">
@@ -2324,6 +2308,30 @@
 
               <span class="hero-mielle-availability">
                 VER DISPONIBILIDAD
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <!-- MENÚ -->
+
+          <a
+            class="hero-tile hero-side-card hero-menu-card"
+            href="Menu.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <div class="hero-tile-content">
+
+              <h2>
+                Encuentra tu favorito.
+              </h2>
+
+              <span class="hero-card-cta">
+                EXPLORA NUESTRO MENÚ →
               </span>
 
             </div>
