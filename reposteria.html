@@ -36,8 +36,23 @@
       box-sizing: border-box;
     }
 
+
+    /* =========================
+       ROOT / OVERSCROLL
+
+       IMPORTANTE:
+       si el navegador rebota al llegar
+       arriba o abajo, lo que queda
+       detrás siempre será NEGRO.
+    ========================= */
+
     html {
       scroll-behavior: smooth;
+
+      background: #000;
+
+      overscroll-behavior-y: none;
+      overscroll-behavior-x: none;
     }
 
     body {
@@ -45,15 +60,21 @@
 
       min-height: 100vh;
 
+      margin: 0;
+
       font-family:
         "League Spartan",
         system-ui,
         sans-serif;
 
       color: #fff;
-      background: #090909;
+
+      background: #000;
 
       overflow-x: hidden;
+
+      overscroll-behavior-y: none;
+      overscroll-behavior-x: none;
 
       isolation: isolate;
     }
@@ -68,7 +89,16 @@
 
       position: fixed;
 
-      inset: -8px;
+      /*
+        Lo hacemos un poco más grande
+        que el viewport para que el blur
+        nunca revele sus bordes.
+      */
+
+      top: -24px;
+      right: -24px;
+      bottom: -24px;
+      left: -24px;
 
       z-index: -2;
 
@@ -76,7 +106,10 @@
         url("miellepanaderia.jpg");
 
       background-size: cover;
-      background-position: center center;
+
+      background-position:
+        center center;
+
       background-repeat: no-repeat;
 
       filter:
@@ -86,14 +119,26 @@
 
       transform:
         scale(1.025);
+
+      pointer-events: none;
     }
+
 
     body::after {
       content: "";
 
       position: fixed;
 
-      inset: 0;
+      /*
+        También extendemos el overlay
+        para evitar cualquier borde visual
+        durante el desplazamiento.
+      */
+
+      top: -24px;
+      right: -24px;
+      bottom: -24px;
+      left: -24px;
 
       z-index: -1;
 
@@ -224,8 +269,7 @@
 
 
     /* =========================
-       BLOQUE COMPLETO
-       SE MUEVE TODO HACIA ARRIBA
+       BLOQUE HERO
     ========================= */
 
     .pastry-hero-content {
@@ -656,6 +700,9 @@
       border-radius: 50%;
     }
 
+
+    /* DISPONIBLE */
+
     .stock-status.available
     .stock-status-dot {
       background: #53db77;
@@ -692,6 +739,9 @@
       }
 
     }
+
+
+    /* AGOTADO */
 
     .stock-status.sold-out {
       color:
@@ -1166,6 +1216,11 @@
     @media (max-width: 900px) {
 
       body::before {
+        top: -28px;
+        right: -28px;
+        bottom: -28px;
+        left: -28px;
+
         background-position:
           center center;
 
@@ -1176,6 +1231,11 @@
       }
 
       body::after {
+        top: -28px;
+        right: -28px;
+        bottom: -28px;
+        left: -28px;
+
         background:
           rgba(5,5,5,.30);
       }
@@ -1219,9 +1279,6 @@
         letter-spacing: .15em;
       }
 
-
-      /* HERO MÁS ARRIBA EN MOBILE */
-
       .pastry-hero {
         padding:
           92px 18px
@@ -1235,9 +1292,6 @@
         margin-bottom:
           -48px;
       }
-
-
-      /* LOGO MOBILE */
 
       .mielle-main-logo {
         width: 520px;
