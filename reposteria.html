@@ -742,6 +742,51 @@
     }
 
 
+    /* SE TERMINA PRONTO */
+
+    .stock-status.low {
+      color:
+        rgba(255,255,255,.82);
+    }
+
+    .stock-status.low
+    .stock-status-dot {
+      background: #f3a83b;
+
+      box-shadow:
+        0 0 0 0
+        rgba(243,168,59,.42);
+
+      animation:
+        lowPulse
+        2.1s
+        ease-out
+        infinite;
+    }
+
+    @keyframes lowPulse {
+
+      0% {
+        box-shadow:
+          0 0 0 0
+          rgba(243,168,59,.40);
+      }
+
+      70% {
+        box-shadow:
+          0 0 0 8px
+          rgba(243,168,59,0);
+      }
+
+      100% {
+        box-shadow:
+          0 0 0 0
+          rgba(243,168,59,0);
+      }
+
+    }
+
+
     /* AGOTADO */
 
     .stock-status.sold-out {
@@ -2175,38 +2220,35 @@
 
 
     /* =========================
-       INVENTARIO
-       true = Disponible
-       false = Agotado
+       INVENTARIO EN TIEMPO REAL
     ========================= */
 
-    const pastryAvailability = {
+    const PASTRY_INVENTORY_URL =
+      "https://api.minimalespresso.com/api/inventory/bakery";
 
-      "croissant": true,
+    const PASTRY_INVENTORY_REFRESH_MS =
+      15000;
 
-      "muffin-platano": true,
-
-      "muffin-chocolate": true,
-
-      "cheesecake-brownie": true,
-
-      "rol-canela": true,
-
-      "cheesecake-pumpkin": true,
-
-      "cheesecake-frutos-rojos": true,
-
-      "muffin-platano-chocolate": true
-
-    };
+    const PASTRY_INVENTORY_CACHE_KEY =
+      "minimal-pastry-availability";
 
 
-    function updatePastryStatuses() {
+    function applyPastryStatuses(
+      products
+    ) {
+
+      if (
+        !products ||
+        typeof products !== "object"
+      ) {
+        return;
+      }
+
 
       Object.entries(
-        pastryAvailability
+        products
       ).forEach(
-        ([productId, available]) => {
+        ([productId, availability]) => {
 
           const status =
             document.querySelector(
@@ -2221,14 +2263,19 @@
               ".status-text"
             );
 
+          if (!text) return;
+
 
           status.classList.remove(
             "available",
+            "low",
             "sold-out"
           );
 
 
-          if (available) {
+          if (
+            availability === "available"
+          ) {
 
             status.classList.add(
               "available"
@@ -2237,7 +2284,20 @@
             text.textContent =
               "Disponible";
 
-          } else {
+          } else if (
+            availability === "low"
+          ) {
+
+            status.classList.add(
+              "low"
+            );
+
+            text.textContent =
+              "Se termina pronto";
+
+          } else if (
+            availability === "sold_out"
+          ) {
 
             status.classList.add(
               "sold-out"
@@ -2254,7 +2314,136 @@
     }
 
 
+    function loadCachedPastryStatuses() {
+
+      try {
+
+        const cached =
+          localStorage.getItem(
+            PASTRY_INVENTORY_CACHE_KEY
+          );
+
+        if (!cached) return;
+
+
+        const parsed =
+          JSON.parse(cached);
+
+        applyPastryStatuses(
+          parsed.products
+        );
+
+      } catch (error) {
+
+        console.warn(
+          "No se pudo leer el inventario guardado:",
+          error
+        );
+
+      }
+
+    }
+
+
+    async function updatePastryStatuses() {
+
+      const controller =
+        new AbortController();
+
+      const timeout =
+        setTimeout(
+          () => controller.abort(),
+          5000
+        );
+
+      try {
+
+        const response =
+          await fetch(
+            PASTRY_INVENTORY_URL,
+            {
+              method: "GET",
+              cache: "no-store",
+              signal: controller.signal
+            }
+          );
+
+
+        if (!response.ok) {
+          throw new Error(
+            `HTTP ${response.status}`
+          );
+        }
+
+
+        const inventory =
+          await response.json();
+
+
+        if (
+          !inventory ||
+          !inventory.products ||
+          typeof inventory.products !== "object"
+        ) {
+          throw new Error(
+            "Respuesta de inventario inválida"
+          );
+        }
+
+
+        applyPastryStatuses(
+          inventory.products
+        );
+
+
+        try {
+
+          localStorage.setItem(
+            PASTRY_INVENTORY_CACHE_KEY,
+            JSON.stringify({
+              products:
+                inventory.products,
+
+              updatedAt:
+                inventory.updatedAt || null
+            })
+          );
+
+        } catch (cacheError) {
+
+          console.warn(
+            "No se pudo guardar el inventario localmente:",
+            cacheError
+          );
+
+        }
+
+      } catch (error) {
+
+        console.warn(
+          "No se pudo actualizar la disponibilidad de repostería:",
+          error
+        );
+
+      } finally {
+
+        clearTimeout(
+          timeout
+        );
+
+      }
+
+    }
+
+
+    loadCachedPastryStatuses();
+
     updatePastryStatuses();
+
+    setInterval(
+      updatePastryStatuses,
+      PASTRY_INVENTORY_REFRESH_MS
+    );
 
 
     document.addEventListener(
