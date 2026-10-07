@@ -68,7 +68,6 @@
       z-index: 50;
 
       display: flex;
-
       align-items: flex-start;
       justify-content: space-between;
 
@@ -96,9 +95,7 @@
       margin-top: 38px;
 
       display: flex;
-
       gap: 32px;
-
       align-items: center;
     }
 
@@ -109,9 +106,7 @@
       text-decoration: none;
 
       font-size: .78rem;
-
       font-weight: 700;
-
       letter-spacing: .24em;
 
       opacity: .78;
@@ -154,7 +149,6 @@
 
     .hero-grid {
       position: absolute;
-
       inset: 0;
 
       width: 100%;
@@ -259,7 +253,6 @@
       height: 100%;
 
       display: flex;
-
       flex-direction: column;
 
       align-items: flex-start;
@@ -568,12 +561,6 @@
       --tile-image:
         url("Menu.png");
 
-      /*
-        ESTE overflow es el que ahora
-        recorta el PNG exactamente en
-        los bordes reales de la tarjeta.
-      */
-
       overflow: hidden;
     }
 
@@ -604,9 +591,7 @@
     }
 
 
-    /* =========================
-       TEXTO MENÚ
-    ========================= */
+    /* TEXTO MENÚ */
 
     .hero-menu-card
     .hero-tile-content {
@@ -628,52 +613,43 @@
       transform:
         translateY(-25px);
 
-      /*
-        El PNG ya NO está dentro
-        de este contenedor.
-      */
-
       overflow: visible;
     }
 
 
     /* =========================
-       PREVIEW MENÚ
+       MENÚ PREVIEW
     ========================= */
 
     .hero-menu-preview {
       position: absolute;
 
       /*
-        Pegada a la derecha.
+        MÁS A LA IZQUIERDA.
+        Al aumentar "right",
+        alejamos la imagen del borde derecho.
       */
 
       right:
         clamp(
-          4px,
-          .8vw,
-          14px
+          45px,
+          5vw,
+          85px
         );
-
-      /*
-        Pegada al borde REAL inferior
-        de hero-menu-card.
-      */
 
       bottom: 0;
 
       z-index: 3;
 
       /*
-        La hacemos relativamente grande
-        respecto a la altura de la tarjeta.
+        MÁS GRANDE.
       */
 
-      height: 108%;
+      height: 125%;
 
       width: auto;
 
-      max-width: 46%;
+      max-width: 54%;
 
       object-fit: contain;
 
@@ -681,15 +657,12 @@
         center bottom;
 
       /*
-        Oculta aproximadamente 34%
-        por debajo.
-
-        Antes ocultábamos 48%.
-        Ahora se ve bastante más.
+        Sigue entrando por abajo,
+        pero ahora se ve bastante más.
       */
 
       transform:
-        translateY(34%);
+        translateY(32%);
 
       transform-origin:
         center bottom;
@@ -700,8 +673,8 @@
 
       filter:
         drop-shadow(
-          0 14px 24px
-          rgba(0,0,0,.40)
+          0 16px 27px
+          rgba(0,0,0,.42)
         );
     }
 
@@ -1340,18 +1313,25 @@
       }
 
       .hero-menu-preview {
-        height: 103%;
+        right:
+          clamp(
+            38px,
+            4.2vw,
+            70px
+          );
+
+        height: 118%;
 
         width: auto;
 
-        max-width: 44%;
-
-        right: 5px;
+        max-width: 52%;
 
         transform:
-          translateY(34%);
+          translateY(32%);
       }
 
+
+      /* MIELLÉ */
 
       .hero-mielle-logo {
         width:
@@ -2111,18 +2091,23 @@
       }
 
       .hero-menu-preview {
-        right: 3px;
+        /*
+          MÁS GRANDE EN MÓVIL
+          Y MÁS A LA IZQUIERDA.
+        */
+
+        right: 26px;
 
         bottom: 0;
 
-        height: 100%;
+        height: 115%;
 
         width: auto;
 
-        max-width: 50%;
+        max-width: 56%;
 
         transform:
-          translateY(32%);
+          translateY(30%);
 
         object-position:
           center bottom;
@@ -2298,9 +2283,7 @@
       }
 
 
-      /* =========================
-         DELIVERY MOBILE
-      ========================= */
+      /* DELIVERY MOBILE */
 
       .delivery-grid {
         grid-template-columns:
@@ -3188,16 +3171,6 @@
             rel="noopener noreferrer"
           >
 
-            <!--
-              IMPORTANTE:
-              El texto y la imagen ahora
-              son elementos hermanos.
-
-              Así el translateY del texto
-              NO mueve el punto donde
-              se recorta menupreview.PNG.
-            -->
-
             <div class="hero-tile-content">
 
               <h2>
@@ -3261,8 +3234,6 @@
             <div class="hero-tile-content">
 
 
-              <!-- TEXTO IZQUIERDA -->
-
               <div class="hero-google-copy">
 
                 <span class="hero-google-eyebrow">
@@ -3283,8 +3254,6 @@
 
               </div>
 
-
-              <!-- GOOGLE REVIEWS -->
 
               <div class="hero-google-review-box">
 
@@ -3788,19 +3757,15 @@
 
       openBtn.onclick =
         () => {
-
           modal.style.display =
             "flex";
-
         };
 
 
       closeBtn.onclick =
         () => {
-
           modal.style.display =
             "none";
-
         };
 
 
