@@ -64,6 +64,7 @@
       right: 0;
 
       height: 95px;
+
       z-index: 50;
 
       display: flex;
@@ -101,6 +102,7 @@
     .nav a,
     .nav-item {
       color: #fff;
+
       text-decoration: none;
 
       font-size: .78rem;
@@ -112,6 +114,7 @@
       transition: .2s ease;
 
       cursor: pointer;
+
       white-space: nowrap;
     }
 
@@ -146,6 +149,7 @@
 
     .hero-grid {
       position: absolute;
+
       inset: 0;
 
       width: 100%;
@@ -198,6 +202,7 @@
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: 0;
@@ -209,6 +214,7 @@
         center center;
 
       background-size: cover;
+
       background-repeat: no-repeat;
 
       transform:
@@ -223,6 +229,7 @@
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: 1;
@@ -247,6 +254,7 @@
       height: 100%;
 
       display: flex;
+
       flex-direction: column;
 
       align-items: flex-start;
@@ -406,6 +414,7 @@
       height: 100%;
 
       display: flex;
+
       flex-direction: column;
 
       gap: 0;
@@ -581,6 +590,7 @@
         );
     }
 
+
     .hero-menu-card
     .hero-tile-content {
       justify-content: flex-end;
@@ -596,6 +606,70 @@
 
       transform:
         translateY(-25px);
+
+      overflow: hidden;
+    }
+
+
+    /* Texto siempre por encima del preview */
+
+    .hero-menu-card h2,
+    .hero-menu-card .hero-card-cta {
+      position: relative;
+
+      z-index: 4;
+    }
+
+
+    /* =========================
+       NUEVO PREVIEW DEL MENÚ
+    ========================= */
+
+    .hero-menu-preview {
+      position: absolute;
+
+      right:
+        clamp(
+          8px,
+          1.5vw,
+          24px
+        );
+
+      bottom: 0;
+
+      z-index: 2;
+
+      width:
+        clamp(
+          190px,
+          18vw,
+          300px
+        );
+
+      max-width: 44%;
+
+      height: auto;
+
+      object-fit: contain;
+
+      /*
+        Se empuja aproximadamente
+        la mitad de la imagen hacia
+        debajo del borde de la tarjeta.
+      */
+
+      transform:
+        translateY(48%);
+
+      pointer-events: none;
+
+      user-select: none;
+
+      filter:
+        drop-shadow(
+          0 14px 24px
+          rgba(0,0,0,.38)
+        );
     }
 
 
@@ -787,11 +861,6 @@
     }
 
 
-    /*
-      MISMO BORDE IZQUIERDO QUE MENÚ:
-      clamp(30px, 4vw, 58px)
-    */
-
     .hero-google-card
     .hero-tile-content {
       display: grid;
@@ -865,11 +934,6 @@
     }
 
 
-    /*
-      YA SE ACERCA MUCHO MÁS AL
-      TAMAÑO VISUAL DEL TÍTULO MENÚ
-    */
-
     .hero-google-card h2 {
       max-width: 430px;
 
@@ -885,10 +949,6 @@
       font-weight: 800;
     }
 
-
-    /*
-      TEXTO SECUNDARIO MÁS LEGIBLE
-    */
 
     .hero-google-card p {
       max-width: 470px;
@@ -1252,6 +1312,19 @@
       }
 
 
+      .hero-menu-preview {
+        width:
+          clamp(
+            170px,
+            16vw,
+            250px
+          );
+
+        transform:
+          translateY(48%);
+      }
+
+
       .hero-mielle-logo {
         width:
           clamp(
@@ -1283,12 +1356,6 @@
         top: 10px;
       }
 
-
-      /*
-        GOOGLE BAJO:
-        CONSERVA MISMO BORDE IZQUIERDO
-        QUE MENÚ
-      */
 
       .hero-google-card
       .hero-tile-content {
@@ -1992,6 +2059,10 @@
          MENÚ MOBILE
       ========================= */
 
+      .hero-menu-card {
+        overflow: hidden;
+      }
+
       .hero-menu-card
       .hero-tile-content {
         justify-content: flex-end;
@@ -2002,6 +2073,24 @@
 
         padding:
           28px 26px 36px;
+
+        overflow: hidden;
+      }
+
+      .hero-menu-preview {
+        right: 4px;
+
+        width:
+          clamp(
+            175px,
+            48vw,
+            260px
+          );
+
+        max-width: 48%;
+
+        transform:
+          translateY(48%);
       }
 
 
@@ -3068,6 +3157,16 @@
               <span class="hero-card-cta">
                 EXPLORA NUESTRO MENÚ →
               </span>
+
+
+              <!-- NUEVO PREVIEW -->
+
+              <img
+                src="menupreview.PNG"
+                class="hero-menu-preview"
+                alt=""
+                aria-hidden="true"
+              >
 
             </div>
 
