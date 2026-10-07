@@ -68,6 +68,7 @@
       z-index: 50;
 
       display: flex;
+
       align-items: flex-start;
       justify-content: space-between;
 
@@ -95,7 +96,9 @@
       margin-top: 38px;
 
       display: flex;
+
       gap: 32px;
+
       align-items: center;
     }
 
@@ -106,7 +109,9 @@
       text-decoration: none;
 
       font-size: .78rem;
+
       font-weight: 700;
+
       letter-spacing: .24em;
 
       opacity: .78;
@@ -562,6 +567,14 @@
     .hero-menu-card {
       --tile-image:
         url("Menu.png");
+
+      /*
+        ESTE overflow es el que ahora
+        recorta el PNG exactamente en
+        los bordes reales de la tarjeta.
+      */
+
+      overflow: hidden;
     }
 
     .hero-menu-card::before {
@@ -591,8 +604,16 @@
     }
 
 
+    /* =========================
+       TEXTO MENÚ
+    ========================= */
+
     .hero-menu-card
     .hero-tile-content {
+      position: relative;
+
+      z-index: 4;
+
       justify-content: flex-end;
 
       align-items: flex-start;
@@ -607,59 +628,71 @@
       transform:
         translateY(-25px);
 
-      overflow: hidden;
-    }
+      /*
+        El PNG ya NO está dentro
+        de este contenedor.
+      */
 
-
-    /* Texto siempre por encima del preview */
-
-    .hero-menu-card h2,
-    .hero-menu-card .hero-card-cta {
-      position: relative;
-
-      z-index: 4;
+      overflow: visible;
     }
 
 
     /* =========================
-       NUEVO PREVIEW DEL MENÚ
+       PREVIEW MENÚ
     ========================= */
 
     .hero-menu-preview {
       position: absolute;
 
+      /*
+        Pegada a la derecha.
+      */
+
       right:
         clamp(
-          8px,
-          1.5vw,
-          24px
+          4px,
+          .8vw,
+          14px
         );
+
+      /*
+        Pegada al borde REAL inferior
+        de hero-menu-card.
+      */
 
       bottom: 0;
 
-      z-index: 2;
+      z-index: 3;
 
-      width:
-        clamp(
-          190px,
-          18vw,
-          300px
-        );
+      /*
+        La hacemos relativamente grande
+        respecto a la altura de la tarjeta.
+      */
 
-      max-width: 44%;
+      height: 108%;
 
-      height: auto;
+      width: auto;
+
+      max-width: 46%;
 
       object-fit: contain;
 
+      object-position:
+        center bottom;
+
       /*
-        Se empuja aproximadamente
-        la mitad de la imagen hacia
-        debajo del borde de la tarjeta.
+        Oculta aproximadamente 34%
+        por debajo.
+
+        Antes ocultábamos 48%.
+        Ahora se ve bastante más.
       */
 
       transform:
-        translateY(48%);
+        translateY(34%);
+
+      transform-origin:
+        center bottom;
 
       pointer-events: none;
 
@@ -668,7 +701,7 @@
       filter:
         drop-shadow(
           0 14px 24px
-          rgba(0,0,0,.38)
+          rgba(0,0,0,.40)
         );
     }
 
@@ -860,7 +893,6 @@
         );
     }
 
-
     .hero-google-card
     .hero-tile-content {
       display: grid;
@@ -904,7 +936,6 @@
       text-align: left;
     }
 
-
     .hero-google-eyebrow {
       display: block;
 
@@ -933,7 +964,6 @@
       text-transform: uppercase;
     }
 
-
     .hero-google-card h2 {
       max-width: 430px;
 
@@ -948,7 +978,6 @@
 
       font-weight: 800;
     }
-
 
     .hero-google-card p {
       max-width: 470px;
@@ -974,7 +1003,6 @@
       color:
         rgba(255,255,255,.84);
     }
-
 
     .hero-google-card
     .hero-card-cta {
@@ -1057,7 +1085,6 @@
       text-align: center;
     }
 
-
     .hero-google-review-logo {
       display: block;
 
@@ -1086,7 +1113,6 @@
       opacity: .96;
     }
 
-
     .hero-google-review-divider {
       width: 100%;
 
@@ -1103,7 +1129,6 @@
       background:
         rgba(255,255,255,.25);
     }
-
 
     .hero-google-review-question {
       margin: 0;
@@ -1126,7 +1151,6 @@
 
       color: #fff;
     }
-
 
     .hero-google-review-caption {
       margin-top: 6px;
@@ -1298,6 +1322,8 @@
       }
 
 
+      /* MENÚ BAJO */
+
       .hero-menu-card
       .hero-tile-content {
         justify-content: flex-end;
@@ -1309,19 +1335,21 @@
         padding-top: 7px;
 
         padding-bottom: 18px;
+
+        overflow: visible;
       }
 
-
       .hero-menu-preview {
-        width:
-          clamp(
-            170px,
-            16vw,
-            250px
-          );
+        height: 103%;
+
+        width: auto;
+
+        max-width: 44%;
+
+        right: 5px;
 
         transform:
-          translateY(48%);
+          translateY(34%);
       }
 
 
@@ -1356,6 +1384,8 @@
         top: 10px;
       }
 
+
+      /* GOOGLE BAJO */
 
       .hero-google-card
       .hero-tile-content {
@@ -1437,7 +1467,6 @@
       .hero-google-review-caption {
         font-size: .62rem;
       }
-
 
       .hero-card-kicker {
         margin-bottom: 3px;
@@ -2065,6 +2094,10 @@
 
       .hero-menu-card
       .hero-tile-content {
+        position: relative;
+
+        z-index: 4;
+
         justify-content: flex-end;
 
         align-items: flex-start;
@@ -2074,23 +2107,25 @@
         padding:
           28px 26px 36px;
 
-        overflow: hidden;
+        overflow: visible;
       }
 
       .hero-menu-preview {
-        right: 4px;
+        right: 3px;
 
-        width:
-          clamp(
-            175px,
-            48vw,
-            260px
-          );
+        bottom: 0;
 
-        max-width: 48%;
+        height: 100%;
+
+        width: auto;
+
+        max-width: 50%;
 
         transform:
-          translateY(48%);
+          translateY(32%);
+
+        object-position:
+          center bottom;
       }
 
 
@@ -2261,6 +2296,11 @@
 
         white-space: normal;
       }
+
+
+      /* =========================
+         DELIVERY MOBILE
+      ========================= */
 
       .delivery-grid {
         grid-template-columns:
@@ -3148,6 +3188,16 @@
             rel="noopener noreferrer"
           >
 
+            <!--
+              IMPORTANTE:
+              El texto y la imagen ahora
+              son elementos hermanos.
+
+              Así el translateY del texto
+              NO mueve el punto donde
+              se recorta menupreview.PNG.
+            -->
+
             <div class="hero-tile-content">
 
               <h2>
@@ -3158,17 +3208,15 @@
                 EXPLORA NUESTRO MENÚ →
               </span>
 
-
-              <!-- NUEVO PREVIEW -->
-
-              <img
-                src="menupreview.PNG"
-                class="hero-menu-preview"
-                alt=""
-                aria-hidden="true"
-              >
-
             </div>
+
+
+            <img
+              src="menupreview.PNG"
+              class="hero-menu-preview"
+              alt=""
+              aria-hidden="true"
+            >
 
           </a>
 
@@ -3213,6 +3261,8 @@
             <div class="hero-tile-content">
 
 
+              <!-- TEXTO IZQUIERDA -->
+
               <div class="hero-google-copy">
 
                 <span class="hero-google-eyebrow">
@@ -3233,6 +3283,8 @@
 
               </div>
 
+
+              <!-- GOOGLE REVIEWS -->
 
               <div class="hero-google-review-box">
 
@@ -3566,7 +3618,10 @@
 
           <p>
             <i class="fa-solid fa-location-dot fa-fw"></i>
-            <span>Mexicali, Baja California</span>
+
+            <span>
+              Mexicali, Baja California
+            </span>
           </p>
 
           <p>
@@ -3733,15 +3788,19 @@
 
       openBtn.onclick =
         () => {
+
           modal.style.display =
             "flex";
+
         };
 
 
       closeBtn.onclick =
         () => {
+
           modal.style.display =
             "none";
+
         };
 
 
@@ -3882,6 +3941,7 @@
 
       if (!drink) return;
 
+
       drinkCardTitle.textContent =
         drink.title;
 
@@ -3890,6 +3950,7 @@
 
       drinkCardButton.href =
         drink.whatsapp;
+
 
       drinkHotspots.forEach(
         (hotspot) => {
@@ -3901,13 +3962,16 @@
         }
       );
 
+
       selectedHotspot.classList.add(
         "is-active"
       );
 
+
       drinkInfoCard.classList.add(
         "is-visible"
       );
+
 
       summerIntro.classList.add(
         "is-hidden"
@@ -3922,9 +3986,11 @@
         "is-visible"
       );
 
+
       summerIntro.classList.remove(
         "is-hidden"
       );
+
 
       drinkHotspots.forEach(
         (hotspot) => {
