@@ -1,1 +1,3936 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Minimal Espresso</title>
+
+  <meta name="google-site-verification" content="cOCz7X7cvTb-8y4zMdn-HZxN0WnzYs1QiWRPdnlB2eA">
+  <meta property="og:title" content="Minimal Espresso">
+  <meta property="og:description" content="Minimal Espresso">
+  <meta property="og:image" content="https://minimalespresso.com/preview.jpg">
+  <meta property="og:url" content="https://minimalespresso.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=League+Spartan:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: #050505;
+    }
+
+    body {
+      font-family: "League Spartan", system-ui, sans-serif;
+      color: #fff;
+      background: #050505;
+      overflow-x: hidden;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 95px;
+      z-index: 50;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      padding: 0 42px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,.62),
+          rgba(0,0,0,0)
+        );
+    }
+
+    .logo-main {
+      width: 150px;
+
+      filter:
+        drop-shadow(
+          0 12px 28px
+          rgba(0,0,0,.75)
+        );
+    }
+
+    .nav {
+      margin-top: 38px;
+
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav a,
+    .nav-item {
+      color: #fff;
+      text-decoration: none;
+
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .24em;
+
+      opacity: .78;
+
+      transition: .2s ease;
+
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .nav a:hover,
+    .nav-item:hover {
+      opacity: 1;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero-section {
+      position: relative;
+
+      width: 100%;
+
+      height: 100vh;
+      height: 100svh;
+      height: 100dvh;
+
+      min-height: 0;
+
+      padding: 0;
+      margin: 0;
+
+      background: #050505;
+
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      display: grid;
+
+      grid-template-columns:
+        50% 50%;
+
+      gap: 0;
+
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* =========================
+       HERO PANELS
+    ========================= */
+
+    .hero-tile {
+      position: relative;
+
+      width: 100%;
+
+      min-width: 0;
+      min-height: 0;
+
+      margin: 0;
+      padding: 0;
+
+      overflow: hidden;
+
+      border: 0;
+      border-radius: 0;
+
+      background: #111;
+
+      color: #fff;
+
+      isolation: isolate;
+
+      box-shadow: none;
+
+      text-decoration: none;
+    }
+
+    .hero-tile::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: 0;
+
+      background-image:
+        var(--tile-image);
+
+      background-position:
+        center center;
+
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      transform:
+        scale(1.01);
+
+      transition:
+        transform .6s cubic-bezier(.2,.8,.2,1),
+        filter .6s ease;
+    }
+
+    .hero-tile::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(5,5,5,.86) 0%,
+          rgba(5,5,5,.42) 48%,
+          rgba(5,5,5,.10) 100%
+        );
+    }
+
+    .hero-tile-content {
+      position: relative;
+
+      z-index: 2;
+
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: flex-start;
+
+      text-align: left;
+    }
+
+
+    /* =========================
+       MINIMAL
+    ========================= */
+
+    .hero-main-card {
+      --tile-image:
+        url("vaso.JPG");
+
+      height: 100%;
+
+      border-right:
+        1px solid
+        rgba(255,255,255,.10);
+    }
+
+    .hero-main-card::before {
+      background-position:
+        center -28px;
+    }
+
+    .hero-main-card::after {
+      background:
+        linear-gradient(
+          to top,
+          rgba(5,5,5,.94) 0%,
+          rgba(5,5,5,.66) 32%,
+          rgba(5,5,5,.18) 70%,
+          rgba(5,5,5,.05) 100%
+        ),
+        linear-gradient(
+          to right,
+          rgba(5,5,5,.28),
+          rgba(5,5,5,0) 70%
+        );
+    }
+
+    .hero-main-content {
+      justify-content: flex-end;
+
+      padding:
+        110px
+        clamp(25px, 3.4vw, 58px)
+        clamp(72px, 10vh, 92px);
+    }
+
+    .hero-main-title {
+      width:
+        min(
+          620px,
+          100%
+        );
+
+      margin: 0;
+
+      font-size:
+        clamp(
+          2.8rem,
+          6.8vh,
+          5.35rem
+        );
+
+      line-height: .86;
+
+      font-weight: 800;
+
+      text-shadow:
+        0 16px 50px
+        rgba(0,0,0,.55);
+    }
+
+    .hero-main-title span {
+      display: block;
+    }
+
+    .hero-main-description {
+      margin-top:
+        clamp(
+          14px,
+          2.2vh,
+          22px
+        );
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: 1rem;
+
+      line-height: 1.45;
+
+      font-weight: 600;
+
+      color:
+        rgba(255,255,255,.88);
+    }
+
+    .hero-main-cta {
+      min-height: 50px;
+
+      margin-top:
+        clamp(
+          14px,
+          2.1vh,
+          21px
+        );
+
+      padding:
+        0 27px;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 999px;
+
+      background: #fff;
+
+      color: #050505;
+
+      text-decoration: none;
+
+      font-size: .74rem;
+
+      font-weight: 800;
+
+      letter-spacing: .19em;
+
+      transition:
+        transform .25s ease,
+        background .25s ease;
+    }
+
+    .hero-main-cta:hover {
+      transform:
+        translateY(-2px);
+
+      background:
+        #eeeeee;
+    }
+
+
+    /* =========================
+       DERECHA
+    ========================= */
+
+    .hero-side-grid {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 0;
+
+      margin: 0;
+      padding: 0;
+
+      overflow: hidden;
+    }
+
+    .hero-side-card {
+      flex:
+        0 0 33.333333%;
+
+      width: 100%;
+      height: 33.333333%;
+
+      min-width: 0;
+      min-height: 0;
+
+      border: 0;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.10);
+
+      border-radius: 0;
+
+      box-shadow: none;
+    }
+
+    .hero-side-card:last-child {
+      border-bottom: 0;
+    }
+
+    .hero-side-card:hover::before {
+      transform:
+        scale(1.05);
+    }
+
+    .hero-side-card
+    .hero-tile-content {
+      justify-content: center;
+
+      padding:
+        clamp(9px, 1.5vh, 16px)
+        clamp(30px, 4vw, 58px);
+
+      overflow: hidden;
+    }
+
+    .hero-card-kicker {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 5px;
+
+      color: #d3b184;
+
+      font-size: .59rem;
+
+      font-weight: 800;
+
+      letter-spacing: .25em;
+    }
+
+    .hero-side-card h2 {
+      margin: 0;
+
+      font-size:
+        clamp(
+          1.45rem,
+          3.1vh,
+          2.65rem
+        );
+
+      line-height: .95;
+
+      font-weight: 800;
+
+      text-wrap: balance;
+
+      text-shadow:
+        0 8px 28px
+        rgba(0,0,0,.55);
+    }
+
+    .hero-side-card p {
+      max-width: 520px;
+
+      margin-top:
+        clamp(
+          4px,
+          .8vh,
+          7px
+        );
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size:
+        clamp(
+          .70rem,
+          1.45vh,
+          .80rem
+        );
+
+      line-height: 1.3;
+
+      font-weight: 500;
+
+      color:
+        rgba(255,255,255,.78);
+    }
+
+    .hero-card-cta {
+      display: inline-flex;
+
+      margin-top:
+        clamp(
+          6px,
+          1.2vh,
+          10px
+        );
+
+      color:
+        rgba(255,255,255,.95);
+
+      font-size: .63rem;
+
+      font-weight: 800;
+
+      letter-spacing: .16em;
+    }
+
+
+    /* =========================
+       MENÚ
+    ========================= */
+
+    .hero-menu-card {
+      --tile-image:
+        url("Menu.png");
+    }
+
+    .hero-menu-card::before {
+      filter:
+        blur(1.6px);
+
+      transform:
+        scale(1.035);
+    }
+
+    .hero-menu-card:hover::before {
+      filter:
+        blur(.8px);
+
+      transform:
+        scale(1.06);
+    }
+
+    .hero-menu-card::after {
+      background:
+        linear-gradient(
+          to right,
+          rgba(5,5,5,.84) 0%,
+          rgba(5,5,5,.47) 52%,
+          rgba(5,5,5,.13) 100%
+        );
+    }
+
+    .hero-menu-card
+    .hero-tile-content {
+      justify-content: flex-end;
+
+      align-items: flex-start;
+
+      text-align: left;
+
+      padding:
+        clamp(12px, 2vh, 20px)
+        clamp(30px, 4vw, 58px)
+        clamp(35px, 5.5vh, 52px);
+
+      transform:
+        translateY(-25px);
+    }
+
+
+    /* =========================
+       MIELLÉ
+    ========================= */
+
+    .hero-mielle-card {
+      --tile-image:
+        url("miellepanaderia.jpg");
+    }
+
+    .hero-mielle-card::after {
+      background:
+        linear-gradient(
+          to right,
+          rgba(5,5,5,.82) 0%,
+          rgba(5,5,5,.42) 58%,
+          rgba(5,5,5,.12) 100%
+        );
+    }
+
+    .hero-mielle-card
+    .hero-tile-content {
+      justify-content: center;
+
+      align-items: center;
+
+      text-align: center;
+
+      padding:
+        6px
+        clamp(28px, 4vw, 58px);
+
+      transform:
+        translateY(-20px);
+    }
+
+    .hero-mielle-logo {
+      display: block;
+
+      width:
+        clamp(
+          390px,
+          32vw,
+          560px
+        );
+
+      max-width: 92%;
+
+      max-height:
+        clamp(
+          105px,
+          15vh,
+          155px
+        );
+
+      margin:
+        -8px auto -22px;
+
+      object-fit: contain;
+
+      object-position:
+        center center;
+
+      transform: none;
+
+      filter:
+        drop-shadow(
+          0 6px 24px
+          rgba(0,0,0,.38)
+        );
+    }
+
+    .hero-mielle-copy {
+      position: relative;
+
+      z-index: 3;
+
+      width:
+        min(
+          470px,
+          94%
+        );
+
+      margin:
+        0 auto;
+
+      color: #fff;
+
+      font-family:
+        "League Spartan",
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1rem,
+          2.15vh,
+          1.45rem
+        );
+
+      line-height: 1.05;
+
+      font-weight: 700;
+
+      text-align: center;
+
+      text-wrap: balance;
+
+      text-shadow:
+        0 6px 22px
+        rgba(0,0,0,.65);
+    }
+
+    .hero-mielle-availability {
+      position: relative;
+
+      top: 10px;
+
+      min-height:
+        clamp(
+          31px,
+          4.5vh,
+          36px
+        );
+
+      margin-top:
+        clamp(
+          9px,
+          1.5vh,
+          14px
+        );
+
+      padding:
+        0 16px;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 999px;
+
+      background: #fff;
+
+      color: #080808;
+
+      font-size: .60rem;
+
+      font-weight: 800;
+
+      letter-spacing: .15em;
+
+      white-space: nowrap;
+
+      transition:
+        transform .22s ease,
+        background .22s ease;
+    }
+
+    .hero-mielle-card:hover
+    .hero-mielle-availability {
+      transform:
+        translateY(-2px);
+
+      background:
+        #eeeeee;
+    }
+
+
+    /* =========================
+       GOOGLE
+    ========================= */
+
+    .hero-google-card {
+      --tile-image:
+        url("coffeebar08.jpeg");
+    }
+
+    .hero-google-card::after {
+      background:
+        linear-gradient(
+          to right,
+          rgba(5,5,5,.92) 0%,
+          rgba(5,5,5,.70) 48%,
+          rgba(5,5,5,.28) 100%
+        );
+    }
+
+
+    /*
+      MISMO BORDE IZQUIERDO QUE MENÚ:
+      clamp(30px, 4vw, 58px)
+    */
+
+    .hero-google-card
+    .hero-tile-content {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        clamp(220px, 20vw, 285px);
+
+      align-items: center;
+
+      column-gap:
+        clamp(
+          8px,
+          1.1vw,
+          16px
+        );
+
+      padding:
+        clamp(10px, 1.4vh, 15px)
+        clamp(30px, 4vw, 58px);
+
+      transform: none;
+    }
+
+
+    /* =========================
+       GOOGLE TEXTO
+    ========================= */
+
+    .hero-google-copy {
+      min-width: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: flex-start;
+
+      justify-content: center;
+
+      text-align: left;
+    }
+
+
+    .hero-google-eyebrow {
+      display: block;
+
+      margin-bottom:
+        clamp(
+          11px,
+          1.6vh,
+          16px
+        );
+
+      color: #d3b184;
+
+      font-size:
+        clamp(
+          .64rem,
+          1.4vh,
+          .78rem
+        );
+
+      line-height: 1.18;
+
+      font-weight: 800;
+
+      letter-spacing: .17em;
+
+      text-transform: uppercase;
+    }
+
+
+    /*
+      YA SE ACERCA MUCHO MÁS AL
+      TAMAÑO VISUAL DEL TÍTULO MENÚ
+    */
+
+    .hero-google-card h2 {
+      max-width: 430px;
+
+      font-size:
+        clamp(
+          1.55rem,
+          3.05vh,
+          2.55rem
+        );
+
+      line-height: .97;
+
+      font-weight: 800;
+    }
+
+
+    /*
+      TEXTO SECUNDARIO MÁS LEGIBLE
+    */
+
+    .hero-google-card p {
+      max-width: 470px;
+
+      margin-top:
+        clamp(
+          11px,
+          1.6vh,
+          16px
+        );
+
+      font-size:
+        clamp(
+          .86rem,
+          1.75vh,
+          1rem
+        );
+
+      line-height: 1.42;
+
+      font-weight: 500;
+
+      color:
+        rgba(255,255,255,.84);
+    }
+
+
+    .hero-google-card
+    .hero-card-cta {
+      margin-top:
+        clamp(
+          14px,
+          2vh,
+          20px
+        );
+
+      font-size:
+        clamp(
+          .66rem,
+          1.2vh,
+          .74rem
+        );
+    }
+
+
+    /* =========================
+       GOOGLE REVIEWS BOX
+    ========================= */
+
+    .hero-google-review-box {
+      width: 100%;
+
+      max-width: 285px;
+
+      justify-self: start;
+
+      transform:
+        translateX(-16px);
+
+      padding:
+        clamp(
+          20px,
+          2.6vh,
+          27px
+        )
+        clamp(
+          22px,
+          2.2vw,
+          30px
+        );
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,.18);
+
+      border-radius:
+        clamp(
+          20px,
+          1.8vw,
+          25px
+        );
+
+      background:
+        rgba(255,255,255,.11);
+
+      backdrop-filter:
+        blur(20px);
+
+      -webkit-backdrop-filter:
+        blur(20px);
+
+      box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.10),
+        0 12px 34px
+        rgba(0,0,0,.20);
+
+      text-align: center;
+    }
+
+
+    .hero-google-review-logo {
+      display: block;
+
+      width:
+        min(
+          215px,
+          100%
+        );
+
+      max-height:
+        clamp(
+          65px,
+          8vh,
+          90px
+        );
+
+      object-fit: contain;
+
+      object-position: center;
+
+      filter:
+        grayscale(1)
+        brightness(0)
+        invert(1);
+
+      opacity: .96;
+    }
+
+
+    .hero-google-review-divider {
+      width: 100%;
+
+      height: 1px;
+
+      margin:
+        clamp(
+          16px,
+          2vh,
+          20px
+        )
+        0;
+
+      background:
+        rgba(255,255,255,.25);
+    }
+
+
+    .hero-google-review-question {
+      margin: 0;
+
+      font-family:
+        "League Spartan",
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1rem,
+          1.9vh,
+          1.20rem
+        );
+
+      line-height: 1.08;
+
+      font-weight: 750;
+
+      color: #fff;
+    }
+
+
+    .hero-google-review-caption {
+      margin-top: 6px;
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size:
+        clamp(
+          .70rem,
+          1.35vh,
+          .82rem
+        );
+
+      line-height: 1.3;
+
+      font-weight: 500;
+
+      color:
+        rgba(255,255,255,.76);
+    }
+
+
+    /* =========================
+       OTOÑO CUE
+    ========================= */
+
+    .hero-season-cue {
+      position: absolute;
+
+      left: 50%;
+
+      bottom: 10px;
+
+      z-index: 20;
+
+      transform:
+        translateX(-50%);
+
+      width:
+        min(
+          680px,
+          calc(100% - 40px)
+        );
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 5px;
+
+      color:
+        rgba(255,255,255,.78);
+
+      text-align: center;
+
+      text-decoration: none;
+
+      pointer-events: auto;
+
+      text-shadow:
+        0 3px 12px
+        rgba(0,0,0,.85);
+    }
+
+    .hero-season-cue span {
+      font-size: .60rem;
+
+      font-weight: 800;
+
+      letter-spacing: .21em;
+
+      line-height: 1.3;
+
+      white-space: nowrap;
+    }
+
+    .hero-season-cue i {
+      font-size: .68rem;
+
+      animation:
+        heroSeasonArrow
+        1.7s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes heroSeasonArrow {
+
+      0%,
+      100% {
+        transform:
+          translateY(0);
+
+        opacity: .48;
+      }
+
+      50% {
+        transform:
+          translateY(6px);
+
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =========================
+       DESKTOP BAJO
+    ========================= */
+
+    @media
+    (min-width: 901px)
+    and (max-height: 760px) {
+
+      .hero-main-card::before {
+        background-position:
+          center -24px;
+      }
+
+      .hero-main-content {
+        padding:
+          95px
+          clamp(25px, 3.4vw, 58px)
+          70px;
+      }
+
+      .hero-main-title {
+        font-size:
+          clamp(
+            2.7rem,
+            6.5vh,
+            4.8rem
+          );
+      }
+
+      .hero-main-description {
+        margin-top: 13px;
+
+        font-size: .92rem;
+      }
+
+      .hero-main-cta {
+        min-height: 46px;
+
+        margin-top: 13px;
+
+        padding:
+          0 24px;
+      }
+
+      .hero-side-card
+      .hero-tile-content {
+        padding-top: 7px;
+        padding-bottom: 7px;
+      }
+
+      .hero-side-card h2 {
+        font-size:
+          clamp(
+            1.30rem,
+            2.8vh,
+            2.1rem
+          );
+      }
+
+
+      .hero-menu-card
+      .hero-tile-content {
+        justify-content: flex-end;
+
+        align-items: flex-start;
+
+        text-align: left;
+
+        padding-top: 7px;
+
+        padding-bottom: 18px;
+      }
+
+
+      .hero-mielle-logo {
+        width:
+          clamp(
+            350px,
+            29vw,
+            510px
+          );
+
+        max-height: 125px;
+
+        margin:
+          -7px auto -22px;
+      }
+
+      .hero-mielle-copy {
+        font-size:
+          clamp(
+            .95rem,
+            1.95vh,
+            1.25rem
+          );
+      }
+
+      .hero-mielle-availability {
+        min-height: 30px;
+
+        margin-top: 8px;
+
+        top: 10px;
+      }
+
+
+      /*
+        GOOGLE BAJO:
+        CONSERVA MISMO BORDE IZQUIERDO
+        QUE MENÚ
+      */
+
+      .hero-google-card
+      .hero-tile-content {
+        grid-template-columns:
+          minmax(0, 1fr)
+          205px;
+
+        gap: 8px;
+
+        padding:
+          6px
+          clamp(30px, 4vw, 58px);
+      }
+
+      .hero-google-eyebrow {
+        margin-bottom: 7px;
+
+        font-size: .58rem;
+      }
+
+      .hero-google-card h2 {
+        font-size:
+          clamp(
+            1.30rem,
+            2.65vh,
+            1.95rem
+          );
+      }
+
+      .hero-google-card p {
+        margin-top: 7px;
+
+        font-size:
+          clamp(
+            .75rem,
+            1.50vh,
+            .86rem
+          );
+
+        line-height: 1.26;
+      }
+
+      .hero-google-card
+      .hero-card-cta {
+        margin-top: 9px;
+
+        font-size: .63rem;
+      }
+
+      .hero-google-review-box {
+        max-width: 205px;
+
+        justify-self: start;
+
+        transform:
+          translateX(-12px);
+
+        padding:
+          13px 15px;
+
+        border-radius: 17px;
+      }
+
+      .hero-google-review-logo {
+        width: 155px;
+
+        max-height: 52px;
+      }
+
+      .hero-google-review-divider {
+        margin:
+          10px 0;
+      }
+
+      .hero-google-review-question {
+        font-size: .84rem;
+      }
+
+      .hero-google-review-caption {
+        font-size: .62rem;
+      }
+
+
+      .hero-card-kicker {
+        margin-bottom: 3px;
+      }
+
+      .hero-card-cta {
+        margin-top: 5px;
+      }
+
+    }
+
+
+    /* =========================
+       DELIVERY
+    ========================= */
+
+    .delivery-section {
+      min-height: 100vh;
+
+      padding: 0;
+      margin-top: 0;
+
+      position: relative;
+
+      z-index: 5;
+
+      background:
+        url("Otono.png")
+        center center /
+        cover
+        no-repeat
+        fixed;
+    }
+
+    .delivery-grid {
+      width: 100%;
+
+      min-height: 100vh;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 0;
+    }
+
+    .platform-card {
+      min-height: 100vh;
+
+      padding:
+        130px 42px 54px;
+
+      border-right:
+        1px solid
+        rgba(255,255,255,.10);
+
+      background:
+        rgba(0,0,0,.20);
+
+      backdrop-filter:
+        blur(24px);
+
+      -webkit-backdrop-filter:
+        blur(24px);
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content:
+        space-between;
+
+      text-decoration: none;
+
+      color: white;
+
+      transition:
+        .28s ease;
+    }
+
+    .platform-card:last-child {
+      border-right: 0;
+    }
+
+    .platform-card:hover {
+      background:
+        rgba(255,255,255,.10);
+    }
+
+    .platform-card img {
+      width: 115px;
+      height: 115px;
+
+      object-fit: contain;
+    }
+
+    .platform-card span {
+      color: #d3b184;
+
+      font-size: .72rem;
+
+      font-weight: 800;
+
+      letter-spacing: .34em;
+    }
+
+    .platform-card h3 {
+      font-size:
+        clamp(
+          2.4rem,
+          4vw,
+          4.4rem
+        );
+
+      line-height: .9;
+
+      margin-top: 22px;
+    }
+
+    .platform-card p {
+      margin-top: 22px;
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: 1rem;
+
+      font-weight: 600;
+
+      line-height: 1.55;
+
+      color:
+        rgba(255,255,255,.72);
+    }
+
+    .platform-arrow {
+      font-size: .9rem;
+
+      font-weight: 800;
+
+      letter-spacing: .18em;
+
+      opacity: .75;
+    }
+
+
+    /* =========================
+       MODALES
+    ========================= */
+
+    .modal-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(0,0,0,.68);
+
+      backdrop-filter:
+        blur(7px);
+
+      display: none;
+
+      justify-content: center;
+      align-items: center;
+
+      z-index: 100;
+
+      padding: 22px;
+    }
+
+    .modal {
+      position: relative;
+
+      width: 100%;
+
+      max-width: 430px;
+
+      padding:
+        26px 28px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,.15);
+
+      border-radius: 22px;
+
+      background:
+        rgba(0,0,0,.62);
+
+      backdrop-filter:
+        blur(16px);
+
+      -webkit-backdrop-filter:
+        blur(16px);
+
+      box-shadow:
+        0 18px 50px
+        rgba(0,0,0,.75);
+    }
+
+    .modal-wide {
+      max-width: 720px;
+    }
+
+    .modal h2 {
+      font-size: 1.2rem;
+
+      margin-bottom: 16px;
+    }
+
+    .map-frame {
+      width: 100%;
+
+      height: 340px;
+
+      border: 0;
+
+      border-radius: 18px;
+
+      margin-top: 8px;
+    }
+
+    .modal-image {
+      width: 100%;
+
+      max-height: 75vh;
+
+      object-fit: contain;
+
+      border-radius: 18px;
+
+      margin-top: 8px;
+    }
+
+    .map-button {
+      display: inline-flex;
+
+      margin-top: 16px;
+
+      padding:
+        10px 20px;
+
+      border-radius: 999px;
+
+      background: #fff;
+
+      color: #050505;
+
+      text-decoration: none;
+
+      font-size: .8rem;
+
+      font-weight: 800;
+
+      letter-spacing: .14em;
+    }
+
+    .modal-close-x {
+      position: absolute;
+
+      top: 16px;
+      right: 16px;
+
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,.16);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.08);
+
+      color: #fff;
+
+      cursor: pointer;
+
+      font-size: 1.1rem;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .compact-footer {
+      padding:
+        28px 24px 16px;
+
+      background: #050505;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,.08);
+    }
+
+    .compact-footer__main {
+      width: fit-content;
+
+      max-width: 100%;
+
+      margin: 0 auto;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 30px;
+    }
+
+    .compact-footer__logo-link {
+      width: 90px;
+      height: 90px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      text-decoration: none;
+    }
+
+    .compact-footer__logo {
+      width: 90px;
+      height: 90px;
+
+      object-fit: contain;
+
+      transform:
+        translateY(-6px);
+    }
+
+    .compact-footer__details {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 8px;
+    }
+
+    .compact-footer__details p {
+      margin: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: .88rem;
+
+      color:
+        rgba(255,255,255,.65);
+    }
+
+    .compact-footer__details p > i {
+      width: 20px;
+
+      margin-right: 8px;
+    }
+
+    .compact-footer__details a {
+      color: inherit;
+
+      text-decoration: none;
+    }
+
+    .compact-footer__social {
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 4px;
+    }
+
+    .compact-footer__social a {
+      width: 36px;
+      height: 36px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,.10);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.05);
+
+      color:
+        rgba(255,255,255,.75);
+
+      text-decoration: none;
+    }
+
+    .compact-footer__divider {
+      width:
+        min(
+          620px,
+          100%
+        );
+
+      height: 1px;
+
+      margin:
+        20px auto 13px;
+
+      background:
+        rgba(255,255,255,.08);
+    }
+
+    .compact-footer__bottom {
+      text-align: center;
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: .77rem;
+
+      color:
+        rgba(255,255,255,.42);
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .site-header {
+        height: auto;
+
+        padding:
+          12px 20px 18px;
+
+        background:
+          linear-gradient(
+            180deg,
+            rgba(0,0,0,.72),
+            rgba(0,0,0,0)
+          );
+      }
+
+      .logo-main {
+        width: 120px;
+      }
+
+      .nav {
+        margin-top: 16px;
+
+        flex-wrap: wrap;
+
+        justify-content: flex-end;
+
+        gap:
+          12px 16px;
+
+        max-width: 68vw;
+      }
+
+      .nav a,
+      .nav-item {
+        font-size: .62rem;
+
+        letter-spacing: .15em;
+      }
+
+      .hero-section {
+        width: 100%;
+
+        height: auto;
+
+        min-height: 0;
+
+        overflow: visible;
+      }
+
+      .hero-grid {
+        position: relative;
+
+        inset: auto;
+
+        width: 100%;
+        height: auto;
+
+        display: grid;
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .hero-main-card {
+        min-height: 100svh;
+
+        border-right: 0;
+
+        border-bottom:
+          1px solid
+          rgba(255,255,255,.10);
+      }
+
+      .hero-main-card::before {
+        background-position:
+          center -20px;
+      }
+
+      .hero-main-content {
+        justify-content: flex-end;
+
+        padding:
+          145px 24px
+          100px;
+      }
+
+      .hero-main-title {
+        font-size:
+          clamp(
+            2.7rem,
+            11.5vw,
+            4.4rem
+          );
+
+        line-height: .86;
+      }
+
+      .hero-main-description {
+        margin-top: 20px;
+
+        font-size: .92rem;
+      }
+
+      .hero-main-cta {
+        min-height: 50px;
+
+        margin-top: 21px;
+
+        padding:
+          0 24px;
+
+        font-size: .70rem;
+      }
+
+
+      .hero-side-grid {
+        display: grid;
+
+        height: auto;
+
+        grid-template-rows:
+          repeat(3, auto);
+
+        overflow: visible;
+      }
+
+      .hero-side-card {
+        flex: none;
+
+        width: 100%;
+
+        height: auto;
+
+        min-height: 42svh;
+
+        border-bottom:
+          1px solid
+          rgba(255,255,255,.10);
+      }
+
+      .hero-side-card:last-child {
+        border-bottom: 0;
+      }
+
+      .hero-side-card
+      .hero-tile-content {
+        min-height: 42svh;
+
+        justify-content: center;
+
+        padding:
+          28px 26px;
+
+        overflow: visible;
+      }
+
+      .hero-side-card h2 {
+        font-size:
+          clamp(
+            2rem,
+            9vw,
+            3rem
+          );
+      }
+
+
+      /* =========================
+         MENÚ MOBILE
+      ========================= */
+
+      .hero-menu-card
+      .hero-tile-content {
+        justify-content: flex-end;
+
+        align-items: flex-start;
+
+        text-align: left;
+
+        padding:
+          28px 26px 36px;
+      }
+
+
+      /* =========================
+         MIELLÉ MOBILE
+      ========================= */
+
+      .hero-mielle-card
+      .hero-tile-content {
+        align-items: center;
+
+        text-align: center;
+
+        padding:
+          20px 22px;
+      }
+
+      .hero-mielle-logo {
+        width: 470px;
+
+        max-width: 98%;
+
+        max-height: 175px;
+
+        margin:
+          0 auto -22px;
+      }
+
+      .hero-mielle-copy {
+        width: 100%;
+
+        max-width: 430px;
+
+        font-size:
+          clamp(
+            1.25rem,
+            5vw,
+            1.7rem
+          );
+
+        line-height: 1.08;
+      }
+
+      .hero-mielle-availability {
+        min-height: 40px;
+
+        margin-top: 15px;
+
+        padding:
+          0 16px;
+
+        font-size: .62rem;
+
+        top: 10px;
+      }
+
+
+      /* =========================
+         GOOGLE MOBILE
+      ========================= */
+
+      .hero-google-card {
+        min-height: auto;
+      }
+
+      .hero-google-card
+      .hero-tile-content {
+        min-height: auto;
+
+        display: grid;
+
+        grid-template-columns:
+          1fr;
+
+        gap: 30px;
+
+        padding:
+          42px 26px 88px;
+      }
+
+      .hero-google-copy {
+        width: 100%;
+      }
+
+      .hero-google-eyebrow {
+        margin-bottom: 14px;
+
+        font-size: .70rem;
+      }
+
+      .hero-google-card h2 {
+        font-size:
+          clamp(
+            2.2rem,
+            9.5vw,
+            3.2rem
+          );
+      }
+
+      .hero-google-card p {
+        max-width: 500px;
+
+        margin-top: 16px;
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+      }
+
+      .hero-google-card
+      .hero-card-cta {
+        margin-top: 20px;
+
+        font-size: .72rem;
+      }
+
+      .hero-google-review-box {
+        width: 100%;
+
+        max-width: 420px;
+
+        justify-self: start;
+
+        transform: none;
+
+        padding:
+          26px 28px;
+
+        border-radius: 24px;
+      }
+
+      .hero-google-review-logo {
+        width:
+          min(
+            245px,
+            82%
+          );
+
+        max-height: 100px;
+      }
+
+      .hero-google-review-divider {
+        margin:
+          19px 0;
+      }
+
+      .hero-google-review-question {
+        font-size: 1.28rem;
+      }
+
+      .hero-google-review-caption {
+        margin-top: 7px;
+
+        font-size: .86rem;
+      }
+
+
+      .hero-season-cue {
+        bottom: 18px;
+      }
+
+      .hero-season-cue span {
+        max-width: 320px;
+
+        font-size: .55rem;
+
+        letter-spacing: .15em;
+
+        white-space: normal;
+      }
+
+      .delivery-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .platform-card {
+        min-height: 72vh;
+
+        padding:
+          80px 28px 40px;
+
+        border-right: 0;
+
+        border-bottom:
+          1px solid
+          rgba(255,255,255,.10);
+      }
+
+      .platform-card img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .platform-card h3 {
+        font-size: 3.2rem;
+      }
+
+      .platform-card p {
+        font-size: 1.12rem;
+
+        line-height: 1.6;
+      }
+
+    }
+
+
+    @media (max-width: 560px) {
+
+      .compact-footer {
+        padding:
+          24px 18px 15px;
+      }
+
+      .compact-footer__main {
+        gap: 18px;
+      }
+
+      .compact-footer__logo-link,
+      .compact-footer__logo {
+        width: 72px;
+        height: 72px;
+      }
+
+      .compact-footer__details p {
+        font-size: .78rem;
+      }
+
+    }
+
+
+    /* =========================
+       ESPECIALES
+    ========================= */
+
+    .summer-section {
+      position: relative;
+
+      min-height: 145vh;
+
+      display: block;
+
+      padding: 0;
+
+      background: #050505;
+
+      overflow: visible;
+    }
+
+    .summer-sticky {
+      position: sticky;
+
+      top: 0;
+
+      width: 100%;
+      height: 100vh;
+
+      overflow: hidden;
+
+      isolation: isolate;
+
+      background: #050505;
+    }
+
+    .summer-panorama-scroll {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 0;
+
+      width: 100%;
+      height: 100%;
+
+      overflow: hidden;
+    }
+
+    .summer-panorama-stage {
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    .summer-image {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      object-position:
+        center 57%;
+
+      pointer-events: none;
+
+      user-select: none;
+    }
+
+    .summer-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(5,5,5,.82) 0%,
+          rgba(5,5,5,.38) 16%,
+          rgba(5,5,5,.08) 38%,
+          rgba(5,5,5,.08) 70%,
+          rgba(5,5,5,.62) 100%
+        );
+    }
+
+    .summer-hotspots {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 4;
+
+      pointer-events: none;
+    }
+
+    .drink-hotspot {
+      position: absolute;
+
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 0;
+
+      border: 0;
+      border-radius: 50%;
+
+      background: transparent;
+
+      color: #fff;
+
+      cursor: pointer;
+
+      pointer-events: auto;
+
+      transform:
+        translate(-50%, -50%);
+
+      transition:
+        transform .25s ease;
+    }
+
+    .drink-hotspot:hover {
+      transform:
+        translate(-50%, -50%)
+        scale(1.14);
+    }
+
+    .hotspot-dot {
+      position: relative;
+
+      z-index: 2;
+
+      width: 13px;
+      height: 13px;
+
+      border:
+        3px solid
+        rgba(255,255,255,.96);
+
+      border-radius: 50%;
+
+      background:
+        rgba(15,15,15,.82);
+
+      box-shadow:
+        0 4px 14px
+        rgba(0,0,0,.55),
+        0 0 0 2px
+        rgba(255,255,255,.15);
+    }
+
+    .hotspot-pulse {
+      position: absolute;
+
+      width: 34px;
+      height: 34px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.72);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.08);
+
+      animation:
+        summerHotspotPulse
+        2.1s
+        ease-out
+        infinite;
+    }
+
+    .drink-hotspot.is-active
+    .hotspot-dot {
+      background: #fff;
+
+      border-color: #fff;
+
+      box-shadow:
+        0 0 0 5px
+        rgba(255,255,255,.16),
+        0 8px 24px
+        rgba(0,0,0,.5);
+    }
+
+    .drink-hotspot.is-active
+    .hotspot-pulse {
+      animation: none;
+
+      opacity: 0;
+    }
+
+    @keyframes summerHotspotPulse {
+
+      0% {
+        transform:
+          scale(.55);
+
+        opacity: .95;
+      }
+
+      75%,
+      100% {
+        transform:
+          scale(1.35);
+
+        opacity: 0;
+      }
+
+    }
+
+
+    .hotspot-butterbeer {
+      left: 24%;
+      top: 53%;
+    }
+
+    .hotspot-pecan {
+      left: 39%;
+      top: 72%;
+    }
+
+    .hotspot-pumpkin {
+      left: 62%;
+      top: 72%;
+    }
+
+    .hotspot-apple {
+      left: 77%;
+      top: 53%;
+    }
+
+
+    /* =========================
+       INSTRUCCIÓN
+    ========================= */
+
+    .summer-intro {
+      position: absolute;
+
+      left: 50%;
+
+      bottom: 74px;
+
+      z-index: 5;
+
+      width:
+        min(
+          620px,
+          calc(100% - 40px)
+        );
+
+      transform:
+        translateX(-50%);
+
+      text-align: center;
+
+      transition:
+        opacity .25s ease,
+        transform .25s ease;
+    }
+
+    .summer-intro-desktop {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        14px 28px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.08);
+
+      border-radius: 999px;
+
+      background:
+        rgba(0,0,0,.34);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: .95rem;
+
+      font-weight: 600;
+
+      color:
+        rgba(255,255,255,.88);
+
+      white-space: nowrap;
+    }
+
+    .summer-intro-mobile {
+      display: none;
+    }
+
+    .summer-intro.is-hidden {
+      opacity: 0;
+
+      pointer-events: none;
+
+      transform:
+        translate(-50%, 12px);
+    }
+
+    @keyframes summerSwipeLeft {
+
+      0%,
+      100% {
+        transform:
+          translateX(0);
+
+        opacity: .45;
+      }
+
+      50% {
+        transform:
+          translateX(-5px);
+
+        opacity: 1;
+      }
+
+    }
+
+    @keyframes summerSwipeRight {
+
+      0%,
+      100% {
+        transform:
+          translateX(0);
+
+        opacity: .45;
+      }
+
+      50% {
+        transform:
+          translateX(5px);
+
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =========================
+       TARJETA BEBIDA
+    ========================= */
+
+    .drink-info-card {
+      position: absolute;
+
+      left: 50%;
+
+      bottom: 42px;
+
+      z-index: 8;
+
+      width:
+        min(
+          760px,
+          calc(100% - 40px)
+        );
+
+      padding:
+        25px 26px;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr auto;
+
+      align-items: center;
+
+      gap: 26px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.15);
+
+      border-radius: 26px;
+
+      background:
+        rgba(10,10,10,.67);
+
+      backdrop-filter:
+        blur(24px);
+
+      -webkit-backdrop-filter:
+        blur(24px);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      pointer-events: none;
+
+      transform:
+        translate(-50%, 24px)
+        scale(.97);
+
+      transition:
+        opacity .3s ease,
+        visibility .3s ease,
+        transform .3s
+        cubic-bezier(.2,.8,.2,1);
+    }
+
+    .drink-info-card.is-visible {
+      opacity: 1;
+
+      visibility: visible;
+
+      pointer-events: auto;
+
+      transform:
+        translate(-50%, 0)
+        scale(1);
+    }
+
+    .drink-card-eyebrow {
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: #d3b184;
+
+      font-size: .66rem;
+
+      font-weight: 800;
+
+      letter-spacing: .28em;
+    }
+
+    .drink-info-card h2 {
+      margin: 0;
+
+      font-size:
+        clamp(
+          1.55rem,
+          3vw,
+          2.35rem
+        );
+
+      line-height: 1;
+
+      font-weight: 750;
+
+      color: #fff;
+    }
+
+    .drink-info-card p {
+      max-width: 590px;
+
+      margin-top: 11px;
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: .93rem;
+
+      line-height: 1.6;
+
+      font-weight: 500;
+
+      color:
+        rgba(255,255,255,.78);
+    }
+
+    .drink-card-button {
+      min-height: 52px;
+
+      padding:
+        0 22px;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      border-radius: 999px;
+
+      background: #fff;
+
+      color: #080808;
+
+      text-decoration: none;
+
+      white-space: nowrap;
+
+      font-size: .75rem;
+
+      font-weight: 800;
+
+      letter-spacing: .13em;
+    }
+
+    .drink-card-close {
+      position: absolute;
+
+      top: 13px;
+      right: 13px;
+
+      width: 32px;
+      height: 32px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,.12);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.07);
+
+      color: #fff;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       ESPECIALES MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .summer-section {
+        min-height: 135svh;
+      }
+
+      .summer-sticky {
+        height: 100svh;
+      }
+
+      .summer-panorama-scroll {
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        -webkit-overflow-scrolling:
+          touch;
+
+        scrollbar-width: none;
+
+        overscroll-behavior-x:
+          contain;
+
+        touch-action:
+          pan-x pan-y;
+      }
+
+      .summer-panorama-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .summer-panorama-stage {
+        width: 180vw;
+
+        min-width: 720px;
+
+        height: 100%;
+      }
+
+      .summer-image {
+        width: 100%;
+        height: 100%;
+
+        max-width: none;
+
+        object-fit: cover;
+
+        object-position:
+          center 57%;
+      }
+
+      .drink-hotspot {
+        width: 48px;
+        height: 48px;
+      }
+
+      .hotspot-butterbeer {
+        left: 12%;
+        top: 53%;
+      }
+
+      .hotspot-pecan {
+        left: 34%;
+        top: 64%;
+      }
+
+      .hotspot-pumpkin {
+        left: 67%;
+        top: 64%;
+      }
+
+      .hotspot-apple {
+        left: 89%;
+        top: 53%;
+      }
+
+      .summer-intro {
+        bottom: 46px;
+
+        width:
+          calc(100% - 24px);
+      }
+
+      .summer-intro-desktop {
+        display: none;
+      }
+
+      .summer-intro-mobile {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+
+        max-width: 100%;
+
+        color:
+          rgba(255,255,255,.92);
+      }
+
+      .summer-intro-mobile span {
+        font-size: .60rem;
+
+        font-weight: 800;
+
+        letter-spacing: .15em;
+
+        white-space: nowrap;
+      }
+
+      .summer-intro-mobile i:first-child {
+        animation:
+          summerSwipeLeft
+          1.4s
+          ease-in-out
+          infinite;
+      }
+
+      .summer-intro-mobile i:last-child {
+        animation:
+          summerSwipeRight
+          1.4s
+          ease-in-out
+          infinite;
+      }
+
+      .drink-info-card {
+        bottom: 22px;
+
+        width:
+          calc(100% - 28px);
+
+        padding:
+          22px 20px 18px;
+
+        grid-template-columns:
+          1fr;
+
+        gap: 17px;
+
+        border-radius: 23px;
+      }
+
+      .drink-info-card h2 {
+        padding-right: 34px;
+      }
+
+      .drink-card-button {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <img
+      src="logo-minimal-new.png"
+      class="logo-main"
+      alt="Minimal Espresso"
+    >
+
+    <nav class="nav">
+
+      <a href="index.html">
+        INICIO
+      </a>
+
+      <a
+        href="Menu.png"
+        target="_blank"
+      >
+        MENÚ
+      </a>
+
+      <a
+        href="https://www.instagram.com/minimalespresso"
+        target="_blank"
+      >
+        INSTAGRAM
+      </a>
+
+      <div
+        class="nav-item"
+        id="openLocationModal"
+      >
+        UBICACIÓN
+      </div>
+
+      <div
+        class="nav-item"
+        id="openHoursImageModal"
+      >
+        HORARIOS
+      </div>
+
+      <a href="barra-eventos.html">
+        BARRA PARA EVENTOS
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- PRIMERA SECCIÓN -->
+
+    <section class="hero-section">
+
+      <div class="hero-grid">
+
+
+        <!-- MINIMAL -->
+
+        <article
+          class="hero-tile hero-main-card"
+        >
+
+          <div
+            class="hero-tile-content hero-main-content"
+          >
+
+            <h1 class="hero-main-title">
+              <span>TU</span>
+              <span>COFFEE BAR</span>
+              <span>LOCAL</span>
+            </h1>
+
+            <p class="hero-main-description">
+              Servicio Pickup & Delivery.
+            </p>
+
+            <a
+              class="hero-main-cta"
+              href="https://wa.me/5216864310241"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              PEDIR AHORA
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- DERECHA -->
+
+        <div class="hero-side-grid">
+
+
+          <!-- MENÚ -->
+
+          <a
+            class="hero-tile hero-side-card hero-menu-card"
+            href="Menu.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <div class="hero-tile-content">
+
+              <h2>
+                Encuentra tu favorito.
+              </h2>
+
+              <span class="hero-card-cta">
+                EXPLORA NUESTRO MENÚ →
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <!-- MIELLÉ -->
+
+          <a
+            class="hero-tile hero-side-card hero-mielle-card"
+            href="reposteria.html"
+          >
+
+            <div class="hero-tile-content">
+
+              <img
+                src="miellelogohighqty.PNG"
+                class="hero-mielle-logo"
+                alt="Miellé"
+              >
+
+              <h2 class="hero-mielle-copy">
+                Nuestra selección de repostería, a cargo de Miellé.
+              </h2>
+
+              <span class="hero-mielle-availability">
+                VER DISPONIBILIDAD
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <!-- GOOGLE -->
+
+          <a
+            class="hero-tile hero-side-card hero-google-card"
+            href="https://g.page/r/CTX7nix10PEsEAE/review"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <div class="hero-tile-content">
+
+
+              <div class="hero-google-copy">
+
+                <span class="hero-google-eyebrow">
+                  TU OPINIÓN NOS AYUDA A CRECER
+                </span>
+
+                <h2>
+                  ¿Disfrutaste nuestro café?
+                </h2>
+
+                <p>
+                  Déjanos una reseña en Google Maps y ayuda a más personas a conocernos.
+                </p>
+
+                <span class="hero-card-cta">
+                  DEJAR RESEÑA →
+                </span>
+
+              </div>
+
+
+              <div class="hero-google-review-box">
+
+                <img
+                  src="googlereviews.png"
+                  class="hero-google-review-logo"
+                  alt="Google Reviews"
+                >
+
+                <div class="hero-google-review-divider"></div>
+
+                <div class="hero-google-review-question">
+                  ¿Cómo estuvo tu café?
+                </div>
+
+                <div class="hero-google-review-caption">
+                  Te leemos en Google.
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+
+      <a
+        href="#verano"
+        class="hero-season-cue"
+      >
+
+        <span>
+          CONOCE NUESTROS ESPECIALES DE OTOÑO
+        </span>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+      </a>
+
+    </section>
+
+
+    <!-- ESPECIALES -->
+
+    <section
+      class="summer-section"
+      id="verano"
+    >
+
+      <div class="summer-sticky">
+
+        <div class="summer-panorama-scroll">
+
+          <div class="summer-panorama-stage">
+
+            <img
+              src="Otono.png"
+              class="summer-image"
+              alt="Especiales de Otoño de Minimal Espresso"
+            >
+
+            <div class="summer-overlay"></div>
+
+
+            <div class="summer-hotspots">
+
+              <button
+                type="button"
+                class="drink-hotspot hotspot-butterbeer"
+                data-drink="butterbeer"
+                aria-label="Butterbeer Latte"
+              >
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-dot"></span>
+              </button>
+
+
+              <button
+                type="button"
+                class="drink-hotspot hotspot-pecan"
+                data-drink="pecan"
+                aria-label="Cloud Pecan Latte"
+              >
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-dot"></span>
+              </button>
+
+
+              <button
+                type="button"
+                class="drink-hotspot hotspot-pumpkin"
+                data-drink="pumpkin"
+                aria-label="Pumpkin Spice Latte"
+              >
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-dot"></span>
+              </button>
+
+
+              <button
+                type="button"
+                class="drink-hotspot hotspot-apple"
+                data-drink="apple"
+                aria-label="Apple Caramel Latte"
+              >
+                <span class="hotspot-pulse"></span>
+                <span class="hotspot-dot"></span>
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="summer-intro"
+          id="summerIntro"
+        >
+
+          <div class="summer-intro-desktop">
+            Selecciona una bebida para conocerla.
+          </div>
+
+          <div class="summer-intro-mobile">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            <span>
+              DESLIZA HACIA LOS LADOS Y SELECCIONA UNA BEBIDA
+            </span>
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+          </div>
+
+        </div>
+
+
+        <article
+          class="drink-info-card"
+          id="drinkInfoCard"
+          aria-live="polite"
+        >
+
+          <button
+            type="button"
+            class="drink-card-close"
+            id="closeDrinkCard"
+            aria-label="Cerrar información"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+
+          <div class="drink-card-copy">
+
+            <span class="drink-card-eyebrow">
+              ESPECIAL DE OTOÑO
+            </span>
+
+            <h2 id="drinkCardTitle"></h2>
+
+            <p id="drinkCardDescription"></p>
+
+          </div>
+
+
+          <a
+            class="drink-card-button"
+            id="drinkCardButton"
+            href="https://wa.me/5216864310241"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            PEDIR AHORA
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- DELIVERY -->
+
+    <section class="delivery-section">
+
+      <div class="delivery-grid">
+
+
+        <a
+          class="platform-card"
+          href="https://www.ubereats.com/store/minimal-espresso-mexicali/QOM8_YfvRjCIB5bCvPmyCg?utm_source"
+          target="_blank"
+        >
+
+          <div>
+
+            <span>
+              DELIVERY
+            </span>
+
+            <h3>
+              Uber Eats
+            </h3>
+
+            <p>
+              Ordena tus bebidas favoritas directo desde Uber Eats.
+            </p>
+
+          </div>
+
+          <img
+            src="uber.png"
+            alt="Uber Eats"
+          >
+
+          <div class="platform-arrow">
+            ABRIR →
+          </div>
+
+        </a>
+
+
+        <a
+          class="platform-card"
+          href="https://www.didi-food.com/es-MX/food/store/5764610515746425589/"
+          target="_blank"
+        >
+
+          <div>
+
+            <span>
+              DELIVERY
+            </span>
+
+            <h3>
+              DiDi Food
+            </h3>
+
+            <p>
+              También disponibles para entrega a domicilio en DiDi Food.
+            </p>
+
+          </div>
+
+          <img
+            src="didi.png"
+            alt="DiDi Food"
+          >
+
+          <div class="platform-arrow">
+            ABRIR →
+          </div>
+
+        </a>
+
+
+        <a
+          class="platform-card"
+          href="https://www.rappi.com.mx/restaurantes/delivery/666002-minimal-espresso?utm_source=app&utm_medium=deeplink&utm_campaign=share"
+          target="_blank"
+        >
+
+          <div>
+
+            <span>
+              DELIVERY
+            </span>
+
+            <h3>
+              Rappi
+            </h3>
+
+            <p>
+              Encuéntranos en Rappi y pide desde tu ubicación.
+            </p>
+
+          </div>
+
+          <img
+            src="rappi.png"
+            alt="Rappi"
+          >
+
+          <div class="platform-arrow">
+            ABRIR →
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="compact-footer">
+
+      <div class="compact-footer__main">
+
+        <a
+          href="index.html"
+          class="compact-footer__logo-link"
+        >
+
+          <img
+            src="logo-minimal-new.png"
+            class="compact-footer__logo"
+            alt="Minimal Espresso"
+          >
+
+        </a>
+
+
+        <div class="compact-footer__details">
+
+          <p>
+            <i class="fa-solid fa-location-dot fa-fw"></i>
+            <span>Mexicali, Baja California</span>
+          </p>
+
+          <p>
+            <i class="fa-solid fa-envelope fa-fw"></i>
+
+            <a href="mailto:minimalespressomxli@gmail.com">
+              minimalespressomxli@gmail.com
+            </a>
+          </p>
+
+          <p>
+            <i class="fa-solid fa-globe fa-fw"></i>
+
+            <a href="https://minimalespresso.com">
+              minimalespresso.com
+            </a>
+          </p>
+
+
+          <div class="compact-footer__social">
+
+            <a
+              href="https://www.instagram.com/minimalespresso"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://www.facebook.com/share/18zBtcKrm5/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a
+              href="https://wa.me/5216864310241"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="compact-footer__divider"></div>
+
+      <div class="compact-footer__bottom">
+        © 2026 Minimal Espresso · Todos los derechos reservados.
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <!-- UBICACIÓN -->
+
+  <div
+    class="modal-overlay"
+    id="locationModal"
+  >
+
+    <div class="modal modal-wide">
+
+      <button
+        class="modal-close-x"
+        id="closeLocationModal"
+        aria-label="Cerrar"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h2>
+        Ubicación
+      </h2>
+
+      <iframe
+        class="map-frame"
+        src="https://www.google.com/maps?q=Minimal%20Espresso%20Mexicali&output=embed"
+        loading="lazy"
+        title="Ubicación de Minimal Espresso"
+      ></iframe>
+
+      <a
+        class="map-button"
+        href="https://maps.app.goo.gl/65gQ7SdWRzwDjCSt9"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ABRIR GOOGLE MAPS
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- HORARIOS -->
+
+  <div
+    class="modal-overlay"
+    id="hoursImageModal"
+  >
+
+    <div class="modal modal-wide">
+
+      <button
+        class="modal-close-x"
+        id="closeHoursImageModal"
+        aria-label="Cerrar"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h2>
+        Horarios
+      </h2>
+
+      <img
+        src="Horarios.png"
+        class="modal-image"
+        alt="Horarios Minimal Espresso"
+      >
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function setupModal(
+      openId,
+      modalId,
+      closeId
+    ) {
+
+      const openBtn =
+        document.getElementById(openId);
+
+      const modal =
+        document.getElementById(modalId);
+
+      const closeBtn =
+        document.getElementById(closeId);
+
+      if (
+        !openBtn ||
+        !modal ||
+        !closeBtn
+      ) return;
+
+
+      openBtn.onclick =
+        () => {
+          modal.style.display =
+            "flex";
+        };
+
+
+      closeBtn.onclick =
+        () => {
+          modal.style.display =
+            "none";
+        };
+
+
+      modal.onclick =
+        (event) => {
+
+          if (
+            event.target === modal
+          ) {
+
+            modal.style.display =
+              "none";
+
+          }
+
+        };
+
+    }
+
+
+    setupModal(
+      "openLocationModal",
+      "locationModal",
+      "closeLocationModal"
+    );
+
+
+    setupModal(
+      "openHoursImageModal",
+      "hoursImageModal",
+      "closeHoursImageModal"
+    );
+
+
+    const summerDrinks = {
+
+      pumpkin: {
+
+        title:
+          "Pumpkin Spice Latte 16 oz",
+
+        description:
+          "Latte preparado con espresso, leche y nuestro Pumpkin Spice hecho en casa, con el sabor de la calabaza y una mezcla de especias cálidas que representa lo mejor del otoño. Disfrútalo frío o caliente.",
+
+        whatsapp:
+          "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Pumpkin%20Spice%20Latte."
+
+      },
+
+
+      pecan: {
+
+        title:
+          "Cloud Pecan Latte 16 oz",
+
+        description:
+          "Latte con espresso y el delicioso sabor de la nuez pecana, coronado con una suave nube de cold foam que aporta una textura cremosa y complementa sus notas dulces y tostadas. Disfrútalo frío o caliente.",
+
+        whatsapp:
+          "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Cloud%20Pecan%20Latte."
+
+      },
+
+
+      butterbeer: {
+
+        title:
+          "Butterbeer Latte 16 oz",
+
+        description:
+          "Inspirado en la clásica bebida Butterbeer de nuestro mago favorito, combinamos espresso con un sabor cremoso a mantequilla y caramelo para crear un latte dulce, cremoso y perfecto para esta temporada.",
+
+        whatsapp:
+          "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Butterbeer%20Latte."
+
+      },
+
+
+      apple: {
+
+        title:
+          "Apple Caramel Latte 16 oz",
+
+        description:
+          "Latte frío que combina espresso, manzana y caramelo con un toque de canela, creando una bebida dulce y aromática inspirada en los sabores del otoño.",
+
+        whatsapp:
+          "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Apple%20Caramel%20Latte."
+
+      }
+
+    };
+
+
+    const drinkHotspots =
+      document.querySelectorAll(
+        ".drink-hotspot"
+      );
+
+    const drinkInfoCard =
+      document.getElementById(
+        "drinkInfoCard"
+      );
+
+    const drinkCardTitle =
+      document.getElementById(
+        "drinkCardTitle"
+      );
+
+    const drinkCardDescription =
+      document.getElementById(
+        "drinkCardDescription"
+      );
+
+    const drinkCardButton =
+      document.getElementById(
+        "drinkCardButton"
+      );
+
+    const closeDrinkCard =
+      document.getElementById(
+        "closeDrinkCard"
+      );
+
+    const summerIntro =
+      document.getElementById(
+        "summerIntro"
+      );
+
+
+    function openDrinkCard(
+      drinkId,
+      selectedHotspot
+    ) {
+
+      const drink =
+        summerDrinks[drinkId];
+
+      if (!drink) return;
+
+      drinkCardTitle.textContent =
+        drink.title;
+
+      drinkCardDescription.textContent =
+        drink.description;
+
+      drinkCardButton.href =
+        drink.whatsapp;
+
+      drinkHotspots.forEach(
+        (hotspot) => {
+
+          hotspot.classList.remove(
+            "is-active"
+          );
+
+        }
+      );
+
+      selectedHotspot.classList.add(
+        "is-active"
+      );
+
+      drinkInfoCard.classList.add(
+        "is-visible"
+      );
+
+      summerIntro.classList.add(
+        "is-hidden"
+      );
+
+    }
+
+
+    function hideDrinkCard() {
+
+      drinkInfoCard.classList.remove(
+        "is-visible"
+      );
+
+      summerIntro.classList.remove(
+        "is-hidden"
+      );
+
+      drinkHotspots.forEach(
+        (hotspot) => {
+
+          hotspot.classList.remove(
+            "is-active"
+          );
+
+        }
+      );
+
+    }
+
+
+    drinkHotspots.forEach(
+      (hotspot) => {
+
+        hotspot.addEventListener(
+          "click",
+          () => {
+
+            openDrinkCard(
+              hotspot.dataset.drink,
+              hotspot
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    closeDrinkCard.addEventListener(
+      "click",
+      hideDrinkCard
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          hideDrinkCard();
+
+        }
+
+      }
+    );
+
+
+    function setupSummerHorizontalScroll() {
+
+      const scroller =
+        document.querySelector(
+          ".summer-panorama-scroll"
+        );
+
+      if (!scroller) return;
+
+
+      function positionSummerPanorama() {
+
+        if (
+          window.innerWidth > 900
+        ) {
+
+          scroller.scrollLeft = 0;
+
+          return;
+
+        }
+
+
+        const maximumScroll =
+          scroller.scrollWidth -
+          scroller.clientWidth;
+
+
+        scroller.scrollLeft =
+          maximumScroll / 2;
+
+      }
+
+
+      requestAnimationFrame(
+        positionSummerPanorama
+      );
+
+
+      window.addEventListener(
+        "resize",
+        positionSummerPanorama
+      );
+
+    }
+
+
+    setupSummerHorizontalScroll();
+
+  </script>
+
+</body>
+</html>
