@@ -39,11 +39,6 @@
 
     /* =========================
        ROOT / OVERSCROLL
-
-       IMPORTANTE:
-       si el navegador rebota al llegar
-       arriba o abajo, lo que queda
-       detrás siempre será NEGRO.
     ========================= */
 
     html {
@@ -89,12 +84,6 @@
 
       position: fixed;
 
-      /*
-        Lo hacemos un poco más grande
-        que el viewport para que el blur
-        nunca revele sus bordes.
-      */
-
       top: -24px;
       right: -24px;
       bottom: -24px;
@@ -128,12 +117,6 @@
       content: "";
 
       position: fixed;
-
-      /*
-        También extendemos el overlay
-        para evitar cualquier borde visual
-        durante el desplazamiento.
-      */
 
       top: -24px;
       right: -24px;
@@ -524,7 +507,7 @@
 
 
     /* =========================
-       FOTO / PLACEHOLDER
+       FOTO
     ========================= */
 
     .pastry-media {
@@ -556,6 +539,8 @@
       bottom: 0;
 
       height: 42%;
+
+      z-index: 2;
 
       pointer-events: none;
 
@@ -600,12 +585,28 @@
     }
 
     .pastry-image {
+      position: relative;
+
+      z-index: 1;
+
       width: 100%;
       height: 100%;
 
       object-fit: cover;
 
+      object-position: center center;
+
       display: block;
+
+      transition:
+        transform .45s
+        cubic-bezier(.2,.8,.2,1);
+    }
+
+    .pastry-card:hover
+    .pastry-image {
+      transform:
+        scale(1.025);
     }
 
 
@@ -1484,7 +1485,8 @@
         >
 
         <h1>
-          Conoce la variedad de repostería de Miellé disponible en nuestra barra.
+          Descubre nuestra selección de repostería,
+          elaborada por Miellé para acompañar tu café.
         </h1>
 
         <a
@@ -1530,15 +1532,11 @@
 
             <div class="pastry-media">
 
-              <div class="pastry-placeholder">
-
-                <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
-              </div>
+              <img
+                src="croissantalmendrachocolate.png"
+                class="pastry-image"
+                alt="Croissant de Almendra con Chocolate"
+              >
 
             </div>
 
@@ -1570,7 +1568,7 @@
           </article>
 
 
-          <!-- MUFFIN PLÁTANO -->
+          <!-- MUFFIN PLÁTANO CON NUEZ -->
 
           <article
             class="pastry-card"
@@ -1579,15 +1577,11 @@
 
             <div class="pastry-media">
 
-              <div class="pastry-placeholder">
-
-                <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
-              </div>
+              <img
+                src="muffinplatanonuez.png"
+                class="pastry-image"
+                alt="Muffin de Plátano con Nuez"
+              >
 
             </div>
 
@@ -1628,15 +1622,11 @@
 
             <div class="pastry-media">
 
-              <div class="pastry-placeholder">
-
-                <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
-              </div>
+              <img
+                src="muffinchocolate.png"
+                class="pastry-image"
+                alt="Muffin de Chocolate"
+              >
 
             </div>
 
@@ -1677,15 +1667,11 @@
 
             <div class="pastry-media">
 
-              <div class="pastry-placeholder">
-
-                <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
-              </div>
+              <img
+                src="cheesecakebrownie.png"
+                class="pastry-image"
+                alt="Cheesecake de Brownie"
+              >
 
             </div>
 
@@ -1726,15 +1712,11 @@
 
             <div class="pastry-media">
 
-              <div class="pastry-placeholder">
-
-                <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
-              </div>
+              <img
+                src="roldecanela.png"
+                class="pastry-image"
+                alt="Rol de Canela"
+              >
 
             </div>
 
@@ -1775,15 +1757,11 @@
 
             <div class="pastry-media">
 
-              <div class="pastry-placeholder">
-
-                <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
-              </div>
+              <img
+                src="cheesecakepumpkin.png"
+                class="pastry-image"
+                alt="Cheesecake de Pumpkin"
+              >
 
             </div>
 
@@ -1824,15 +1802,11 @@
 
             <div class="pastry-media">
 
-              <div class="pastry-placeholder">
-
-                <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
-              </div>
+              <img
+                src="cheesecakefrutosrojos.png"
+                class="pastry-image"
+                alt="Cheesecake de Frutos Rojos"
+              >
 
             </div>
 
@@ -1873,15 +1847,11 @@
 
             <div class="pastry-media">
 
-              <div class="pastry-placeholder">
-
-                <i class="fa-regular fa-image"></i>
-
-                <span>
-                  IMAGEN PRÓXIMAMENTE
-                </span>
-
-              </div>
+              <img
+                src="muffinplatanochocolate.png"
+                class="pastry-image"
+                alt="Muffin de Plátano Chocolate"
+              >
 
             </div>
 
