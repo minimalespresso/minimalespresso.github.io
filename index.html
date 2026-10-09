@@ -624,12 +624,6 @@
     .hero-menu-preview {
       position: absolute;
 
-      /*
-        MÁS A LA IZQUIERDA.
-        Al aumentar "right",
-        alejamos la imagen del borde derecho.
-      */
-
       right:
         clamp(
           45px,
@@ -639,11 +633,12 @@
 
       bottom: 0;
 
-      z-index: 3;
-
       /*
-        MÁS GRANDE.
+        La imagen queda por encima del texto
+        si llegan a cruzarse.
       */
+
+      z-index: 6;
 
       height: 125%;
 
@@ -656,11 +651,6 @@
       object-position:
         center bottom;
 
-      /*
-        Sigue entrando por abajo,
-        pero ahora se ve bastante más.
-      */
-
       transform:
         translateY(32%);
 
@@ -672,6 +662,10 @@
       user-select: none;
 
       filter:
+        drop-shadow(
+          -12px -10px 22px
+          rgba(175,175,175,.20)
+        )
         drop-shadow(
           0 16px 27px
           rgba(0,0,0,.42)
@@ -702,9 +696,9 @@
     .hero-tile-content {
       justify-content: center;
 
-      align-items: center;
+      align-items: flex-start;
 
-      text-align: center;
+      text-align: left;
 
       padding:
         6px
@@ -734,12 +728,12 @@
         );
 
       margin:
-        -8px auto -22px;
+        -8px 0 -22px;
 
       object-fit: contain;
 
       object-position:
-        center center;
+        left center;
 
       transform: none;
 
@@ -762,7 +756,7 @@
         );
 
       margin:
-        0 auto;
+        0;
 
       color: #fff;
 
@@ -782,7 +776,7 @@
 
       font-weight: 700;
 
-      text-align: center;
+      text-align: left;
 
       text-wrap: balance;
 
@@ -1344,7 +1338,7 @@
         max-height: 125px;
 
         margin:
-          -7px auto -22px;
+          -7px 0 -22px;
       }
 
       .hero-mielle-copy {
@@ -2091,11 +2085,6 @@
       }
 
       .hero-menu-preview {
-        /*
-          MÁS GRANDE EN MÓVIL
-          Y MÁS A LA IZQUIERDA.
-        */
-
         right: 26px;
 
         bottom: 0;
@@ -2120,9 +2109,9 @@
 
       .hero-mielle-card
       .hero-tile-content {
-        align-items: center;
+        align-items: flex-start;
 
-        text-align: center;
+        text-align: left;
 
         padding:
           20px 22px;
@@ -2136,7 +2125,7 @@
         max-height: 175px;
 
         margin:
-          0 auto -22px;
+          0 0 -22px;
       }
 
       .hero-mielle-copy {
@@ -2411,7 +2400,7 @@
       object-fit: cover;
 
       object-position:
-        center 57%;
+        center 60%;
 
       pointer-events: none;
 
@@ -2947,7 +2936,7 @@
         object-fit: cover;
 
         object-position:
-          center 57%;
+          center 60%;
       }
 
       .drink-hotspot {
