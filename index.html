@@ -1467,7 +1467,7 @@
       z-index: 5;
 
       background:
-        url("Otono.png")
+        url("Navidad.png")
         center center /
         cover
         no-repeat
@@ -2562,25 +2562,12 @@
     }
 
 
-    .hotspot-butterbeer {
-      left: 24%;
-      top: 53%;
-    }
-
-    .hotspot-pecan {
-      left: 39%;
-      top: 72%;
-    }
-
-    .hotspot-pumpkin {
-      left: 62%;
-      top: 72%;
-    }
-
-    .hotspot-apple {
-      left: 77%;
-      top: 53%;
-    }
+    /* Fallback para cada punto; JavaScript los ancla a la imagen real. */
+    .hotspot-marshmallow { left: 25.5%; top: 50.5%; }
+    .hotspot-churro      { left: 50.0%; top: 51.0%; }
+    .hotspot-coconut     { left: 74.4%; top: 50.5%; }
+    .hotspot-peppermint  { left: 37.7%; top: 61.0%; }
+    .hotspot-banana      { left: 62.9%; top: 62.0%; }
 
 
     /* =========================
@@ -2922,9 +2909,8 @@
       }
 
       .summer-panorama-stage {
-        width: 180vw;
-
-        min-width: 720px;
+        /* Panorama deslizable suficientemente ancho para mostrar las 5 bebidas. */
+        width: max(180vw, 720px, 90svh);
 
         height: 100%;
       }
@@ -2946,25 +2932,6 @@
         height: 48px;
       }
 
-      .hotspot-butterbeer {
-        left: 12%;
-        top: 53%;
-      }
-
-      .hotspot-pecan {
-        left: 34%;
-        top: 64%;
-      }
-
-      .hotspot-pumpkin {
-        left: 67%;
-        top: 64%;
-      }
-
-      .hotspot-apple {
-        left: 89%;
-        top: 53%;
-      }
 
       .summer-intro {
         bottom: 46px;
@@ -3279,12 +3246,12 @@
 
 
       <a
-        href="#verano"
+        href="#navidad"
         class="hero-season-cue"
       >
 
         <span>
-          CONOCE NUESTROS ESPECIALES DE OTOÑO
+          CONOCE NUESTROS ESPECIALES DE NAVIDAD
         </span>
 
         <i class="fa-solid fa-arrow-down"></i>
@@ -3298,7 +3265,7 @@
 
     <section
       class="summer-section"
-      id="verano"
+      id="navidad"
     >
 
       <div class="summer-sticky">
@@ -3308,57 +3275,46 @@
           <div class="summer-panorama-stage">
 
             <img
-              src="Otono.png"
+              src="Navidad.png"
               class="summer-image"
-              alt="Especiales de Otoño de Minimal Espresso"
+              alt="Cinco especiales de Navidad de Minimal Espresso sobre una mesa de madera"
             >
 
             <div class="summer-overlay"></div>
 
 
-            <div class="summer-hotspots">
+            <div class="summer-hotspots" aria-label="Conoce las cinco bebidas navideñas">
 
-              <button
-                type="button"
-                class="drink-hotspot hotspot-butterbeer"
-                data-drink="butterbeer"
-                aria-label="Butterbeer Latte"
-              >
-                <span class="hotspot-pulse"></span>
-                <span class="hotspot-dot"></span>
+              <!-- Detrás: izquierda, centro y derecha -->
+              <button type="button" class="drink-hotspot hotspot-marshmallow"
+                data-drink="marshmallow" data-x="0.255" data-y="0.505"
+                aria-label="Ver Pecan Marshmallow Latte">
+                <span class="hotspot-pulse"></span><span class="hotspot-dot"></span>
               </button>
 
-
-              <button
-                type="button"
-                class="drink-hotspot hotspot-pecan"
-                data-drink="pecan"
-                aria-label="Cloud Pecan Latte"
-              >
-                <span class="hotspot-pulse"></span>
-                <span class="hotspot-dot"></span>
+              <button type="button" class="drink-hotspot hotspot-churro"
+                data-drink="churro" data-x="0.500" data-y="0.510"
+                aria-label="Ver Churro Snow Latte">
+                <span class="hotspot-pulse"></span><span class="hotspot-dot"></span>
               </button>
 
-
-              <button
-                type="button"
-                class="drink-hotspot hotspot-pumpkin"
-                data-drink="pumpkin"
-                aria-label="Pumpkin Spice Latte"
-              >
-                <span class="hotspot-pulse"></span>
-                <span class="hotspot-dot"></span>
+              <button type="button" class="drink-hotspot hotspot-coconut"
+                data-drink="coconut" data-x="0.744" data-y="0.505"
+                aria-label="Ver Coconut Snow Matcha">
+                <span class="hotspot-pulse"></span><span class="hotspot-dot"></span>
               </button>
 
+              <!-- Delante: izquierda y derecha -->
+              <button type="button" class="drink-hotspot hotspot-peppermint"
+                data-drink="peppermint" data-x="0.377" data-y="0.610"
+                aria-label="Ver Peppermint Mocha">
+                <span class="hotspot-pulse"></span><span class="hotspot-dot"></span>
+              </button>
 
-              <button
-                type="button"
-                class="drink-hotspot hotspot-apple"
-                data-drink="apple"
-                aria-label="Apple Caramel Latte"
-              >
-                <span class="hotspot-pulse"></span>
-                <span class="hotspot-dot"></span>
+              <button type="button" class="drink-hotspot hotspot-banana"
+                data-drink="banana" data-x="0.629" data-y="0.620"
+                aria-label="Ver Banana Crunch Latte">
+                <span class="hotspot-pulse"></span><span class="hotspot-dot"></span>
               </button>
 
             </div>
@@ -3411,7 +3367,7 @@
           <div class="drink-card-copy">
 
             <span class="drink-card-eyebrow">
-              ESPECIAL DE OTOÑO
+              ESPECIAL DE NAVIDAD
             </span>
 
             <h2 id="drinkCardTitle"></h2>
@@ -3792,61 +3748,37 @@
     );
 
 
-    const summerDrinks = {
+    // Bebidas correspondientes a los 5 vasos de Navidad.png.
+    const christmasDrinks = {
 
-      pumpkin: {
-
-        title:
-          "Pumpkin Spice Latte 16 oz",
-
-        description:
-          "Latte preparado con espresso, leche y nuestro Pumpkin Spice hecho en casa, con el sabor de la calabaza y una mezcla de especias cálidas que representa lo mejor del otoño. Disfrútalo frío o caliente.",
-
-        whatsapp:
-          "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Pumpkin%20Spice%20Latte."
-
+      marshmallow: {
+        title: "Pecan Marshmallow Latte · 16 oz",
+        description: "Delicioso latte de nuez pecana con un suave cold foam sabor a bombón tostado, coronado con auténticos bombones tostados. Una combinación cremosa, dulce y reconfortante. Disponible frío o caliente.",
+        message: "Hola, quiero pedir un Pecan Marshmallow Latte."
       },
 
-
-      pecan: {
-
-        title:
-          "Cloud Pecan Latte 16 oz",
-
-        description:
-          "Latte con espresso y el delicioso sabor de la nuez pecana, coronado con una suave nube de cold foam que aporta una textura cremosa y complementa sus notas dulces y tostadas. Disfrútalo frío o caliente.",
-
-        whatsapp:
-          "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Cloud%20Pecan%20Latte."
-
+      churro: {
+        title: "Churro Snow Latte · 16 oz",
+        description: "Todo el sabor de un churro recién hecho en un delicioso latte frío. Preparado con dulce de leche y un toque de canela que aporta ese sabor tradicional, dulce y especiado.",
+        message: "Hola, quiero pedir un Churro Snow Latte."
       },
 
-
-      butterbeer: {
-
-        title:
-          "Butterbeer Latte 16 oz",
-
-        description:
-          "Inspirado en la clásica bebida Butterbeer de nuestro mago favorito, combinamos espresso con un sabor cremoso a mantequilla y caramelo para crear un latte dulce, cremoso y perfecto para esta temporada.",
-
-        whatsapp:
-          "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Butterbeer%20Latte."
-
+      coconut: {
+        title: "Coconut Snow Matcha · 16 oz",
+        description: "Matcha latte con chocolate blanco, coronado con un delicado cold foam de coco y coloridos sprinkles navideños. Una combinación cremosa y tropical con un dulce toque de Navidad.",
+        message: "Hola, quiero pedir un Coconut Snow Matcha."
       },
 
+      peppermint: {
+        title: "Peppermint Mocha · 16 oz",
+        description: "Latte con espresso y chocolate a elegir entre clásico o blanco, coronado con suave cold foam, trocitos crujientes de peppermint y chocolate blanco. Una combinación dulce, cremosa y refrescante con el auténtico toque navideño. Disponible frío o caliente (la presentación caliente no lleva cold foam).",
+        message: "Hola, quiero pedir un Peppermint Mocha."
+      },
 
-      apple: {
-
-        title:
-          "Apple Caramel Latte 16 oz",
-
-        description:
-          "Latte frío que combina espresso, manzana y caramelo con un toque de canela, creando una bebida dulce y aromática inspirada en los sabores del otoño.",
-
-        whatsapp:
-          "https://wa.me/5216864310241?text=Hola,%20quiero%20pedir%20un%20Apple%20Caramel%20Latte."
-
+      banana: {
+        title: "Banana Crunch Latte · 16 oz",
+        description: "Latte frío de caramelo, coronado con un cremoso cold foam de plátano y trocitos de caramelo crujiente. Una deliciosa combinación de sabores dulces y texturas irresistibles.",
+        message: "Hola, quiero pedir un Banana Crunch Latte."
       }
 
     };
@@ -3888,13 +3820,49 @@
       );
 
 
+
+    // Object-fit: cover recorta la imagen según el tamaño de pantalla.
+    // Posicionar por coordenadas relativas al PNG mantiene cada punto sobre su vaso.
+    function positionChristmasHotspots() {
+      const img = document.querySelector(".summer-image");
+      const stage = document.querySelector(".summer-panorama-stage");
+      if (!img || !stage || !img.naturalWidth || !img.naturalHeight) return;
+
+      const containerW = stage.clientWidth;
+      const containerH = stage.clientHeight;
+      if (!containerW || !containerH) return;
+
+      const scale = Math.max(
+        containerW / img.naturalWidth,
+        containerH / img.naturalHeight
+      );
+      const renderedW = img.naturalWidth * scale;
+      const renderedH = img.naturalHeight * scale;
+      const offsetX = (containerW - renderedW) * 0.5;
+      const offsetY = (containerH - renderedH) * 0.6; // object-position: center 60%
+
+      drinkHotspots.forEach((hotspot) => {
+        const x = Number(hotspot.dataset.x);
+        const y = Number(hotspot.dataset.y);
+        hotspot.style.left = `${offsetX + x * renderedW}px`;
+        hotspot.style.top = `${offsetY + y * renderedH}px`;
+      });
+    }
+
+    const christmasImage = document.querySelector(".summer-image");
+    if (christmasImage) {
+      if (christmasImage.complete) positionChristmasHotspots();
+      christmasImage.addEventListener("load", positionChristmasHotspots);
+      window.addEventListener("resize", positionChristmasHotspots);
+    }
+
     function openDrinkCard(
       drinkId,
       selectedHotspot
     ) {
 
       const drink =
-        summerDrinks[drinkId];
+        christmasDrinks[drinkId];
 
       if (!drink) return;
 
@@ -3906,7 +3874,7 @@
         drink.description;
 
       drinkCardButton.href =
-        drink.whatsapp;
+        "https://wa.me/5216864310241?text=" + encodeURIComponent(drink.message);
 
 
       drinkHotspots.forEach(
