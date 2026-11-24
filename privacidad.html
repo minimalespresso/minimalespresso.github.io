@@ -5,7 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f8f7f4">
+
   <title>Política de Privacidad | Minimal Espresso</title>
+
+  <meta
+    name="description"
+    content="Consulta la Política de Privacidad de Minimal Espresso. Conoce cómo protegemos tus datos personales al utilizar nuestra aplicación y servicios."
+  >
+
   <style>
     :root {
       color-scheme: light;
@@ -15,49 +23,110 @@
       --accent: #9b7554;
       --line: #e5e0d9;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont,
-                   "Segoe UI", sans-serif;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
     }
+
     main {
-      max-width: 760px;
-      margin: auto;
+      max-width: 780px;
+      margin: 0 auto;
       padding: 65px 24px 85px;
     }
-    header { text-align: center; margin-bottom: 50px; }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
     .brand {
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
+
     h1 {
       font-size: clamp(30px, 6vw, 43px);
       line-height: 1.2;
       letter-spacing: -1px;
       margin: 30px 0 14px;
     }
+
     h2 {
       font-size: 19px;
+      font-weight: 650;
       margin-top: 38px;
       margin-bottom: 12px;
+      line-height: 1.4;
     }
-    p, li { font-size: 15px; }
-    ul { padding-left: 22px; }
-    li { margin-bottom: 7px; }
-    .date { color: var(--muted); font-size: 13px; }
-    a { color: var(--accent); overflow-wrap: anywhere; }
+
+    p,
+    li {
+      font-size: 15px;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    a {
+      color: var(--accent);
+      overflow-wrap: anywhere;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     .divider {
       height: 1px;
       background: var(--line);
       margin: 32px 0;
     }
+
+    .contact {
+      background: #f0ece6;
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 18px;
+    }
+
+    .contact p {
+      margin: 8px 0;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       margin-top: 55px;
@@ -66,297 +135,635 @@
       font-size: 13px;
       color: var(--muted);
     }
+
+    footer a {
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 45px 20px 65px;
+      }
+
+      header {
+        margin-bottom: 36px;
+      }
+
+      .contact {
+        padding: 16px 18px;
+      }
+    }
   </style>
 </head>
 
 <body>
+
 <main>
 
-<header>
-  <div class="brand">Minimal Espresso</div>
-  <h1>Política de Privacidad</h1>
-  <p class="date">Última actualización: 24 de noviembre de 2026</p>
-</header>
+  <header>
+    <div class="brand">Minimal Espresso</div>
 
-<section>
-  <p>
-    En Minimal Espresso respetamos tu privacidad y
-    nos comprometemos a proteger la información personal
-    que compartes con nosotros al utilizar nuestra
-    aplicación móvil, sitio web y servicios de pedidos.
-  </p>
-  <p>
-    Este aviso explica qué información recopilamos,
-    cómo la utilizamos y cuáles son tus derechos
-    respecto de tus datos personales.
-  </p>
-</section>
+    <h1>Política de Privacidad</h1>
 
-<section>
-  <h2>1. Responsable del tratamiento</h2>
-  <p>
-    Minimal Espresso es un negocio de cafetería
-    ubicado en Mexicali, Baja California, México.
-  </p>
-  <p>
-    <strong>Responsable legal:</strong>
-    [NOMBRE COMPLETO DEL TITULAR DEL NEGOCIO]
-  </p>
-  <p>
-    <strong>Domicilio del responsable:</strong>
-    [DOMICILIO LEGAL O DE CONTACTO PARA PRIVACIDAD]
-  </p>
-  <p>
-    <strong>Contacto:</strong>
-    <a href="https://wa.me/5216864310241">
-      WhatsApp de Minimal Espresso
-    </a>
-  </p>
-  <p>
-    <strong>Sitio web:</strong>
-    <a href="https://minimalespresso.com">
-      minimalespresso.com
-    </a>
-  </p>
-</section>
+    <p class="date">
+      Última actualización: 24 de noviembre de 2026
+    </p>
+  </header>
 
-<section>
-  <h2>2. Datos que recopilamos</h2>
-  <p>
-    Dependiendo de las funciones que utilices,
-    podemos recopilar:
-  </p>
-  <ul>
-    <li>Nombre y apellidos.</li>
-    <li>Correo electrónico.</li>
-    <li>Número telefónico de contacto.</li>
-    <li>Identificador de cuenta de Apple o Google.</li>
-    <li>Direcciones de entrega proporcionadas por ti.</li>
-    <li>Ubicación seleccionada para una entrega.</li>
-    <li>Productos, preferencias y detalles de pedidos.</li>
-    <li>Historial y estado de pedidos.</li>
-    <li>Referencias y estados de pago.</li>
-    <li>Información de recompensas y beneficios.</li>
-    <li>Datos técnicos necesarios para la operación,
-        seguridad y notificaciones de la aplicación.</li>
-  </ul>
-  <p>
-    No solicitamos datos personales sensibles para
-    prestar nuestros servicios habituales.
-  </p>
-</section>
+  <section>
+    <p>
+      En Minimal Espresso respetamos tu privacidad
+      y nos comprometemos a proteger los datos
+      personales que compartes con nosotros al
+      utilizar nuestra aplicación móvil, sitio
+      web y servicios de pedidos.
+    </p>
 
-<section>
-  <h2>3. Inicio de sesión con Apple y Google</h2>
-  <p>
-    Nuestra aplicación permite iniciar sesión mediante
-    servicios de autenticación de Apple y Google.
-  </p>
-  <p>
-    Cuando eliges uno de estos métodos, utilizamos
-    la información de identidad que el proveedor
-    autoriza compartir, como tu identificador de
-    usuario, nombre o correo electrónico disponible.
-  </p>
-  <p>
-    Esta información se utiliza para crear o identificar
-    tu cuenta, mantener tu sesión y gestionar tus pedidos.
-  </p>
-  <p>
-    No utilizamos el inicio de sesión con Google para
-    acceder a tus correos electrónicos, archivos,
-    contactos ni contenido de Google Drive.
-  </p>
-  <p>
-    El uso de estos servicios también está sujeto a
-    las políticas de privacidad de Apple y Google.
-  </p>
-</section>
+    <p>
+      Esta Política de Privacidad explica qué
+      información recopilamos, cómo la utilizamos,
+      con quién puede compartirse y qué derechos
+      tienes respecto de tus datos personales.
+    </p>
+  </section>
 
-<section>
-  <h2>4. Finalidades del tratamiento</h2>
-  <p>Utilizamos tus datos personales para:</p>
-  <ul>
-    <li>Crear y administrar tu cuenta.</li>
-    <li>Procesar y confirmar pedidos.</li>
-    <li>Preparar productos solicitados.</li>
-    <li>Gestionar entregas y recogidas en barra.</li>
-    <li>Contactarte si existe algún problema con tu pedido.</li>
-    <li>Procesar pagos y consultar su estado.</li>
-    <li>Administrar recompensas asociadas a tu cuenta.</li>
-    <li>Enviar notificaciones relacionadas con tus pedidos.</li>
-    <li>Prevenir fraudes y proteger nuestros sistemas.</li>
-    <li>Cumplir obligaciones legales y fiscales.</li>
-  </ul>
-  <p>
-    No utilizaremos tus datos para publicidad ajena
-    al servicio sin la autorización que corresponda.
-  </p>
-</section>
+  <section>
+    <h2>1. Responsable del tratamiento</h2>
 
-<section>
-  <h2>5. Pagos mediante Clip</h2>
-  <p>
-    Los pagos electrónicos se procesan mediante Clip,
-    proveedor externo de servicios de pago.
-  </p>
-  <p>
-    Podemos recibir información necesaria para
-    identificar una transacción, como su importe,
-    referencia y estado de autorización.
-  </p>
-  <p>
-    El procesamiento de los datos de tu tarjeta
-    está sujeto a las condiciones y políticas
-    de privacidad del proveedor de pagos.
-  </p>
-</section>
+    <p>
+      El responsable del tratamiento de los datos
+      personales es
+      <strong>Omar Ignacio Villegas Hernández</strong>,
+      persona física que opera bajo el nombre
+      comercial <strong>Minimal Espresso</strong>,
+      en Mexicali, Baja California, México.
+    </p>
 
-<section>
-  <h2>6. Direcciones y ubicación</h2>
-  <p>
-    Cuando solicitas entrega a domicilio, utilizamos
-    la dirección y ubicación proporcionadas para
-    comprobar la cobertura, procesar tu pedido y
-    realizar la entrega.
-  </p>
-  <p>
-    Estos datos no se utilizan para seguimiento
-    publicitario de tus desplazamientos.
-  </p>
-</section>
+    <div class="contact">
+      <p>
+        <strong>Nombre comercial:</strong><br>
+        Minimal Espresso
+      </p>
 
-<section>
-  <h2>7. Notificaciones</h2>
-  <p>
-    Con tu autorización, la aplicación puede enviarte
-    notificaciones sobre la recepción, preparación,
-    actualización y finalización de tus pedidos.
-  </p>
-  <p>
-    Puedes modificar los permisos de notificaciones
-    desde los ajustes de tu dispositivo.
-  </p>
-</section>
+      <p>
+        <strong>Responsable:</strong><br>
+        Omar Ignacio Villegas Hernández
+      </p>
 
-<section>
-  <h2>8. Proveedores tecnológicos</h2>
-  <p>
-    Para operar nuestros servicios podemos utilizar
-    proveedores tecnológicos como Apple, Google y Clip,
-    así como infraestructura propia para administrar
-    cuentas, pedidos y operaciones.
-  </p>
-  <p>
-    La información compartida con dichos proveedores
-    se limita a la necesaria para las funciones
-    correspondientes y se trata conforme a los
-    avisos y acuerdos aplicables.
-  </p>
-</section>
+      <p>
+        <strong>Domicilio fiscal:</strong><br>
+        Calle Grama 359,<br>
+        Colonia La Ventana Residencial,<br>
+        C.P. 21387,<br>
+        Mexicali, Baja California, México.
+      </p>
 
-<section>
-  <h2>9. Almacenamiento y seguridad</h2>
-  <p>
-    Aplicamos medidas técnicas y administrativas
-    destinadas a proteger la información contra
-    accesos no autorizados, alteración o pérdida.
-  </p>
-  <p>
-    Conservamos la información durante el tiempo
-    necesario para prestar el servicio y cumplir
-    nuestras obligaciones legales y fiscales.
-  </p>
-  <p>
-    Ningún sistema informático puede garantizar
-    una seguridad absoluta.
-  </p>
-</section>
+      <p>
+        <strong>Correo electrónico:</strong><br>
+        <a href="mailto:minimalespressomxli@gmail.com">
+          minimalespressomxli@gmail.com
+        </a>
+      </p>
 
-<section>
-  <h2>10. Eliminación de cuenta</h2>
-  <p>
-    Puedes solicitar la eliminación de tu cuenta
-    y de los datos asociados mediante las opciones
-    disponibles dentro de la aplicación o escribiendo
-    a nuestro WhatsApp de atención.
-  </p>
-  <p>
-    Atenderemos la solicitud conforme a la legislación
-    aplicable. Determinada información transaccional
-    podrá conservarse cuando exista una obligación
-    legal de hacerlo.
-  </p>
-</section>
+      <p>
+        <strong>WhatsApp:</strong><br>
+        <a href="https://wa.me/5216864310241">
+          +52 686 431 0241
+        </a>
+      </p>
 
-<section>
-  <h2>11. Tus derechos ARCO</h2>
-  <p>
-    Conforme a la legislación mexicana de protección
-    de datos personales, puedes solicitar:
-  </p>
-  <ul>
-    <li><strong>Acceso:</strong> conocer los datos
-        personales que conservamos.</li>
-    <li><strong>Rectificación:</strong> corregir
-        información inexacta.</li>
-    <li><strong>Cancelación:</strong> solicitar la
-        eliminación de tus datos cuando proceda.</li>
-    <li><strong>Oposición:</strong> oponerte a
-        determinados tratamientos de información.</li>
-  </ul>
-  <p>
-    También puedes solicitar la limitación del uso
-    de tus datos o revocar tu consentimiento en los
-    casos legalmente aplicables.
-  </p>
-  <p>
-    Para ejercer estos derechos, contáctanos por
-    WhatsApp, indicando tu solicitud y la información
-    necesaria para verificar tu identidad. Te
-    responderemos conforme a los plazos legales.
-  </p>
-</section>
+      <p>
+        <strong>Sitio web:</strong><br>
+        <a href="https://minimalespresso.com">
+          www.minimalespresso.com
+        </a>
+      </p>
+    </div>
+  </section>
 
-<section>
-  <h2>12. Cambios a esta política</h2>
-  <p>
-    Esta política podrá actualizarse para reflejar
-    cambios operativos, tecnológicos o legales.
-  </p>
-  <p>
-    Las versiones actualizadas estarán disponibles
-    en esta misma página, con su correspondiente
-    fecha de actualización.
-  </p>
-</section>
+  <section>
+    <h2>2. Datos personales que recopilamos</h2>
 
-<section>
-  <h2>13. Contacto</h2>
-  <p>
-    Si tienes preguntas sobre esta política o sobre
-    el tratamiento de tu información, puedes comunicarte
-    con nosotros:
-  </p>
-  <p>
-    <strong>Minimal Espresso</strong><br>
-    Mexicali, Baja California, México<br>
-    WhatsApp:
-    <a href="https://wa.me/5216864310241">
-      +52 686 431 0241
-    </a><br>
-    Web:
-    <a href="https://minimalespresso.com">
-      www.minimalespresso.com
-    </a>
-  </p>
-</section>
+    <p>
+      Dependiendo de las funciones que utilices
+      dentro de nuestra aplicación, podemos
+      recopilar y tratar la siguiente información:
+    </p>
 
-<footer>
-  © 2026 Minimal Espresso. Todos los derechos reservados.
-</footer>
+    <ul>
+      <li>Nombre y apellidos.</li>
+      <li>Correo electrónico.</li>
+      <li>Número de teléfono.</li>
+      <li>Identificadores de autenticación de Apple o Google.</li>
+      <li>Datos de la cuenta y preferencias de usuario.</li>
+      <li>Direcciones proporcionadas para entregas.</li>
+      <li>Ubicaciones seleccionadas para verificar cobertura.</li>
+      <li>Productos seleccionados y personalizaciones.</li>
+      <li>Historial, importe y estado de pedidos.</li>
+      <li>Referencias y estados de transacciones.</li>
+      <li>Información sobre recompensas y beneficios.</li>
+      <li>Fotografía de perfil, cuando el usuario decida agregarla.</li>
+      <li>Identificadores técnicos necesarios para notificaciones.</li>
+      <li>Información técnica y de seguridad necesaria para operar el servicio.</li>
+    </ul>
+
+    <p>
+      No solicitamos datos personales sensibles
+      como condición para realizar pedidos de café
+      o utilizar nuestros servicios habituales.
+    </p>
+  </section>
+
+  <section>
+    <h2>3. Inicio de sesión con Apple y Google</h2>
+
+    <p>
+      Minimal Espresso permite crear una cuenta
+      e iniciar sesión mediante servicios de
+      autenticación de Apple y Google.
+    </p>
+
+    <p>
+      Cuando utilizas alguno de estos servicios,
+      podemos recibir información autorizada por
+      el proveedor, como tu identificador de
+      usuario, nombre y correo electrónico disponible.
+    </p>
+
+    <p>
+      Esta información se utiliza exclusivamente
+      para las funciones correspondientes de
+      autenticación, identificación de tu cuenta
+      y administración de pedidos.
+    </p>
+
+    <p>
+      No solicitamos acceso a tus mensajes de
+      Gmail, contactos, archivos personales
+      ni documentos almacenados en Google Drive
+      para utilizar nuestra aplicación.
+    </p>
+
+    <p>
+      Apple y Google también pueden tratar
+      información de acuerdo con sus respectivas
+      políticas de privacidad.
+    </p>
+  </section>
+
+  <section>
+    <h2>4. Finalidades del tratamiento</h2>
+
+    <p>
+      Utilizamos tus datos personales para las
+      siguientes finalidades relacionadas con
+      nuestros servicios:
+    </p>
+
+    <ul>
+      <li>Crear y administrar tu cuenta.</li>
+      <li>Verificar tu identidad e iniciar sesión.</li>
+      <li>Procesar y confirmar pedidos.</li>
+      <li>Preparar las bebidas y alimentos solicitados.</li>
+      <li>Gestionar pedidos programados.</li>
+      <li>Administrar recogidas en barra.</li>
+      <li>Validar cobertura y gestionar entregas.</li>
+      <li>Contactarte respecto de tus pedidos.</li>
+      <li>Consultar y verificar el estado de los pagos.</li>
+      <li>Administrar recompensas y beneficios.</li>
+      <li>Enviar notificaciones sobre tus pedidos.</li>
+      <li>Brindar soporte al cliente.</li>
+      <li>Detectar errores y proteger nuestros sistemas.</li>
+      <li>Cumplir obligaciones legales y fiscales.</li>
+    </ul>
+
+    <p>
+      Cualquier finalidad adicional que requiera
+      tu consentimiento se someterá a las
+      condiciones legales correspondientes.
+    </p>
+  </section>
+
+  <section>
+    <h2>5. Pagos mediante Clip</h2>
+
+    <p>
+      Minimal Espresso ofrece pagos electrónicos
+      mediante el proveedor externo Clip.
+    </p>
+
+    <p>
+      Durante el procesamiento de una compra,
+      podemos manejar información necesaria
+      para identificar la operación, como el
+      importe, la referencia del pedido y
+      el estado de autorización de la transacción.
+    </p>
+
+    <p>
+      El tratamiento de la información financiera
+      utilizada directamente por el proveedor
+      de pagos se encuentra sujeto a sus propias
+      condiciones y políticas de privacidad.
+    </p>
+
+    <p>
+      Si tienes dudas sobre un pago, puedes
+      comunicarte con Minimal Espresso mediante
+      nuestros canales oficiales de atención.
+    </p>
+  </section>
+
+  <section>
+    <h2>6. Entregas a domicilio y ubicación</h2>
+
+    <p>
+      Cuando solicitas entrega a domicilio,
+      utilizamos la dirección y ubicación que
+      proporcionas para verificar si se
+      encuentra dentro de nuestra cobertura.
+    </p>
+
+    <p>
+      Las coordenadas seleccionadas pueden
+      utilizarse para identificar la zona
+      de entrega autorizada y comprobar la
+      disponibilidad del servicio.
+    </p>
+
+    <p>
+      Estos datos también permiten preparar
+      y entregar correctamente tu pedido.
+    </p>
+
+    <p>
+      No utilizamos las direcciones proporcionadas
+      para elaborar perfiles de desplazamiento
+      con fines publicitarios.
+    </p>
+  </section>
+
+  <section>
+    <h2>7. Pedidos e historial de compras</h2>
+
+    <p>
+      Conservamos los datos necesarios para
+      administrar los pedidos realizados
+      mediante nuestra aplicación.
+    </p>
+
+    <p>
+      Esta información puede incluir productos,
+      personalizaciones, cantidades, precios,
+      método de entrega, estado del pedido y
+      referencias relacionadas con el pago.
+    </p>
+
+    <p>
+      El historial permite dar seguimiento
+      a tus compras, atender aclaraciones
+      y gestionar los beneficios correspondientes.
+    </p>
+  </section>
+
+  <section>
+    <h2>8. Minimal Rewards</h2>
+
+    <p>
+      Nuestra aplicación cuenta con un sistema
+      de recompensas llamado Minimal Rewards.
+    </p>
+
+    <p>
+      Para administrar este programa podemos
+      utilizar información sobre los pedidos
+      elegibles, beneficios obtenidos,
+      recompensas disponibles y canjes realizados.
+    </p>
+
+    <p>
+      Esta información se encuentra asociada
+      a tu cuenta y se utiliza para proporcionar
+      las recompensas correspondientes.
+    </p>
+  </section>
+
+  <section>
+    <h2>9. Fotografías de perfil</h2>
+
+    <p>
+      La aplicación puede permitir que agregues
+      una fotografía de perfil de forma voluntaria.
+    </p>
+
+    <p>
+      Cuando esta función se encuentre disponible,
+      la imagen podrá almacenarse o sincronizarse
+      utilizando servicios tecnológicos
+      asociados a tu cuenta y a la aplicación.
+    </p>
+
+    <p>
+      La fotografía se utiliza para personalizar
+      la experiencia de usuario y las funciones
+      autorizadas de administración de cuentas.
+    </p>
+
+    <p>
+      Puedes solicitar la eliminación de
+      la información asociada a tu perfil
+      conforme a los mecanismos de privacidad
+      disponibles.
+    </p>
+  </section>
+
+  <section>
+    <h2>10. Notificaciones</h2>
+
+    <p>
+      Con tu autorización, Minimal Espresso
+      puede enviarte notificaciones relacionadas
+      con la recepción, aceptación, preparación,
+      actualización y finalización de tus pedidos.
+    </p>
+
+    <p>
+      Para prestar este servicio podemos utilizar
+      identificadores técnicos de notificación
+      proporcionados por el sistema operativo.
+    </p>
+
+    <p>
+      Puedes permitir o desactivar las
+      notificaciones desde los ajustes
+      de tu dispositivo.
+    </p>
+  </section>
+
+  <section>
+    <h2>11. Proveedores tecnológicos</h2>
+
+    <p>
+      Para proporcionar nuestros servicios
+      podemos utilizar infraestructura propia
+      y servicios tecnológicos externos.
+    </p>
+
+    <p>
+      Entre los proveedores que pueden intervenir
+      en funciones específicas se encuentran:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Apple:</strong>
+        autenticación, servicios de iOS,
+        notificaciones y funciones de iCloud.
+      </li>
+
+      <li>
+        <strong>Google:</strong>
+        autenticación de usuarios.
+      </li>
+
+      <li>
+        <strong>Clip:</strong>
+        procesamiento de pagos electrónicos.
+      </li>
+    </ul>
+
+    <p>
+      El intercambio de datos se realiza
+      conforme a las necesidades operativas,
+      la función solicitada y las disposiciones
+      legales aplicables.
+    </p>
+
+    <p>
+      Algunos servicios tecnológicos pueden
+      involucrar tratamiento de información
+      fuera de México, conforme a sus
+      respectivas políticas y condiciones.
+    </p>
+  </section>
+
+  <section>
+    <h2>12. Almacenamiento y seguridad</h2>
+
+    <p>
+      Aplicamos medidas técnicas y administrativas
+      destinadas a proteger la información
+      personal contra accesos no autorizados,
+      alteración, pérdida o uso indebido.
+    </p>
+
+    <p>
+      La información puede almacenarse en
+      infraestructura tecnológica administrada
+      para la operación de Minimal Espresso
+      y en los servicios externos utilizados
+      para funciones específicas.
+    </p>
+
+    <p>
+      Conservamos los datos durante el tiempo
+      necesario para prestar nuestros servicios
+      y atender las obligaciones legales,
+      fiscales o administrativas aplicables.
+    </p>
+
+    <p>
+      Ningún sistema tecnológico puede
+      garantizar una seguridad absoluta,
+      aunque trabajamos para reducir
+      los riesgos relacionados con
+      el tratamiento de información.
+    </p>
+  </section>
+
+  <section>
+    <h2>13. Eliminación de cuenta</h2>
+
+    <p>
+      Puedes solicitar la eliminación de
+      tu cuenta y de los datos personales
+      asociados mediante las opciones
+      disponibles dentro de la aplicación.
+    </p>
+
+    <p>
+      También puedes comunicarte directamente
+      con nosotros para recibir asistencia
+      relacionada con la eliminación de
+      tu información.
+    </p>
+
+    <p>
+      Las solicitudes se atenderán conforme
+      a la legislación aplicable.
+    </p>
+
+    <p>
+      Determinados registros transaccionales
+      o fiscales podrán conservarse cuando
+      exista una obligación legal de hacerlo.
+    </p>
+  </section>
+
+  <section>
+    <h2>14. Derechos ARCO</h2>
+
+    <p>
+      Conforme a la legislación mexicana
+      aplicable en materia de protección
+      de datos personales, puedes ejercer
+      los siguientes derechos:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Acceso:</strong>
+        conocer los datos personales que
+        tratamos sobre ti.
+      </li>
+
+      <li>
+        <strong>Rectificación:</strong>
+        solicitar la corrección de datos
+        inexactos o incompletos.
+      </li>
+
+      <li>
+        <strong>Cancelación:</strong>
+        solicitar la cancelación de tus
+        datos cuando legalmente corresponda.
+      </li>
+
+      <li>
+        <strong>Oposición:</strong>
+        oponerte a determinados tratamientos
+        de tus datos personales.
+      </li>
+    </ul>
+
+    <p>
+      También puedes solicitar la limitación
+      del uso de tu información o la revocación
+      de tu consentimiento cuando proceda.
+    </p>
+
+    <p>
+      Para ejercer estos derechos, envía
+      tu solicitud al correo electrónico
+      <a href="mailto:minimalespressomxli@gmail.com">
+        minimalespressomxli@gmail.com
+      </a>.
+    </p>
+
+    <p>
+      Indica el derecho que deseas ejercer,
+      una descripción clara de tu solicitud
+      y los datos necesarios para verificar
+      tu identidad de manera proporcional.
+    </p>
+
+    <p>
+      Tu solicitud será atendida conforme
+      a los procedimientos y plazos previstos
+      por la legislación aplicable.
+    </p>
+  </section>
+
+  <section>
+    <h2>15. Uso de datos de menores de edad</h2>
+
+    <p>
+      Minimal Espresso no está diseñada
+      específicamente para menores de edad
+      ni tiene como finalidad recopilar
+      deliberadamente sus datos personales.
+    </p>
+
+    <p>
+      Si detectamos un tratamiento que requiera
+      intervención de padres o tutores,
+      atenderemos la situación conforme
+      a la legislación aplicable.
+    </p>
+  </section>
+
+  <section>
+    <h2>16. Cambios a esta política</h2>
+
+    <p>
+      Esta Política de Privacidad podrá
+      actualizarse para reflejar cambios
+      en nuestros servicios, operaciones,
+      proveedores tecnológicos o disposiciones
+      legales aplicables.
+    </p>
+
+    <p>
+      Las versiones actualizadas estarán
+      disponibles en esta misma dirección,
+      indicando la fecha correspondiente.
+    </p>
+  </section>
+
+  <section>
+    <h2>17. Contacto y dudas</h2>
+
+    <p>
+      Si tienes preguntas relacionadas
+      con esta Política de Privacidad,
+      el tratamiento de tus datos o
+      tus derechos como usuario,
+      puedes comunicarte con nosotros:
+    </p>
+
+    <div class="contact">
+      <p>
+        <strong>Minimal Espresso</strong><br>
+        Mexicali, Baja California, México
+      </p>
+
+      <p>
+        Correo:<br>
+        <a href="mailto:minimalespressomxli@gmail.com">
+          minimalespressomxli@gmail.com
+        </a>
+      </p>
+
+      <p>
+        WhatsApp:<br>
+        <a href="https://wa.me/5216864310241">
+          +52 686 431 0241
+        </a>
+      </p>
+
+      <p>
+        Sitio web:<br>
+        <a href="https://minimalespresso.com">
+          www.minimalespresso.com
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      © 2026 Minimal Espresso.
+      Todos los derechos reservados.
+    </p>
+
+    <p>
+      <a href="https://minimalespresso.com">
+        Volver a Minimal Espresso
+      </a>
+    </p>
+  </footer>
 
 </main>
+
 </body>
 </html>
-
